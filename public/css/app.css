@@ -468,17 +468,26 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.fixed {
+  position: fixed;
+}
+.top-0 {
+  top: 0px;
+}
+.z-10 {
+  z-index: 10;
+}
 .block {
   display: block;
+}
+.hidden {
+  display: none;
 }
 .w-\[auto\] {
   width: auto;
 }
 .justify-center {
   justify-content: center;
-}
-.pt-96 {
-  padding-top: 24rem;
 }
 .text-center {
   text-align: center;

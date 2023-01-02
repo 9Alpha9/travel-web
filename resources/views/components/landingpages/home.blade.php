@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {{-- Defive Font From Fontshare --}}
+    <link
+        href="https://api.fontshare.com/v2/css?f[]=erode@400&f[]=satoshi@700&f[]=quicksand@500&f[]=general-sans@500&display=swap"
+        rel="stylesheet">
+
     {{-- Import Tailwind Css Components --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -61,18 +67,35 @@
     {{-- Content Wrapper --}}
     <div class="content__wrapper">
         <div class="wrapper__content">
+            <div class="content__header">
+                <section>Wisata Jawa Timur</section>
+                <section class="header__small">Paling Terfavorit</section>
+                <div class="explore__more explore__guide">
+                    <a href="#">Explore</a>
+                </div>
+            </div>
             <div class="banner__item">
-                <figure>
+                <div class="video__promotion">
+                    <video width="100%" loop muted autoplay class="promotion">
+                        <source src="{{ asset('asset/video/jawatimur.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video__documenter promotion__source">
+                        <h1>video by : Intravesco</h1>
+                    </div>
+                </div>
+                {{-- <figure>
                     <img src="https://anekatempatwisata.com/wp-content/uploads/2015/07/Gunung-Bromo-Jawa-Timur.jpg"
                         alt="">
-                </figure>
-            </div>
-            <div class="box__reserve">
-                Travel Agency Homepages
+                </figure> --}}
+                <div class="box__reserve">
+                    <div class="box__reserve__content">
+                        Reservasi box
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    {{-- End Content Wrapper --}}
+        {{-- End Content Wrapper --}}
 </body>
 
 </html>

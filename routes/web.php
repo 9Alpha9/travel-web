@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/register', [LoginController::class, 'register']);
+Route::get('/register', [LoginController::class, 'registerForm'])->name('register.form');
 Route::get('/', function () {
     return view('components/landingpages/home');
-});
+})->name('landingpage');
 
-// Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');
+
+// Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol

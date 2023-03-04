@@ -54,8 +54,6 @@
         .login__set-up {
             background-color: var(--loginHeaderBackgroundRight);
             width: 100%;
-            border-top-left-radius: 50px;
-            border-bottom-left-radius: 50px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
         }
 
@@ -63,7 +61,7 @@
             max-width: 500px;
             margin: auto;
             top: 50%;
-            transform: translateY(50%);
+            // transform: translateY(50%);
             height: 50%;
 
             .login__master__head {
@@ -97,4 +95,22 @@ input {
     background-color: white;
     position: absolute;
     z-index: 2;
+}
+
+@media screen and (min-width: 1201px) {
+    .login__set-up {
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+    }
+
+    .login__header .login__wrapper .login__item__sec__right {
+        transform: translateY(50%);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .login__header .login__wrapper .login__item__sec__right {
+        transform: translateY(45%);
+    }
 }

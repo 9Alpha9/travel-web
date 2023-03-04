@@ -508,6 +508,9 @@ video {
 .-top-32 {
   top: -8rem;
 }
+.top-14 {
+  top: 3.5rem;
+}
 .z-10 {
   z-index: 10;
 }
@@ -643,6 +646,12 @@ video {
 }
 .p-3 {
   padding: 0.75rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-10 {
+  padding: 2.5rem;
 }
 .py-8 {
   padding-top: 2rem;
@@ -785,6 +794,10 @@ body {
 
 @media (min-width: 640px) {
 
+  .sm\:top-14 {
+    top: 3.5rem;
+  }
+
   .sm\:mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -821,6 +834,14 @@ body {
 
 @media (min-width: 768px) {
 
+  .md\:-top-32 {
+    top: -8rem;
+  }
+
+  .md\:left-0 {
+    left: 0px;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -831,6 +852,10 @@ body {
 
   .md\:flex {
     display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:flex-row {
@@ -852,16 +877,40 @@ body {
 
 @media (min-width: 1024px) {
 
+  .lg\:-top-32 {
+    top: -8rem;
+  }
+
+  .lg\:right-0 {
+    right: 0px;
+  }
+
   .lg\:my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .lg\:block {
+    display: block;
   }
 }
 
 @media (min-width: 1280px) {
 
+  .xl\:-top-32 {
+    top: -8rem;
+  }
+
+  .xl\:right-0 {
+    right: 0px;
+  }
+
   .xl\:ml-16 {
     margin-left: 4rem;
+  }
+
+  .xl\:block {
+    display: block;
   }
 
   .xl\:flex-row {
@@ -878,6 +927,10 @@ body {
 
   .xl\:items-center {
     align-items: center;
+  }
+
+  .xl\:p-0 {
+    padding: 0px;
   }
 
   .xl\:px-0 {

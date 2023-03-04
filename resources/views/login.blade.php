@@ -23,17 +23,18 @@
 <body>
     <div class="login__header">
         <div class="login__wrapper">
-            <div class="login__item login__banner">
+            <div class="login__item login__banner hidden xl:block lg:block md:hidden">
                 <section class="login__intro__title text-center pt-40">
                     Jelajahi Wisata Di Jawa Timur dan Tentukan Tempat Wisata Tervarofit Anda
                 </section>
                 <p class="text-center py-8">buat akun sekarang biar bisa pilih wisata terfavorit di Jawa Timur</p>
                 <img src="{{ asset('asset/img/DRIP_20.png') }}" alt="">
             </div>
-            <div class="login__set-up">
+            <div class="login__set-up p-10 border-">
                 <div class="login__item__sec__right">
                     <div class="login__master__head flex relative">
-                        <span class="inline-block absolute -top-32 right-0">
+                        <span
+                            class="inline-block absolute -top-32 xl:-top-32 lg:-top-32 md:-top-32 lg:right-0 ease-in-out duration-300">
                             <a href="/">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">

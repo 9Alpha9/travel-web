@@ -1,6 +1,6 @@
-<footer class="p-4 bg-black-birent sm:p-6 dark:bg-gray-900 mt-20 footer__header">
+<footer class="p-4  sm:p-6 dark:bg-gray-900 mt-20 footer__header">
     <div class="md:flex md:justify-between mt-10 footer__content py-20">
-        <div class="mb-6 md:mb-0">
+        <div class="mb-6 md:mb-0 flex flex-col">
             <a href="/" class="flex items-center">
                 <svg width="400" height="78" viewBox="0 0 966 78" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -8,24 +8,30 @@
                         fill="#ffffff" />
                 </svg>
             </a>
+            <span class="text-xs">
+                Serukan perjalanan wisata anda dengan kami.
+            </span>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">F&Q</h2>
+                <h2 class="mb-6 text-md font-semibold text-gray-900 uppercase dark:text-white">Tentang Birentcar</h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                     <li class="my-4">
-                        <a href="#" class="hover:underline">Cara Pemesanan</a>
+                        <a href="#" class="hover:underline">Cara Pesan</a>
                     </li>
                     <li class="my-4">
-                        <a href="#" class="hover:underline">Customer Services</a>
+                        <a href="#" class="hover:underline">Hubungi Kami</a>
                     </li>
                     <li class="my-4">
-                        <a href="#" class="hover:underline">Lapor Masalah</a>
+                        <a href="#" class="hover:underline">Pusat Bantuan</a>
+                    </li>
+                    <li class="my-4">
+                        <a href="#" class="hover:underline">Tentang Kami</a>
                     </li>
                 </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                <h2 class="mb-6 text-md font-semibold text-gray-900 uppercase dark:text-white">Ikuti Kami</h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                     <li class="my-4">
                         <a href="#" class="hover:underline ">Instagram</a>
@@ -33,10 +39,13 @@
                     <li class="my-4">
                         <a href="#" class="hover:underline">Tiktok</a>
                     </li>
+                    <li class="my-4">
+                        <a href="#" class="hover:underline">Youtube</a>
+                    </li>
                 </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                <h2 class="mb-6 text-md font-semibold text-gray-900 uppercase dark:text-white">Lainnya</h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                     <li class="mb-4">
                         <a href="#" class="hover:underline">Privacy Policy</a>
@@ -49,10 +58,9 @@
         </div>
     </div>
     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <div class="sm:flex sm:items-center sm:justify-between footer__content">
+    <div class="sm:flex sm:items-center xl:items-center sm:justify-between footer__content">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/"
                 class="hover:underline">Birentcar Travel</a>. All Rights Reserved.
         </span>
-
     </div>
 </footer>

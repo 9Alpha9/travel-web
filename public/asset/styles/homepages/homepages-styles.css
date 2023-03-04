@@ -263,6 +263,8 @@
 }
 .content__wrapper .wrapper__content .box__reserve .box__reserve__content {
   padding: 0 20px;
+  max-width: 1280px;
+  margin: auto;
 }
 
 .input__label__name {
@@ -270,7 +272,7 @@
 }
 
 input {
-  width: 26rem;
+  width: 25.5rem;
   border-radius: 10px;
   padding: 10px 1rem;
   font-size: 1em;
@@ -338,8 +340,6 @@ input:focus {
 
 .content__java {
   background-color: #0f032e;
-  display: flex;
-  flex-direction: row-reverse;
   color: #ffffff;
 }
 .content__java .items__java {
@@ -429,6 +429,7 @@ input:focus {
 .wisata__landing__wrapper .wisata__content .wisata__card .wisata__banner {
   overflow: hidden;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 .wisata__landing__wrapper .wisata__content .wisata__card .wisata__banner img {
   height: 400px;
@@ -455,6 +456,10 @@ input:focus {
 
 .footer__header {
   color: white;
+  background-color: #0f032e;
+  opacity: 1;
+  background-image: radial-gradient(#191c65 0.95px, #0f032e 0.95px);
+  background-size: 19px 19px;
 }
 .footer__header .footer__content {
   max-width: 1380px;

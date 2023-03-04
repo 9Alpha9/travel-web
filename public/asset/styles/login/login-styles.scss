@@ -2,10 +2,18 @@
     --loginHeaderBackground: #8E9DBA;
     --loginHeaderBackgroundRight: #ffffff;
     --loginInputFormText: #6B6B6B;
+    --loginGradientSideCenterUp: #101359;
+    --loginSetPrimary: #e5e5f7;
 }
 
 .login__header {
+    background-color: var(--loginSetPrimary);
+    opacity: 0.8;
     background-color: var(--loginHeaderBackground);
+    opacity: 1;
+    background-image: radial-gradient(var(--loginGradientSideCenterUp) 0.9500000000000001px, var(--loginHeaderBackground) 0.9500000000000001px);
+    background-size: 19px 19px;
+    background-size: 19px 19px;
     height: 100vh;
     display: flex;
     position: relative;
@@ -36,8 +44,8 @@
             img {
                 bottom: 0;
                 width: 100%;
-                height: 706px;
-                object-fit: contain;
+                height: 706px !important;
+                object-fit: contain !important;
                 position: absolute;
                 background: no-repeat center;
             }
@@ -73,9 +81,20 @@
     }
 }
 
+.cta__to__google {
+    color: #ffffff;
+}
 
 input {
     background-color: #EFEFEF;
     color: var(--loginInputFormText);
     font-family: 'Quicksand', sans-serif;
+}
+
+
+
+.login__set-up>svg {
+    background-color: white;
+    position: absolute;
+    z-index: 2;
 }

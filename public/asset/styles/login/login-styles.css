@@ -2,10 +2,18 @@
   --loginHeaderBackground: #8E9DBA;
   --loginHeaderBackgroundRight: #ffffff;
   --loginInputFormText: #6B6B6B;
+  --loginGradientSideCenterUp: #101359;
+  --loginSetPrimary: #e5e5f7;
 }
 
 .login__header {
+  background-color: var(--loginSetPrimary);
+  opacity: 0.8;
   background-color: var(--loginHeaderBackground);
+  opacity: 1;
+  background-image: radial-gradient(var(--loginGradientSideCenterUp) 0.95px, var(--loginHeaderBackground) 0.95px);
+  background-size: 19px 19px;
+  background-size: 19px 19px;
   height: 100vh;
   display: flex;
   position: relative;
@@ -34,9 +42,9 @@
 .login__header .login__wrapper .login__banner img {
   bottom: 0;
   width: 100%;
-  height: 706px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  height: 706px !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
   position: absolute;
   background: no-repeat center;
 }
@@ -63,8 +71,18 @@
   color: white;
 }
 
+.cta__to__google {
+  color: #ffffff;
+}
+
 input {
   background-color: #EFEFEF;
   color: var(--loginInputFormText);
   font-family: "Quicksand", sans-serif;
+}
+
+.login__set-up > svg {
+  background-color: white;
+  position: absolute;
+  z-index: 2;
 }/*# sourceMappingURL=login-styles.css.map */

@@ -361,6 +361,8 @@
 
             .box__reserve__content {
                 padding: 0 20px;
+                max-width: 1280px;
+                margin: auto;
             }
         }
     }
@@ -375,13 +377,15 @@
 }
 
 input {
-    width: 26rem;
+    width: 25.5rem;
     border-radius: 10px;
     padding: 10px 1rem;
     font-size: 1em;
     margin: 10px 0;
     color: #000000;
+
 }
+
 
 input:focus {
     outline: 2px solid var(--inputOutlineColor);
@@ -457,8 +461,6 @@ input:focus {
 
 .content__java {
     background-color: #0f032e;
-    display: flex;
-    flex-direction: row-reverse;
     color: #ffffff;
 
     .items__java {
@@ -579,9 +581,9 @@ input:focus {
             .wisata__banner {
                 overflow: hidden;
                 border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
                 img {
-
                     height: 400px;
                     width: 100%;
                     object-fit: cover;
@@ -618,6 +620,11 @@ input:focus {
 // Footer Styled
 .footer__header {
     color: white;
+    background-color: #0f032e;
+    opacity: 1;
+    background-image: radial-gradient(#191c65 0.9500000000000001px, #0f032e 0.9500000000000001px);
+    background-size: 19px 19px;
+
 
     .footer__content {
         max-width: 1380px;

@@ -4,7 +4,7 @@
         <span class="title__wisata__viral">
             <h1 class="mt-16 mb-4">Wisata Viral</h1>
         </span>
-        <div class="wisata__content mt-10 mb-10 flex flex-row gap-4">
+        <div class="wisata__content mt-10 mb-10 flex flex-col md:flex-row xl:flex-row gap-4">
             {{-- Content --}}
             <div class="flex flex-row wisata__card">
                 <div class="block max-w-sm dark:bg-neutral-700 wisata__viral__card__item">
@@ -17,7 +17,9 @@
                     <div class="py-8 card__title__info">
                         <h5
                             class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 card__title__item">
-                            Card title
+                            <a href="#!" class="hover:text-primary-birent-hover transition duration-300 ease-in-out">
+                                Card title
+                            </a>
                         </h5>
                         <div class="card__location__graph flex flex-row gap-3 justify-center m-auto">
                             <svg width="20" height="20" viewBox="0 0 10 13" fill="none" class="block align-middle"
@@ -47,7 +49,9 @@
                     <div class="py-8 card__title__info">
                         <h5
                             class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 card__title__item">
-                            Card title
+                            <a href="#!" class="hover:text-primary-birent-hover transition duration-300 ease-in-out">
+                                Card title
+                            </a>
                         </h5>
                         <div class="card__location__graph flex flex-row gap-3 justify-center m-auto">
                             <svg width="20" height="20" viewBox="0 0 10 13" fill="none" class="block align-middle"
@@ -78,7 +82,9 @@
                     <div class="py-8 card__title__info">
                         <h5
                             class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 card__title__item">
-                            Card title
+                            <a href="#!" class="hover:text-primary-birent-hover transition duration-300 ease-in-out">
+                                Card title
+                            </a>
                         </h5>
                         <div class="card__location__graph flex flex-row gap-3 justify-center m-auto">
                             <svg width="20" height="20" viewBox="0 0 10 13" fill="none" class="block align-middle"
@@ -109,7 +115,9 @@
                     <div class="py-8 card__title__info">
                         <h5
                             class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 card__title__item">
-                            Card title
+                            <a href="#!" class="hover:text-primary-birent-hover transition duration-300 ease-in-out">
+                                Card title
+                            </a>
                         </h5>
                         <div class="card__location__graph flex flex-row gap-3 justify-center m-auto">
                             <svg width="20" height="20" viewBox="0 0 10 13" fill="none" class="block align-middle"

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
+
     {{-- Defive Font From Fontshare --}}
     <link
         href="https://api.fontshare.com/v2/css?f[]=erode@400&f[]=satoshi@700&f[]=quicksand@500&f[]=general-sans@500&display=swap"
@@ -23,14 +25,25 @@
         <div class="login__wrapper">
             <div class="login__item login__banner">
                 <section class="login__intro__title text-center pt-40">
-                    Jelajahi wisata di Jawa Timur dan tentukan Tempat Wisata Tervarofit anda
+                    Jelajahi Wisata Di Jawa Timur dan Tentukan Tempat Wisata Tervarofit Anda
                 </section>
                 <p class="text-center py-8">buat akun sekarang biar bisa pilih wisata terfavorit di Jawa Timur</p>
                 <img src="{{ asset('asset/img/DRIP_20.png') }}" alt="">
             </div>
             <div class="login__set-up">
                 <div class="login__item__sec__right">
-                    <div class="login__master__head flex">
+                    <div class="login__master__head flex relative">
+                        <span class="inline-block absolute -top-32 right-0">
+                            <a href="/">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L13.5 13.5" stroke="#162F89" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                    <path d="M1 13.5L13.5 1" stroke="#162F89" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </a>
+                        </span>
                         <h1 class="login__title my-6">Login</h1>
                     </div>
                     <div class="login__forms">
@@ -49,17 +62,29 @@
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
                                         class="font-medium">Oops!</span> Username already taken!</p>
                             </div>
-                            <button type="submit"
-                                class="cta__login bg-cta-login-birent w-full py-2 rounded-lg my-12 hover:bg-primary-birent-hover ease-in-out duration-300">Login</button>
+                            <div class="login__cta__procs">
+                                <a href="#!">
+                                    <span
+                                        class="cta__login inline-block text-center items-center bg-cta-login-birent w-full py-2 rounded-lg my-4 hover:bg-primary-birent-hover ease-in-out duration-300">Masuk</span>
+                                    <h3 class="text-center py-3">atau masuk menggunakan</h3>
+                                </a>
+                                <a href="#!">
+                                    <span
+                                        class="w-full bg-google-primary cta__to__google justify-center gap-2 items-center text-center p-2 rounded-lg my-1 font-medium flex hover:bg-google-hover-secondary ease-in-out duration-300"><img
+                                            src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg"
+                                            style="width:25px">Google</span>
+                                </a>
+                            </div>
                         </form>
-                        <section class="login__sert text-center my-12">
+                        <section class="login__sert text-center my-12 text-sm">
                             Dengan membuat akun kamu menyetujui
-
-                            <a href="#" class="text-primary-birent font-semibold hover:text-primary-birent-hover">
+                            <a href="#"
+                                class="text-primary-birent font-semibold hover:text-primary-birent-hover hover:underline">
                                 Syarat & Ketentuan
                             </a>
                             dan
-                            <a href="#" class="text-primary-birent font-semibold hover:text-primary-birent-hover">
+                            <a href="#"
+                                class="text-primary-birent font-semibold hover:text-primary-birent-hover hover:underline">
                                 Kebijakan Privasi kami.
                             </a>
                         </section>

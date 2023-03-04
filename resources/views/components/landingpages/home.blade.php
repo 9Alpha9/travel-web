@@ -11,7 +11,7 @@
             <section>Wisata Jawa Timur</section>
             <section class="header__small">Paling Direkomendasikan</section>
             <div class="explore__more explore__guide">
-                <a href="#" class="">Explore</a>
+                <a href="#" class="">Explore Sekarang</a>
             </div>
         </div>
         <div class="banner__item">
@@ -32,9 +32,9 @@
                 <div class="box__name">
                     <h1>Booking Wisata</h1>
                 </div>
-                <div class="box__reserve__content flex flex-col ">
+                <div class="box__reserve__content flex flex-col md:flex-col xl:flex-col">
                     {{-- Kota Tujuan --}}
-                    <div class="input__selection__stag flex-col flex px-9">
+                    <div class="input__selection__stag flex-col flex">
                         <label for="datePicker" class="input__label__name">Kota Tujuan </label>
                         <div class="relative mb-6">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -45,12 +45,12 @@
                                         fill="#0f032e" />
                                 </svg>
                             </div>
-                            <input type="text" id="city" class="input__label block pl-10 p-2.5 w-full">
+                            <input type="text" id="city" class="input__label city block pl-10 p-2.5 w-full">
                         </div>
                     </div>
                     {{-- End Kota Tujuan --}}
 
-                    <div class="booking__input flex flex-row gap-2 m-auto">
+                    <div class="booking__input flex flex-col md:flex-row xl:flex-row gap-2 m-auto">
                         {{-- Tempat Wisata --}}
                         <div class="input__selection__stag flex-col flex">
                             <label for="datePicker" class="input__label__name">Tempat Wisata</label>
@@ -109,8 +109,9 @@
                     </div>
                 </div>
                 <button type="submit"
-                    class="text-white px-10 ml-14 p-3 bg-primary-birent hover:text-white hover:bg-primary-birent-hover rounded-lg button__submit text-sm ease-in-out duration-300">Booking
-                    Sekarang</button>
+                    class="text-white px-10 ml-6 md:ml-5 xl:ml-16 p-3 bg-primary-birent hover:text-white hover:bg-primary-birent-hover rounded-lg button__submit text-sm ease-in-out duration-300">Booking
+                    Sekarang
+                </button>
             </div>
         </form>
         {{-- Box Reservasi --}}
@@ -126,7 +127,7 @@
 
 
         {{-- East Java --}}
-        <div class="east__java content__java">
+        <div class="east__java content__java flex flex-col-reverse md:flex-row-reverse xl:flex-row-reverse">
             <div class="items__java java__title">
                 <p>
                     Provinsi Jawa Timur secara geografis terletak di antara 11100 Bujur Timur – 11404’ Bujur Timur

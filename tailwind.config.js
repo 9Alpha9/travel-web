@@ -16,6 +16,7 @@ module.exports = {
             "google-primary": "#D52531",
             "google-hover-secondary": "#C11722",
             "text-primary-white": "#ffffff",
+            "text-error-notification": "#C70815",
         },
     },
     plugins: [],

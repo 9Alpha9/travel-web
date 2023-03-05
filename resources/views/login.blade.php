@@ -70,8 +70,8 @@
                                 <a href="#!">
                                     <span
                                         class="cta__login inline-block text-center items-center bg-cta-login-birent w-full py-2 rounded-lg my-4 hover:bg-primary-birent-hover ease-in-out duration-300">Masuk</span>
-                                    <h3 class="text-center py-3">atau masuk menggunakan</h3>
                                 </a>
+                                <h3 class="text-center py-3">atau masuk menggunakan</h3>
                                 <a href="#!">
                                     <span
                                         class="w-full bg-google-primary cta__to__google justify-center gap-2 items-center text-center p-2 rounded-lg my-1 font-medium flex hover:bg-google-hover-secondary ease-in-out duration-300">

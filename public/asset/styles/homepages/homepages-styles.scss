@@ -2,6 +2,7 @@
     --backgroundReservationStages: #ebebeb;
     --boxReservationTextColor: #1f1f1f;
     --inputOutlineColor: #0f032e;
+    --borderWisataBanner: #1f1f1f;
     --cardTitleInfo: #313131;
 }
 
@@ -535,7 +536,12 @@ input:focus {
 
 // End Button Submit
 
-// End Input Styled
+// End Date Picker
+
+.daterangepicker::after {
+    border-radius: 60rem;
+}
+
 .daterangepicker .table-condensed td.active {
     border-radius: 30px;
 }
@@ -579,13 +585,28 @@ input:focus {
             overflow: hidden;
 
             .wisata__banner {
+                position: relative;
+                border: 1px solid var(--borderWisataBanner);
                 overflow: hidden;
                 border-radius: 10px;
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
-                img {
+                &::before {
+                    top: 0;
+                    content: '';
+                    background: rgb(15, 8, 66);
+                    background: linear-gradient(0deg, rgba(15, 8, 66, 1) 5%, rgba(255, 255, 255, 0) 100%);
                     height: 400px;
                     width: 100%;
+                    z-index: 3;
+                    position: absolute;
+                    transform: translateY(50%);
+                    pointer-events: none;
+                }
+
+                img {
+                    height: 400px;
+                    width: 500px;
                     object-fit: cover;
                     background: center no-repeat;
                     transition: transform .5s ease;
@@ -614,6 +635,25 @@ input:focus {
     }
 }
 
+.card__title__info {
+    justify-content: space-between;
+    align-items: center;
+    display: block;
+
+    .wisata__info__title {
+        h5 {
+            // width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            /* number of lines to show */
+            line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
+
 // End Wisata Viral Styled Card
 
 
@@ -633,3 +673,19 @@ input:focus {
 }
 
 // End Footer Styled
+
+
+// Ratting Indicator Styles
+.rattings__numb {
+    color: #3237d2;
+}
+
+// End Ratting Indicator Styles
+
+
+// Location Information Styles
+.text__location {
+    color: #98999d;
+}
+
+// End Location Information Styles

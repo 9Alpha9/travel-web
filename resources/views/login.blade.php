@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
-
     {{-- Defive Font From Fontshare --}}
     <link
         href="https://api.fontshare.com/v2/css?f[]=erode@400&f[]=satoshi@700&f[]=quicksand@500&f[]=general-sans@500&display=swap"
@@ -23,8 +21,8 @@
 <body>
     <div class="login__header">
         <div class="login__wrapper">
-            <div class="login__item login__banner hidden xl:block lg:block md:hidden">
-                <section class="login__intro__title text-center pt-40">
+            <div class="login__item login__banner hidden xl:block lg:block md:hidden text-text-primary-white">
+                <section class="login__intro__title text-center pt-20 xl:pt-20 3xl:pt-40 ">
                     Jelajahi Wisata Di Jawa Timur dan Tentukan Tempat Wisata Tervarofit Anda
                 </section>
                 <p class="text-center py-8">buat akun sekarang biar bisa pilih wisata terfavorit di Jawa Timur</p>
@@ -54,8 +52,9 @@
                                     class="bg-green-50  border-green-500 text-green-900 placeholder-green-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-4 dark:bg-green-100 dark:border-green-400"
                                     placeholder="Nomor Handphone atau Email">
                                 <p class="mt-2 text-sm text-green-600 dark:text-green-500">
-                                    <span class="font-medium availabel__notification">Alright! Username
-                                        available!</span>
+                                    <span class="font-medium availabel__notification">
+                                        Alright! Username available!
+                                    </span>
                                 </p>
                             </div>
                             <div class="">
@@ -63,10 +62,8 @@
                                     class="bg-red-50 border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-4 dark:bg-red-100 dark:border-red-400"
                                     placeholder="Kata Sandi">
                                 <p class="mt-2 text-sm dark:text-red-500">
-                                    <span class="font-medium error__notification__text">Oops! Username
-                                        already
-                                        taken!</span>
-
+                                    <span class="font-medium error__notification__text">Oops! Username already taken!
+                                    </span>
                                 </p>
                             </div>
                             <div class="login__cta__procs">

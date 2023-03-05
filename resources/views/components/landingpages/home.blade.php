@@ -36,7 +36,7 @@
                     {{-- Kota Tujuan --}}
                     <div class="input__selection__stag flex-col flex">
                         <label for="datePicker" class="input__label__name">Kota Tujuan </label>
-                        <div class="relative mb-6">
+                        <div class="relative xl:my-3 md:my-3 lg:my-3">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg width="17" height="22" viewBox="0 0 17 22" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,7 @@
                         {{-- Tempat Wisata --}}
                         <div class="input__selection__stag flex-col flex">
                             <label for="datePicker" class="input__label__name">Tempat Wisata</label>
-                            <div class="relative mb-6">
+                            <div class="relative xl:my-3 md:my-3 lg:my-3">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +71,7 @@
                         {{-- Tanggal Keberangkatan --}}
                         <div class="input__selection__stag flex-col flex">
                             <label for="datePicker" class="input__label__name">Tanggal</label>
-                            <div class="relative mb-6">
+                            <div class="relative xl:my-3 md:my-3 lg:my-3">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <svg width="19" height="21" viewBox="0 0 19 21" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -89,7 +89,7 @@
                         {{-- Jumlah Tamu --}}
                         <div class="input__selection__stag flex-col flex">
                             <label for="datePicker" class="input__label__name">Tamu</label>
-                            <div class="relative mb-6">
+                            <div class="relative xl:my-3 md:my-3 lg:my-3">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <svg width="22" height="21" viewBox="0 0 22 21" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <button type="submit"
-                    class="text-white px-10 ml-6 md:ml-5 xl:ml-16 p-3 bg-primary-birent hover:text-white hover:bg-primary-birent-hover rounded-lg button__submit text-sm ease-in-out duration-300">Booking
+                    class="text-white px-10 ml-6 md:ml-5 xl:ml-16 p-3 bg-primary-birent hover:text-white hover:bg-primary-birent-hover rounded-lg button__submit text-sm ease-in-out duration-300 my-4">Booking
                     Sekarang
                 </button>
             </div>
@@ -127,8 +127,9 @@
 
 
         {{-- East Java --}}
-        <div class="east__java content__java flex flex-col-reverse md:flex-row-reverse xl:flex-row-reverse">
-            <div class="items__java java__title">
+        <div
+            class="east__java content__java flex flex-col-reverse md:flex-row-reverse rounded-lg xl:flex-row-reverse my-10 overflow-hidden">
+            <div class="items__java java__title my-6">
                 <p>
                     Provinsi Jawa Timur secara geografis terletak di antara 11100 Bujur Timur – 11404’ Bujur Timur
                     dan 70 12’Lintang Selatan – 8048”Lintang Selatan , dengan luas wilayah sebesar 47.963 km2 yang

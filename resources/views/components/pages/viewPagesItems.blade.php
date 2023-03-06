@@ -19,8 +19,8 @@
         </div>
     </div>
     <div class="description py-10">
-        <h1 class="border-b-[1px] py-4">Deskripsi</h1>
-        <section class="description__wisata py-3">
+        <h1 class="border-b-[1px] py-4 font-semibold">Deskripsi</h1>
+        <section class="description__wisata py-3 font-normal inline-block">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa consequatur ex ullam earum eaque deleniti
             aspernatur explicabo, harum cumque porro commodi. Id beatae optio dolorem. Consectetur facere, blanditiis
             eos

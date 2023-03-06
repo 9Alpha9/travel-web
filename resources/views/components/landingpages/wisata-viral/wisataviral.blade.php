@@ -8,9 +8,9 @@
             {{-- Content --}}
             <div class="flex flex-row wisata__card">
                 <div class="block max-w-md dark:bg-neutral-700 wisata__viral__card__item">
-                    <a href="#!">
+                    <a href="{{ route('viewpages') }}">
                         <figure class="wisata__banner">
-                            <img src="https://images.unsplash.com/photo-1589803997213-f8b5bb45ff18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1418&q=80"
+                            <img src="https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg"
                                 class="max-h-60 md:max-h-60 xl:max-h-96" alt="" />
                         </figure>
                     </a>

@@ -1,0 +1,66 @@
+:root {
+  --modalBackgroundColor: #000000;
+  --modalTextColor: #ffffff;
+  --modalHoverButtonBackground: #333333;
+}
+
+.view__component__header {
+  font-family: "Quicksand", sans-serif;
+}
+.view__component__header .breadcrumb {
+  font-size: 0.813em;
+}
+.view__component__header .view__content {
+  height: 32.625em !important;
+  overflow: hidden;
+}
+.view__component__header .view__content .view__item {
+  position: relative;
+}
+.view__component__header .view__content .view__item .view__gallery__banner {
+  max-height: 900px;
+}
+.view__component__header .view__content .view__item .view__gallery__banner img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 850px;
+  background: no-repeat;
+}
+.view__component__header .modal__gallery__item {
+  background-color: var(--modalBackgroundColor);
+  color: var(--modalTextColor);
+}
+.view__component__header .modal__btn__close:hover {
+  color: var(--modalTextColor);
+  background-color: var(--modalHoverButtonBackground);
+}
+.view__component__header .modal__banner .view__modal__gallery__banner img {
+  background-repeat: no-repeat;
+  height: 800px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.view__component__header .view__side__gallery {
+  position: relative;
+  height: 33.09em !important;
+  overflow: hidden;
+}
+.view__component__header .view__side__gallery .side__gallery__stag img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 20.056em;
+  width: 850px;
+  background: no-repeat center;
+}
+
+.wisata__information .wisata__title h1 {
+  font-size: 2em;
+}
+.wisata__information h1 {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.wisata__information .description__wisata {
+  line-height: 2em;
+}/*# sourceMappingURL=viewpages-styles.css.map */

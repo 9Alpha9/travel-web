@@ -19,6 +19,7 @@ module.exports = {
             "ratting-primary": "#3237d2",
             "text-error-notification": "#C70815",
             "gray-birent": "#e5e7eb",
+            "gray-primary": "#7F8C9F",
         },
     },
     plugins: [],

@@ -1,0 +1,110 @@
+:root {
+  --signupHeaderBackground: #6559c7;
+  --signupHeaderBackgroundRight: #ffffff;
+  --signupInputFormText: #6B6B6B;
+  --signupGradientSideCenterUp: #8a8dec;
+  --signupSetPrimary: #e5e5f7;
+  --signupErrorNotification: #C70815;
+  --signupAvailabelNotification: #849815;
+}
+
+.signup__header {
+  background-color: var(--signupSetPrimary);
+  opacity: 0.8;
+  background-color: var(--signupHeaderBackground);
+  opacity: 1;
+  background-image: radial-gradient(var(--signupGradientSideCenterUp) 0.95px, var(--signupHeaderBackground) 0.95px);
+  background-size: 19px 19px;
+  background-size: 19px 19px;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  font-family: "Quicksand", sans-serif;
+}
+.signup__header .signup__wrapper {
+  overflow: hidden;
+  position: relative;
+  flex: 1 1 0;
+  display: block;
+  width: 100%;
+  flex-direction: row;
+  display: inline-flex;
+}
+.signup__header .signup__wrapper .signup__banner {
+  position: relative;
+  flex: 1 1 100%;
+}
+.signup__header .signup__wrapper .signup__banner .signup__intro__title {
+  font-size: 1.875em;
+  font-weight: 700;
+  font-family: "Satoshi", sans-serif;
+  max-width: 600px;
+  margin: auto;
+}
+.signup__header .signup__wrapper .signup__banner img {
+  bottom: -37px;
+  width: 100%;
+  height: 633px !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  position: absolute;
+  background: no-repeat center;
+}
+.signup__header .signup__wrapper .signup__set-up {
+  background-color: var(--signupHeaderBackgroundRight);
+  width: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.signup__header .signup__wrapper .signup__item__sec__right {
+  max-width: 500px;
+  margin: auto;
+  top: 50%;
+  height: 50%;
+}
+.signup__header .signup__wrapper .signup__item__sec__right .signup__master__head .signup__title {
+  font-size: 2.188em;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
+.signup__header .signup__wrapper .signup__item__sec__right .cta__login {
+  color: white;
+}
+
+.cta__to__google {
+  color: #ffffff;
+}
+
+input {
+  background-color: #EFEFEF;
+  color: var(--loginInputFormText);
+  font-family: "Quicksand", sans-serif;
+}
+
+.error__notification__text {
+  color: var(--signupErrorNotification);
+}
+
+.availabel__notification {
+  color: var(--signupAvailabelNotification);
+}
+
+.signup__set-up > svg {
+  background-color: white;
+  position: absolute;
+  z-index: 2;
+}
+
+@media screen and (min-width: 1201px) {
+  .signup__set-up {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+  .signup__header .signup__wrapper .signup__item__sec__right {
+    transform: translateY(50%);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .signup__header .signup__wrapper .signup__item__sec__right {
+    transform: translateY(45%);
+  }
+}/*# sourceMappingURL=signup-styles.css.map */

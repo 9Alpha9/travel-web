@@ -14,24 +14,23 @@
     {{-- Import Tailwind Css Components --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('asset/styles/login/login-styles.css') }}">
-    <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('asset/styles/signup-styles/signup-styles.css') }}">
+    <title>Daftar Akun Baru</title>
 </head>
 
 <body>
-    <div class="login__header">
-        <div class="login__wrapper">
-            <div class="login__item login__banner hidden xl:block lg:block md:hidden text-text-primary-white">
-                <section class="login__intro__title text-center pt-20 xl:pt-20 3xl:pt-40 ">
-                    Login untuk bisa nikmatin tempat wisata
-                    di Jawa Timur
+    <div class="signup__header">
+        <div class="signup__wrapper">
+            <div class="signup__item signup__banner hidden xl:block lg:block md:hidden text-text-primary-white">
+                <section class="signup__intro__title text-center pt-20 xl:pt-20 3xl:pt-40 ">
+                    Jelajahi Wisata Di Jawa Timur dan Tentukan Tempat Wisata Tervarofit Anda
                 </section>
-                <p class="text-center py-8">Kamu cukup masukin Email atau Nomor Ponsel aja kok</p>
-                <img src="{{ asset('asset/img/DRIP_20.png') }}" alt="">
+                <p class="text-center py-8">buat akun sekarang biar bisa pilih wisata terfavorit di Jawa Timur</p>
+                <img src="{{ asset('asset/img/3DMan.png') }}" alt="">
             </div>
-            <div class="login__set-up p-10 border-">
-                <div class="login__item__sec__right">
-                    <div class="login__master__head flex relative">
+            <div class="signup__set-up p-10 border-">
+                <div class="signup__item__sec__right">
+                    <div class="signup__master__head flex relative">
                         <span
                             class="inline-block absolute -top-32 xl:-top-32 lg:-top-32 md:-top-32 lg:right-0 ease-in-out duration-300">
                             <a href="/">
@@ -44,9 +43,9 @@
                                 </svg>
                             </a>
                         </span>
-                        <h1 class="login__title my-6">Login</h1>
+                        <h1 class="signup__title my-6">Buat Akun</h1>
                     </div>
-                    <div class="login__forms">
+                    <div class="signup__forms">
                         <form action="" autocomplete="off">
                             <div class="mb-6 ">
                                 <input type="text" id="username-success"
@@ -57,22 +56,29 @@
                                         Alright! Username available!
                                     </span>
                                 </p>
+                                <p class="mt-2 text-sm dark:text-red-500">
+                                    <span class="font-medium error__notification__text">Oops! No. Handphone atau Email
+                                        sudah terdaftar!
+                                    </span>
+                                </p>
                             </div>
                             <div class="">
                                 <input type="password" id="username-error"
                                     class="bg-red-50 border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-4 dark:bg-red-100 dark:border-red-400"
                                     placeholder="Kata Sandi">
                                 <p class="mt-2 text-sm dark:text-red-500">
-                                    <span class="font-medium error__notification__text">Oops! Username already taken!
+                                    <span class="font-medium error__notification__text">Oops! Password atau No.
+                                        Handphone anda salah!
                                     </span>
                                 </p>
                             </div>
-                            <div class="login__cta__procs">
+                            <div class="signup__cta__procs">
                                 <a href="#!">
                                     <span
-                                        class="cta__login inline-block text-center items-center bg-cta-login-birent w-full py-2 rounded-lg my-4 hover:bg-primary-birent-hover ease-in-out duration-300">Masuk</span>
+                                        class="cta__login inline-block text-center items-center bg-cta-login-birent w-full py-2 rounded-lg my-4 hover:bg-primary-birent-hover ease-in-out duration-300">Buat
+                                        Akun</span>
                                 </a>
-                                <h3 class="text-center py-3">atau masuk menggunakan</h3>
+                                <h3 class="text-center py-3">atau menggunakan</h3>
                                 <a href="#!">
                                     <span
                                         class="w-full bg-google-primary cta__to__google justify-center gap-2 items-center text-center p-2 rounded-lg my-1 font-medium flex hover:bg-google-hover-secondary ease-in-out duration-300">
@@ -97,7 +103,7 @@
                                 </a>
                             </div>
                         </form>
-                        <section class="login__sert text-center my-12 text-sm">
+                        <section class="signup__sert text-center my-12 text-sm">
                             Dengan membuat akun kamu menyetujui
                             <a href="#"
                                 class="text-primary-birent font-semibold hover:text-primary-birent-hover hover:underline">
@@ -109,11 +115,11 @@
                                 Kebijakan Privasi kami.
                             </a>
                         </section>
-                        <section class="login__create__account text-center">
-                            Belum punya akun?
-                            <a href="{{ route('register.form') }}"
+                        <section class="signup__create__account text-center">
+                            Sudah punya akun?
+                            <a href="{{ route('login') }}"
                                 class="create__account text-cta-login-birent font-semibold hover:underline">
-                                Buat Akun yuk!
+                                Log In aja
                             </a>
                         </section>
                     </div>

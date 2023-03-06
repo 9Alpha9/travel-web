@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ViewPagesController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,5 +22,5 @@ Route::get('/', function () {
     return view('components/landingpages/home');
 })->name('landingpage');
 
-
+Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages');
 // Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol

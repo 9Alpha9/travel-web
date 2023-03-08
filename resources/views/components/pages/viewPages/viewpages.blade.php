@@ -31,6 +31,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 
+    {{-- Import Swiper JS Components --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
     <title>view wisata</title>
 </head>
 
@@ -56,10 +59,13 @@
         {{-- End Breadcrumb --}}
         <div class="view__content flex flex-row relative gap-1">
             {{-- Gallery View Item --}}
+
+            {{-- Main Gallery Left --}}
             <div class="flex-grow view__item overflow-hidden flex-shrink rounded-lg">
                 {{-- Button trigger modal --}}
-                <button type="button" class="inline-block" data-te-toggle="modal" data-te-target="#viewGallery">
-                    <figure class="view__gallery__banner relative">
+                <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
+                    data-te-target="#viewGallery">
+                    <figure class="view__gallery__banner">
                         <img src="https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg"
                             alt="">
                     </figure>
@@ -85,16 +91,15 @@
                                     Keluar
                                 </button>
                             </div>
-                            <div class="relative p-4 modal__banner justify-center m-auto">
-                                <figure class="view__modal__gallery__banner relative">
-                                    <img src="https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg"
-                                        alt="">
-                                </figure>
+                            <div class="relative p-4 modal__banner justify-center">
+                                @include('components.pages.viewPages.slidesdata')
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {{-- End Main Gallery Left --}}
+
             <div class="start__side__gal hidden xl:block">
                 <div class="view__side__gallery flex flex-col gap-1 relative">
                     <div class="inside__view__gallery flex flex-row gap-1 overflow-hidden rounded-lg">
@@ -130,11 +135,8 @@
                                                 Keluar
                                             </button>
                                         </div>
-                                        <div class="relative p-4 modal__banner justify-center m-auto">
-                                            <figure class="view__modal__gallery__banner relative">
-                                                <img src="https://asset.kompas.com/crops/_E_jZ5BACnxCQ_2WVh_S5fkwZeA=/0x0:1000x667/750x500/data/photo/2020/01/22/5e281e5a7f0aa.jpg"
-                                                    alt="">
-                                            </figure>
+                                        <div class="relative p-4 modal__banner justify-center">
+                                            @include('components.pages.viewPages.slidesdata')
                                         </div>
                                     </div>
                                 </div>
@@ -161,6 +163,9 @@
                                             <h5 class="text-md font-medium leading-normal " id="ModalScrollableLabel">
                                                 Wisata De Laponte
                                             </h5>
+                                            <div
+                                                class="swiper-pagination gallery__pagination block top-6 pointer-events-none">
+                                            </div>
                                             <button type="button"
                                                 class="box-content border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none flex flex-row px-6 py-2 rounded-lg modal__btn__close ease-in-out duration-300"
                                                 data-te-modal-dismiss aria-label="Close">
@@ -172,11 +177,8 @@
                                                 Keluar
                                             </button>
                                         </div>
-                                        <div class="relative p-4 modal__banner justify-center m-auto">
-                                            <figure class="view__modal__gallery__banner relative">
-                                                <img src="https://lh4.googleusercontent.com/I-MNbc-7907-yTRBcWV2RnjZ_VuYjaDiDoyvASFtv6xkc08Y4gjBiecGJKYtj4RyXiCquHsRo6ryetXeS8GV7TEh-gYlSptlmxWSnheUVvSYH5ZXqg_-066CjOWKyZbXY8T2MO2i"
-                                                    alt="">
-                                            </figure>
+                                        <div class="relative p-4 modal__banner justify-center">
+                                            @include('components.pages.viewPages.slidesdata')
                                         </div>
                                     </div>
                                 </div>
@@ -188,7 +190,7 @@
                         <div class="gallery__view max-w-sm bg-gray-primary rounded-lg overflow-hidden">
                             {{-- Button trigger modal --}}
                             <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
-                                data-te-target="#viewGalleryStageThree">
+                                data-te-target="#viewGalleryStageFour">
                                 <figure class="side__gallery__stag">
                                     <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/04/24/3865808036.jpg"
                                         alt="">
@@ -197,7 +199,7 @@
                             {{-- Modal --}}
                             <div data-te-modal-init
                                 class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                                id="viewGalleryStageThree" tabindex="-1" aria-labelledby="ModalCenterTitle"
+                                id="viewGalleryStageFour" tabindex="-1" aria-labelledby="ModalCenterTitle"
                                 aria-modal="true" role="dialog">
                                 <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
                                     <div
@@ -217,11 +219,8 @@
                                                 Keluar
                                             </button>
                                         </div>
-                                        <div class="relative p-4 modal__banner justify-center m-auto">
-                                            <figure class="view__modal__gallery__banner relative">
-                                                <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/04/24/3865808036.jpg"
-                                                    alt="">
-                                            </figure>
+                                        <div class="relative p-4 modal__banner justify-center">
+                                            @include('components.pages.viewPages.slidesdata')
                                         </div>
                                     </div>
                                 </div>
@@ -259,11 +258,8 @@
                                                 Keluar
                                             </button>
                                         </div>
-                                        <div class="relative p-4 modal__banner justify-center m-auto">
-                                            <figure class="view__modal__gallery__banner relative">
-                                                <img src="https://public.urbanasia.com/images/post/2020/uploads/3db26cb129de4c77bc65a2bd273997c9.jpeg"
-                                                    alt="">
-                                            </figure>
+                                        <div class="relative p-4 modal__banner justify-center">
+                                            @include('components.pages.viewPages.slidesdata')
                                         </div>
                                     </div>
                                 </div>
@@ -275,11 +271,38 @@
             {{-- Gallery View Item --}}
         </div>
         {{-- View Pages Item Component --}}
-        @include('components.pages.viewPagesItems')
+        @include('components.pages.viewPages.viewPagesInformation')
         {{-- End View Pages Item Component --}}
+
+        {{-- View Pages Item Component --}}
+        @include('components.pages.viewPages.viewPagesFasility')
+        {{-- End View Pages Item Component --}}
+
+        {{-- View Pages item Review --}}
+        @include('components.pages.viewPages.viewPagesReview')
+        {{-- End View Pages item Review --}}
     </div>
 
     @include('components.footer.footer')
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            centeredSlides: true,
+            spaceBetween: 100,
+        pagination:{
+            el: ".swiper-pagination",
+            type: "fraction",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+      },
+    });
+    </script>
 </body>
 
 </html>

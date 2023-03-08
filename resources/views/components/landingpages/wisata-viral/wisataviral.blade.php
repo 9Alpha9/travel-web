@@ -1,8 +1,11 @@
 {{-- Wisata Viral --}}
 <div class="wisata__viral wisata__landing__wrapper mt-16 ">
     <div class="wisata__heading">
-        <span class="title__wisata__viral">
-            <h1 class="mb-4">Wisata Viral</h1>
+        <span class="title__wisata__viral flex justify-between items-end">
+            <h1 class="mb-4 wisata__title__viral">Wisata Viral</h1>
+            <h1 class="mb-4 wisata__viral__more">
+                <a href="#!" class="hover:underline text-sm">lihat semua</a>
+            </h1>
         </span>
         <div class="wisata__content mt-10 mb-10 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-4 gap-4">
             {{-- Content --}}

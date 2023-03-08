@@ -2,7 +2,7 @@
 <div class="wisata__viral wisata__landing__wrapper ">
     <div class="wisata__heading">
         <span class="title__wisata__viral">
-            <h1 class="mb-4">Wisata Baru Jawa Timur</h1>
+            <h1 class="mb-4 wisata__title__baru">Wisata Baru Jawa Timur</h1>
         </span>
         <div class="wisata__content mt-10 mb-10 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-4 gap-4">
             {{-- Content --}}

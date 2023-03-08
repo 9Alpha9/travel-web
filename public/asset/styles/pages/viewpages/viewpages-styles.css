@@ -3,6 +3,10 @@
   --modalTextColor: #ffffff;
   --modalHoverButtonBackground: #333333;
   --wisataDescriptionText: #5b5a5a;
+  --rateNumberBackground: #0f032e;
+  --rateSideBackground: #3237d2;
+  --primaryTextColor: #ffffff;
+  --secondaryTextColor: #666666;
 }
 
 .view__component__header {
@@ -66,7 +70,7 @@
 .wisata__information .description .description__wisata {
   line-height: 2em;
   font-family: "Golos-Text", sans-serif;
-  font-size: 0.8em;
+  font-size: 0.875em;
   font-weight: 400;
   color: var(--wisataDescriptionText);
 }
@@ -78,4 +82,69 @@
   .view__component__header > .view__content {
     height: 30.625em !important;
   }
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+  transform: translateY(20%);
+  max-width: 1300px;
+  position: relative;
+}
+.swiper .swiper-pagination-fraction {
+  position: relative;
+}
+.swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper .swiper-slide img {
+  overflow: hidden;
+  margin: auto;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 600px;
+}
+.swiper .swiper-button-prev {
+  color: white;
+}
+.swiper .swiper-button-next {
+  color: white;
+}
+
+.review__container .rate__number {
+  font-weight: 700;
+  font-size: 1.063em;
+  background-color: var(--rateNumberBackground);
+  color: var(--primaryTextColor);
+  padding: 1rem 35px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 10px;
+}
+.review__container .rate__number .rate__information__numb .rating__rate {
+  font-weight: 700;
+  font-size: 0.938em;
+}
+.review__container .review__component__comments .review__header .date__review {
+  font-size: 0.813em;
+}
+.review__container .review__component__comments .review__comments__items .rate {
+  max-width: 87px;
+  text-align: center;
+  padding: 8px;
+  background-color: var(--rateSideBackground);
+  color: var(--primaryTextColor);
+  font-weight: 600;
+  border-radius: 6px;
+}
+.review__container .review__component__comments .review__comments__items .review__text {
+  font-size: 0.875em;
+  line-height: 1.5rem;
+  font-family: "Golos-Text", sans-serif;
+  font-weight: 500;
+  color: var(--secondaryTextColor);
 }/*# sourceMappingURL=viewpages-styles.css.map */

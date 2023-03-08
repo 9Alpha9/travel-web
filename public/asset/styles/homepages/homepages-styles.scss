@@ -572,8 +572,16 @@ input:focus {
 .wisata__landing__wrapper {
     .wisata__heading {
         .title__wisata__viral {
-            font-size: 1.375em;
-            font-weight: 600;
+            .wisata__title__viral {
+                font-size: 1.375em;
+                font-weight: 600;
+            }
+
+            .wisata__title__baru {
+                font-size: 1.375em;
+                font-weight: 600;
+            }
+
         }
     }
 

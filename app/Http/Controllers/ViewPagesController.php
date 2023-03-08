@@ -8,6 +8,6 @@ class ViewPagesController extends Controller
 {
     //
     public function viewPages(){
-        return view('components.pages.viewpages')->with(['viewpages' => 'active']);
+        return view('components.pages.viewPages.viewpages')->with(['viewpages' => 'active']);
     }
 }

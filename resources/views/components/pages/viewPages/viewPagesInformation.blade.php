@@ -38,11 +38,4 @@
             corrupti reiciendis quod! Consequuntur eum aliquam qui, ipsa adipisci tempora aspernatur corporis?
         </section>
     </div>
-    <div class="wisata__information fasility py-7">
-        <h1 class="border-b-[1px] py-4">Fasilitas</h1>
-        <div class="fasility__items flex flex-row">
-            <section class="description__wisata fasility py-3 flex mr-4">....</section>
-            <section class="description__wisata fasility py-3 flex mr-4">....</section>
-        </div>
-    </div>
 </div>

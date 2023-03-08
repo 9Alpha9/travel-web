@@ -17,6 +17,12 @@
     {{-- Import Dependency Homepages Styles --}}
     <link rel="stylesheet" href="{{ asset('asset/styles/homepages/homepages-styles.css') }}">
 
+    {{-- Google Font --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text&family=Quicksand:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
     {{-- Import Dependency Viewpages Styles --}}
     <link rel="stylesheet" href="{{ asset('asset/styles/pages/viewpages/viewpages-styles.css') }}">
 
@@ -30,7 +36,7 @@
 
 <body>
     @include('navigation-bar.navbar')
-    <div class="view__component__header container m-auto relative">
+    <div class="view__component__header  m-auto relative">
         {{-- Breadcrumb --}}
         <div class="breadcrumb breadcrum__item pt-32 py-6">
             <ul class="flex flex-row gap-2">
@@ -48,7 +54,7 @@
             </ul>
         </div>
         {{-- End Breadcrumb --}}
-        <div class="view__content flex flex-row relative gap-2">
+        <div class="view__content flex flex-row relative gap-1">
             {{-- Gallery View Item --}}
             <div class="flex-grow view__item overflow-hidden flex-shrink rounded-lg">
                 {{-- Button trigger modal --}}
@@ -90,8 +96,8 @@
                 </div>
             </div>
             <div class="start__side__gal hidden xl:block">
-                <div class="view__side__gallery flex flex-col gap4 relative">
-                    <div class="inside__view__gallery flex flex-row gap-2 overflow-hidden rounded-lg">
+                <div class="view__side__gallery flex flex-col gap-1 relative">
+                    <div class="inside__view__gallery flex flex-row gap-1 overflow-hidden rounded-lg">
                         <div class="gallery__view max-w-sm bg-gray-primary rounded-lg overflow-hidden">
                             {{-- Button trigger modal --}}
                             <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
@@ -177,7 +183,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="inside__view__gallery flex flex-row py-2 gap-2 overflow-hidden">
+                    {{-- Side Two --}}
+                    <div class="inside__view__gallery flex flex-row  gap-1 overflow-hidden">
                         <div class="gallery__view max-w-sm bg-gray-primary rounded-lg overflow-hidden">
                             {{-- Button trigger modal --}}
                             <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"

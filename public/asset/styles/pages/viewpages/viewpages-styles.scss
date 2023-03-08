@@ -2,17 +2,20 @@
     --modalBackgroundColor: #000000;
     --modalTextColor: #ffffff;
     --modalHoverButtonBackground: #333333;
+    --wisataDescriptionText: #5b5a5a;
 }
 
 .view__component__header {
     font-family: 'Quicksand', sans-serif;
+    max-width: 1350px;
+    padding: 0 2rem;
 
     .breadcrumb {
         font-size: 0.813em;
     }
 
     .view__content {
-        height: 32.625em !important;
+        // height: 30.625em !important;
         overflow: hidden;
 
         .view__item {
@@ -50,7 +53,7 @@
 
             img {
                 background-repeat: no-repeat;
-                height: 800px;
+                height: 650px;
                 // max-width: 800px;
                 object-fit: cover;
             }
@@ -60,7 +63,7 @@
 
     .view__side__gallery {
         position: relative;
-        height: 33.090em !important;
+        height: 30.625em !important;
         overflow: hidden;
 
         .side__gallery__stag {
@@ -79,15 +82,33 @@
     .wisata__title {
         h1 {
             font-size: 2em;
+            font-weight: 700;
         }
     }
 
-    h1 {
-        font-size: 1.2em;
-        font-weight: 700;
+    .description {
+        h1 {
+            font-weight: 600;
+        }
+
+        .description__wisata {
+            line-height: 2em;
+            font-family: 'Golos-Text', sans-serif;
+            font-size: 0.8em;
+            font-weight: 400;
+            color: var(--wisataDescriptionText);
+        }
     }
 
-    .description__wisata {
-        line-height: 2em;
+    .wisata__information {
+        h1 {
+            font-weight: 600;
+        }
+    }
+}
+
+@media only screen and (min-width:1201px) {
+    .view__component__header>.view__content {
+        height: 30.625em !important;
     }
 }

@@ -1,5 +1,5 @@
 :root {
-  --modalBackgroundColor: #000000;
+  --modalBackgroundColor: rgba(0, 0, 0, 0.122);
   --modalTextColor: #ffffff;
   --modalHoverButtonBackground: #333333;
   --wisataDescriptionText: #5b5a5a;
@@ -7,6 +7,10 @@
   --rateSideBackground: #3237d2;
   --primaryTextColor: #ffffff;
   --secondaryTextColor: #666666;
+  --modalPrimaryBooking: #111827;
+  --modalPrimaryBookingHover: #2c3345;
+  --swiper-navigation-size: 2px;
+  --swiper-navigation-size-arr: 20px ;
 }
 
 .view__component__header {
@@ -86,12 +90,12 @@
 .swiper {
   width: 100%;
   height: 100%;
-  transform: translateY(20%);
   max-width: 1300px;
   position: relative;
+  overflow-x: hidden;
 }
 .swiper .swiper-pagination-fraction {
-  position: relative;
+  position: fixed;
 }
 .swiper .swiper-slide {
   text-align: center;
@@ -107,6 +111,8 @@
   -o-object-fit: contain;
      object-fit: contain;
   max-height: 600px;
+  border-radius: 10px;
+  border: solid 10px white;
 }
 .swiper .swiper-button-prev {
   color: white;
@@ -120,10 +126,8 @@
   font-size: 1.063em;
   background-color: var(--rateNumberBackground);
   color: var(--primaryTextColor);
-  padding: 1rem 35px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 10px;
+  padding: 1rem 22px;
+  border-radius: 50px;
 }
 .review__container .rate__number .rate__information__numb .rating__rate {
   font-weight: 700;
@@ -147,4 +151,11 @@
   font-family: "Golos-Text", sans-serif;
   font-weight: 500;
   color: var(--secondaryTextColor);
+}
+
+.wisata__information .wisata__header__inf .btn__cta__booking {
+  background-color: var(--modalPrimaryBooking);
+}
+.wisata__information .wisata__header__inf .btn__cta__booking:hover {
+  background-color: var(--modalPrimaryBookingHover);
 }/*# sourceMappingURL=viewpages-styles.css.map */

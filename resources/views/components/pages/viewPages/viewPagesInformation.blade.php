@@ -13,29 +13,22 @@
             </div>
         </div>
         <div class="booking__cta">
-            <a href="#!" class="bg-black-birent text-white p-3 px-10 rounded-md">
-                <span class="inline-block font-medium">Booking</span>
-            </a>
+            @include('components.pages.viewPages.modalBooking')
+            <div class="description py-10">
+                <h1 class="border-b-[1px] py-4 font-semibold text-lg">Deskripsi</h1>
+                <section class="description__wisata py-3 font-normal inline-block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam id aliquam voluptate architecto
+                    distinctio quasi commodi. Eos unde sit sunt culpa blanditiis beatae! Placeat perferendis accusamus
+                    tempora omnis blanditiis nam rerum neque. Fuga aut recusandae aliquid vero alias corrupti facilis
+                    unde ipsa tempore suscipit accusamus esse corporis facere possimus, sed porro cumque adipisci
+                    architecto molestiae temporibus, doloremque odit dignissimos sequi! Atque inventore possimus vero,
+                    vitae, iste fuga magni illum doloribus non consequuntur dolorum velit excepturi, dolore ad. Non
+                    labore quas laboriosam possimus. Iste libero inventore cum commodi, enim magni natus eaque explicabo
+                    similique. Reiciendis numquam tenetur repellendus tempore. Ipsum, delectus! Lorem ipsum dolor sit
+                    amet consectetur adipisicing elit. Deserunt odit ratione sunt, vero enim doloremque accusamus
+                    reprehenderit ea, corporis minus porro reiciendis quos fuga eveniet nam id obcaecati distinctio!
+                    Qui, doloremque tempore. Dicta beatae dolore odit quasi quos porro fugit, tempore tempora excepturi
+                    accusamus qui eius quo minima ut velit.
+                </section>
+            </div>
         </div>
-    </div>
-    <div class="description py-10">
-        <h1 class="border-b-[1px] py-4 font-semibold">Deskripsi</h1>
-        <section class="description__wisata py-3 font-normal inline-block">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa consequatur ex ullam earum eaque deleniti
-            aspernatur explicabo, harum cumque porro commodi. Id beatae optio dolorem. Consectetur facere, blanditiis
-            eos
-            ducimus, officia veritatis provident vero libero architecto cupiditate illo ipsum repudiandae! Lorem ipsum,
-            dolor sit amet consectetur adipisicing elit. Quibusdam, numquam, adipisci eum aliquid minus eius nobis
-            cumque
-            pariatur excepturi, minima dolores doloremque iusto voluptatum praesentium. Recusandae libero vero natus.
-            Culpa
-            voluptas rem libero beatae quam est ad accusamus doloremque, eligendi nam dolorem eos cumque dignissimos,
-            vitae
-            quasi? Eligendi, dolor! Sunt magni maiores nostrum adipisci illum aspernatur beatae veniam eaque ea laborum
-            fugiat dignissimos, non sapiente alias atque cupiditate facere ipsam commodi iste inventore nulla nam unde
-            saepe
-            laboriosam. Ipsam, ducimus recusandae voluptatum ipsa praesentium molestias facilis provident blanditiis
-            corrupti reiciendis quod! Consequuntur eum aliquam qui, ipsa adipisci tempora aspernatur corporis?
-        </section>
-    </div>
-</div>

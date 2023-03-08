@@ -1,8 +1,7 @@
 {{-- Swiper Slide --}}
-<div class="swiper mySwiper gallery__slides">
+<div class="swiper slideGallery  gallery__slides">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-
             {{-- Slide Images Data --}}
             <figure class="view__modal__gallery__banner relative">
                 <img src="https://public.urbanasia.com/images/post/2020/uploads/3db26cb129de4c77bc65a2bd273997c9.jpeg"

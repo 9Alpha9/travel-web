@@ -1,5 +1,5 @@
 :root {
-    --modalBackgroundColor: #000000;
+    --modalBackgroundColor: rgba(0, 0, 0, 0.122);
     --modalTextColor: #ffffff;
     --modalHoverButtonBackground: #333333;
     --wisataDescriptionText: #5b5a5a;
@@ -7,6 +7,10 @@
     --rateSideBackground: #3237d2;
     --primaryTextColor: #ffffff;
     --secondaryTextColor: #666666;
+    --modalPrimaryBooking: #111827;
+    --modalPrimaryBookingHover: #2c3345;
+    --swiper-navigation-size: 2px;
+    --swiper-navigation-size-arr: 20px
 }
 
 .view__component__header {
@@ -123,13 +127,13 @@
 .swiper {
     width: 100%;
     height: 100%;
-    transform: translateY(20%);
+    // transform: translateY(10%);
     max-width: 1300px;
     position: relative;
-
+    overflow-x: hidden;
 
     .swiper-pagination-fraction {
-        position: relative;
+        position: fixed;
     }
 
     .swiper-slide {
@@ -146,6 +150,8 @@
         display: block;
         object-fit: contain;
         max-height: 600px;
+        border-radius: 10px;
+        border: solid 10px white;
         // width: 900px;
     }
 
@@ -156,7 +162,10 @@
     .swiper-button-next {
         color: white;
     }
+
 }
+
+
 
 
 // Review Components Style
@@ -166,10 +175,8 @@
         font-size: 1.063em;
         background-color: var(--rateNumberBackground);
         color: var(--primaryTextColor);
-        padding: 1rem 35px;
-        border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px;
-        border-bottom-left-radius: 10px;
+        padding: 1rem 22px;
+        border-radius: 50px;
 
         .rate__information__numb {
             .rating__rate {
@@ -211,3 +218,16 @@
 }
 
 // End Review Components Style
+
+// Modal CTA Booking
+.wisata__information {
+    .wisata__header__inf {
+        .btn__cta__booking {
+            background-color: var(--modalPrimaryBooking);
+
+            &:hover {
+                background-color: var(--modalPrimaryBookingHover);
+            }
+        }
+    }
+}

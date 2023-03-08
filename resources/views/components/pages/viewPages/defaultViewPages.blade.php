@@ -75,28 +75,11 @@
                     class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
                     id="viewGallery" tabindex="-1" aria-labelledby="ModalCenterTitle" aria-modal="true" role="dialog">
                     <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
-                        <div
-                            class="pointer-events-auto relative flex w-full h-[100vh] flex-col border-none bg-clip-padding text-current shadow-lg outline-none modal__gallery__item">
-                            <div class="flex flex-shrink-0 items-center justify-between p-4">
-                                <h5 class="text-md font-medium leading-normal " id="ModalScrollableLabel">
-                                    Wisata De Laponte
-                                </h5>
-                                <button type="button"
-                                    class="box-content border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none flex flex-row px-6 py-2 rounded-lg modal__btn__close ease-in-out duration-300"
-                                    data-te-modal-dismiss aria-label="Close">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                    Keluar
-                                </button>
-                            </div>
-                            <div class="relative p-4 modal__banner justify-center">
-                                @include('components.pages.viewPages.slidesdata')
-                            </div>
-                        </div>
+                        {{-- Modal Component --}}
+                        @include('components.pages.viewPages.modalSlideGallery')
                     </div>
                 </div>
+                {{-- End Modal --}}
             </div>
             {{-- End Main Gallery Left --}}
 
@@ -118,30 +101,13 @@
                                 id="viewGalleryStagOne" tabindex="-1" aria-labelledby="ModalCenterTitle"
                                 aria-modal="true" role="dialog">
                                 <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
-                                    <div
-                                        class="pointer-events-auto relative flex w-full h-[100vh] flex-col border-none bg-clip-padding text-current shadow-lg outline-none modal__gallery__item">
-                                        <div class="flex flex-shrink-0 items-center justify-between p-4">
-                                            <h5 class="text-md font-medium leading-normal " id="ModalScrollableLabel">
-                                                Wisata De Laponte
-                                            </h5>
-                                            <button type="button"
-                                                class="box-content border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none flex flex-row px-6 py-2 rounded-lg modal__btn__close ease-in-out duration-300"
-                                                data-te-modal-dismiss aria-label="Close">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M6 18L18 6M6 6l12 12" />
-                                                </svg>
-                                                Keluar
-                                            </button>
-                                        </div>
-                                        <div class="relative p-4 modal__banner justify-center">
-                                            @include('components.pages.viewPages.slidesdata')
-                                        </div>
-                                    </div>
+                                    {{-- Modal Component --}}
+                                    @include('components.pages.viewPages.modalSlideGallery')
                                 </div>
                             </div>
+                            {{-- End Modal --}}
                         </div>
+
                         <div class="gallery__view max-w-sm bg-gray-primary rounded-lg overflow-hidden">
                             {{-- Button trigger modal --}}
                             <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
@@ -157,34 +123,13 @@
                                 id="viewGalleryStageTwo" tabindex="-1" aria-labelledby="ModalCenterTitle"
                                 aria-modal="true" role="dialog">
                                 <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
-                                    <div
-                                        class="pointer-events-auto relative flex w-full h-[100vh] flex-col border-none bg-clip-padding text-current shadow-lg outline-none modal__gallery__item">
-                                        <div class="flex flex-shrink-0 items-center justify-between p-4">
-                                            <h5 class="text-md font-medium leading-normal " id="ModalScrollableLabel">
-                                                Wisata De Laponte
-                                            </h5>
-                                            <div
-                                                class="swiper-pagination gallery__pagination block top-6 pointer-events-none">
-                                            </div>
-                                            <button type="button"
-                                                class="box-content border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none flex flex-row px-6 py-2 rounded-lg modal__btn__close ease-in-out duration-300"
-                                                data-te-modal-dismiss aria-label="Close">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M6 18L18 6M6 6l12 12" />
-                                                </svg>
-                                                Keluar
-                                            </button>
-                                        </div>
-                                        <div class="relative p-4 modal__banner justify-center">
-                                            @include('components.pages.viewPages.slidesdata')
-                                        </div>
-                                    </div>
+                                    {{-- Modal Component --}}
+                                    @include('components.pages.viewPages.modalSlideGallery')
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     {{-- Side Two --}}
                     <div class="inside__view__gallery flex flex-row  gap-1 overflow-hidden">
                         <div class="gallery__view max-w-sm bg-gray-primary rounded-lg overflow-hidden">
@@ -202,30 +147,12 @@
                                 id="viewGalleryStageFour" tabindex="-1" aria-labelledby="ModalCenterTitle"
                                 aria-modal="true" role="dialog">
                                 <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
-                                    <div
-                                        class="pointer-events-auto relative flex w-full h-[100vh] flex-col border-none bg-clip-padding text-current shadow-lg outline-none modal__gallery__item">
-                                        <div class="flex flex-shrink-0 items-center justify-between p-4">
-                                            <h5 class="text-md font-medium leading-normal " id="ModalScrollableLabel">
-                                                Wisata De Laponte
-                                            </h5>
-                                            <button type="button"
-                                                class="box-content border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none flex flex-row px-6 py-2 rounded-lg modal__btn__close ease-in-out duration-300"
-                                                data-te-modal-dismiss aria-label="Close">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M6 18L18 6M6 6l12 12" />
-                                                </svg>
-                                                Keluar
-                                            </button>
-                                        </div>
-                                        <div class="relative p-4 modal__banner justify-center">
-                                            @include('components.pages.viewPages.slidesdata')
-                                        </div>
-                                    </div>
+                                    {{-- Modal Component --}}
+                                    @include('components.pages.viewPages.modalSlideGallery')
                                 </div>
                             </div>
                         </div>
+
                         <div class="gallery__view max-w-sm h-full bg-gray-primary rounded-lg overflow-hidden">
                             {{-- Button trigger modal --}}
                             <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
@@ -241,27 +168,8 @@
                                 id="viewGalleryStageFour" tabindex="-1" aria-labelledby="ModalCenterTitle"
                                 aria-modal="true" role="dialog">
                                 <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
-                                    <div
-                                        class="pointer-events-auto relative flex w-full h-[100vh] flex-col border-none bg-clip-padding text-current shadow-lg outline-none modal__gallery__item">
-                                        <div class="flex flex-shrink-0 items-center justify-between p-4">
-                                            <h5 class="text-md font-medium leading-normal " id="ModalScrollableLabel">
-                                                Wisata De Laponte
-                                            </h5>
-                                            <button type="button"
-                                                class="box-content border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none flex flex-row px-6 py-2 rounded-lg modal__btn__close ease-in-out duration-300"
-                                                data-te-modal-dismiss aria-label="Close">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M6 18L18 6M6 6l12 12" />
-                                                </svg>
-                                                Keluar
-                                            </button>
-                                        </div>
-                                        <div class="relative p-4 modal__banner justify-center">
-                                            @include('components.pages.viewPages.slidesdata')
-                                        </div>
-                                    </div>
+                                    {{-- Modal Component --}}
+                                    @include('components.pages.viewPages.modalSlideGallery')
                                 </div>
                             </div>
                         </div>
@@ -290,7 +198,7 @@
 
     <!-- Initialize Swiper -->
     <script>
-        var swiper = new Swiper(".mySwiper", {
+        var swiper = new Swiper(".slideGallery", {
             centeredSlides: true,
             spaceBetween: 100,
         pagination:{

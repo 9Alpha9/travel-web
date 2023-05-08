@@ -26,45 +26,44 @@
     {{-- Import Dependency Viewpages Styles --}}
     <link rel="stylesheet" href="{{ asset('asset/styles/pages/viewpages/viewpages-styles.css') }}">
 
+    {{--
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="https://cdn.tailwindcss.com/3.2.4"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> --}}
 
     {{-- Import Swiper JS Components --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>view wisata</title>
 </head>
 
 <body>
     @include('navigation-bar.navbar')
-    <div class="view__component__header  m-auto relative">
+    <div class="relative m-auto view__component__header">
         {{-- Breadcrumb --}}
-        <div class="breadcrumb breadcrum__item pt-32 py-6">
+        <div class="py-6 pt-32 breadcrumb breadcrum__item">
             <ul class="flex flex-row gap-2">
                 <li class="font-semibold text-primary-birent ">
                     <a href="{{ route('landingpage') }}">Home</a>
                 </li>
                 <li>/</li>
-                <li class="text-primary-birent font-semibold">
+                <li class="font-semibold text-primary-birent">
                     <a href="#!" class="hover:underline">Wisata Viral</a>
                 </li>
                 <li>/</li>
-                <li class="text-gray-primary font-semibold">
+                <li class="font-semibold text-gray-primary">
                     <a href="#!" class="hover:underline">Wisata De Laponte</a>
                 </li>
             </ul>
         </div>
         {{-- End Breadcrumb --}}
-        <div class="view__content flex flex-row relative gap-1">
+        <div class="relative flex flex-row gap-1 view__content">
             {{-- Gallery View Item --}}
-
             {{-- Main Gallery Left --}}
-            <div class="flex-grow view__item overflow-hidden flex-shrink rounded-lg">
+            <div class="flex-grow flex-shrink overflow-hidden rounded-lg view__item">
                 {{-- Button trigger modal --}}
-                <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
-                    data-te-target="#viewGallery">
+                <button class="inline-block overflow-hidden rounded-lg" onclick="openModal('modal')">
                     <figure class="view__gallery__banner">
                         <img src="https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg"
                             alt="">
@@ -73,8 +72,8 @@
                 {{-- Modal --}}
                 <div data-te-modal-init
                     class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                    id="viewGallery" tabindex="-1" aria-labelledby="ModalCenterTitle" aria-modal="true" role="dialog">
-                    <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
+                    id="modal" tabindex="-1" aria-labelledby="modal" aria-modal="true" role="dialog">
+                    <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
                         {{-- Modal Component --}}
                         @include('components.pages.viewPages.modalSlideGallery')
                     </div>
@@ -83,24 +82,23 @@
             </div>
             {{-- End Main Gallery Left --}}
 
-            <div class="start__side__gal hidden xl:block">
-                <div class="view__side__gallery flex flex-col gap-1 relative">
-                    <div class="inside__view__gallery flex flex-row gap-1 overflow-hidden rounded-lg">
-                        <div class="gallery__view max-w-sm bg-gray-primary rounded-lg overflow-hidden">
+            <div class="hidden start__side__gal xl:block">
+                <div class="relative flex flex-col gap-1 view__side__gallery">
+                    <div class="flex flex-row gap-1 overflow-hidden rounded-lg inside__view__gallery">
+                        <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
                             {{-- Button trigger modal --}}
-                            <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
-                                data-te-target="#viewGalleryStagOne">
+                            <button type="button" class="inline-block overflow-hidden rounded-lg"
+                                onclick="openModal('modal')">
                                 <figure class="side__gallery__stag">
                                     <img src="https://asset.kompas.com/crops/_E_jZ5BACnxCQ_2WVh_S5fkwZeA=/0x0:1000x667/750x500/data/photo/2020/01/22/5e281e5a7f0aa.jpg"
                                         alt="">
                                 </figure>
                             </button>
                             {{-- Modal --}}
-                            <div data-te-modal-init
+                            <div id="modal"
                                 class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                                id="viewGalleryStagOne" tabindex="-1" aria-labelledby="ModalCenterTitle"
-                                aria-modal="true" role="dialog">
-                                <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
+                                tabindex="-1" aria-labelledby="modal" aria-modal="true" role="dialog">
+                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
                                     {{-- Modal Component --}}
                                     @include('components.pages.viewPages.modalSlideGallery')
                                 </div>
@@ -108,10 +106,10 @@
                             {{-- End Modal --}}
                         </div>
 
-                        <div class="gallery__view max-w-sm bg-gray-primary rounded-lg overflow-hidden">
+                        <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
                             {{-- Button trigger modal --}}
-                            <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
-                                data-te-target="#viewGalleryStageTwo">
+                            <button type="button" class="inline-block overflow-hidden rounded-lg"
+                                onclick="openModal('modal')">
                                 <figure class="side__gallery__stag">
                                     <img src="https://lh4.googleusercontent.com/I-MNbc-7907-yTRBcWV2RnjZ_VuYjaDiDoyvASFtv6xkc08Y4gjBiecGJKYtj4RyXiCquHsRo6ryetXeS8GV7TEh-gYlSptlmxWSnheUVvSYH5ZXqg_-066CjOWKyZbXY8T2MO2i"
                                         alt="">
@@ -120,9 +118,8 @@
                             {{-- Modal --}}
                             <div data-te-modal-init
                                 class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                                id="viewGalleryStageTwo" tabindex="-1" aria-labelledby="ModalCenterTitle"
-                                aria-modal="true" role="dialog">
-                                <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
+                                id="modal" tabindex="-1" aria-labelledby="modal" aria-modal="true" role="dialog">
+                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
                                     {{-- Modal Component --}}
                                     @include('components.pages.viewPages.modalSlideGallery')
                                 </div>
@@ -131,11 +128,11 @@
                     </div>
 
                     {{-- Side Two --}}
-                    <div class="inside__view__gallery flex flex-row  gap-1 overflow-hidden">
-                        <div class="gallery__view max-w-sm bg-gray-primary rounded-lg overflow-hidden">
+                    <div class="flex flex-row gap-1 overflow-hidden inside__view__gallery">
+                        <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
                             {{-- Button trigger modal --}}
-                            <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
-                                data-te-target="#viewGalleryStageFour">
+                            <button type="button" class="inline-block overflow-hidden rounded-lg"
+                                onclick="openModal('modal')">
                                 <figure class="side__gallery__stag">
                                     <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/04/24/3865808036.jpg"
                                         alt="">
@@ -144,19 +141,18 @@
                             {{-- Modal --}}
                             <div data-te-modal-init
                                 class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                                id="viewGalleryStageFour" tabindex="-1" aria-labelledby="ModalCenterTitle"
-                                aria-modal="true" role="dialog">
-                                <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
+                                id="modal" tabindex="-1" aria-labelledby="modal" aria-modal="true" role="dialog">
+                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
                                     {{-- Modal Component --}}
                                     @include('components.pages.viewPages.modalSlideGallery')
                                 </div>
                             </div>
                         </div>
 
-                        <div class="gallery__view max-w-sm h-full bg-gray-primary rounded-lg overflow-hidden">
+                        <div class="h-full max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
                             {{-- Button trigger modal --}}
                             <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
-                                data-te-target="#viewGalleryStageFour">
+                                onclick="openModal('modal')">
                                 <figure class="side__gallery__stag">
                                     <img src="https://public.urbanasia.com/images/post/2020/uploads/3db26cb129de4c77bc65a2bd273997c9.jpeg"
                                         alt="">
@@ -165,9 +161,8 @@
                             {{-- Modal --}}
                             <div data-te-modal-init
                                 class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                                id="viewGalleryStageFour" tabindex="-1" aria-labelledby="ModalCenterTitle"
-                                aria-modal="true" role="dialog">
-                                <div data-te-modal-dialog-ref class="pointer-events-none relative flex">
+                                id="modal" tabindex="-1" aria-labelledby="modal" aria-modal="true" role="dialog">
+                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
                                     {{-- Modal Component --}}
                                     @include('components.pages.viewPages.modalSlideGallery')
                                 </div>
@@ -177,6 +172,7 @@
                 </div>
             </div>
             {{-- Gallery View Item --}}
+
         </div>
         {{-- View Pages Item Component --}}
         @include('components.pages.viewPages.viewPagesInformation')
@@ -192,6 +188,54 @@
     </div>
 
     @include('components.footer.footer')
+
+    <script type="text/javascript">
+        window.openModal = function(modalId) {
+          document.getElementById(modalId).style.display = 'block'
+          document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden')
+        }
+
+        window.closeModal = function(modalId) {
+          document.getElementById(modalId).style.display = 'none'
+          document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
+        }
+
+        // Close all modals when press ESC
+        document.onkeydown = function(event) {
+          event = event || window.event;
+          if (event.keyCode === 27) {
+            document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
+            let modals = document.getElementsByClassName('modal');
+            Array.prototype.slice.call(modals).forEach(i => {
+              i.style.display = 'none'
+            })
+          }
+        };
+    </script>
+
+    <script type="text/javascript">
+        window.openmodaldate = function(openmodaldatelId) {
+          document.getElementById(openmodaldateId).style.display = 'block'
+          document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden')
+        }
+
+        window.closemodaldate = function(modaleId) {
+          document.getElementById(modalId).style.display = 'none'
+          document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
+        }
+
+        // Close all modals when press ESC
+        document.onkeydown = function(event) {
+          event = event || window.event;
+          if (event.keyCode === 27) {
+            document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
+            let modalsdates = document.getElementsByClassName('dateModal');
+            Array.prototype.slice.call(modalsdates).forEach(i => {
+              i.style.display = 'none'
+            })
+          }
+        };
+    </script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

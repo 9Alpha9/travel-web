@@ -1,0 +1,154 @@
+ {{-- Main Gallery Left --}}
+            <div class="flex-grow flex-shrink overflow-hidden rounded-lg view__item">
+                {{-- Button trigger modal --}}
+                <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
+                    data-te-target="#viewGallery">
+                    <figure class="view__gallery__banner">
+                        <img src="https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg"
+                            alt="">
+                    </figure>
+                </button>
+                {{-- Modal --}}
+                <div data-te-modal-init
+                    class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                    id="viewGallery" tabindex="-1" aria-labelledby="ModalCenterTitle" aria-modal="true" role="dialog">
+                    <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
+                        {{-- Modal Component --}}
+                        @include('components.pages.viewPages.modalSlideGallery')
+                    </div>
+                </div>
+                {{-- End Modal --}}
+            </div>
+            {{-- End Main Gallery Left --}}
+
+            <div class="hidden start__side__gal xl:block">
+                <div class="relative flex flex-col gap-1 view__side__gallery">
+                    <div class="flex flex-row gap-1 overflow-hidden rounded-lg inside__view__gallery">
+                        <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
+                            {{-- Button trigger modal --}}
+                            <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
+                                data-te-target="#viewGalleryStagOne">
+                                <figure class="side__gallery__stag">
+                                    <img src="https://asset.kompas.com/crops/_E_jZ5BACnxCQ_2WVh_S5fkwZeA=/0x0:1000x667/750x500/data/photo/2020/01/22/5e281e5a7f0aa.jpg"
+                                        alt="">
+                                </figure>
+                            </button>
+                            {{-- Modal --}}
+                            <div data-te-modal-init
+                                class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                                id="viewGalleryStagOne" tabindex="-1" aria-labelledby="ModalCenterTitle"
+                                aria-modal="true" role="dialog">
+                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
+                                    {{-- Modal Component --}}
+                                    @include('components.pages.viewPages.modalSlideGallery')
+                                </div>
+                            </div>
+                            {{-- End Modal --}}
+                        </div>
+
+                        <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
+                            {{-- Button trigger modal --}}
+                            <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
+                                data-te-target="#viewGalleryStageTwo">
+                                <figure class="side__gallery__stag">
+                                    <img src="https://lh4.googleusercontent.com/I-MNbc-7907-yTRBcWV2RnjZ_VuYjaDiDoyvASFtv6xkc08Y4gjBiecGJKYtj4RyXiCquHsRo6ryetXeS8GV7TEh-gYlSptlmxWSnheUVvSYH5ZXqg_-066CjOWKyZbXY8T2MO2i"
+                                        alt="">
+                                </figure>
+                            </button>
+                            {{-- Modal --}}
+                            <div data-te-modal-init
+                                class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                                id="viewGalleryStageTwo" tabindex="-1" aria-labelledby="ModalCenterTitle"
+                                aria-modal="true" role="dialog">
+                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
+                                    {{-- Modal Component --}}
+                                    @include('components.pages.viewPages.modalSlideGallery')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Side Two --}}
+                    <div class="flex flex-row gap-1 overflow-hidden inside__view__gallery">
+                        <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
+                            {{-- Button trigger modal --}}
+                            <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
+                                data-te-target="#viewGalleryStageFour">
+                                <figure class="side__gallery__stag">
+                                    <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/04/24/3865808036.jpg"
+                                        alt="">
+                                </figure>
+                            </button>
+                            {{-- Modal --}}
+                            <div data-te-modal-init
+                                class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                                id="viewGalleryStageFour" tabindex="-1" aria-labelledby="ModalCenterTitle"
+                                aria-modal="true" role="dialog">
+                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
+                                    {{-- Modal Component --}}
+                                    @include('components.pages.viewPages.modalSlideGallery')
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="h-full max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
+                            {{-- Button trigger modal --}}
+                            <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
+                                data-te-target="#viewGalleryStageFour">
+                                <figure class="side__gallery__stag">
+                                    <img src="https://public.urbanasia.com/images/post/2020/uploads/3db26cb129de4c77bc65a2bd273997c9.jpeg"
+                                        alt="">
+                                </figure>
+                            </button>
+                            {{-- Modal --}}
+                            <div data-te-modal-init
+                                class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                                id="viewGalleryStageFour" tabindex="-1" aria-labelledby="ModalCenterTitle"
+                                aria-modal="true" role="dialog">
+                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
+                                    {{-- Modal Component --}}
+                                    @include('components.pages.viewPages.modalSlideGallery')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- Gallery View Item --}}
+
+
+{{-- <button class="px-4 py-2 text-white transition bg-blue-500 rounded-md hover:bg-blue-700"
+                onclick="openModal('modal')">Open modal</button>
+
+            <div id="modal"
+                class="fixed inset-0 z-50 hidden w-full h-full px-4 overflow-y-auto bg-gray-900 bg-opacity-60 modal">
+                <div class="relative max-w-md mx-auto bg-white rounded-md shadow-xl top-40">
+
+                    <!-- Modal header -->
+                    <div
+                        class="flex items-center justify-between px-4 py-2 text-xl text-white bg-green-500 rounded-t-md">
+                        <h3>Modal header</h3>
+                        <button onclick="closeModal('modal')">x</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="p-4 overflow-y-scroll max-h-48">
+                        <p>Scrollable modal body</p>
+                        <p>Scrollable modal body</p>
+                        <p>Scrollable modal body</p>
+                        <p>Scrollable modal body</p>
+                        <p>Scrollable modal body</p>
+                        <p>Scrollable modal body</p>
+                        <p>Scrollable modal body</p>
+                        <p>Scrollable modal body</p>
+                        <p>Scrollable modal body</p>
+                        <p>Scrollable modal body</p>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="flex items-center justify-end px-4 py-2 space-x-4 border-t border-t-gray-500">
+                        <button class="px-4 py-2 text-white transition bg-blue-500 rounded-md hover:bg-blue-700"
+                            onclick="closeModal('modal')">Close (ESC)</button>
+                    </div>
+                </div>
+            </div> --}}

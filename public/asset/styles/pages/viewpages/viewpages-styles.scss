@@ -1,5 +1,5 @@
 :root {
-    --modalBackgroundColor: rgba(0, 0, 0, 0.122);
+    --modalBackgroundColor: rgba(0, 0, 0, 0.411);
     --modalTextColor: #ffffff;
     --modalHoverButtonBackground: #333333;
     --wisataDescriptionText: #5b5a5a;
@@ -56,6 +56,8 @@
     }
 
     .modal__banner {
+        color: #ffffff;
+
         .view__modal__gallery__banner {
             // max-width: 854px;
 
@@ -138,7 +140,7 @@
 
     .swiper-slide {
         text-align: center;
-        font-size: 18px;
+        font-size: 20px;
         display: flex;
         justify-content: center;
         align-items: center;

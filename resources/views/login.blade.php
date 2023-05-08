@@ -21,19 +21,19 @@
 <body>
     <div class="login__header">
         <div class="login__wrapper">
-            <div class="login__item login__banner hidden xl:block lg:block md:hidden text-text-primary-white">
-                <section class="login__intro__title text-center pt-20 xl:pt-20 3xl:pt-40 ">
+            <div class="hidden login__item login__banner xl:block lg:block md:hidden text-text-primary-white">
+                <section class="pt-20 text-center login__intro__title xl:pt-20 3xl:pt-40 ">
                     Login untuk bisa nikmatin tempat wisata
                     di Jawa Timur
                 </section>
-                <p class="text-center py-8">Kamu cukup masukin Email atau Nomor Ponsel aja kok</p>
+                <p class="py-8 text-center">Kamu cukup masukin Email atau Nomor Ponsel aja kok</p>
                 <img src="{{ asset('asset/img/DRIP_20.png') }}" alt="">
             </div>
-            <div class="login__set-up p-10 border-">
+            <div class="p-10 login__set-up border-">
                 <div class="login__item__sec__right">
-                    <div class="login__master__head flex relative">
+                    <div class="relative flex login__master__head">
                         <span
-                            class="inline-block absolute -top-32 xl:-top-32 lg:-top-32 md:-top-32 lg:right-0 ease-in-out duration-300">
+                            class="absolute inline-block duration-300 ease-in-out -top-32 xl:-top-32 lg:-top-32 md:-top-32 lg:right-0">
                             <a href="/">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -44,13 +44,13 @@
                                 </svg>
                             </a>
                         </span>
-                        <h1 class="login__title my-6">Login</h1>
+                        <h1 class="my-6 login__title">Login</h1>
                     </div>
                     <div class="login__forms">
                         <form action="" autocomplete="off">
                             <div class="mb-6 ">
                                 <input type="text" id="username-success"
-                                    class="bg-green-50  border-green-500 text-green-900 placeholder-green-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-4 dark:bg-green-100 dark:border-green-400"
+                                    class="block w-full p-4 text-sm text-green-900 placeholder-green-700 border-green-500 rounded-lg bg-green-50 focus:ring-green-500 focus:border-green-500 dark:bg-green-100 dark:border-green-400"
                                     placeholder="Nomor Handphone atau Email">
                                 <p class="mt-2 text-sm text-green-600 dark:text-green-500">
                                     <span class="font-medium availabel__notification">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="">
                                 <input type="password" id="username-error"
-                                    class="bg-red-50 border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-4 dark:bg-red-100 dark:border-red-400"
+                                    class="block w-full p-4 text-sm text-red-900 placeholder-red-700 border-red-500 rounded-lg bg-red-50 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400"
                                     placeholder="Kata Sandi">
                                 <p class="mt-2 text-sm dark:text-red-500">
                                     <span class="font-medium error__notification__text">Oops! Username already taken!
@@ -70,12 +70,12 @@
                             <div class="login__cta__procs">
                                 <a href="#!">
                                     <span
-                                        class="cta__login inline-block text-center items-center bg-cta-login-birent w-full py-2 rounded-lg my-4 hover:bg-primary-birent-hover ease-in-out duration-300">Masuk</span>
+                                        class="items-center inline-block w-full py-2 my-4 text-center duration-300 ease-in-out rounded-lg cta__login bg-cta-login-birent hover:bg-primary-birent-hover">Masuk</span>
                                 </a>
-                                <h3 class="text-center py-3">atau masuk menggunakan</h3>
-                                <a href="#!">
+                                <h3 class="py-3 text-center">atau masuk menggunakan</h3>
+                                <a href="{{ '/auth/redirect' }}">
                                     <span
-                                        class="w-full bg-google-primary cta__to__google justify-center gap-2 items-center text-center p-2 rounded-lg my-1 font-medium flex hover:bg-google-hover-secondary ease-in-out duration-300">
+                                        class="flex items-center justify-center w-full gap-2 p-2 my-1 font-medium text-center duration-300 ease-in-out rounded-lg bg-google-primary cta__to__google hover:bg-google-hover-secondary">
                                         <svg id="Capa_1" width="30" version="1.1" viewBox="0 0 150 150"
                                             xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
                                             enable-background="new 0 0 150 150">
@@ -97,22 +97,22 @@
                                 </a>
                             </div>
                         </form>
-                        <section class="login__sert text-center my-12 text-sm">
+                        <section class="my-12 text-sm text-center login__sert">
                             Dengan membuat akun kamu menyetujui
                             <a href="#"
-                                class="text-primary-birent font-semibold hover:text-primary-birent-hover hover:underline">
+                                class="font-semibold text-primary-birent hover:text-primary-birent-hover hover:underline">
                                 Syarat & Ketentuan
                             </a>
                             dan
                             <a href="#"
-                                class="text-primary-birent font-semibold hover:text-primary-birent-hover hover:underline">
+                                class="font-semibold text-primary-birent hover:text-primary-birent-hover hover:underline">
                                 Kebijakan Privasi kami.
                             </a>
                         </section>
-                        <section class="login__create__account text-center">
+                        <section class="text-center login__create__account">
                             Belum punya akun?
                             <a href="{{ route('register.form') }}"
-                                class="create__account text-cta-login-birent font-semibold hover:underline">
+                                class="font-semibold create__account text-cta-login-birent hover:underline">
                                 Buat Akun yuk!
                             </a>
                         </section>

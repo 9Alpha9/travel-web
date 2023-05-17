@@ -35,6 +35,10 @@
     {{-- Import Swiper JS Components --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- Jquery & Date Range Picker --}}
+    @include('components.dateRangePicker')
+
     <title>view wisata</title>
 </head>
 
@@ -188,6 +192,7 @@
     </div>
 
     @include('components.footer.footer')
+    @include('components.universalJavascript')
 
     <script type="text/javascript">
         window.openModal = function(modalId) {
@@ -213,30 +218,6 @@
         };
     </script>
 
-    <script type="text/javascript">
-        window.openmodaldate = function(openmodaldatelId) {
-          document.getElementById(openmodaldateId).style.display = 'block'
-          document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden')
-        }
-
-        window.closemodaldate = function(modaleId) {
-          document.getElementById(modalId).style.display = 'none'
-          document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
-        }
-
-        // Close all modals when press ESC
-        document.onkeydown = function(event) {
-          event = event || window.event;
-          if (event.keyCode === 27) {
-            document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden')
-            let modalsdates = document.getElementsByClassName('dateModal');
-            Array.prototype.slice.call(modalsdates).forEach(i => {
-              i.style.display = 'none'
-            })
-          }
-        };
-    </script>
-
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
@@ -255,6 +236,72 @@
       },
     });
     </script>
+    <script>
+        $(function () {
+            $('input[name="datefilterBooking"]').daterangepicker({
+                singleDatePicker: true,
+                autoApply: true,
+                drops: "down",
+                showCustomRangeLabel: false,
+                locale: {
+                    cancelLabel: 'Clear',
+                    daysOfWeek: hariSingkat,
+                    monthNames: namaBulan,
+                    firstday: 1
+                }
+            }, function(start, end, label) {
+                // console.log('input[name="datefilterBooking"]' + start.format('DD-Mon-YYYY') + ' to ' + end.format('DD-Mon-YYYY') + ' (predefined range: ' + label + ')');
+            });
+
+            $('input[name="datefilterBooking"]').on('apply.daterangepicker', function (ev, picker) {
+                $(this).val(customFormatDate(picker.startDate._d));
+            });
+
+            $('input[name="datefilterBooking"]').on('hide.daterangepicker', function (ev, picker) {
+                $(this).val(customFormatDate(new Date(this.value)));
+            });
+
+        });
+
+        $(document).ready(function(){
+            let currentDate = new Date();
+            $('input[name="datefilterBooking"]').val(customFormatDate(currentDate));
+        })
+
+    </script>
+
+    <script>
+        $('button[name="buttonVisitor"]').on('click', function(){
+            let visitor =  $('#jumlahVisitor').val();
+            if(this.id === "visitorPlus"){
+                if(visitor >= 10){
+                    visitor = 10;
+                }
+                else{
+                    visitor++;
+                }
+            }
+            else if(this.id === "visitorMinus"){
+                if(visitor <= 1){
+                    visitor = 1;
+                }
+                else{
+                    visitor--;
+                }
+            }
+            $('#jumlahVisitor').val(visitor);
+        });
+
+        $('#jumlahVisitor').on('change', function(){
+            if(this.value >= 10){
+                this.value = 10;
+            }
+            else if(this.value <= 0){
+                this.value = 1;
+            }
+        });
+    </script>
+
 </body>
 
 </html>

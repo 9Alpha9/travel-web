@@ -161,4 +161,81 @@
 }
 .wisata__information .wisata__header__inf .btn__cta__booking:hover {
   background-color: var(--modalPrimaryBookingHover);
+}
+
+.booking__infoWrapper {
+  background-color: rgb(247, 247, 247);
+  border-radius: 10px;
+}
+.booking__infoWrapper .booking__contentItem {
+  margin: 26px 0;
+  padding: 2em;
+}
+.booking__infoWrapper .booking__contentItem .booking__priceWisata {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.booking__infoWrapper .booking__contentItem .booking__heading h1 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.booking__infoWrapper .booking__contentItem .infoTiket__wisata h1 {
+  font-weight: 500;
+}
+.booking__infoWrapper .booking__contentItem .infoTiket__wisata .informasiTiket__wrapper {
+  padding: 1em;
+}
+.booking__infoWrapper .booking__contentItem .infoTiket__wisata .informasiTiket__wrapper .informasi__pembelianTiket {
+  list-style-type: disc;
+}
+.booking__infoWrapper .booking__contentItem .infoTiket__wisata .moreInfo p {
+  font-size: 0.889em;
+  color: #a3a3a3;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content {
+  margin-top: 60px;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content .booking__cta input {
+  background-color: rgb(212, 212, 212);
+  color: #000000;
+  max-width: 250px;
+  padding: 18px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content .booking__cta input:focus {
+  outline: none;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content .booking__cta .sectionSelects__peopleBooking {
+  position: relative;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content .booking__cta .sectionSelects__peopleBooking .peopleBooking {
+  position: relative;
+  align-items: center;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content .booking__cta .sectionSelects__peopleBooking .peopleBooking button {
+  position: relative;
+  top: -2px;
+  background-color: #e6e6e6;
+  padding: 18px 20px;
+  color: #0f032e;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content .booking__cta .sectionSelects__peopleBooking .peopleBooking button:hover {
+  background-color: #ebebeb;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content .booking__cta .sectionSelects__peopleBooking .peopleBooking .dataInput__people {
+  max-width: 90px;
+  text-align: center;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__button {
+  background-color: #0f032e;
+  padding: 18px 60px;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 500;
+}
+.booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__button:hover {
+  background-color: rgb(31, 7, 92);
 }/*# sourceMappingURL=viewpages-styles.css.map */

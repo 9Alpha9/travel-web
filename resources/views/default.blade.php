@@ -18,11 +18,7 @@
     <link rel="stylesheet" href="{{ asset('asset/styles/homepages/homepages-styles.css') }}">
     <title>Birentcar Travel Agency | Homepages</title>
 
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    @include('components.dateRangePicker')
     @stack('style')
 </head>
 
@@ -38,68 +34,7 @@
     @include('components.footer.footer')
 
 </body>
-
-<script type="text/javascript">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-</script>
-
-<script type=" text/javascript">
-    let namaHari = [
-        "Minggu",
-        "Senin",
-        "Selasa",
-        "Rabu",
-        "Kamis",
-        "Jum'at",
-        "Sabtu"
-    ];
-    let hariSingkat = [
-        "Min",
-        "Sen",
-        "Sel",
-        "Rab",
-        "Kam",
-        "Jum",
-        "Sab"
-    ];
-    let namaBulan = [
-        "Januari",
-        "Februari",
-        "Maret",
-        "April",
-        "Mei",
-        "Juni",
-        "Juli",
-        "Agustus",
-        "September",
-        "Oktober",
-        "November",
-        "Desember"
-    ];
-    let bulanSingkat = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "Mei",
-        "Jun",
-        "Jul",
-        "Ags",
-        "Sep",
-        "Okt",
-        "Nov",
-        "Des"
-    ];
-    function customFormatDate(date){
-        let tempDate = namaHari[date.getDay()] + ", " + date.getDate() + " " + bulanSingkat[date.getMonth()] + " " + date.getFullYear();
-        return tempDate;
-    }
-</script>
-
+@include('components.universalJavascript')
 @stack('scripts')
 
 </html>

@@ -233,3 +233,115 @@
         }
     }
 }
+
+
+.booking__infoWrapper {
+    background-color: rgb(247, 247, 247);
+    border-radius: 10px;
+
+    .booking__contentItem {
+        margin: 26px 0;
+        padding: 2em;
+
+        .booking__priceWisata {
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+
+        .booking__heading {
+
+            h1 {
+                font-size: 1.1em;
+                font-weight: 600;
+            }
+        }
+
+        .infoTiket__wisata {
+            h1 {
+                font-weight: 500;
+            }
+
+            .informasiTiket__wrapper {
+                padding: 1em;
+
+                .informasi__pembelianTiket {
+                    list-style-type: disc;
+                }
+            }
+
+            .moreInfo {
+                p {
+                    font-size: 0.889em;
+                    color: #a3a3a3;
+                }
+            }
+        }
+
+        .booking__ctaWrapper {
+            .booking__content {
+
+
+                margin-top: 60px;
+
+                .booking__cta {
+
+
+                    input {
+                        background-color: rgb(212, 212, 212);
+                        color: #000000;
+                        max-width: 250px;
+                        padding: 18px;
+                        border-radius: 6px;
+                        font-weight: 500;
+
+                    }
+
+                    input:focus {
+                        outline: none;
+                    }
+
+                    .sectionSelects__peopleBooking {
+                        position: relative;
+
+                        .peopleBooking {
+                            position: relative;
+                            align-items: center;
+
+
+                            button {
+                                position: relative;
+                                top: -2px;
+                                background-color: #e6e6e6;
+                                padding: 18px 20px;
+                                color: #0f032e;
+                                border-radius: 6px;
+                                font-weight: 600;
+
+                                &:hover {
+                                    background-color: #ebebeb;
+                                }
+                            }
+
+                            .dataInput__people {
+                                max-width: 90px;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .booking__button {
+                background-color: #0f032e;
+                padding: 18px 60px;
+                color: #ffffff;
+                border-radius: 6px;
+                font-weight: 500;
+
+                &:hover {
+                    background-color: rgb(31, 7, 92);
+                }
+            }
+        }
+    }
+}

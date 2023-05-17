@@ -21,9 +21,9 @@
                 <li class="menu-item">
                     <a href="#">Tempat Wisata</a>
                 </li>
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                     <a href="#">Jawa Timur</a>
-                </li>
+                </li> --}}
                 <li class="menu-item">
                     <a href="#">Tentukan Wisata</a>
                 </li>

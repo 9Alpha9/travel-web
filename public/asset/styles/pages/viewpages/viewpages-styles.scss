@@ -302,6 +302,7 @@
 
                     .sectionSelects__peopleBooking {
                         position: relative;
+                        white-space: nowrap;
 
                         .peopleBooking {
                             position: relative;
@@ -337,6 +338,7 @@
                 color: #ffffff;
                 border-radius: 6px;
                 font-weight: 500;
+                white-space: nowrap;
 
                 &:hover {
                     background-color: rgb(31, 7, 92);

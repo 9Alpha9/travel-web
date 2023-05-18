@@ -208,6 +208,7 @@
 }
 .booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content .booking__cta .sectionSelects__peopleBooking {
   position: relative;
+  white-space: nowrap;
 }
 .booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__content .booking__cta .sectionSelects__peopleBooking .peopleBooking {
   position: relative;
@@ -235,6 +236,7 @@
   color: #ffffff;
   border-radius: 6px;
   font-weight: 500;
+  white-space: nowrap;
 }
 .booking__infoWrapper .booking__contentItem .booking__ctaWrapper .booking__button:hover {
   background-color: rgb(31, 7, 92);

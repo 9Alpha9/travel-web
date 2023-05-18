@@ -14,13 +14,13 @@ class CreateFasilitasWisatasTable extends Migration
     public function up()
     {
         Schema::create('fasilitas_wisatas', function (Blueprint $table) {
-            $table->incremens('id_fasilitas_wisata');
+            $table->increments('id_fasilitas_wisata');
             $table->string('fasilitas_wisata');
-            $table->integer('id_kategori_fasilitas');
+            $table->integer('id_kategori_fasilitas')->unsigned();
             $table->timestamps();
 
             $table->foreign('id_kategori_fasilitas')
-            ->references('id_kategori_fasiltias')->on('kategori_fasilitas')
+            ->references('id_kategori_fasilitas')->on('kategori_fasilitas')
             ->onUpdate('cascade')
             ->onDelete('restrict');
         });

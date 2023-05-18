@@ -15,9 +15,9 @@ class CreateRatingWisatasTable extends Migration
     {
         Schema::create('rating_wisatas', function (Blueprint $table) {
             $table->increments('id_rating_wisata');
-            $table->integer('id_wisata');
+            $table->integer('id_wisata')->unsigned();
             $table->string('niilai');
-            $table->integer('id_user');
+            $table->integer('id_user')->unsigned();
             $table->timestamps();
 
             $table->foreign('id_wisata')

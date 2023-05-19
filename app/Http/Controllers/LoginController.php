@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -15,14 +16,22 @@ class LoginController extends Controller
 
     public function login(Request $request){
         try{
-            $column = $this->username();
-            $user = User::select($column)->where($column, $request->username)->get();
-            if(Auth::attempt([$this->username() => $request->username, 'password' => $request->password])){
-                $request->session()->regenerate();
-                return redirect()->route('landingpage');
+            $column = $this->username($request->email);
+            $user = User::where($column, $request->email)->get();
+            if(!empty($user->first()->email)){
+                if(Auth::attempt([$column => $request->email, 'password' => $request->password])){
+                    $request->session()->regenerate();
+                    return redirect()->route('landingpage');
+                }
+                else{
+                    return back()->withErrors(['wrongPassword' => 'Oops! password yang anda masukkan salah!']);
+                }
+            }
+            else{
+                return back()->withErrors(['userNotFound' =>  "Email dan nomor telphone belum terdaftar!"]);
             }
         } catch(\Exception $e){
-
+            dd($e);
         }
     }
 
@@ -64,12 +73,68 @@ class LoginController extends Controller
         return view('register')->with('register', 'active');
     }
 
-    public function username()
+    public function username($username)
     {
-        $login = request()->input('email');
-        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'no';
-        request()->merge([$field => $login]);
+        $field = filter_var($username, FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile_number';
+        request()->merge([$field => $username]);
         return $field;
+    }
+
+    //tambahkan script di bawah ini
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+
+    //tambahkan script di bawah ini
+    public function handleProviderCallback(Request $request)
+    {
+        try {
+            $user_google    = Socialite::driver('google')->user();
+            $user           = User::where('email', $user_google->getEmail())->first();
+
+            if($user != null){
+                if(!empty($user->social_id)){
+                    if(Auth::attempt(["email" => $user_google->getEmail(), "password" => 0])){
+                        $request->session()->regenerate();
+                        return redirect()->route('landingpage');
+                    }
+                    else{
+                        dd('error auth attempt old');
+                    }
+                    // \auth()->login($user, true);
+                }
+                else{
+                    return redirect()->route('login')->withErrors(['loginError' => 'Email ini sudah terdaftar dengan tidak menggunakan google silahkan login menggunakan email tersebut.']);
+                }
+            }else{
+                $create = User::Create([
+                    'user_type' => 'Pelanggan',
+                    'social_id' => $user_google->getId(),
+                    'email' => $user_google->getEmail(),
+                    'full_name' => $user_google->getName(),
+                    'image' => $user_google->getAvatar(),
+                    'password' => bcrypt(0),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                    'email_verified_at' => now()
+                ]);
+
+                if(Auth::attempt(["email" => $user_google->getEmail(), "password" => 0])){
+                    $request->session()->regenerate();
+                    return redirect()->route('landingpage');
+                }
+                else{
+                    dd('error auth attempt new');
+                }
+                // \auth()->login($create, true);
+            }
+
+        } catch (\Exception $e) {
+            // return redirect()->route('login')->withErrors(['loginError' => "tes"]);
+            dd($e);
+        }
     }
 }
 

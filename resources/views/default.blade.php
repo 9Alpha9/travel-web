@@ -16,6 +16,9 @@
 
     {{-- Import Dependency Homepages Styles --}}
     <link rel="stylesheet" href="{{ asset('asset/styles/homepages/homepages-styles.css') }}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <title>Birentcar Travel Agency | Homepages</title>
 
     @include('components.dateRangePicker')
@@ -27,14 +30,19 @@
 
     @yield('pageContent')
 
-    <form id="formLogout" action="" method="POST" style="display: none;">
-        {{ csrf_field() }}
-    </form>
-
     @include('components.footer.footer')
 
 </body>
 @include('components.universalJavascript')
 @stack('scripts')
+<form id="formLogout" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
+<script>
+    $('#btnLogout').on('click', function(){
+        // alert('tes');
+        $('#formLogout').submit();
+    });
+</script>
 
 </html>

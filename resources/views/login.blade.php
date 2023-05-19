@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="{{ asset('asset/styles/login/login-styles.css') }}">
     <title>Login</title>
 </head>
+@error('loginError')
+@php(dd($message))
+@enderror
 
 <body>
     <div class="login__header">
@@ -47,33 +50,39 @@
                         <h1 class="my-6 login__title">Login</h1>
                     </div>
                     <div class="login__forms">
-                        <form action="" autocomplete="off">
+                        <form method="post" action="{{ route('login') }} " autocomplete="off">
+                            {{ csrf_field() }}
                             <div class="mb-6 ">
-                                <input type="text" id="username-success"
-                                    class="block w-full p-4 text-sm text-green-900 placeholder-green-700 border-green-500 rounded-lg bg-green-50 focus:ring-green-500 focus:border-green-500 dark:bg-green-100 dark:border-green-400"
+                                <input type="text" id="email" name="email" autocomplete="off"
+                                    class="block w-full p-4 text-sm text-red-900 placeholder-red-700 border-red-500 rounded-lg bg-red-50 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400"
                                     placeholder="Nomor Handphone atau Email">
-                                <p class="mt-2 text-sm text-green-600 dark:text-green-500">
+                                @error('userNotFound')
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                     <span class="font-medium availabel__notification">
-                                        Alright! Username available!
+                                        {{ $message }}
                                     </span>
                                 </p>
+                                @enderror
                             </div>
                             <div class="">
-                                <input type="password" id="username-error"
+                                <input type="password" id="password" name="password"
                                     class="block w-full p-4 text-sm text-red-900 placeholder-red-700 border-red-500 rounded-lg bg-red-50 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400"
                                     placeholder="Kata Sandi">
+                                @error('wrongPassword')
                                 <p class="mt-2 text-sm dark:text-red-500">
-                                    <span class="font-medium error__notification__text">Oops! Username already taken!
+                                    <span class="font-medium error__notification__text">
+                                        {{ $message }}
                                     </span>
                                 </p>
+                                @enderror
                             </div>
                             <div class="login__cta__procs">
-                                <a href="#!">
+                                <button type="submit" id="btnLogin" class="w-full button__ctaLogin">
                                     <span
-                                        class="items-center inline-block w-full py-2 my-4 text-center duration-300 ease-in-out rounded-lg cta__login bg-cta-login-birent hover:bg-primary-birent-hover">Masuk</span>
-                                </a>
+                                        class="items-center block w-full py-2 my-4 text-center duration-300 ease-in-out rounded-lg cta__login bg-cta-login-birent hover:bg-primary-birent-hover">Masuk</span>
+                                </button>
                                 <h3 class="py-3 text-center">atau masuk menggunakan</h3>
-                                <a href="{{ '/auth/redirect' }}">
+                                <a href="{{ route('loginGoogle') }}">
                                     <span
                                         class="flex items-center justify-center w-full gap-2 p-2 my-1 font-medium text-center duration-300 ease-in-out rounded-lg bg-google-primary cta__to__google hover:bg-google-hover-secondary">
                                         <svg id="Capa_1" width="30" version="1.1" viewBox="0 0 150 150"

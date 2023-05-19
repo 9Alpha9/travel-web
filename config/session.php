@@ -154,7 +154,7 @@ return [
     | available to in your application. A sensible default has been set.
     |
     */
-
+    // DIGANTI DARI NULL MENJADI LOCALHOST
     'domain' => env('SESSION_DOMAIN', null),
 
     /*

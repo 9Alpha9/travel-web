@@ -272,13 +272,19 @@
   font-weight: 600;
 }
 
-input {
+.input__label {
   width: 25.5rem;
-  border-radius: 10px;
   padding: 10px 1rem;
   font-size: 1em;
   margin: 10px 0;
   color: #000000;
+}
+
+.bg__button__selectGuest {
+  background-color: #1f065e;
+}
+.bg__button__selectGuest:hover {
+  background-color: #360ba1;
 }
 
 input:focus {
@@ -490,6 +496,13 @@ input:focus {
   /* number of lines to show */
   line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+
+.booking__landingPages .button__bookingLanding {
+  background-color: #3237d2;
+}
+.booking__landingPages .button__bookingLanding:hover {
+  background-color: #2a1cf2;
 }
 
 .footer__header {

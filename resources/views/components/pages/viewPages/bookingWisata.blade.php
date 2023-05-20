@@ -14,31 +14,63 @@
         <div class="infoTiket__wisata">
             <h1>Informasi !</h1>
             <ul class="informasiTiket__wrapper">
-                <li class="informasi__pembelianTiket">Tiket hanya berlaku pada tanggal pembelian tiket.</li>
-                <li class="informasi__pembelianTiket">Tiket hanya satu(1) kali penggunaan.</li>
-                <li class="informasi__pembelianTiket">Tiket tidak dapat di tukar.</li>
+                <li class="informasi__pembelianTiket">
+                    <span>
+                        <p>
+                            Tiket hanya berlaku pada saat tanggal pembelian tiket.
+                        </p>
+                    </span>
+                </li>
+                <li class="informasi__pembelianTiket">
+                    <span>
+                        <p>
+                            Tiket hanya satu(1) kali penggunaan.
+                        </p>
+                    </span>
+                </li>
+                <li class="informasi__pembelianTiket">
+                    <span>
+                        <p>
+                            Tiket tidak dapat di tukar.
+                        </p>
+                    </span>
+                </li>
+                <li class="informasi__pembelianTiket">
+                    <span>
+                        <p>
+                            Tiket tidak dapat di wakilkan oleh orang lain.
+                        </p>
+                    </span>
+                </li>
             </ul>
             <div class="moreInfo">
                 <p>informasi lebih lanjut hubungi pengelola tempat wisata terkait.</p>
             </div>
         </div>
         <div class="align-middle booking__ctaWrapper">
-            <div class="flex flex-row justify-between my-6 booking__content">
+            <div class="flex flex-row items-end justify-between my-6 booking__content">
                 <div class="flex booking__cta">
-                    <span class="inline-block sectionSelects__dateBooking">
-                        <input type="text" name="datefilterBooking" value="" class="dateBooking" autocomplete="off" />
+                    <span class="flex flex-col sectionSelects__dateBooking">
+                        <label for="" class="my-4 text-sm">Tanggal Pesanan</label>
+                        <input type="text" name="datefilterBooking" value="" class="border-0 dateBooking w-80"
+                            autocomplete="off" />
                     </span>
-                    <span class="relative bottom-0 inline-block sectionSelects__peopleBooking px-9">
+                    <span class="relative bottom-0 flex flex-col sectionSelects__peopleBooking px-9">
+                        <label for="Guest Booking Wisata" class="my-4 text-sm">Jumlah Tamu / Pengunjung</label>
                         <div class="peopleBooking">
-                            <button class="align-middle" name="buttonVisitor" id="visitorMinus">-</button>
-                            <input type="text" id="jumlahVisitor" class="dataInput__people numberOnly" value='1'
-                                autocomplete="off">
-                            <button class="align-middle" name="buttonVisitor" id="visitorPlus">+</button>
+                            <button class="align-middle" name="buttonVisitor" id="visitorMinus">
+                                <span>-</span>
+                            </button>
+                            <input type="text" id="jumlahVisitor" class="border-0 dataInput__people numberOnly"
+                                value='1' autocomplete="off">
+                            <button class="align-middle" name="buttonVisitor" id="visitorPlus">
+                                <span>+</span>
+                            </button>
                         </div>
                     </span>
                 </div>
-                <div class="buttonCta__booking">
-                    <button class="align-middle booking__button">Pesan Sekarang</button>
+                <div class="align-end buttonCta__booking">
+                    <button class="align-middle booking__button" id="">Pesan Sekarang</button>
                 </div>
             </div>
         </div>

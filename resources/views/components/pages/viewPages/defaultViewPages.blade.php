@@ -26,11 +26,10 @@
     {{-- Import Dependency Viewpages Styles --}}
     <link rel="stylesheet" href="{{ asset('asset/styles/pages/viewpages/viewpages-styles.css') }}">
 
-    {{--
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    <script src="https://cdn.tailwindcss.com/3.2.4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> --}}
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 
     {{-- Import Swiper JS Components --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -194,6 +193,15 @@
     @include('components.footer.footer')
     @include('components.universalJavascript')
 
+    <form id="formLogout" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+    </form>
+    <script>
+        $('#btnLogout').on('click', function(){
+            // alert('tes');
+            $('#formLogout').submit();
+        });
+    </script>
     <script type="text/javascript">
         window.openModal = function(modalId) {
           document.getElementById(modalId).style.display = 'block'

@@ -32,10 +32,10 @@
                 <div class="box__name">
                     <h1>Booking Wisata</h1>
                 </div>
-                <div class="flex flex-col box__reserve__content md:flex-col xl:flex-col">
+                <div class="flex flex-col box__reserve__content md:flex-col xl:flex-col whitespace-nowrap">
                     {{-- Kota Tujuan --}}
-                    <div class="flex flex-col input__selection__stag">
-                        <label for="datePicker" class="input__label__name">Kota Tujuan </label>
+                    <div class="flex flex-col input__selection__stag whitespace-nowrap">
+                        <label class="input__label__name">Kota Tujuan </label>
                         <div class="relative xl:my-3 md:my-3 lg:my-3">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg width="17" height="22" viewBox="0 0 17 22" fill="none"
@@ -45,15 +45,16 @@
                                         fill="#0f032e" />
                                 </svg>
                             </div>
-                            <input type="text" id="city" class="input__label city block pl-10 p-2.5 w-full">
+                            <input type="text" id="city"
+                                class="input__label city block pl-10 p-2.5 w-full rounded-md border-none whitespace-nowrap">
                         </div>
                     </div>
                     {{-- End Kota Tujuan --}}
 
-                    <div class="flex flex-col gap-2 m-auto booking__input md:flex-row xl:flex-row">
+                    <div class="flex flex-col items-center gap-2 booking__input md:flex-row xl:flex-row">
                         {{-- Tempat Wisata --}}
-                        <div class="flex flex-col input__selection__stag">
-                            <label for="datePicker" class="input__label__name">Tempat Wisata</label>
+                        <div class="flex flex-col input__selection__stag whitespace-nowrap">
+                            <label class="input__label__name">Tempat Wisata</label>
                             <div class="relative xl:my-3 md:my-3 lg:my-3">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
@@ -63,14 +64,15 @@
                                             fill="#0f032e" />
                                     </svg>
                                 </div>
-                                <input type="text" id="location" class="input__label block pl-10 p-2.5">
+                                <input type="text" id="location"
+                                    class="input__label block pl-10 p-2.5 rounded-md border-none">
                             </div>
                         </div>
                         {{-- End Tempat Wisata --}}
 
                         {{-- Tanggal Keberangkatan --}}
-                        <div class="flex flex-col input__selection__stag">
-                            <label for="datePicker" class="input__label__name">Tanggal</label>
+                        <div class="flex flex-col input__selection__stag whitespace-nowrap">
+                            <label class="input__label__name">Tanggal</label>
                             <div class="relative xl:my-3 md:my-3 lg:my-3">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <svg width="19" height="21" viewBox="0 0 19 21" fill="none"
@@ -81,37 +83,60 @@
                                     </svg>
                                 </div>
                                 <input type="text" id="date" name="datefilter" value=""
-                                    class="input__label block pl-10 p-2.5">
+                                    class="input__label block pl-14 p-2.5 rounded-md border-none">
                             </div>
                         </div>
                         {{-- End Tanggal Keberangkatan --}}
 
                         {{-- Jumlah Tamu --}}
-                        <div class="flex flex-col input__selection__stag">
-                            <label for="datePicker" class="input__label__name">Tamu</label>
-                            <div class="relative xl:my-3 md:my-3 lg:my-3">
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.6117 13.4755C11.6177 12.7964 12.3819 11.8061 12.7911 10.6513C13.2002 9.49648 13.2327 8.23847 12.8837 7.06344C12.5346 5.88842 11.8226 4.8588 10.853 4.12698C9.88343 3.39515 8.70776 3 7.5 3C6.29224 3 5.11657 3.39515 4.14698 4.12698C3.17738 4.8588 2.46538 5.88842 2.11634 7.06344C1.7673 8.23847 1.79977 9.49648 2.20894 10.6513C2.61812 11.8061 3.38225 12.7964 4.38826 13.4755C2.6721 14.1169 1.19037 15.277 0.142431 16.7998C0.0605761 16.9128 0.0118549 17.047 0.00190304 17.1869C-0.00804883 17.3268 0.0211752 17.4667 0.0861948 17.5904C0.150446 17.7133 0.246224 17.8163 0.363377 17.8884C0.48053 17.9605 0.614696 17.9991 0.751656 18H14.2483C14.3853 17.9991 14.5195 17.9605 14.6366 17.8884C14.7538 17.8163 14.8496 17.7133 14.9138 17.5904C14.9788 17.4667 15.008 17.3268 14.9981 17.1869C14.9881 17.047 14.9394 16.9128 14.8576 16.7998C13.8096 15.277 12.3279 14.1169 10.6117 13.4755Z"
-                                            fill="#0f032e" />
-                                        <path
-                                            d="M21.8742 16.7992C20.8833 15.2775 19.488 14.1176 17.8733 13.4733C18.8222 12.7964 19.5437 11.8063 19.9304 10.6504C20.3171 9.49443 20.3485 8.23435 20.0197 7.05759C19.691 5.88084 19.0198 4.85027 18.1059 4.1192C17.192 3.38813 16.0843 2.99561 14.9476 3.00004C14.4624 3.00282 13.9796 3.07329 13.5112 3.20969C13.4011 3.24543 13.3006 3.30903 13.2178 3.39522C13.135 3.4814 13.0725 3.58768 13.0353 3.70524C12.9998 3.82184 12.9909 3.94598 13.0093 4.0671C13.0277 4.18821 13.0729 4.30274 13.141 4.40092C13.9381 5.55896 14.3959 6.94868 14.4556 8.39081C14.5153 9.83295 14.1741 11.2613 13.4759 12.4918C13.3864 12.6552 13.3558 12.8487 13.3899 13.0351C13.4241 13.2215 13.5206 13.3877 13.661 13.5019C13.9253 13.7243 14.1809 13.953 14.4277 14.1881L14.4717 14.2357C15.4124 15.177 16.1755 16.3065 16.7189 17.5616C16.7747 17.6928 16.8641 17.8039 16.9766 17.8816C17.0891 17.9593 17.2199 18.0004 17.3534 18H21.2926C21.4214 17.9991 21.5475 17.9605 21.6576 17.8884C21.7678 17.8162 21.8579 17.7132 21.9183 17.5902C21.9787 17.4667 22.0065 17.3275 21.9987 17.1881C21.991 17.0486 21.9479 16.9141 21.8742 16.7992Z"
-                                            fill="#0f032e" />
-                                    </svg>
+                        <div class="flex flex-col input__selection__stag whitespace-nowrap">
+                            <label class="input__label__name">Tamu / Pengunjung</label>
+                            <div class="relative items-center w-full xl:my-6 md:my-6 lg:my-6">
+                                <div class="relative guest__heroInner">
+                                    <div class="relative flex items-center gap-3 guets__heroItems">
+                                        <button id=""
+                                            class="p-2 px-6 font-bold text-white rounded-md bg__button__selectGuest">
+                                            <span class="btn__addMinus">-</span>
+                                        </button>
+                                        <div class="absolute px-20 pointer-events-none icon__guest">
+                                            <svg class="flex items-center" width="22" height="21" viewBox="0 0 22 21"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10.6117 13.4755C11.6177 12.7964 12.3819 11.8061 12.7911 10.6513C13.2002 9.49648 13.2327 8.23847 12.8837 7.06344C12.5346 5.88842 11.8226 4.8588 10.853 4.12698C9.88343 3.39515 8.70776 3 7.5 3C6.29224 3 5.11657 3.39515 4.14698 4.12698C3.17738 4.8588 2.46538 5.88842 2.11634 7.06344C1.7673 8.23847 1.79977 9.49648 2.20894 10.6513C2.61812 11.8061 3.38225 12.7964 4.38826 13.4755C2.6721 14.1169 1.19037 15.277 0.142431 16.7998C0.0605761 16.9128 0.0118549 17.047 0.00190304 17.1869C-0.00804883 17.3268 0.0211752 17.4667 0.0861948 17.5904C0.150446 17.7133 0.246224 17.8163 0.363377 17.8884C0.48053 17.9605 0.614696 17.9991 0.751656 18H14.2483C14.3853 17.9991 14.5195 17.9605 14.6366 17.8884C14.7538 17.8163 14.8496 17.7133 14.9138 17.5904C14.9788 17.4667 15.008 17.3268 14.9981 17.1869C14.9881 17.047 14.9394 16.9128 14.8576 16.7998C13.8096 15.277 12.3279 14.1169 10.6117 13.4755Z"
+                                                    fill="#0f032e" />
+                                                <path
+                                                    d="M21.8742 16.7992C20.8833 15.2775 19.488 14.1176 17.8733 13.4733C18.8222 12.7964 19.5437 11.8063 19.9304 10.6504C20.3171 9.49443 20.3485 8.23435 20.0197 7.05759C19.691 5.88084 19.0198 4.85027 18.1059 4.1192C17.192 3.38813 16.0843 2.99561 14.9476 3.00004C14.4624 3.00282 13.9796 3.07329 13.5112 3.20969C13.4011 3.24543 13.3006 3.30903 13.2178 3.39522C13.135 3.4814 13.0725 3.58768 13.0353 3.70524C12.9998 3.82184 12.9909 3.94598 13.0093 4.0671C13.0277 4.18821 13.0729 4.30274 13.141 4.40092C13.9381 5.55896 14.3959 6.94868 14.4556 8.39081C14.5153 9.83295 14.1741 11.2613 13.4759 12.4918C13.3864 12.6552 13.3558 12.8487 13.3899 13.0351C13.4241 13.2215 13.5206 13.3877 13.661 13.5019C13.9253 13.7243 14.1809 13.953 14.4277 14.1881L14.4717 14.2357C15.4124 15.177 16.1755 16.3065 16.7189 17.5616C16.7747 17.6928 16.8641 17.8039 16.9766 17.8816C17.0891 17.9593 17.2199 18.0004 17.3534 18H21.2926C21.4214 17.9991 21.5475 17.9605 21.6576 17.8884C21.7678 17.8162 21.8579 17.7132 21.9183 17.5902C21.9787 17.4667 22.0065 17.3275 21.9987 17.1881C21.991 17.0486 21.9479 16.9141 21.8742 16.7992Z"
+                                                    fill="#0f032e" />
+                                            </svg>
+                                        </div>
+                                        <div class="flex flex-col guestInput__items">
+                                            <input type="text" id="guest"
+                                                class="block  p-2.5 outline-none focus:outline-0 rounded-md border-none text-center w-[17rem] whitespace-nowrap"
+                                                value="1 Tamu">
+                                        </div>
+                                        <button id=""
+                                            class="p-2 px-6 font-bold text-white rounded-md bg__button__selectGuest">
+                                            <span class="btn__addPlus">+</span>
+                                        </button>
+                                    </div>
+                                    <div class="relative guestInfo__wrapper">
+                                        <div class="absolute whitespace-normal guestInfo__items">
+                                            <span class="block py-3 text-xs text-google-hover-secondary"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <input type="text" id="guest" class="input__label block pl-10 p-2.5">
-
                             </div>
                         </div>
                         {{-- End Jumlah Tamu --}}
                     </div>
+                    <div class="py-8 booking__landingPages">
+                        <button type="submit"
+                            class="p-3 text-sm text-white duration-300 ease-in-out rounded-lg hover:text-white button__bookingLanding"
+                            id="">Booking
+                            Sekarang
+                        </button>
+                    </div>
                 </div>
-                <button type="submit"
-                    class="p-3 px-10 my-4 ml-6 text-sm text-white duration-300 ease-in-out rounded-lg md:ml-5 xl:ml-16 bg-primary-birent hover:text-white hover:bg-primary-birent-hover button__submit">Booking
-                    Sekarang
-                </button>
             </div>
         </form>
         {{-- Box Reservasi --}}

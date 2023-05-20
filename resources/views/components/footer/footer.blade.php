@@ -1,6 +1,6 @@
-<footer class="p-4  sm:p-6 dark:bg-gray-900 mt-20 footer__header">
-    <div class="md:flex md:justify-between mt-10 footer__content py-20">
-        <div class="mb-6 md:mb-0 flex flex-col">
+<footer class="p-4 mt-20 sm:p-6 dark:bg-gray-900 footer__header">
+    <div class="py-20 mt-10 md:flex md:justify-between footer__content">
+        <div class="flex flex-col mb-6 md:mb-0">
             <a href="/" class="flex items-center">
                 <svg width="400" height="78" viewBox="0 0 966 78" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -13,8 +13,9 @@
             </span>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            <div>
-                <h2 class="mb-6 text-md font-semibold text-gray-900 uppercase dark:text-white">Tentang Birentcar</h2>
+            <div class="footerHeader__content">
+                <h2 class="mb-6 font-semibold text-white text-gray-900 uppercase text-md dark:text-white">Tentang
+                    Birentcar</h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                     <li class="my-4">
                         <a href="#" class="hover:underline">Cara Pesan</a>
@@ -30,8 +31,9 @@
                     </li>
                 </ul>
             </div>
-            <div>
-                <h2 class="mb-6 text-md font-semibold text-gray-900 uppercase dark:text-white">Ikuti Kami</h2>
+            <div class="px-8 footerHeader__content">
+                <h2 class="mb-6 font-semibold text-white text-gray-900 uppercase text-md dark:text-white">Ikuti Kami
+                </h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                     <li class="my-4">
                         <a href="#" class="hover:underline ">Instagram</a>
@@ -44,8 +46,8 @@
                     </li>
                 </ul>
             </div>
-            <div>
-                <h2 class="mb-6 text-md font-semibold text-gray-900 uppercase dark:text-white">Lainnya</h2>
+            <div class="footerHeader__content">
+                <h2 class="mb-6 font-semibold text-white text-gray-900 uppercase text-md dark:text-white">Lainnya</h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                     <li class="mb-4">
                         <a href="#" class="hover:underline">Privacy Policy</a>

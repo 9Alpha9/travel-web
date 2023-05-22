@@ -1,0 +1,15 @@
+.informationWrapper {
+    max-width: 1000px;
+
+    .items__infoSidebar {
+        border-radius: 10px;
+    }
+
+    .paymet__notSuccess {
+        background-color: rgb(231, 13, 13);
+    }
+
+    .paymet__Success {
+        background-color: rgb(8, 161, 54);
+    }
+}

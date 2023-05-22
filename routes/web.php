@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ViewPagesController;
+use App\Http\Controllers\InformasiPemesananController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/register', [LoginController::class, 'registerForm'])->name('registe
 Route::get('/', function () {
     return view('components/landingpages/home');
 })->name('landingpage');
+Route::get('/informasi-pemesanan', [InformasiPemesananController::class, 'index'])->name('informasi.index');
 
 Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages');
 // Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol

@@ -1,0 +1,12 @@
+.informationWrapper {
+  max-width: 1000px;
+}
+.informationWrapper .items__infoSidebar {
+  border-radius: 10px;
+}
+.informationWrapper .paymet__notSuccess {
+  background-color: rgb(231, 13, 13);
+}
+.informationWrapper .paymet__Success {
+  background-color: rgb(8, 161, 54);
+}/*# sourceMappingURL=informasiPemesanan.css.map */

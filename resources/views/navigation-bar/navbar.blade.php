@@ -49,7 +49,7 @@
                             class="z-10 hidden w-56 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                 aria-labelledby="dropdownDefaultButton">
-                                <a href="#">
+                                <a href="{{ route('informasi.index') }}">
                                     <li
                                         class="block w-full px-4 py-2 info__payStatus hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
                                         <i class="text-lg ri-information-line"></i>
@@ -62,8 +62,10 @@
                                     <li
                                         class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
                                         <i class="text-lg ri-calendar-2-fill"></i>
-                                        <span class="px-3">
-                                            My Booking
+                                        <span class="px-2">
+                                            <a href="">
+                                                My Booking
+                                            </a>
                                         </span>
                                     </li>
                                 </a>
@@ -72,7 +74,7 @@
                                         class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start"
                                         id="btnLogout">
                                         <i class="text-lg ri-logout-circle-r-line"></i>
-                                        <span class="px-3 font-medium">
+                                        <span class="px-4 font-medium">
                                             Log Out
                                         </span>
                                     </button>

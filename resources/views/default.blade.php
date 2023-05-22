@@ -17,6 +17,7 @@
     {{-- Import Dependency Homepages Styles --}}
     <link rel="stylesheet" href="{{ asset('asset/styles/homepages/homepages-styles.css') }}">
 
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <title>Birentcar Travel Agency | Homepages</title>

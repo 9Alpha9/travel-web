@@ -1,8 +1,54 @@
 .informationWrapper {
-    max-width: 1000px;
+    max-width: 986px;
 
-    .items__infoSidebar {
-        border-radius: 10px;
+    .informationContent__container {
+        .items__infoSidebar {
+            border-radius: 10px;
+
+            .profile__account {
+                figure {
+                    .avatar__profiles {
+                        object-fit: cover;
+                        width: 8em;
+                        background-repeat: no-repeat;
+                    }
+                }
+
+                .profile__sideInfo {
+                    width: 200px;
+                    min-width: 0;
+
+                    .profile__sideName {
+                        h2 {
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .information__itemsBooking {
+            .information__contentBooking {
+                .ticket__information {
+                    .title__objectWisata {
+                        .objectwisata__itemsInfo {
+                            .info__span {
+                                width: 300px;
+
+                                h2 {
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .paymet__notSuccess {
@@ -11,5 +57,13 @@
 
     .paymet__Success {
         background-color: rgb(8, 161, 54);
+    }
+
+    .deleteContent__info {
+        background-color: #162f89;
+
+        &:hover {
+            background-color: #1c55f2;
+        }
     }
 }

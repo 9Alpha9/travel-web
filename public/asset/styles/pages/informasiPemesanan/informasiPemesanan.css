@@ -1,12 +1,41 @@
 .informationWrapper {
-  max-width: 1000px;
+  max-width: 986px;
 }
-.informationWrapper .items__infoSidebar {
+.informationWrapper .informationContent__container .items__infoSidebar {
   border-radius: 10px;
+}
+.informationWrapper .informationContent__container .items__infoSidebar .profile__account figure .avatar__profiles {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 8em;
+  background-repeat: no-repeat;
+}
+.informationWrapper .informationContent__container .items__infoSidebar .profile__account .profile__sideInfo {
+  width: 200px;
+  min-width: 0;
+}
+.informationWrapper .informationContent__container .items__infoSidebar .profile__account .profile__sideInfo .profile__sideName h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.informationWrapper .informationContent__container .information__itemsBooking .information__contentBooking .ticket__information .title__objectWisata .objectwisata__itemsInfo .info__span {
+  width: 300px;
+}
+.informationWrapper .informationContent__container .information__itemsBooking .information__contentBooking .ticket__information .title__objectWisata .objectwisata__itemsInfo .info__span h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .informationWrapper .paymet__notSuccess {
   background-color: rgb(231, 13, 13);
 }
 .informationWrapper .paymet__Success {
   background-color: rgb(8, 161, 54);
+}
+.informationWrapper .deleteContent__info {
+  background-color: #162f89;
+}
+.informationWrapper .deleteContent__info:hover {
+  background-color: #1c55f2;
 }/*# sourceMappingURL=informasiPemesanan.css.map */

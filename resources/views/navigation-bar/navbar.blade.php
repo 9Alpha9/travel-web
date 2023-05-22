@@ -54,7 +54,7 @@
                                         class="block w-full px-4 py-2 info__payStatus hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
                                         <i class="text-lg ri-information-line"></i>
                                         <span class="px-3">
-                                            Informasi
+                                            List Pembelian
                                         </span>
                                     </li>
                                 </a>

@@ -3,11 +3,15 @@
 }
 .informationWrapper .informationContent__container .items__infoSidebar {
   border-radius: 10px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 8em;
 }
 .informationWrapper .informationContent__container .items__infoSidebar .profile__account figure .avatar__profiles {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 8em;
+  width: 200px !important;
+  height: 110px;
   background-repeat: no-repeat;
 }
 .informationWrapper .informationContent__container .items__infoSidebar .profile__account .profile__sideInfo {

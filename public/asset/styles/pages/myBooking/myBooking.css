@@ -1,0 +1,40 @@
+.mybookingWrapper {
+  max-width: 986px;
+}
+.mybookingWrapper .informationContent__container .items__bookingSidebar {
+  border-radius: 10px;
+  border-radius: 10px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 8em;
+}
+.mybookingWrapper .informationContent__container .items__bookingSidebar .profile__account figure .avatar__profiles {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 200px !important;
+  height: 110px;
+  background-repeat: no-repeat;
+}
+.mybookingWrapper .informationContent__container .items__bookingSidebar .profile__account .profile__sideInfo {
+  width: 200px;
+  min-width: 0;
+}
+.mybookingWrapper .informationContent__container .items__bookingSidebar .profile__account .profile__sideInfo .profile__sideName h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mybookingWrapper .informationContent__container .information__itemsBooking .information__contentBooking .ticket__information .title__objectWisata .objectwisata__itemsInfo .info__span {
+  width: 300px;
+}
+.mybookingWrapper .informationContent__container .information__itemsBooking .information__contentBooking .ticket__information .title__objectWisata .objectwisata__itemsInfo .info__span h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mybookingWrapper .deleteContent__info {
+  background-color: #162f89;
+}
+.mybookingWrapper .deleteContent__info:hover {
+  background-color: #1c55f2;
+}/*# sourceMappingURL=myBooking.css.map */

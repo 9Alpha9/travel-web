@@ -1,0 +1,90 @@
+.myProfileWrapper {
+  max-width: 986px;
+}
+.myProfileWrapper .informationContent__container .items__profilesSidebar {
+  border-radius: 10px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 8em;
+}
+.myProfileWrapper .informationContent__container .items__profilesSidebar .profile__account figure .avatar__profiles {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 200px !important;
+  height: 110px;
+  background-repeat: no-repeat;
+}
+.myProfileWrapper .informationContent__container .items__profilesSidebar .profile__account .profile__sideInfo {
+  width: 200px;
+  min-width: 0;
+}
+.myProfileWrapper .informationContent__container .items__profilesSidebar .profile__account .profile__sideInfo .profile__sideName h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.myProfileWrapper .information__profileheader {
+  background-color: #0c663d;
+  color: #fff;
+}
+.myProfileWrapper .information__profileheader .iconToogle {
+  background-color: rgb(29, 9, 102);
+  transition: 0.3s ease-in-out;
+}
+.myProfileWrapper .information__profileheader .iconToogle:hover {
+  background-color: rgb(44, 11, 167);
+}
+.myProfileWrapper .information__profileError {
+  background-color: #660c14;
+}
+.myProfileWrapper .information__profileError .iconToogle {
+  background-color: #E4E0DD;
+  color: #000000;
+}
+.myProfileWrapper .information__pictureError {
+  background-color: #660c14;
+}
+.myProfileWrapper .information__pictureError .iconToogle {
+  background-color: #E4E0DD;
+  color: #000000;
+}
+.myProfileWrapper .deleteContent__info {
+  background-color: #162f89;
+}
+.myProfileWrapper .deleteContent__info:hover {
+  background-color: #1c55f2;
+}
+
+.profile__settingContainer .profile__settingWrapper input[type=text] {
+  padding-left: 1em;
+}
+.profile__settingContainer .profile__settingWrapper input[type=file]::file-selector-button {
+  background-color: #162f89;
+  border-top-left-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+.profile__settingContainer .profile__settingWrapper input[type=file]::file-selector-button:hover {
+  background-color: #1c55f2;
+}
+.profile__settingContainer .profile__settingWrapper input[type=number] {
+  padding-left: 1em;
+}
+.profile__settingContainer .profile__settingWrapper input[type=password] {
+  padding-left: 1em;
+}
+.profile__settingContainer .profile__settingWrapper input::-webkit-outer-spin-button,
+.profile__settingContainer .profile__settingWrapper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.profile__settingContainer .profile__settingWrapper .profile__saveButton .profile__saveCall {
+  background-color: #162f89;
+  transition: 0.3s ease-in-out;
+}
+.profile__settingContainer .profile__settingWrapper .profile__saveButton .profile__saveCall:hover {
+  background-color: #1c55f2;
+}
+.profile__settingContainer .error__notificationValue {
+  color: #992F1E;
+  font-weight: 400;
+}/*# sourceMappingURL=myProfiles.css.map */

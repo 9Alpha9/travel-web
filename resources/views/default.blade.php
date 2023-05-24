@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{  csrf_token() }}">
 
     {{-- Defive Font From Fontshare --}}
     <link
@@ -20,9 +21,11 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-    <title>Birentcar Travel Agency | Homepages</title>
+    <title>Birentcar Travel Agency</title>
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     @include('components.dateRangePicker')
     @stack('style')
@@ -45,6 +48,28 @@
     $('#btnLogout').on('click', function(){
         // alert('tes');
         $('#formLogout').submit();
+    });
+
+    $(document).ready(function(){
+        $('input[type="number"]').attr('onkeypress', 'return isNumber(event)');
+    });
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<script>
+    $("input[type='file']").on("change", function (e) {
+        if($(this)[0].files[0].size > 2097152){
+            $('#notifFileSize').attr('style', 'display: show; margin-bottom: 20px;');
+            this.value = "";
+        };
     });
 </script>
 

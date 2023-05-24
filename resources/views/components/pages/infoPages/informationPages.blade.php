@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="{{ asset('asset/styles/pages/informasiPemesanan/informasiPemesanan.css') }}">
 @endpush
 @section('pageContent')
-<div class="h-[60vh] m-auto pt-28 informationWrapper">
+<div class="m-auto pt-28 informationWrapper">
     <div class="flex flex-row gap-10 pt-10 informationContent__container">
-        <div class="relative border shadow-lg information__infoItems items__infoSidebar h-96 bg-gray-primary/10">
+        <div class="border shadow-lg information__infoItems items__infoSidebar h-[30rem] bg-gray-primary/10">
             <div class="flex flex-row items-center gap-4 p-8 overflow-hidden border-b profile__account">
                 <figure class="relative avatar">
                     <img class="object-cover border rounded-full shadow-lg avatar__profiles"
-                        src="{{ !empty(Auth::user()->image) ? !empty(Auth::user()->social_id) ? Auth::user()->image : asset('asset/img/'.Auth::user()->image) : asset('asset/img/avatar.png') }}"
+                        src="{{ !empty(Auth::user()->image) ? !empty(Auth::user()->social_id) ? Auth::user()->image : asset('asset/img/avatar/'.Auth::user()->image) : asset('asset/img/avatar.png') }}"
                         alt="Profile picture">
                 </figure>
                 <div class="flex flex-col profile__sideInfo">
@@ -22,16 +22,24 @@
                     <span class="block text-sm font-thin text-gray-primary">Akun anda</span>
                 </div>
             </div>
-            <div class="mt-10 infoContent__item active bg-gray-primary/20">
-                <a href="#">
+            <div class="mt-10 bookingContent__item text-gray-primary hover:bg-primary-birent/5">
+                <a href="{{ route('profile.index') }}">
                     <span class="flex items-center gap-2 p-8 py-2">
-                        <i class="text-2xl ri-information-line text-cta-login-birent"></i>
+                        <i class="text-2xl ri-account-circle-fill text-cta-login-birent"></i>
+                        <h2 class="font-semibold">Profile Saya</h2>
+                    </span>
+                </a>
+            </div>
+            <div class="mt-2 infoContent__item active bg-gray-primary/20">
+                <a href="{{ route('informasi.index') }}">
+                    <span class="flex items-center gap-2 p-8 py-2">
+                        <i class="text-2xl ri-shopping-bag-fill text-cta-login-birent"></i>
                         <h2 class="font-semibold">List Pembelian</h2>
                     </span>
                 </a>
             </div>
             <div class="mt-2 border-b text-gray-primary infoContent__item hover:bg-primary-birent/5">
-                <a href="#">
+                <a href="{{ route('booking.index') }}">
                     <span class="flex items-center gap-2 p-8 py-2">
                         <i class="text-2xl ri-calendar-2-fill text-cta-login-birent"></i>
                         <h2>My Booking</h2>
@@ -166,8 +174,15 @@
     </div>
 </div>
 
+<form id="formLogout" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
 
 @endsection
-@push('script')
-
+@push('scripts')
+<script>
+    $('#btnLogout').on('click', function(){
+        $('#formLogout').submit();
+    });
+</script>
 @endpush

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{  csrf_token() }}">
 
     {{-- Defive Font From Fontshare --}}
     <link
@@ -14,25 +15,31 @@
     {{-- Import Tailwind Css Components --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="{{ asset('asset/styles/signup-styles/signup-styles.css') }}">
+    @include('components.dateRangePicker')
+    @include('components.universalJavascript')
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <title>Daftar Akun Baru</title>
 </head>
 
 <body>
     <div class="signup__header">
         <div class="signup__wrapper">
-            <div class="signup__item signup__banner hidden xl:block lg:block md:hidden text-text-primary-white">
-                <section class="signup__intro__title text-center pt-20 xl:pt-20 3xl:pt-40 ">
+            <div class="hidden signup__item signup__banner xl:block lg:block md:hidden text-text-primary-white">
+                <section class="pt-20 text-center signup__intro__title xl:pt-20 3xl:pt-40 ">
                     Jelajahi Wisata Di Jawa Timur dan Tentukan Tempat Wisata Tervarofit Anda
                 </section>
-                <p class="text-center py-8">buat akun sekarang biar bisa pilih wisata terfavorit di Jawa Timur</p>
+                <p class="py-8 text-center">buat akun sekarang biar bisa pilih wisata terfavorit di Jawa Timur</p>
                 <img src="{{ asset('asset/img/3DMan.png') }}" alt="">
             </div>
-            <div class="signup__set-up p-10 border-">
+            <div class="p-10 signup__set-up border-">
                 <div class="signup__item__sec__right">
-                    <div class="signup__master__head flex relative">
+                    <div class="relative flex signup__master__head">
                         <span
-                            class="inline-block absolute -top-32 xl:-top-32 lg:-top-32 md:-top-32 lg:right-0 ease-in-out duration-300">
+                            class="absolute inline-block duration-300 ease-in-out -top-32 xl:-top-32 lg:-top-32 md:-top-32 lg:right-0">
                             <a href="/">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -43,82 +50,66 @@
                                 </svg>
                             </a>
                         </span>
-                        <h1 class="signup__title my-6">Buat Akun</h1>
+                        <h1 class="w-full my-6 signup__title">Buat Akun</h1>
                     </div>
                     <div class="signup__forms">
-                        <form action="" autocomplete="off">
-                            <div class="mb-6 ">
-                                <input type="text" id="username-success"
-                                    class="bg-green-50  border-green-500 text-green-900 placeholder-green-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-4 dark:bg-green-100 dark:border-green-400"
-                                    placeholder="Nomor Handphone atau Email">
-                                <p class="mt-2 text-sm text-green-600 dark:text-green-500">
-                                    <span class="font-medium availabel__notification">
-                                        Alright! Username available!
-                                    </span>
-                                </p>
-                                <p class="mt-2 text-sm dark:text-red-500">
-                                    <span class="font-medium error__notification__text">Oops! No. Handphone atau Email
-                                        sudah terdaftar!
+                        <form action="{{ route('register') }}" method="post" autocomplete="off">
+                            {{ csrf_field() }}
+                            <div class="relative mb-6 emailNumber__input">
+                                <label for="emailNumber"
+                                    class="block my-2 text-md text-gray-primary labelInput__type">Email
+                                    atau
+                                    Telephone</label>
+                                <input type="text" id="email" name="email"
+                                    class="block w-full p-4 text-sm rounded-lg inputType__include"
+                                    placeholder="john-doe@yourmail.com">
+                                <p id="notifP" class="mt-2 text-sm text-green-600 dark:text-green-500">
+                                    <span id="notifSpan" class="font-medium availabel__notification">
                                     </span>
                                 </p>
                             </div>
-                            <div class="">
-                                <input type="password" id="username-error"
-                                    class="bg-red-50 border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-4 dark:bg-red-100 dark:border-red-400"
-                                    placeholder="Kata Sandi">
-                                <p class="mt-2 text-sm dark:text-red-500">
-                                    <span class="font-medium error__notification__text">Oops! Password atau No.
-                                        Handphone anda salah!
+                            <div class="mb-6 ">
+                                <label for="fullName" class="block my-2 text-md text-gray-primary labelInput__type">Nama
+                                    Lengkap
+                                    Anda</label>
+                                <input type="text" id="fullname" name="fullname"
+                                    class="block w-full p-4 text-sm rounded-lg inputType__include"
+                                    placeholder="John Doe">
+                                <p id="notifP" class="mt-2 text-sm text-green-600 dark:text-green-500">
+                                    <span id="notifSpan" class="font-medium availabel__notification">
                                     </span>
                                 </p>
+                            </div>
+                            <div class="ctaPassword">
+                                <label for="password" class="block my-2 text-md text-gray-primary labelInput__type">Kata
+                                    sandi</label>
+                                <input type="password" id="password" name="password"
+                                    class="block w-full p-4 text-sm rounded-lg inputType__include">
                             </div>
                             <div class="signup__cta__procs">
-                                <a href="#!">
+                                <button type="submit" id="btnSubmit" class="w-full">
                                     <span
-                                        class="cta__login inline-block text-center items-center bg-cta-login-birent w-full py-2 rounded-lg my-4 hover:bg-primary-birent-hover ease-in-out duration-300">Buat
+                                        class="items-center inline-block w-full py-2 my-4 text-center duration-300 ease-in-out rounded-lg cta__login bg-cta-login-birent hover:bg-primary-birent-hover">Buat
                                         Akun</span>
-                                </a>
-                                <h3 class="text-center py-3">atau menggunakan</h3>
-                                <a href="#!">
-                                    <span
-                                        class="w-full bg-google-primary cta__to__google justify-center gap-2 items-center text-center p-2 rounded-lg my-1 font-medium flex hover:bg-google-hover-secondary ease-in-out duration-300">
-                                        <svg id="Capa_1" width="30" version="1.1" viewBox="0 0 150 150"
-                                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-                                            enable-background="new 0 0 150 150">
-                                            <path
-                                                d="M120 76.1c0-3.1-.3-6.3-.8-9.3H75.9v17.7h24.8c-1 5.7-4.3 10.7-9.2 13.9l14.8 11.5C115 101.8 120 90 120 76.1z"
-                                                fill="#ffffff"> </path>
-                                            <path
-                                                d="M75.9 120.9c12.4 0 22.8-4.1 30.4-11.1L91.5 98.4c-4.1 2.8-9.4 4.4-15.6 4.4-12 0-22.1-8.1-25.8-18.9L34.9 95.6c7.8 15.5 23.6 25.3 41 25.3z"
-                                                fill="#ffffff"> </path>
-                                            <path
-                                                d="M50.1 83.8c-1.9-5.7-1.9-11.9 0-17.6L34.9 54.4c-6.5 13-6.5 28.3 0 41.2l15.2-11.8z"
-                                                fill="#ffffff"> </path>
-                                            <path
-                                                d="M75.9 47.3c6.5-.1 12.9 2.4 17.6 6.9L106.6 41c-8.3-7.8-19.3-12-30.7-11.9-17.4 0-33.2 9.8-41 25.3l15.2 11.8c3.7-10.9 13.8-18.9 25.8-18.9z"
-                                                fill="#ffffff"> </path>
-                                        </svg>
-                                        Google
-                                    </span>
-                                </a>
+                                </button>
                             </div>
                         </form>
-                        <section class="signup__sert text-center my-12 text-sm">
+                        <section class="my-12 text-sm text-center signup__sert">
                             Dengan membuat akun kamu menyetujui
                             <a href="#"
-                                class="text-primary-birent font-semibold hover:text-primary-birent-hover hover:underline">
+                                class="font-semibold text-primary-birent hover:text-primary-birent-hover hover:underline">
                                 Syarat & Ketentuan
                             </a>
                             dan
                             <a href="#"
-                                class="text-primary-birent font-semibold hover:text-primary-birent-hover hover:underline">
+                                class="font-semibold text-primary-birent hover:text-primary-birent-hover hover:underline">
                                 Kebijakan Privasi kami.
                             </a>
                         </section>
-                        <section class="signup__create__account text-center">
+                        <section class="text-center signup__create__account">
                             Sudah punya akun?
                             <a href="{{ route('login') }}"
-                                class="create__account text-cta-login-birent font-semibold hover:underline">
+                                class="font-semibold create__account text-cta-login-birent hover:underline">
                                 Log In aja
                             </a>
                         </section>
@@ -127,6 +118,33 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#email').on('change', function(){
+            $('#btnSubmit').prop('disabled', true);
+        });
+        $('#email').blur(function(){
+            let email = $(this).val();
+            $.ajax({
+                type:"POST",
+                url:"{{ route('register.check') }}",
+                data:{
+                    email:email
+                },
+                success: function(response){
+                    if(response['userStatus'] == "empty"){
+                        $('#notifP').attr('class', 'mt-2 text-sm text-green-600 dark:text-green-500');
+                        $('#notifSpan').attr('class', 'font-medium availabel__notification');
+                        $('#btnSubmit').prop('disabled', false);
+                    }
+                    else if(response['userStatus'] == "exist"){
+                        $('#notifP').attr('class', 'mt-2 text-sm dark:text-red-500');
+                        $('#notifSpan').attr('class', 'font-medium error__notification__text');
+                    }
+                    $('#notifSpan').html(response['message']);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

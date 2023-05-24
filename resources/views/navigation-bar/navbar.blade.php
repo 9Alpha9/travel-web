@@ -33,9 +33,10 @@
                             class="inline-flex items-center gap-4 px-4 py-2 text-sm font-medium text-center text-white rounded-lg"
                             type="button">
                             <div class="gap-4 avatar__user">
-                                <figure class="w-8 ">
-                                    <img class="rounded-full" src={{ !empty(Auth::user()->image) ? Auth::user()->image :
-                                    asset('asset/img/avatar.png') }} alt="">
+                                <figure class="w-8">
+                                    <img class="rounded-full w-8 h-8 object-cover"
+                                        src="{{ !empty(Auth::user()->image) ? !empty(Auth::user()->social_id) ? Auth::user()->image : asset('asset/img/avatar/'.Auth::user()->image) : asset('asset/img/avatar.png') }}"
+                                        alt="">
                                 </figure>
                             </div>
                             {{ Auth::user()->full_name }}
@@ -49,23 +50,30 @@
                             class="z-10 hidden w-56 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                 aria-labelledby="dropdownDefaultButton">
+                                <a href="{{ route('profile.index') }}">
+                                    <li
+                                        class="block w-full px-4 py-2 info__payStatus hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
+                                        <i class="text-lg ri-account-circle-fill"></i>
+                                        <span class="px-2">
+                                            Profile
+                                        </span>
+                                    </li>
+                                </a>
                                 <a href="{{ route('informasi.index') }}">
                                     <li
                                         class="block w-full px-4 py-2 info__payStatus hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
-                                        <i class="text-lg ri-information-line"></i>
-                                        <span class="px-3">
+                                        <i class="text-lg ri-shopping-bag-line"></i>
+                                        <span class="px-2">
                                             List Pembelian
                                         </span>
                                     </li>
                                 </a>
-                                <a href="#">
+                                <a href="{{ route('booking.index') }}">
                                     <li
                                         class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
                                         <i class="text-lg ri-calendar-2-fill"></i>
                                         <span class="px-2">
-                                            <a href="">
-                                                My Booking
-                                            </a>
+                                            My Booking
                                         </span>
                                     </li>
                                 </a>
@@ -74,7 +82,7 @@
                                         class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start"
                                         id="btnLogout">
                                         <i class="text-lg ri-logout-circle-r-line"></i>
-                                        <span class="px-4 font-medium">
+                                        <span class="px-2 font-medium">
                                             Log Out
                                         </span>
                                     </button>

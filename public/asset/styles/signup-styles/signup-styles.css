@@ -75,9 +75,13 @@
 }
 
 input {
-  background-color: #EFEFEF;
+  background-color: #c5c5c5;
   color: var(--loginInputFormText);
   font-family: "Quicksand", sans-serif;
+}
+
+.inputType__include {
+  background-color: rgb(245, 245, 245);
 }
 
 .error__notification__text {

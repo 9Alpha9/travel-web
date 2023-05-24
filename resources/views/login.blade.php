@@ -17,9 +17,6 @@
     <link rel="stylesheet" href="{{ asset('asset/styles/login/login-styles.css') }}">
     <title>Login</title>
 </head>
-@error('loginError')
-@php(dd($message))
-@enderror
 
 <body>
     <div class="login__header">

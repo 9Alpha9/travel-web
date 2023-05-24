@@ -1,8 +1,9 @@
-.informationWrapper {
+.mybookingWrapper {
     max-width: 986px;
 
     .informationContent__container {
-        .items__infoSidebar {
+        .items__bookingSidebar {
+            border-radius: 10px;
             border-radius: 10px;
             position: sticky;
             position: -webkit-sticky;
@@ -53,14 +54,6 @@
                 }
             }
         }
-    }
-
-    .paymet__notSuccess {
-        background-color: rgb(231, 13, 13);
-    }
-
-    .paymet__Success {
-        background-color: rgb(8, 161, 54);
     }
 
     .deleteContent__info {

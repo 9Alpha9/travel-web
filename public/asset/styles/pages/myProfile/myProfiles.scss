@@ -1,0 +1,126 @@
+.myProfileWrapper {
+    max-width: 986px;
+
+    .informationContent__container {
+        .items__profilesSidebar {
+            border-radius: 10px;
+            position: sticky;
+            position: -webkit-sticky;
+            top: 8em;
+
+            .profile__account {
+                figure {
+                    .avatar__profiles {
+                        object-fit: cover;
+                        width: 200px !important;
+                        height: 110px;
+                        background-repeat: no-repeat;
+                    }
+                }
+
+                .profile__sideInfo {
+                    width: 200px;
+                    min-width: 0;
+
+                    .profile__sideName {
+                        h2 {
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .information__profileheader {
+        background-color: #0c663d;
+        color: #fff;
+
+        .iconToogle {
+            background-color: rgb(29, 9, 102);
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                background-color: rgb(44, 11, 167);
+            }
+        }
+    }
+
+    .information__profileError {
+        background-color: #660c14;
+
+        .iconToogle {
+            background-color: #E4E0DD;
+            color: #000000;
+        }
+    }
+
+    .information__pictureError {
+        background-color: #660c14;
+
+        .iconToogle {
+            background-color: #E4E0DD;
+            color: #000000;
+        }
+    }
+
+    .deleteContent__info {
+        background-color: #162f89;
+
+        &:hover {
+            background-color: #1c55f2;
+        }
+    }
+}
+
+.profile__settingContainer {
+    .profile__settingWrapper {
+
+        input[type="text"] {
+            padding-left: 1em;
+        }
+
+        input[type="file"]::file-selector-button {
+            background-color: #162f89;
+            border-top-left-radius: 10px;
+            transition: .3s ease-in-out;
+
+            &:hover {
+                background-color: #1c55f2;
+            }
+        }
+
+        input[type="number"] {
+            padding-left: 1em;
+        }
+
+        input[type="password"] {
+            padding-left: 1em;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .profile__saveButton {
+            .profile__saveCall {
+                background-color: #162f89;
+                transition: .3s ease-in-out;
+
+                &:hover {
+                    background-color: #1c55f2;
+                }
+            }
+        }
+    }
+
+    .error__notificationValue {
+        color: #992F1E;
+        font-weight: 400;
+    }
+}

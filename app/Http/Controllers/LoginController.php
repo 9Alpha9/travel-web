@@ -48,25 +48,40 @@ class LoginController extends Controller
             $uploadedFile->move(base_path('public/images/avatar/'), $filename);
         }
 
+        $column = $this->username($request->email);
+
         try{
             $newUser = User::create([
-                'id_role' => '4',
-                'username' => $request->username,
-                'name' => $request->name,
+                'user_type' => 'Pelanggan',
+                $column => $request->email,
+                'full_name' => $request->fullname,
                 'avatar' => isset($filename) ? $filename:'default.jpg',
-                'email'=> $request->email,
                 'password' => bcrypt($request->password),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
 
-            Auth::attempt(['email' => $request->email, 'password' => $request->password]);
-            return redirect()->route('dashboard');
+            Auth::attempt([$column => $request->email, 'password' => $request->password]);
+            return redirect()->route('landingpage');
         }
         catch(\Exception $e){
             dd($e);
         }
+    }
 
+    public function checkUsername(Request $request){
+        try{
+            $column = $this->username($request->email);
+            $user = User::where($column, $request->email)->get();
+            if(!empty($user->first()->email)){
+                return response()->json(['userStatus' =>  "exist", 'message' => "Oops! No. Handphone atau Email sudah terdaftar!"]);
+            }
+            else{
+                return response()->json(['userStatus' =>  "empty", 'message' => "Alright! Phone Number or Email available!"]);
+            }
+        } catch(\Exception $e){
+            dd($e);
+        }
     }
 
     public function registerForm(){

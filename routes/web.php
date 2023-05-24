@@ -3,6 +3,8 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ViewPagesController;
 use App\Http\Controllers\InformasiPemesananController;
+use App\Http\Controllers\MyBookingController;
+use App\Http\Controllers\ProfileAccountController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [LoginController::class, 'index'])->name('login.form');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::post('/register', [LoginController::class, 'register']);
+Route::post('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register/check', [LoginController::class, 'checkUsername'])->name('register.check');
 Route::get('/register', [LoginController::class, 'registerForm'])->name('register.form');
 Route::get('/', function () {
     return view('components/landingpages/home');
 })->name('landingpage');
 Route::get('/informasi-pemesanan', [InformasiPemesananController::class, 'index'])->name('informasi.index');
+Route::get('/pesanan-saya', [MyBookingController::class,'index'])->name('booking.index');
+Route::get('/profile-saya',[ProfileAccountController::class,'index'])->name('profile.index');
+Route::post('/profile-save',[ProfileAccountController::class,'save'])->name('profile.save');
 
 Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages');
 // Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol

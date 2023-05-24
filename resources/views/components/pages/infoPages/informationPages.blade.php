@@ -8,7 +8,7 @@
         <div class="border shadow-lg information__infoItems items__infoSidebar h-[30rem] bg-gray-primary/10">
             <div class="flex flex-row items-center gap-4 p-8 overflow-hidden border-b profile__account">
                 <figure class="relative avatar">
-                    <img class="object-cover border rounded-full shadow-lg avatar__profiles"
+                    <img class="block object-cover border rounded-full shadow-lg pointer-events-none avatar__profiles"
                         src="{{ !empty(Auth::user()->image) ? !empty(Auth::user()->social_id) ? Auth::user()->image : asset('asset/img/avatar/'.Auth::user()->image) : asset('asset/img/avatar.png') }}"
                         alt="Profile picture">
                 </figure>

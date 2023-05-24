@@ -34,7 +34,7 @@
                             type="button">
                             <div class="gap-4 avatar__user">
                                 <figure class="w-8">
-                                    <img class="rounded-full w-8 h-8 object-cover"
+                                    <img class="object-cover w-8 h-8 rounded-full"
                                         src="{{ !empty(Auth::user()->image) ? !empty(Auth::user()->social_id) ? Auth::user()->image : asset('asset/img/avatar/'.Auth::user()->image) : asset('asset/img/avatar.png') }}"
                                         alt="">
                                 </figure>
@@ -55,7 +55,7 @@
                                         class="block w-full px-4 py-2 info__payStatus hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
                                         <i class="text-lg ri-account-circle-fill"></i>
                                         <span class="px-2">
-                                            Profile
+                                            Profile Saya
                                         </span>
                                     </li>
                                 </a>
@@ -77,7 +77,7 @@
                                         </span>
                                     </li>
                                 </a>
-                                <li class="sign__outAccount">
+                                <li class="border-t sign__outAccount">
                                     <button
                                         class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start"
                                         id="btnLogout">

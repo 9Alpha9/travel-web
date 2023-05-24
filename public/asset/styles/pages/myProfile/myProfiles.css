@@ -60,14 +60,18 @@
 }
 .profile__settingContainer .profile__settingWrapper input[type=file]::file-selector-button {
   background-color: #162f89;
-  border-top-left-radius: 10px;
   transition: 0.3s ease-in-out;
 }
 .profile__settingContainer .profile__settingWrapper input[type=file]::file-selector-button:hover {
   background-color: #1c55f2;
 }
 .profile__settingContainer .profile__settingWrapper input[type=number] {
-  padding-left: 1em;
+  padding-left: 3.4em;
+  overflow: hidden;
+}
+.profile__settingContainer .profile__settingWrapper input[type=number]:focus {
+  outline: none;
+  overflow: hidden;
 }
 .profile__settingContainer .profile__settingWrapper input[type=password] {
   padding-left: 1em;

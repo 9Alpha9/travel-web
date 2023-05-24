@@ -7,12 +7,12 @@
 @error('serverError')
 @php(dd($message))
 @enderror
-<div class=" m-auto pt-28 myProfileWrapper">
+<div class="m-auto pt-28 myProfileWrapper">
     <div class="flex flex-row gap-10 pt-10 informationContent__container">
         <div class="border shadow-lg information__profilesItems items__profilesSidebar h-[30rem] bg-gray-primary/10">
             <div class="flex flex-row items-center gap-4 p-8 overflow-hidden border-b profile__account">
                 <figure class="relative avatar">
-                    <img class="object-cover border rounded-full shadow-lg avatar__profiles"
+                    <img class="block object-cover border rounded-full shadow-lg pointer-events-none avatar__profiles"
                         src="{{ !empty(Auth::user()->image) ? !empty(Auth::user()->social_id) ? Auth::user()->image : asset('asset/img/avatar/'.Auth::user()->image) : asset('asset/img/avatar.png') }}"
                         alt="Profile picture">
                 </figure>
@@ -62,62 +62,65 @@
         <div class="w-full information__infoBookingItems items__infoBookingContent">
             <div id="notifSaveAccount"
                 style="display: @if(session('saveAccount')) show @else none @enderror; margin-bottom: 20px;"
-                class="flex flex-row items-center gap-4 p-4 border rounded-md shadow-md information__profileheader relative">
+                class="relative flex flex-row items-center gap-4 p-4 border rounded-md shadow-md information__profileheader">
                 <h1>Perubahan profile berhasil disimpan</h1>
-                <div class="iconClose absolute right-6">
-                    <i class="ri-close-fill iconToogle p-2 rounded-full cursor-pointer"
+                <div class="absolute iconClose right-6">
+                    <i class="p-2 rounded-full cursor-pointer ri-close-fill iconToogle"
                         onclick="$('#notifSaveAccount').attr('style', 'display: none')"></i>
                 </div>
             </div>
             <div id="notifSaveError"
-                class="flex flex-row items-center gap-4 p-4 border rounded-md shadow-md information__profileError relative"
+                class="relative flex flex-row items-center gap-4 p-4 border rounded-md shadow-md information__profileError"
                 style="display: @if($errors->any()) show @else none @endif; margin-bottom: 20px;">
                 <h1 class="text-white">Oops! Perubahan akun tidak tersimpan.</h1>
-                <div class="iconClose absolute right-6">
-                    <i class="ri-close-fill iconToogle p-2 rounded-full cursor-pointer"
+                <div class="absolute iconClose right-6">
+                    <i class="p-2 rounded-full cursor-pointer ri-close-fill iconToogle"
                         onclick="$('#notifSaveError').attr('style', 'display: none')"></i>
                 </div>
             </div>
             <div id="notifFileSize"
-                class="flex flex-row items-center gap-4 p-4 pb-4 border rounded-md shadow-md information__pictureError relative"
+                class="relative flex flex-row items-center gap-4 p-4 pb-4 border rounded-md shadow-md information__pictureError"
                 style="display: none ; margin-bottom: 20px;">
                 <h1 class="text-white">Oops! Silahkan periksa ukuran gambar anda.</h1>
-                <div class="iconClose absolute right-6">
-                    <i class="ri-close-fill iconToogle p-2 rounded-full cursor-pointer"
+                <div class="absolute iconClose right-6">
+                    <i class="p-2 rounded-full cursor-pointer ri-close-fill iconToogle"
                         onclick="$('#notifFileSize').attr('style', 'display: none; ');"></i>
                 </div>
             </div>
-            <div class="information__profiles border rounded-lg">
-                <div class="profilesContainer__inner bg-gray-primary/10 p-4 rounded-lg py-6 shadow-lg">
+            <div class="border rounded-lg information__profiles">
+                <div class="p-4 py-6 rounded-lg shadow-lg profilesContainer__inner bg-gray-primary/10">
                     <span class=""></span>
                     <div class="profilesContent__inner">
-                        <div class="viewProfile__images flex  flex-col gap-5">
-                            <figure class="images__itemsBanner items-center m-auto border-2 rounded-full p-3">
+                        <div class="flex flex-col gap-5 viewProfile__images">
+                            <figure class="items-center p-3 m-auto border-2 rounded-full images__itemsBanner">
                                 <img src="{{ !empty(Auth::user()->image) ? !empty(Auth::user()->social_id) ? Auth::user()->image : asset('asset/img/avatar/'.Auth::user()->image) : asset('asset/img/avatar.png') }}"
-                                    class="rounded-full h-60 object-cover w-60 shadow-md pointer-events-none"
+                                    class="object-cover rounded-full shadow-md pointer-events-none h-60 w-60"
                                     alt="Profile">
                             </figure>
-                            <div class="profile__inputUpload profile__settingContainer relative">
-                                <form action="{{ route('profile.save') }}" method="post" enctype="multipart/form-data">
+                            <div class="relative profile__inputUpload profile__settingContainer">
+                                <form action="{{ route('profile.save') }}" method="post" enctype="multipart/form-data"
+                                    autocomplete="off
+                                ">
                                     {{ csrf_field() }}
-                                    <div class="profileChange__pictures profile__settingWrapper p-3">
+                                    <div class="p-3 profileChange__pictures profile__settingWrapper">
                                         <div class="sectionInput__profile"
                                             style="display: {{ !empty(Auth::user()->social_id) ? 'none' : 'show' }}">
                                             <input type="file" name="avatarProfile" id="avatarProfile"
-                                                accept="image/jpg, image/png, image/jpeg"
+                                                autocomplete="off" accept="image/jpg, image/png, image/jpeg"
                                                 class="avatarImages__profile bg-cta-login-birent" {{
                                                 !empty(Auth::user()->social_id) ? 'disabled' : '' }}>
                                             <span
-                                                class="profile__pictureRules font-sans text-sm py-2 block text-gray-primary">
-                                                <h2>format png, jpg, jpeg, maksimal 2mb.</h2>
+                                                class="block py-4 font-sans text-sm font-thin profile__pictureRules text-gray-primary">
+                                                <h2>format png, jpg, jpeg, maksimal ukuran gambar 2mb.</h2>
                                             </span>
+                                            <div class="block mt-4 border-b "></div>
                                         </div>
-                                        <div class="sectionInput__name name__profileSettings">
-                                            <div class="sectionInput__nameContent mt-4">
+                                        <div class="sectionInput__name name__profileSettings ">
+                                            <div class="mt-4 sectionInput__nameContent whitespace-nowrap">
                                                 <div class="sectionInput__nameItems">
                                                     <span class="block">
                                                         <label for="FullnameProfile"
-                                                            class="py-3 inline-block whitespace-nowrap">Nama
+                                                            class="inline-block py-3 whitespace-nowrap">Nama
                                                             Lengkap</label>
                                                     </span>
                                                     <input type="text" name="profileUsername"
@@ -128,20 +131,27 @@
                                                 <div class="sectionInput__nameItems">
                                                     <span class="block"></span>
                                                     <label for="FullnameProfile"
-                                                        class="py-3 inline-block whitespace-nowrap">Nomor
+                                                        class="inline-block py-3 whitespace-nowrap">Nomor
                                                         Telephone</label>
                                                     </span>
-                                                    <input type="number" name="phoneNumber"
-                                                        placeholder="{{ !empty(Auth::user()->mobile_number) ? Auth::user()->mobile_number : '' }}"
-                                                        maxlength="12" id="phoneNumber" autocomplete="off"
-                                                        class="w-full rounded-full text-gray-primary input__numberProfile">
+                                                    <div class="relative flex items-center phoneNumber__class">
+                                                        <span
+                                                            class="absolute block p-[10px] text-white rounded-tl-full rounded-bl-full numbers__phoneLabel bg-cta-login-birent text-sm">
+                                                            +62
+                                                        </span>
+                                                        <input type="number" name="phoneNumber"
+                                                            placeholder="{{ !empty(Auth::user()->mobile_number) ? Auth::user()->mobile_number : '' }}"
+                                                            maxlength="12" id="phoneNumber" autocomplete="off"
+                                                            class="w-full rounded-full text-gray-primary input__numberProfile">
+                                                    </div>
                                                 </div>
                                                 <div class="sectionInput__nameItems">
                                                     <span class="block">
                                                         <label for="EmailProfile"
-                                                            class="py-3 inline-block whitespace-nowrap">Email</label>
+                                                            class="inline-block py-3 whitespace-nowrap">Email</label>
                                                     </span>
                                                     <input type="text" name="emailProfile" value="" id="emailProfile"
+                                                        autocomplete="off"
                                                         placeholder="{{ !empty(Auth::user()->email) ? Auth::user()->email : '' }}"
                                                         class="w-full rounded-full text-gray-primary input__numberProfile"
                                                         @if(!empty(Auth::user()->social_id)) disabled @endif>
@@ -156,18 +166,18 @@
                                                 <div class="sectionInput__nameItems">
                                                     <span class="block">
                                                         <label for="PasswordProfile"
-                                                            class="py-3 inline-block whitespace-nowrap">Password</label>
+                                                            class="inline-block py-3 whitespace-nowrap">Password</label>
                                                     </span>
-                                                    <div class="input__password flex items-center relative">
-                                                        <div class="password__inputValue w-full">
+                                                    <div class="relative flex items-center input__password">
+                                                        <div class="w-full password__inputValue">
                                                             <input type="password" name="password" value=""
-                                                                id="password" placeholder="password"
+                                                                autocomplete="off" id="password" placeholder="password"
                                                                 class="w-full rounded-full text-gray-primary input__numberProfile"
                                                                 @if(!empty(Auth::user()->social_id)) disabled @endif>
                                                         </div>
-                                                        <div class="iconsProfile absolute right-3" id="showPassword">
+                                                        <div class="absolute iconsProfile right-3" id="showPassword">
                                                             {{-- <i
-                                                                class="ri-eye-fill cursor-pointer text-primary-birent"></i>
+                                                                class="cursor-pointer ri-eye-fill text-primary-birent"></i>
                                                             --}}
 
                                                         </div>
@@ -175,9 +185,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <span class="block profile__saveButton mt-8">
+                                        <div class="py-4 border-b"></div>
+                                        <span class="block mt-8 profile__saveButton">
                                             <button
-                                                class="profile__saveCall py-2 px-16 inline-block rounded-2xl text-white w-full"
+                                                class="inline-block w-full px-16 py-2 text-white profile__saveCall rounded-2xl"
                                                 type="submit" id="saveProfile">Simpan</button>
                                         </span>
                                     </div>

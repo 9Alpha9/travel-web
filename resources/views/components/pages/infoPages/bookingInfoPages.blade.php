@@ -9,7 +9,7 @@
         <div class="border shadow-lg information__bookingItems items__bookingSidebar h-[30rem] bg-gray-primary/10">
             <div class="flex flex-row items-center gap-4 p-8 overflow-hidden border-b profile__account">
                 <figure class="relative avatar">
-                    <img class="object-cover border rounded-full shadow-lg avatar__profiles"
+                    <img class="block object-cover border rounded-full shadow-lg pointer-events-none avatar__profiles"
                         src="{{ !empty(Auth::user()->image) ? !empty(Auth::user()->social_id) ? Auth::user()->image : asset('asset/img/avatar/'.Auth::user()->image) : asset('asset/img/avatar.png') }}"
                         alt="Profile picture">
                 </figure>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="mt-10 bookingContent__item text-gray-primary hover:bg-primary-birent/5">
-                <a href="{{ route('informasi.index') }}">
+                <a href="{{ route('profile.index') }}">
                     <span class="flex items-center gap-2 p-8 py-2">
                         <i class="text-2xl ri-account-circle-fill text-cta-login-birent"></i>
                         <h2 class="font-semibold">Profile Saya</h2>

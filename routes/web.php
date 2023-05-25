@@ -4,6 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ViewPagesController;
 use App\Http\Controllers\InformasiPemesananController;
 use App\Http\Controllers\MyBookingController;
+use App\Http\Controllers\PaymentWisataController;
 use App\Http\Controllers\ProfileAccountController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -29,6 +30,7 @@ Route::get('/informasi-pemesanan', [InformasiPemesananController::class, 'index'
 Route::get('/pesanan-saya', [MyBookingController::class,'index'])->name('booking.index');
 Route::get('/profile-saya',[ProfileAccountController::class,'index'])->name('profile.index');
 Route::post('/profile-save',[ProfileAccountController::class,'save'])->name('profile.save');
+Route::post('/pembayaran-tiket/{id}', [OrderTicketController::class, 'show'])->name('payment');
 
 Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages');
 // Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol

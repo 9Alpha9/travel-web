@@ -48,4 +48,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Wisata(){
+        return $this->hasMany(Wisata::class, 'id_pengelolah', 'id_user');
+    }
+
+    public function OrderTicket(){
+        return $this->hasMany(OrderTicket::class, 'id_pelanggan', 'id_user');
+    }
 }

@@ -40,10 +40,10 @@
                     .title__objectWisata {
                         .objectwisata__itemsInfo {
                             .info__span {
-                                width: 300px;
+                                width: 330px;
 
                                 h2 {
-                                    white-space: nowrap;
+                                    white-space: wrap;
                                     overflow: hidden;
                                     text-overflow: ellipsis;
                                 }

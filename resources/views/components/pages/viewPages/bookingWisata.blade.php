@@ -51,9 +51,9 @@
             <div class="flex flex-row items-end justify-between my-6 booking__content">
                 <div class="flex booking__cta">
                     <span class="flex flex-col sectionSelects__dateBooking">
-                        <label for="" class="my-4 text-sm">Tanggal Pesanan</label>
-                        <input type="text" name="datefilterBooking" value="" class="border-0 dateBooking w-80"
-                            autocomplete="off" />
+                        <label for="tanggal_tiket" class="my-4 text-sm">Tanggal Pesanan</label>
+                        <input type="text" name="datefilterBooking" id="tanggal_tiket" name="tanggal_tiket" value=""
+                            class="border-0 dateBooking w-80" autocomplete="off" />
                     </span>
                     <span class="relative bottom-0 flex flex-col sectionSelects__peopleBooking px-9">
                         <label for="Guest Booking Wisata" class="my-4 text-sm">Jumlah Tamu / Pengunjung</label>
@@ -70,7 +70,7 @@
                     </span>
                 </div>
                 <div class="align-end buttonCta__booking">
-                    <button class="align-middle booking__button" id="">Pesan Sekarang</button>
+                    <button class="align-middle booking__button" id="paymentTicket">Pesan Sekarang</button>
                 </div>
             </div>
         </div>

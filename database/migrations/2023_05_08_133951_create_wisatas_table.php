@@ -15,12 +15,20 @@ class CreateWisatasTable extends Migration
     {
         Schema::create('wisatas', function (Blueprint $table) {
             $table->increments('id_wisata');
-            $table->string('nama_wisata');
+            $table->integer('id_pengelolah')->unsigned();
             $table->integer('id_kota')->unsigned();
             $table->integer('id_kategori_wisata')->unsigned();
             $table->integer('id_fasilitas_wisata')->unsigned();
             $table->integer('id_kecamatan')->unsigned();
+            $table->string('nama_wisata');
+            $table->integer('harga');
+            $table->integer('diskon');
             $table->timestamps();
+
+            $table->foreign('id_pengelolah')
+            ->references('id_user')->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
 
             $table->foreign('id_kota')
             ->references('id_kota')->on('kotas')

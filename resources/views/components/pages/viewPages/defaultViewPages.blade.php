@@ -35,10 +35,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
+    </script>
+
     {{-- Jquery & Date Range Picker --}}
     @include('components.dateRangePicker')
 
-    <title>view wisata</title>
+    <title>View Tempat Wisata</title>
 </head>
 
 <body>
@@ -226,10 +229,12 @@
         };
     </script>
 
-    <!-- Swiper JS -->
+    {{--
+    <!-- Swiper JS --> --}}
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
+    {{--
+    <!-- Initialize Swiper --> --}}
     <script>
         var swiper = new Swiper(".slideGallery", {
             centeredSlides: true,
@@ -309,7 +314,21 @@
             }
         });
     </script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
+    </script>
+    <script>
+        const payButton = document.querySelector('#pay-button');
+        payButton.addEventListener('click', function(e) {
+            e.preventDefault();
 
+            {{-- $.post('route("payment",$id_wisata) --}}', {
+                jumlahVisitor:$('input#jumlahVisitor').val(),
+                tanggalTiket:$('input#tanggal_tiket').val()
+            }, function(response){
+                console.log(response);
+            }); --}}
+        });
+    </script>
 </body>
 
 </html>

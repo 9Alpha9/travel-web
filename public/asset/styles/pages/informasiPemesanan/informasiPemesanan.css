@@ -24,10 +24,10 @@
   text-overflow: ellipsis;
 }
 .informationWrapper .informationContent__container .information__itemsBooking .information__contentBooking .ticket__information .title__objectWisata .objectwisata__itemsInfo .info__span {
-  width: 300px;
+  width: 330px;
 }
 .informationWrapper .informationContent__container .information__itemsBooking .information__contentBooking .ticket__information .title__objectWisata .objectwisata__itemsInfo .info__span h2 {
-  white-space: nowrap;
+  white-space: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }

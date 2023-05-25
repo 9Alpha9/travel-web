@@ -62,3 +62,37 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Clone Repo Projects
+
+```bash
+clone this repo https://github.com/9Alpha9/travel-web.git
+```
+
+## NPM Instalation
+Install via npm for add node-packages modules Tailwind Css 
+
+```bash
+npm install
+cd travel-web
+```
+## Composer Instalation
+Install via artisan for run laravel packages modules 
+
+```bash
+locate to travel-web folder
+composer install
+setting up your .env files to your Database
+add database sample to your local machine birentcar-travel on MySql Database
+php artisan migrate
+```
+
+## Run The Projects
+
+```bash
+run Xampp or another Database engine
+npm run watch [run laravel mix]
+php artisan serve
+```
+
+

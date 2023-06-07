@@ -1,0 +1,145 @@
+$dashboardBG : #f4f5fb;
+$navLinkstext : #ffffff;
+
+.dashboardContainer__inner {
+
+
+    .navbarSide__container {
+        background-color: $dashboardBG;
+        height: 100vh;
+        z-index: 9999;
+
+        .sideNavbar__navbar {
+            .sideNav__sidelogo {
+                text-align: center;
+
+                h1 {
+                    font-size: 2.5em;
+                    font-weight: 600;
+                    color: #082068;
+                    font-family: 'Poppins', sans-serif;
+                }
+
+                span {
+                    color: #898697;
+                    font-weight: 200;
+                    font-family: 'Poppins', sans-serif;
+                }
+            }
+        }
+
+    }
+
+    .sideNavbar__items {
+        font-family: 'Nunito', sans-serif;
+
+        .navItems__db {
+            padding: 4px 0;
+
+            .navLinks.active {
+                color: $navLinkstext;
+                border-radius: 20px;
+                align-items: center;
+                padding: 10px 1em;
+                text-align: start;
+                font-weight: 400;
+                background-color: #1543ec;
+
+                &:hover {
+                    background-color: #0d35c5;
+
+                }
+            }
+
+            .navLinks {
+                padding: 10px 1em;
+                align-items: center;
+
+                .iconsDB {
+                    padding-right: 1em;
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+
+    .sideDB__content {
+        height: 100%;
+        margin-left: 310px;
+        align-items: center;
+
+        // background-color: $dashboardBG;
+
+        .sideDB__navtopContainer {
+            width: 100%;
+
+            .navTop__fixed {
+                background-color: $dashboardBG;
+                top: 0;
+                align-items: center;
+                width: 95%;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+            }
+
+            .searchTop__nav {
+                max-width: 600px;
+                overflow: hidden;
+                transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+                &:hover {
+                    // transition: 1.5s ease-in-out;
+                    // outline: 1px solid #003dff;
+                    // border-radius: 5px;
+                }
+
+                .searchBar__input {
+                    border: 1.2px solid #003dff;
+                    border-left: none;
+                    padding: 20px;
+                    height: 20px;
+                    width: 500px;
+                    border-radius: 0 5px 5px 0;
+                    outline: none;
+                    color: #0055ff;
+                    background-color: transparent;
+                }
+
+                .searchButton {
+                    cursor: pointer;
+                    width: 45px;
+                    height: 42.4px;
+                    border: 1px solid #003dff;
+                    background: #003dff;
+                    text-align: center;
+                    color: #fff;
+                    border-radius: 5px 0 0 5px;
+                    font-size: 20px;
+                }
+            }
+
+            .topNav__items {
+                .profilesDB {
+                    .topNav__linkspicture {
+                        .profilePictures__DB {
+                            h2 {
+                                width: 180px;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .contentContainer {
+            padding: 20px 3em;
+
+            .contentWrapper__dashboard {
+                // max-width: 1401px;
+
+            }
+        }
+    }
+}

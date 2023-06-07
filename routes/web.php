@@ -6,6 +6,7 @@ use App\Http\Controllers\InformasiPemesananController;
 use App\Http\Controllers\MyBookingController;
 use App\Http\Controllers\PaymentWisataController;
 use App\Http\Controllers\ProfileAccountController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,5 @@ Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages')
 //Google Login API
 Route::get('/auth/redirect', [LoginController::class, 'redirectToProvider'])->name('loginGoogle');
 Route::get('/auth/callback', [LoginController::class, 'handleProviderCallback']);
+
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');

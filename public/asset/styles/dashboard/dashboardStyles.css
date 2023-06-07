@@ -1,0 +1,96 @@
+.dashboardContainer__inner .navbarSide__container {
+  background-color: #f4f5fb;
+  height: 100vh;
+  z-index: 9999;
+}
+.dashboardContainer__inner .navbarSide__container .sideNavbar__navbar .sideNav__sidelogo {
+  text-align: center;
+}
+.dashboardContainer__inner .navbarSide__container .sideNavbar__navbar .sideNav__sidelogo h1 {
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #082068;
+  font-family: "Poppins", sans-serif;
+}
+.dashboardContainer__inner .navbarSide__container .sideNavbar__navbar .sideNav__sidelogo span {
+  color: #898697;
+  font-weight: 200;
+  font-family: "Poppins", sans-serif;
+}
+.dashboardContainer__inner .sideNavbar__items {
+  font-family: "Nunito", sans-serif;
+}
+.dashboardContainer__inner .sideNavbar__items .navItems__db {
+  padding: 4px 0;
+}
+.dashboardContainer__inner .sideNavbar__items .navItems__db .navLinks.active {
+  color: #ffffff;
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px 1em;
+  text-align: start;
+  font-weight: 400;
+  background-color: #1543ec;
+}
+.dashboardContainer__inner .sideNavbar__items .navItems__db .navLinks.active:hover {
+  background-color: #0d35c5;
+}
+.dashboardContainer__inner .sideNavbar__items .navItems__db .navLinks {
+  padding: 10px 1em;
+  align-items: center;
+}
+.dashboardContainer__inner .sideNavbar__items .navItems__db .navLinks .iconsDB {
+  padding-right: 1em;
+  font-size: 1.2em;
+}
+.dashboardContainer__inner .sideDB__content {
+  height: 100%;
+  margin-left: 310px;
+  align-items: center;
+}
+.dashboardContainer__inner .sideDB__content .sideDB__navtopContainer {
+  width: 100%;
+}
+.dashboardContainer__inner .sideDB__content .sideDB__navtopContainer .navTop__fixed {
+  background-color: #f4f5fb;
+  top: 0;
+  align-items: center;
+  width: 95%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+.dashboardContainer__inner .sideDB__content .sideDB__navtopContainer .searchTop__nav {
+  max-width: 600px;
+  overflow: hidden;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.dashboardContainer__inner .sideDB__content .sideDB__navtopContainer .searchTop__nav .searchBar__input {
+  border: 1.2px solid #003dff;
+  border-left: none;
+  padding: 20px;
+  height: 20px;
+  width: 500px;
+  border-radius: 0 5px 5px 0;
+  outline: none;
+  color: #0055ff;
+  background-color: transparent;
+}
+.dashboardContainer__inner .sideDB__content .sideDB__navtopContainer .searchTop__nav .searchButton {
+  cursor: pointer;
+  width: 45px;
+  height: 42.4px;
+  border: 1px solid #003dff;
+  background: #003dff;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px 0 0 5px;
+  font-size: 20px;
+}
+.dashboardContainer__inner .sideDB__content .sideDB__navtopContainer .topNav__items .profilesDB .topNav__linkspicture .profilePictures__DB h2 {
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer {
+  padding: 20px 3em;
+}/*# sourceMappingURL=dashboardStyles.css.map */

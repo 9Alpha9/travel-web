@@ -317,16 +317,16 @@
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
     </script>
     <script>
-        const payButton = document.querySelector('#pay-button');
+        const payButton = document.querySelector('#paymentTicket');
         payButton.addEventListener('click', function(e) {
             e.preventDefault();
 
-            {{-- $.post('route("payment",$id_wisata) --}}', {
+            $.post('{{ route("payment",$id_wisata) }}', {
                 jumlahVisitor:$('input#jumlahVisitor').val(),
                 tanggalTiket:$('input#tanggal_tiket').val()
             }, function(response){
                 console.log(response);
-            }); --}}
+            });
         });
     </script>
 </body>

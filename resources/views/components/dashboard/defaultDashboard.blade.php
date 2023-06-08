@@ -45,7 +45,7 @@
                     </div>
                     <div class="navItems__db">
                         <a href="#">
-                            <span class="block navLinks">
+                            <span class="block navLinks ">
                                 <i class="ri-book-3-fill iconsDB"></i>
                                 Wisata Jawa Timur
                             </span>
@@ -259,7 +259,7 @@
             </div>
             <footer class="fixed bottom-0 footerContainer">
                 <div class="footerContent">
-                    <div class="footerItems">Copy &copy; 2023</div>
+                    <div class="text-sm footerItems">Copyright &copy; 2023</div>
                 </div>
             </footer>
         </div>

@@ -6,8 +6,26 @@ $navLinkstext : #ffffff;
 
     .navbarSide__container {
         background-color: $dashboardBG;
+        background-image: radial-gradient(#080d4c11 0.75px, transparent 0.75px), radial-gradient(#080d4c09 0.75px, #f4f5fb 0.75px);
+        background-size: 30px 30px;
+        background-position: 0 0, 15px 15px;
         height: 100vh;
         z-index: 9999;
+
+        &::before {
+            background: rgb(2, 21, 70);
+            background: -moz-linear-gradient(270deg, rgba(2, 21, 70, 0.17550770308123254) 43%, rgba(255, 255, 255, 0) 100%);
+            background: -webkit-linear-gradient(270deg, rgba(2, 21, 70, 0.17550770308123254) 43%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(270deg, rgba(2, 21, 70, 0.17550770308123254) 43%, rgba(255, 255, 255, 0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#021546", endColorstr="#ffffff", GradientType=1);
+            height: 100vh;
+            width: 50%;
+            opacity: 30%;
+            content: '';
+            position: absolute;
+            right: 0;
+            z-index: -3;
+        }
 
         .sideNavbar__navbar {
             .sideNav__sidelogo {

@@ -34,13 +34,13 @@ $navLinkstext : #ffffff;
         font-family: 'Nunito', sans-serif;
 
         .navItems__db {
-            padding: 4px 0;
+            padding: 8px 0;
 
             .navLinks.active {
                 color: $navLinkstext;
                 border-radius: 20px;
                 align-items: center;
-                padding: 10px 1em;
+                padding: 14px 1em;
                 text-align: start;
                 font-weight: 400;
                 background-color: #1543ec;
@@ -52,8 +52,13 @@ $navLinkstext : #ffffff;
             }
 
             .navLinks {
-                padding: 10px 1em;
+                padding: 14px 1em;
                 align-items: center;
+
+                &:hover {
+                    background-color: #e8edff;
+                    border-radius: 20px;
+                }
 
                 .iconsDB {
                     padding-right: 1em;
@@ -71,7 +76,7 @@ $navLinkstext : #ffffff;
         // background-color: $dashboardBG;
 
         .sideDB__navtopContainer {
-            width: 100%;
+            width: 50rem;
 
             .navTop__fixed {
                 background-color: $dashboardBG;
@@ -137,8 +142,152 @@ $navLinkstext : #ffffff;
             padding: 20px 3em;
 
             .contentWrapper__dashboard {
-                // max-width: 1401px;
+                .topDB__information {
 
+                    .informationContent__items {
+                        border-radius: 10px;
+                        width: 23rem;
+                        background-color: #f1f1f1;
+                        padding: 2em;
+                        margin: 1em 0;
+                    }
+
+                    .jumlahWisata {
+                        background-color: #0035b0;
+                        color: #fff;
+                        position: relative;
+                        overflow: hidden;
+
+                        &::before {
+                            z-index: 4;
+                            position: absolute;
+                            content: '';
+                            background-color: #2063ff;
+                            clip-path: fill-box;
+                            height: 10em;
+                            width: 10em;
+                            right: -10%;
+                            bottom: -30%;
+                            border-radius: 100%;
+                            filter: blur(30px);
+                        }
+
+                        .headingInformation {
+                            h2 {
+                                font-weight: 300;
+                            }
+                        }
+
+                        .wisataNumber__count {
+                            .count__wisataItems {
+                                .numberOf__wisata {
+                                    position: relative;
+                                    z-index: 6;
+                                    font-size: 2.5em;
+                                    font-family: 'Archivo', sans-serif;
+                                    font-weight: 600;
+                                }
+
+                                .smallInfo {
+                                    font-size: 0.888em;
+                                    position: relative;
+                                    z-index: 8;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .jumlahKota__wisata {
+                        background-color: #234f81;
+                        color: #ffffff;
+                        position: relative;
+                        overflow: hidden;
+
+                        &::before {
+                            z-index: 4;
+                            position: absolute;
+                            content: '';
+                            background-color: #467ab9;
+                            clip-path: fill-box;
+                            height: 10em;
+                            width: 10em;
+                            right: -10%;
+                            bottom: -30%;
+                            border-radius: 100%;
+                            filter: blur(30px);
+                        }
+
+                        .count__kotaItems {
+
+                            .numberOf__kota {
+                                position: relative;
+                                z-index: 6;
+                                font-size: 2.5em;
+                                font-family: 'Archivo', sans-serif;
+                                font-weight: 600;
+                            }
+
+                            .smallInfo {
+                                font-size: 0.888em;
+                                position: relative;
+                                z-index: 8;
+                            }
+                        }
+                    }
+
+                    .kecamatansWisata {
+                        background-color: #2c6378;
+                        color: #ffffff;
+                        position: relative;
+                        overflow: hidden;
+
+                        &::before {
+                            z-index: 4;
+                            position: absolute;
+                            content: '';
+                            background-color: #3d86a5;
+                            clip-path: fill-box;
+                            height: 10em;
+                            width: 10em;
+                            right: -10%;
+                            bottom: -30%;
+                            border-radius: 100%;
+                            filter: blur(30px);
+                        }
+
+                        .count__kecamatansItems {
+
+                            .numberOf__kecamatans {
+                                position: relative;
+                                z-index: 6;
+                                font-size: 2.5em;
+                                font-family: 'Archivo', sans-serif;
+                                font-weight: 600;
+                                width: 290px;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+
+                            }
+
+                            .smallInfo {
+                                font-size: 0.888em;
+                                position: relative;
+                                z-index: 8;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .dbData__items {
+                .dbData__list {
+                    border-radius: 10px;
+                    color: #ffffff;
+                    padding: 2em;
+                    background-color: #134131;
+                }
             }
         }
     }

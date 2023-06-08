@@ -40,4 +40,5 @@ Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages')
 Route::get('/auth/redirect', [LoginController::class, 'redirectToProvider'])->name('loginGoogle');
 Route::get('/auth/callback', [LoginController::class, 'handleProviderCallback']);
 
+//Dashboard Route
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');

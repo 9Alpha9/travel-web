@@ -53,14 +53,18 @@
   align-items: center;
 }
 .dashboardContainer__inner .sideDB__content .sideDB__navtopContainer {
-  width: 50rem;
+  width: 100%;
 }
 .dashboardContainer__inner .sideDB__content .sideDB__navtopContainer .navTop__fixed {
   background-color: #f4f5fb;
   top: 0;
   align-items: center;
-  width: 95%;
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+.dashboardContainer__inner .sideDB__content .sideDB__navtopContainer .navTop__fixed .fixedNav__items {
+  position: relative;
+  width: 80%;
 }
 .dashboardContainer__inner .sideDB__content .sideDB__navtopContainer .searchTop__nav {
   max-width: 600px;
@@ -90,7 +94,7 @@
   font-size: 20px;
 }
 .dashboardContainer__inner .sideDB__content .sideDB__navtopContainer .topNav__items .profilesDB .topNav__linkspicture .profilePictures__DB h2 {
-  width: 180px;
+  width: 195px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -98,12 +102,37 @@
 .dashboardContainer__inner .sideDB__content .contentContainer {
   padding: 20px 3em;
 }
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .headerDB__items .headerTitle h1 {
+  font-size: 2em;
+  font-family: "Poppins", sans-serif;
+  color: #082068;
+}
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .informationContent__items {
   border-radius: 10px;
   width: 23rem;
   background-color: #f1f1f1;
   padding: 2em;
   margin: 1em 0;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .smallInfo {
+  font-size: 0.888em;
+  position: relative;
+  z-index: 8;
+  color: #d3d3d3;
+  text-transform: lowercase;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .infoDB__icons {
+  padding: 10px 15px;
+  border-radius: 100%;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .iconsTour__title {
+  background-color: #011a57;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .iconsCity__title {
+  background-color: #163558;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .iconsSubdistrict__title {
+  background-color: #193844;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahWisata {
   background-color: #0035b0;
@@ -135,11 +164,6 @@
   font-family: "Archivo", sans-serif;
   font-weight: 600;
 }
-.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahWisata .wisataNumber__count .count__wisataItems .smallInfo {
-  font-size: 0.888em;
-  position: relative;
-  z-index: 8;
-}
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahKota__wisata {
   background-color: #234f81;
   color: #ffffff;
@@ -166,11 +190,6 @@
   font-size: 2.5em;
   font-family: "Archivo", sans-serif;
   font-weight: 600;
-}
-.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahKota__wisata .count__kotaItems .smallInfo {
-  font-size: 0.888em;
-  position: relative;
-  z-index: 8;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .kecamatansWisata {
   background-color: #2c6378;
@@ -203,14 +222,34 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .kecamatansWisata .count__kecamatansItems .smallInfo {
-  font-size: 0.888em;
-  position: relative;
-  z-index: 8;
-}
 .dashboardContainer__inner .sideDB__content .contentContainer .dbData__items .dbData__list {
   border-radius: 10px;
   color: #ffffff;
   padding: 2em;
   background-color: #134131;
+}
+.dashboardContainer__inner .sideDB__content .notificationRing__icons {
+  align-items: center;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 100px;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  justify-content: center;
+}
+.dashboardContainer__inner .sideDB__content .notificationDelete__cta .clearNotification__information .clearNotification__icons {
+  color: #d2d3d6;
+}
+.dashboardContainer__inner .sideDB__content .notificationDelete__cta .clearNotification__information .clearNotification__icons:hover {
+  color: #011a57;
+}
+.dashboardContainer__inner .sideDB__content .footerContainer {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  padding: 1em 20px;
+  z-index: 10;
+}
+.dashboardContainer__inner .sideDB__content .footerContainer .footerContent {
+  padding: 0 1.8em;
+  font-family: "Archivo", sans-serif;
 }/*# sourceMappingURL=dashboardStyles.css.map */

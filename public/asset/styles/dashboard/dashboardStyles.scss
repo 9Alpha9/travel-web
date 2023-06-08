@@ -76,14 +76,20 @@ $navLinkstext : #ffffff;
         // background-color: $dashboardBG;
 
         .sideDB__navtopContainer {
-            width: 50rem;
+            width: 100%;
+
 
             .navTop__fixed {
                 background-color: $dashboardBG;
                 top: 0;
                 align-items: center;
-                width: 95%;
+                width: 100%;
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+
+                .fixedNav__items {
+                    position: relative;
+                    width: 80%;
+                }
             }
 
             .searchTop__nav {
@@ -127,7 +133,7 @@ $navLinkstext : #ffffff;
                     .topNav__linkspicture {
                         .profilePictures__DB {
                             h2 {
-                                width: 180px;
+                                width: 195px;
                                 white-space: nowrap;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
@@ -142,6 +148,17 @@ $navLinkstext : #ffffff;
             padding: 20px 3em;
 
             .contentWrapper__dashboard {
+
+                .headerDB__items {
+                    .headerTitle {
+                        h1 {
+                            font-size: 2em;
+                            font-family: 'Poppins', sans-serif;
+                            color: #082068;
+                        }
+                    }
+                }
+
                 .topDB__information {
 
                     .informationContent__items {
@@ -150,6 +167,31 @@ $navLinkstext : #ffffff;
                         background-color: #f1f1f1;
                         padding: 2em;
                         margin: 1em 0;
+                    }
+
+                    .smallInfo {
+                        font-size: 0.888em;
+                        position: relative;
+                        z-index: 8;
+                        color: #d3d3d3;
+                        text-transform: lowercase;
+                    }
+
+                    .infoDB__icons {
+                        padding: 10px 15px;
+                        border-radius: 100%;
+                    }
+
+                    .iconsTour__title {
+                        background-color: #011a57;
+                    }
+
+                    .iconsCity__title {
+                        background-color: #163558;
+                    }
+
+                    .iconsSubdistrict__title {
+                        background-color: #193844;
                     }
 
                     .jumlahWisata {
@@ -188,11 +230,7 @@ $navLinkstext : #ffffff;
                                     font-weight: 600;
                                 }
 
-                                .smallInfo {
-                                    font-size: 0.888em;
-                                    position: relative;
-                                    z-index: 8;
-                                }
+
                             }
                         }
 
@@ -226,12 +264,6 @@ $navLinkstext : #ffffff;
                                 font-size: 2.5em;
                                 font-family: 'Archivo', sans-serif;
                                 font-weight: 600;
-                            }
-
-                            .smallInfo {
-                                font-size: 0.888em;
-                                position: relative;
-                                z-index: 8;
                             }
                         }
                     }
@@ -270,12 +302,6 @@ $navLinkstext : #ffffff;
                                 text-overflow: ellipsis;
 
                             }
-
-                            .smallInfo {
-                                font-size: 0.888em;
-                                position: relative;
-                                z-index: 8;
-                            }
                         }
                     }
                 }
@@ -288,6 +314,41 @@ $navLinkstext : #ffffff;
                     padding: 2em;
                     background-color: #134131;
                 }
+            }
+
+        }
+
+        .notificationRing__icons {
+            align-items: center;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 100px;
+            width: 15px;
+            height: 15px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .notificationDelete__cta {
+            .clearNotification__information {
+                .clearNotification__icons {
+                    color: #d2d3d6;
+
+                    &:hover {
+                        color: #011a57;
+                    }
+                }
+            }
+        }
+
+        .footerContainer {
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            padding: 1em 20px;
+            z-index: 10;
+
+            .footerContent {
+                padding: 0 1.8em;
+                font-family: 'Archivo', sans-serif;
             }
         }
     }

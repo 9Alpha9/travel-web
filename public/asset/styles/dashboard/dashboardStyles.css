@@ -124,9 +124,9 @@
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .informationContent__items {
   border-radius: 10px;
-  width: 23rem;
+  width: 19em;
   background-color: #f1f1f1;
-  padding: 2em;
+  padding: 1.5em;
   margin: 1em 0;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .smallInfo {
@@ -135,9 +135,10 @@
   z-index: 8;
   color: #d3d3d3;
   text-transform: lowercase;
+  font-size: 0.7em;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .infoDB__icons {
-  padding: 10px 15px;
+  padding: 5px 10px;
   border-radius: 100%;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .iconsTour__title {
@@ -169,13 +170,10 @@
   border-radius: 100%;
   filter: blur(30px);
 }
-.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahWisata .headingInformation h2 {
-  font-weight: 300;
-}
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahWisata .wisataNumber__count .count__wisataItems .numberOf__wisata {
   position: relative;
   z-index: 6;
-  font-size: 2.5em;
+  font-size: 1.8em;
   font-family: "Archivo", sans-serif;
   font-weight: 600;
 }
@@ -202,7 +200,7 @@
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahKota__wisata .count__kotaItems .numberOf__kota {
   position: relative;
   z-index: 6;
-  font-size: 2.5em;
+  font-size: 1.8em;
   font-family: "Archivo", sans-serif;
   font-weight: 600;
 }
@@ -229,13 +227,17 @@
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .kecamatansWisata .count__kecamatansItems .numberOf__kecamatans {
   position: relative;
   z-index: 6;
-  font-size: 2.5em;
+  font-size: 1.8em;
   font-family: "Archivo", sans-serif;
   font-weight: 600;
   width: 290px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .headingInformation h2 {
+  font-weight: 300;
+  font-size: 0.8em;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .dbData__items .dbData__list {
   border-radius: 10px;

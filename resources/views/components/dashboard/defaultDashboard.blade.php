@@ -199,7 +199,7 @@
                         <div class="flex flex-row gap-3 topDB__information">
                             <div class="informationContent__items jumlahWisata">
                                 <span class="flex items-center gap-3 align-middle headingInformation whitespace-nowrap">
-                                    <i class="text-2xl ri-map-pin-2-fill infoDB__icons iconsTour__title"></i>
+                                    <i class="text-xl ri-map-pin-2-fill infoDB__icons iconsTour__title"></i>
                                     <h2>Jumlah Wisata</h2>
                                 </span>
                                 <div class="wisataNumber__count">
@@ -215,7 +215,7 @@
                             </div>
                             <div class="informationContent__items jumlahKota__wisata">
                                 <span class="flex items-center gap-3 align-middle headingInformation whitespace-nowrap">
-                                    <i class="text-2xl ri-map-fill infoDB__icons iconsCity__title"></i>
+                                    <i class="text-xl ri-map-fill infoDB__icons iconsCity__title"></i>
                                     <h2>Jumlah Kota atau Kabupaten</h2>
                                 </span>
                                 <div class="kotaNumber__count">
@@ -231,7 +231,7 @@
                             </div>
                             <div class="informationContent__items kecamatansWisata">
                                 <span class="flex items-center gap-3 align-middle headingInformation whitespace-nowrap">
-                                    <i class="text-2xl ri-road-map-fill infoDB__icons iconsSubdistrict__title"></i>
+                                    <i class="text-xl ri-road-map-fill infoDB__icons iconsSubdistrict__title"></i>
                                     <h2>Jumlah Kecamatan</h2>
                                 </span>
                                 <div class="kecamatansNumber__count">

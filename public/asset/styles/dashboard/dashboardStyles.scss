@@ -181,9 +181,9 @@ $navLinkstext : #ffffff;
 
                     .informationContent__items {
                         border-radius: 10px;
-                        width: 23rem;
+                        width: 19em;
                         background-color: #f1f1f1;
-                        padding: 2em;
+                        padding: 1.5em;
                         margin: 1em 0;
                     }
 
@@ -193,10 +193,11 @@ $navLinkstext : #ffffff;
                         z-index: 8;
                         color: #d3d3d3;
                         text-transform: lowercase;
+                        font-size: 0.7em;
                     }
 
                     .infoDB__icons {
-                        padding: 10px 15px;
+                        padding: 5px 10px;
                         border-radius: 100%;
                     }
 
@@ -232,26 +233,17 @@ $navLinkstext : #ffffff;
                             filter: blur(30px);
                         }
 
-                        .headingInformation {
-                            h2 {
-                                font-weight: 300;
-                            }
-                        }
-
                         .wisataNumber__count {
                             .count__wisataItems {
                                 .numberOf__wisata {
                                     position: relative;
                                     z-index: 6;
-                                    font-size: 2.5em;
+                                    font-size: 1.8em;
                                     font-family: 'Archivo', sans-serif;
                                     font-weight: 600;
                                 }
-
-
                             }
                         }
-
                     }
 
                     .jumlahKota__wisata {
@@ -279,7 +271,7 @@ $navLinkstext : #ffffff;
                             .numberOf__kota {
                                 position: relative;
                                 z-index: 6;
-                                font-size: 2.5em;
+                                font-size: 1.8em;
                                 font-family: 'Archivo', sans-serif;
                                 font-weight: 600;
                             }
@@ -311,7 +303,7 @@ $navLinkstext : #ffffff;
                             .numberOf__kecamatans {
                                 position: relative;
                                 z-index: 6;
-                                font-size: 2.5em;
+                                font-size: 1.8em;
                                 font-family: 'Archivo', sans-serif;
                                 font-weight: 600;
                                 width: 290px;
@@ -322,6 +314,13 @@ $navLinkstext : #ffffff;
                             }
                         }
                     }
+                }
+            }
+
+            .headingInformation {
+                h2 {
+                    font-weight: 300;
+                    font-size: 0.8em;
                 }
             }
 

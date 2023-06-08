@@ -140,7 +140,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="informationContent__items">empty</div>
+                        <div class="informationContent__items">empty data</div>
                     </div>
                     <div class="itemsDB__datawrapper">
                         <div class="grid grid-cols-2 gap-3 dbData__items">

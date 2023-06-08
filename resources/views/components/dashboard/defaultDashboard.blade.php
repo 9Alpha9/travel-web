@@ -99,7 +99,7 @@
                             </span>
                             <div class="wisataNumber__count">
                                 <div class="flex flex-col count__wisataItems whitespace-nowrap">
-                                    <span class="numberOf__wisata">
+                                    <span class="pt-4 numberOf__wisata">
                                         1650 Wisata
                                     </span>
                                     <span class="smallInfo">
@@ -115,7 +115,7 @@
                             </span>
                             <div class="kotaNumber__count">
                                 <div class="flex flex-col count__kotaItems whitespace-nowrap">
-                                    <span class="numberOf__kota">
+                                    <span class="pt-4 numberOf__kota">
                                         38 Kota
                                     </span>
                                     <span class="smallInfo">
@@ -131,7 +131,7 @@
                             </span>
                             <div class="kecamatansNumber__count">
                                 <div class="flex flex-col count__kecamatansItems whitespace-nowrap">
-                                    <span class="numberOf__kecamatans">
+                                    <span class="pt-4 numberOf__kecamatans">
                                         666 Kecamatan
                                     </span>
                                     <span class="smallInfo">

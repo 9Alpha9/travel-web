@@ -41,14 +41,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 clone this repo https://github.com/9Alpha9/travel-web.git
 ```
 
-## NPM Instalation
+## NPM Installation
 Install via npm for add node-packages modules Tailwind Css 
 
 ```bash
 npm install
 cd travel-web
 ```
-## Composer Instalation
+## Composer Installation
 Install via artisan for run laravel packages modules 
 
 ```bash
@@ -80,7 +80,21 @@ GOOGLE_APP_SECRET=google-secreat-key
 GOOGLE_REDIRECT=http://127.0.0.1:8000/auth/callback
 ```
 > **Note**
-> please register your Google API Token to https://console.cloud.google.com/
+> please register your Google API Token to [Google Console Cloud](https://console.cloud.google.com/)
+
+
+## Add Midtrans Configuration
+locate to .env and add this code
+```bash
+MIDTRANS_IS_PRODUCTION=false
+MIDTRANS_MERCHAT_ID=your-merchant-ID
+MIDTRANS_CLIENT_KEY=SB-Mid-client-your-client-KEY
+MIDTRANS_SERVER_KEY=SB-Mid-server-your-server-KEY
+```
+> **Note**
+> please register your Midtrans API to [Midtrans Official Website](https://midtrans.com/id)
+> for testing Midtrans you can visit [Midtrans Mock Payment Testing](https://simulator.sandbox.midtrans.com/bca/klikbca/index)
+
 ## Run The Projects
 run the projects by type this command in to terminal
 ```bash

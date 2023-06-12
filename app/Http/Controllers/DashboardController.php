@@ -8,6 +8,6 @@ class DashboardController extends Controller
 {
     //
     public function index(){
-        return view('components.dashboard.defaultDashboard')->with(['dashboard' => 'active']);
+        return view('dashboard.defaultDashboard')->with(['dashboard' => 'active']);
     }
 }

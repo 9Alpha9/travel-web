@@ -63,7 +63,7 @@
   font-size: 1.2em;
 }
 .dashboardContainer__inner .sideDB__content {
-  height: 100%;
+  height: 100vh;
   margin-left: 310px;
   align-items: center;
 }

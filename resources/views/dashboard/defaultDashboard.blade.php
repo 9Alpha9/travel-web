@@ -24,7 +24,8 @@
         href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,600;0,800;1,400&family=Nunito:wght@200;300;400;500&family=Poppins:wght@100;200;300;500;800&display=swap"
         rel="stylesheet">
 
-    <title>Dashboard</title>
+    <title>{{ $pageTitle }}</title>
+    @stack('style')
 </head>
 
 <body>
@@ -40,11 +41,10 @@
                 </div>
             </div>
             @include('dashboard.components.footerDB')
-            @include('dashboard.components.componentDB')
-
+            @yield('pageContent')
         </div>
     </div>
-
+    @stack('scripts')
 </body>
 
 

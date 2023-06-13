@@ -9,6 +9,6 @@ class WisataController extends Controller
 {
     //
     public function index(){
-        return view('dashboard/pages/wisataComponent');
+        return view('dashboard.pages.wisataComponent')->with(['wisata' => 'active', 'pageTitle' => 'Wisata']);
     }
 }

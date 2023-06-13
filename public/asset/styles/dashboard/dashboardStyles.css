@@ -239,11 +239,62 @@
   font-weight: 300;
   font-size: 0.8em;
 }
-.dashboardContainer__inner .sideDB__content .contentContainer .dbData__items .dbData__list {
+.dashboardContainer__inner .sideDB__content .contentContainer .itemsDB__dataWisatawrapper .dbText__header h1 {
+  font-size: 1.2em;
+  color: #082068;
+  font-weight: 500;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems {
+  position: relative;
+  width: 1401px;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata {
   border-radius: 10px;
-  color: #ffffff;
+  font-weight: 500;
+  color: #1f1e1e;
   padding: 2em;
-  background-color: #134131;
+  background-color: #ced0d4;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata .labelRequire__infowisata {
+  color: #b5001b;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata .add__Customdb--cta .add__Customebtn--cta {
+  background-color: #1543ec;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #fff;
+  font-weight: 400;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata .add__Customdb--cta .add__Customebtn--cta:hover {
+  background-color: #1136bb;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata .inputSelection {
+  outline: none;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata input[type=text] {
+  color: #131313;
+  font-weight: 300;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding-left: 20px;
+  border: none;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata input[type=text]:focus {
+  outline: none;
+  background-color: none;
+  border: none;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata textarea:focus {
+  outline: none;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .buttonCta__container .button__Additems .addSection__cta {
+  background-color: #1543ec;
+  color: #fff;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .buttonCta__container .button__Additems .addSection__cta:hover {
+  background-color: #1136bb;
 }
 .dashboardContainer__inner .sideDB__content .notificationRing__icons {
   align-items: center;
@@ -269,4 +320,20 @@
 .dashboardContainer__inner .sideDB__content .footerContainer .footerContent {
   padding: 0 1.8em;
   font-family: "Archivo", sans-serif;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+select:not(size) {
+  padding-left: 20px;
+  border-radius: 10px;
+  font-weight: 300;
+  border: none;
+}
+
+.wisataInput__name {
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
 }/*# sourceMappingURL=dashboardStyles.css.map */

@@ -1,7 +1,8 @@
-{{-- @extends('dashboard.defaultDashboard') --}}
+@extends('dashboard.defaultDashboard')
 @push('style')
 @endpush
 
+@section('pageContent')
 <div class="relative mt-10 contentContainer">
     <div class="relative w-full pt-20 contentWrapper__dashboard">
         <div class="relative headerDB__items">
@@ -68,3 +69,7 @@
         </div>
     </div>
 </div>
+@endsection
+@push('scripts')
+
+@endpush

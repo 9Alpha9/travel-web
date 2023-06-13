@@ -38,15 +38,15 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Clone Repo Projects
 
 ```bash
-clone this repo https://github.com/9Alpha9/travel-web.git
+https://github.com/9Alpha9/travel-web.git
 ```
 
 ## NPM Installation
 Install via npm for add node-packages modules Tailwind Css 
 
 ```bash
+> cd travel-web
 npm install
-cd travel-web
 ```
 ## Composer Installation
 Install via artisan for run laravel packages modules 
@@ -99,7 +99,7 @@ MIDTRANS_SERVER_KEY=SB-Mid-server-your-server-KEY
 run the projects by type this command in to terminal
 ```bash
 > run Xampp or another Database engine
-npm run watch [run laravel mix]
+npm run watch
 php artisan serve
 ```
 

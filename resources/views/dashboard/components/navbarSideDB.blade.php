@@ -14,10 +14,10 @@
                 </a>
             </div>
             <div class="navItems__db">
-                <a href="{{ route('admin.wisata') }}">
+                <a href="{{ route('wisata.index') }}">
                     <span class="block navLinks @isset($wisata) {{ $wisata }} @endif">
                         <i class="ri-book-3-fill iconsDB"></i>
-                        Wisata Jawa Timur
+                        Tambah Wisata
                     </span>
                 </a>
             </div>

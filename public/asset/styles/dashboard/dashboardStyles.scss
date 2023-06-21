@@ -10,7 +10,7 @@ $navLinkstext : #ffffff;
         background-size: 30px 30px;
         background-position: 0 0, 15px 15px;
         height: 100vh;
-        z-index: 9999;
+        z-index: 12;
 
         &::before {
             background: rgb(2, 21, 70);
@@ -102,7 +102,7 @@ $navLinkstext : #ffffff;
                 top: 0;
                 align-items: center;
                 width: 100%;
-                box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+                // box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
                 .fixedNav__items {
                     position: relative;
@@ -337,7 +337,8 @@ $navLinkstext : #ffffff;
             .dbData__Wisataitems {
                 position: relative;
 
-                width: 1401px;
+                width: 1201px;
+                max-width: 1201px;
 
                 .dbData__listWisata {
                     border-radius: 10px;
@@ -442,6 +443,153 @@ $navLinkstext : #ffffff;
                 font-family: 'Archivo', sans-serif;
             }
         }
+    }
+
+    .thumbnailContainer {
+        .thumbnail__wrapperContent {
+            .inputSection__thumbnail {
+                position: relative;
+
+                input[type=file]::file-selector-button {
+                    background-color: #0035b0;
+                    padding-left: 50px;
+                    padding-right: 50px;
+                    position: relative;
+                    display: inline-block;
+
+                    &:hover {
+
+                        background-color: #023dc9;
+                    }
+                }
+
+
+                .add__Thumbnail--cta {
+                    background-color: #0035b0;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: #023dc9;
+
+                    }
+                }
+            }
+
+            .bannerContent__thumbnail {
+                .tumbnail__content {
+                    border-radius: 10px;
+
+                    .thumbnail__items {
+                        .thumbnailView__img {
+                            .figureInner {
+
+                                &::after {
+                                    content: "";
+                                    background: rgb(2, 21, 70);
+                                    background: -moz-linear-gradient(0deg, rgba(2, 21, 70, 0.7567401960784313) 0%, rgba(255, 255, 255, 0) 100%);
+                                    background: -webkit-linear-gradient(0deg, rgba(2, 21, 70, 0.7567401960784313) 0%, rgba(255, 255, 255, 0) 100%);
+                                    background: linear-gradient(0deg, rgba(2, 21, 70, 0.7567401960784313) 0%, rgba(255, 255, 255, 0) 100%);
+                                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#021546", endColorstr="#ffffff", GradientType=1);
+                                    position: absolute;
+                                    z-index: 1;
+                                    width: 100%;
+                                    height: 190px;
+                                    bottom: 0;
+                                    border-bottom-left-radius: 15px;
+                                    border-bottom-right-radius: 15px;
+                                }
+
+                                .imgThumb {
+                                    width: 250px;
+                                    height: 350px;
+                                    object-fit: cover;
+
+                                }
+
+                                .thumbnailSettings {
+                                    .thumbnailNumber {
+                                        position: absolute;
+                                        z-index: 3;
+                                        top: 0;
+                                        right: 2px;
+                                        padding: 20px;
+                                        border-radius: 50px;
+
+                                        h2 {
+                                            text-align: center;
+                                            font-weight: 500;
+                                            padding: 6px 11px 6px 11px;
+                                            background-color: #003dff;
+                                            color: #fff;
+
+
+                                        }
+                                    }
+
+                                    .thumbnailDelete {
+                                        position: absolute;
+                                        z-index: 3;
+                                        top: 50px;
+                                        right: 2px;
+                                        padding: 20px;
+
+                                        .btnThumb__delete {
+                                            background-color: #003dff;
+                                            color: #fff;
+                                            padding: 6px 11px 6px 10px;
+
+                                            &:hover {
+                                                background-color: #0636d1;
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .listHistory__container {
+        .listHistory {
+            .listHistory__cta {
+                background-color: #011a57;
+                color: #fff;
+                font-size: 0.8em;
+
+                &:hover {
+                    background-color: #03257a;
+
+                }
+            }
+        }
+    }
+
+    .listCheck__facilityContainer {
+        .facilityList__content {
+            .textFacility {
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -khtml-user-select: none;
+            }
+        }
+    }
+
+    .listHistoryExt__container {
+        .listHistoryExt__content {
+            .listHistory__cta {
+                background-color: #011a57;
+                color: #fff;
+                font-size: 0.8em;
+            }
+        }
+
     }
 }
 

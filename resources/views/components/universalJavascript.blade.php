@@ -63,4 +63,12 @@
     $('.numberOnly').on("change", function() {
         this.value = this.value.replace(/[^0-9]/g, '');
     });
+
+    Array.prototype.remove = function(elem) {
+        var match = -1;
+
+        while( (match = this.indexOf(elem)) > -1 ) {
+            this.splice(match, 1);
+        }
+    };
 </script>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('asset/styles/dashboard/dashboardStyles.css') }}">
 
     {{-- Import Tailwind Css Components --}}
@@ -25,6 +26,7 @@
         rel="stylesheet">
 
     <title>{{ $pageTitle }}</title>
+    @include('components.universalJavascript')
     @stack('style')
 </head>
 
@@ -33,7 +35,7 @@
         @include('dashboard.components.navbarSideDB')
         <div class="relative sideDB__content">
             <div class=" sideDB__navtopContainer">
-                <div class="fixed z-50 flex justify-between navTop__fixed">
+                <div class="fixed z-10 flex justify-between navTop__fixed">
                     {{-- Top Navbar --}}
                     @include('dashboard.components.navbarTopDB')
 

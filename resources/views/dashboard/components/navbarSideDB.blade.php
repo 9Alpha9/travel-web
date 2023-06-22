@@ -4,7 +4,7 @@
             <h1>BirentCar</h1>
             <span>database systems</span>
         </div>
-        <div class="flex flex-col mt-32 sideNavbar__items">
+        <div class="flex flex-col mt-12 sideNavbar__items">
             <div class="navItems__db">
                 <a href="{{ route('admin.dashboard') }}">
                     <span class="block navLinks @isset($dashboard) {{ $dashboard }} @endif">

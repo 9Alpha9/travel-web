@@ -219,7 +219,8 @@
                                     <input type="file" name="Thumbnail-images"
                                         accept="image/png, image/jpg, image/jpeg, image/webp" class="thumbnail__Btncta">
                                     <span class="block">
-                                        <button type="button" class="p-2 px-8 add__Thumbnail--cta">Tambah</button>
+                                        <button type="button"
+                                            class="p-3 px-8 text-sm add__Thumbnail--cta">Upload</button>
                                     </span>
                                 </div>
                             </div>
@@ -253,8 +254,8 @@
                     {{-- End Thumbnail Wisata --}}
                     <div class="mt-16 mb-16 buttonCta__container">
                         <span class="relative block button__Additems">
-                            <button id="" type="submit" class="block p-3 px-4 rounded-lg addSection__cta">Tambah
-                                Data</button>
+                            <button id="" type="submit" class="block p-3 px-4 rounded-lg addSection__cta">Simpan
+                                Data Wisata</button>
                         </span>
                     </div>
                 </div>

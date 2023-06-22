@@ -74,11 +74,13 @@
                                             <span class="labelRequire__infowisata">*</span>
                                         </h3>
                                     </label>
-
                                     <div data-modal-target="modalFacility__list" data-modal-toggle="modalFacility__list"
                                         class="block w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">
                                         Pilih Fasilitas Wisata
                                     </div>
+                                    <span class="py-2 text-xs font-normal listingFacility__new">
+                                        <i> Fasilitas Tempat Wisata Yang Dipilih :</i>
+                                    </span>
                                     <div id="modalFacility__list" tabindex="-1"
                                         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                         <div class="relative w-full max-w-[70rem] max-h-full ">
@@ -91,7 +93,7 @@
                                                     class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
                                                     <button type="button"
                                                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                        data-modal-hide="large-modal">
+                                                        data-modal-hide="modalFacility__list">
                                                         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor"
                                                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd"
@@ -155,6 +157,9 @@
                                         <button type="button" id="tambahFasilitas"
                                             class="p-2 px-4 add__Customebtn--cta">Tambah</button>
                                     </div>
+                                    <span class="py-2 text-xs font-normal listingFacility__new">
+                                        <i>Penambahan Fasilitas :</i>
+                                    </span>
                                     {{-- History List Wisata --}}
                                     <div class="flex flex-col listHistoryExt__container">
                                         <div class="flex flex-row flex-wrap gap-2 py-4 whitespace-normal listHistoryExt__content"
@@ -213,6 +218,12 @@
                         <div class="relative mt-12 thumbnail__wrapperContent">
                             <span class="block py-4 dbText__header">
                                 <h1>Thumbnail Wisata</h1>
+                                <p class="py-3 text-xs">Thumbnail wisata digunakan untuk memberikan informasi halaman
+                                    awal
+                                    foto gallery dari
+                                    tempat wisata. Silahkan upload foto dengan menggunakan format
+                                    <i>.Png, .Jpg, .Jpeg, </i>atau<i> Webp</i>
+                                </p>
                             </span>
                             <div class="inputSection__thumbnail">
                                 <div class="relative flex justify-between py-6">

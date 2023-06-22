@@ -41,4 +41,16 @@ class WisataController extends Controller
     public function destroy($id){
 
     }
+
+    public function request(){
+
+    }
+
+    public function requestView(){
+        return view('dashboard.components.reviewVer')->with(['request' => 'active', 'pageTitle' => 'Verifikasi Rules']);
+    }
+
+    public function requestReview(){
+
+    }
 }

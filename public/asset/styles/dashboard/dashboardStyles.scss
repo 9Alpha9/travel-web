@@ -548,9 +548,13 @@ $navLinkstext : #ffffff;
                             }
                         }
                     }
+
                 }
+
             }
+
         }
+
 
     }
 
@@ -591,6 +595,8 @@ $navLinkstext : #ffffff;
         }
 
     }
+
+
 }
 
 
@@ -611,4 +617,96 @@ select:not(size) {
 .wisataInput__name {
     font-size: 1em;
     font-family: 'Nunito', sans-serif;
+}
+
+.verificationRules__Container {
+    width: 1201px;
+    margin: 0 3rem;
+    display: block;
+    font-family: 'Nunito', sans-serif;
+
+    .verification__Content {
+        .verification__Title {
+            h1 {
+                font-size: 2em;
+                font-family: 'Poppins', sans-serif;
+            }
+        }
+
+        .verification__Items {
+            .infoVerif {
+                background-color: #0035b0;
+                width: 100%;
+                color: #ffffff;
+                font-weight: 300;
+
+                .ri-information-fill {
+                    font-size: 1.6em;
+                }
+            }
+        }
+
+        .verification__Card {
+            color: #ffffff;
+
+            .useR {
+                background-color: #03277c;
+                overflow: hidden;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    background-color: #2600ff;
+                    width: 4px;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    position: absolute;
+                }
+
+                .useR__type {
+                    margin: 3em 0;
+
+                    &::before {
+                        border-radius: 5px;
+                        top: 20px;
+                        content: "";
+                        background-color: rgb(255, 255, 255);
+                        position: absolute;
+                        height: 30px;
+                        width: 30px;
+                        z-index: 5;
+                    }
+
+                    &::after {
+                        content: "";
+                        bottom: -4rem;
+                        position: absolute;
+                        z-index: 1;
+                        width: 360px;
+                        height: 260px;
+                        background-color: rgb(52, 34, 212);
+                        right: -150px;
+                        transform: rotate(40deg);
+                        border-top-left-radius: 90%;
+                        border-bottom-left-radius: 90%;
+                        filter: blur(60px);
+                    }
+                }
+
+                .verification__Btnreq {
+                    .req__Cta {
+                        color: rgb(236, 236, 236);
+                        background-image: linear-gradient(135deg, rgb(67, 32, 192) 0%, rgb(33, 120, 250) 100%);
+                        font-weight: 500;
+                        transition: 1s cubic-bezier(.32, .86, .82, .4);
+
+                        &:hover {
+                            background-image: linear-gradient(135deg, rgb(91, 53, 230) 0%, rgb(74, 147, 255) 100%);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

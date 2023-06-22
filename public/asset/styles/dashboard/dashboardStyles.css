@@ -428,4 +428,77 @@ select:not(size) {
 .wisataInput__name {
   font-size: 1em;
   font-family: "Nunito", sans-serif;
+}
+
+.verificationRules__Container {
+  width: 1201px;
+  margin: 0 3rem;
+  display: block;
+  font-family: "Nunito", sans-serif;
+}
+.verificationRules__Container .verification__Content .verification__Title h1 {
+  font-size: 2em;
+  font-family: "Poppins", sans-serif;
+}
+.verificationRules__Container .verification__Content .verification__Items .infoVerif {
+  background-color: #0035b0;
+  width: 100%;
+  color: #ffffff;
+  font-weight: 300;
+}
+.verificationRules__Container .verification__Content .verification__Items .infoVerif .ri-information-fill {
+  font-size: 1.6em;
+}
+.verificationRules__Container .verification__Content .verification__Card {
+  color: #ffffff;
+}
+.verificationRules__Container .verification__Content .verification__Card .useR {
+  background-color: #03277c;
+  overflow: hidden;
+  position: relative;
+}
+.verificationRules__Container .verification__Content .verification__Card .useR::before {
+  content: "";
+  background-color: #2600ff;
+  width: 4px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  position: absolute;
+}
+.verificationRules__Container .verification__Content .verification__Card .useR .useR__type {
+  margin: 3em 0;
+}
+.verificationRules__Container .verification__Content .verification__Card .useR .useR__type::before {
+  border-radius: 5px;
+  top: 20px;
+  content: "";
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  z-index: 5;
+}
+.verificationRules__Container .verification__Content .verification__Card .useR .useR__type::after {
+  content: "";
+  bottom: -4rem;
+  position: absolute;
+  z-index: 1;
+  width: 360px;
+  height: 260px;
+  background-color: rgb(52, 34, 212);
+  right: -150px;
+  transform: rotate(40deg);
+  border-top-left-radius: 90%;
+  border-bottom-left-radius: 90%;
+  filter: blur(60px);
+}
+.verificationRules__Container .verification__Content .verification__Card .useR .verification__Btnreq .req__Cta {
+  color: rgb(236, 236, 236);
+  background-image: linear-gradient(135deg, rgb(67, 32, 192) 0%, rgb(33, 120, 250) 100%);
+  font-weight: 500;
+  transition: 1s cubic-bezier(0.32, 0.86, 0.82, 0.4);
+}
+.verificationRules__Container .verification__Content .verification__Card .useR .verification__Btnreq .req__Cta:hover {
+  background-image: linear-gradient(135deg, rgb(91, 53, 230) 0%, rgb(74, 147, 255) 100%);
 }/*# sourceMappingURL=dashboardStyles.css.map */

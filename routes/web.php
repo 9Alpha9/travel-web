@@ -26,22 +26,41 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register/check', [LoginController::class, 'checkUsername'])->name('register.check');
 Route::get('/register', [LoginController::class, 'registerForm'])->name('register.form');
-Route::get('/', function () {
-    return view('components/landingpages/home');
-})->name('landingpage');
-Route::get('/informasi-pemesanan', [InformasiPemesananController::class, 'index'])->name('informasi.index');
-Route::get('/pesanan-saya', [MyBookingController::class,'index'])->name('booking.index');
-Route::get('/profile-saya',[ProfileAccountController::class,'index'])->name('profile.index');
-Route::post('/profile-save',[ProfileAccountController::class,'save'])->name('profile.save');
-Route::post('/pembayaran-tiket/{id}', [OrderTicketController::class, 'show'])->name('payment');
-
-Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages');
-// Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol
-
 //Google Login API
 Route::get('/auth/redirect', [LoginController::class, 'redirectToProvider'])->name('loginGoogle');
 Route::get('/auth/callback', [LoginController::class, 'handleProviderCallback']);
 
-//Dashboard Route
-Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-Route::resource('/admin/wisata', WisataController::class);
+Route::get('/', function () {
+    return view('components/landingpages/home');
+})->name('landingpage');
+Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages');
+// Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol
+
+Route::group(['middleware' => ['auth', 'role:Admin,User']], function () {
+    Route::get('/informasi-pemesanan', [InformasiPemesananController::class, 'index'])->name('informasi.index');
+    Route::get('/pesanan-saya', [MyBookingController::class,'index'])->name('booking.index');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/profile-saya',[ProfileAccountController::class,'index'])->name('profile.index');
+    Route::post('/profile-save',[ProfileAccountController::class,'save'])->name('profile.save');
+    Route::post('/pembayaran-tiket/{id}', [OrderTicketController::class, 'show'])->name('payment');
+});
+
+Route::group(['middleware' => ['auth', 'role:User']], function () {
+    Route::post('/admin/wisata/request', [WisataController::class, 'request'])->name('wisata.request');
+});
+
+Route::group(['middleware' => ['auth', 'role:superAdmin,User']], function () {
+    Route::get('/admin/wisata/request/view', [WisataController::class, 'requestView'])->name('wisata.requestView');
+});
+
+Route::group(['middleware' => ['auth', 'role:superAdmin']], function () {
+    Route::post('/admin/wisata/request/review', [WisataController::class, 'requestReview'])->name('wisata.requestReview');
+});
+
+Route::group(['middleware' => ['auth', 'role:superAdmin,Admin']], function () {
+    //Dashboard Route
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::resource('/admin/wisata', WisataController::class);
+});

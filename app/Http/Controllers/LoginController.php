@@ -52,7 +52,7 @@ class LoginController extends Controller
 
         try{
             $newUser = User::create([
-                'user_type' => 'Pelanggan',
+                'user_type' => 'User',
                 $column => $request->email,
                 'full_name' => $request->fullname,
                 'avatar' => isset($filename) ? $filename:'default.jpg',
@@ -125,7 +125,7 @@ class LoginController extends Controller
                 }
             }else{
                 $create = User::Create([
-                    'user_type' => 'Pelanggan',
+                    'user_type' => 'User',
                     'social_id' => $user_google->getId(),
                     'email' => $user_google->getEmail(),
                     'full_name' => $user_google->getName(),

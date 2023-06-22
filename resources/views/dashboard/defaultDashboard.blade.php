@@ -42,8 +42,8 @@
                     {{-- End Top Navbar --}}
                 </div>
             </div>
-            @include('dashboard.components.footerDB')
             @yield('pageContent')
+            @include('dashboard.components.footerDB')
         </div>
     </div>
     @stack('scripts')

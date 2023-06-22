@@ -16,7 +16,6 @@
                     @endif
     </span>
     <div class="flex items-center gap-4 p-3 align-middle px-60 topNav__items">
-
         <div class="navProfiles profilesDB">
             <div class="flex items-center gap-3 topNav__linkspicture">
                 <img src="{{ asset('asset/img/avatar.png') }}" alt="Dashboard profile pictures"
@@ -38,6 +37,17 @@
                         class="hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                             aria-labelledby="dropdownTop__navprofile">
+                            <li>
+                                <a href="{{ route('profile.index') }}"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    <div class="text-left">
+                                        <span class="py-1">
+                                            <i class="ri-settings-4-fill"></i>
+                                            Profile Setting
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
                             <li>
                                 <a href="#"
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">

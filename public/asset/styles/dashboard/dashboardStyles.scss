@@ -2,8 +2,6 @@ $dashboardBG : #f4f5fb;
 $navLinkstext : #ffffff;
 
 .dashboardContainer__inner {
-
-
     .navbarSide__container {
         background-color: $dashboardBG;
         background-image: radial-gradient(#080d4c11 0.75px, transparent 0.75px), radial-gradient(#080d4c09 0.75px, #f4f5fb 0.75px);
@@ -436,7 +434,7 @@ $navLinkstext : #ffffff;
             background-color: rgb(255, 255, 255);
             width: 100%;
             padding: 1em 20px;
-            z-index: 10;
+            // z-index: 10;
 
             .footerContent {
                 padding: 0 1.8em;
@@ -647,10 +645,10 @@ select:not(size) {
         }
 
         .verification__Card {
-            color: #ffffff;
+            color: #1d1c1c;
 
             .useR {
-                background-color: #03277c;
+                background-color: rgb(228, 234, 248);
                 overflow: hidden;
                 position: relative;
 
@@ -671,7 +669,7 @@ select:not(size) {
                         border-radius: 5px;
                         top: 20px;
                         content: "";
-                        background-color: rgb(255, 255, 255);
+                        background-color: rgb(197, 195, 230);
                         position: absolute;
                         height: 30px;
                         width: 30px;
@@ -685,7 +683,7 @@ select:not(size) {
                         z-index: 1;
                         width: 360px;
                         height: 260px;
-                        background-color: rgb(52, 34, 212);
+                        background-color: rgb(228, 225, 253);
                         right: -150px;
                         transform: rotate(40deg);
                         border-top-left-radius: 90%;
@@ -708,5 +706,27 @@ select:not(size) {
                 }
             }
         }
+    }
+
+    .accordionWrapper {
+        .accordionContent {
+            .accordionTitle {
+                font-family: 'Archivo', sans-serif;
+                font-weight: 600;
+            }
+
+        }
+
+
+        .accordion__toggleBtn {
+            background-color: #0035b0;
+
+        }
+
+        .active__accordion {
+            background-color: #0035b0;
+            font-family: 'Nunito', sans-serif;
+        }
+
     }
 }

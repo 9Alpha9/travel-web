@@ -315,7 +315,6 @@
   background-color: rgb(255, 255, 255);
   width: 100%;
   padding: 1em 20px;
-  z-index: 10;
 }
 .dashboardContainer__inner .sideDB__content .footerContainer .footerContent {
   padding: 0 1.8em;
@@ -450,10 +449,10 @@ select:not(size) {
   font-size: 1.6em;
 }
 .verificationRules__Container .verification__Content .verification__Card {
-  color: #ffffff;
+  color: #1d1c1c;
 }
 .verificationRules__Container .verification__Content .verification__Card .useR {
-  background-color: #03277c;
+  background-color: rgb(228, 234, 248);
   overflow: hidden;
   position: relative;
 }
@@ -473,7 +472,7 @@ select:not(size) {
   border-radius: 5px;
   top: 20px;
   content: "";
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(197, 195, 230);
   position: absolute;
   height: 30px;
   width: 30px;
@@ -486,7 +485,7 @@ select:not(size) {
   z-index: 1;
   width: 360px;
   height: 260px;
-  background-color: rgb(52, 34, 212);
+  background-color: rgb(228, 225, 253);
   right: -150px;
   transform: rotate(40deg);
   border-top-left-radius: 90%;
@@ -501,4 +500,15 @@ select:not(size) {
 }
 .verificationRules__Container .verification__Content .verification__Card .useR .verification__Btnreq .req__Cta:hover {
   background-image: linear-gradient(135deg, rgb(91, 53, 230) 0%, rgb(74, 147, 255) 100%);
+}
+.verificationRules__Container .accordionWrapper .accordionContent .accordionTitle {
+  font-family: "Archivo", sans-serif;
+  font-weight: 600;
+}
+.verificationRules__Container .accordionWrapper .accordion__toggleBtn {
+  background-color: #0035b0;
+}
+.verificationRules__Container .accordionWrapper .active__accordion {
+  background-color: #0035b0;
+  font-family: "Nunito", sans-serif;
 }/*# sourceMappingURL=dashboardStyles.css.map */

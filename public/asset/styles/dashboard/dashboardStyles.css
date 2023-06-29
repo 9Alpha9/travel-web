@@ -34,6 +34,18 @@
 }
 .dashboardContainer__inner .sideNavbar__items {
   font-family: "Nunito", sans-serif;
+  position: relative;
+}
+.dashboardContainer__inner .sideNavbar__items::before {
+  overflow: hidden;
+  content: "\b";
+  width: 326px;
+  height: 1px;
+  background-color: rgb(228, 228, 228);
+  position: absolute;
+  z-index: 5;
+  left: -15%;
+  top: -10%;
 }
 .dashboardContainer__inner .sideNavbar__items .navItems__db {
   padding: 8px 0;
@@ -55,7 +67,7 @@
   align-items: center;
 }
 .dashboardContainer__inner .sideNavbar__items .navItems__db .navLinks:hover {
-  background-color: #e8edff;
+  background-color: rgb(224, 232, 255);
   border-radius: 20px;
 }
 .dashboardContainer__inner .sideNavbar__items .navItems__db .navLinks .iconsDB {

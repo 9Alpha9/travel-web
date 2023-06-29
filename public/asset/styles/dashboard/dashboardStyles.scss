@@ -1,5 +1,6 @@
 $dashboardBG : #f4f5fb;
 $navLinkstext : #ffffff;
+$sideNav-hover: rgb(224, 232, 255);
 
 .dashboardContainer__inner {
     .navbarSide__container {
@@ -48,6 +49,19 @@ $navLinkstext : #ffffff;
 
     .sideNavbar__items {
         font-family: 'Nunito', sans-serif;
+        position: relative;
+
+        &::before {
+            overflow: hidden;
+            content: "\b";
+            width: 326px;
+            height: 1px;
+            background-color: rgb(228, 228, 228);
+            position: absolute;
+            z-index: 5;
+            left: -15%;
+            top: -10%;
+        }
 
         .navItems__db {
             padding: 8px 0;
@@ -72,7 +86,7 @@ $navLinkstext : #ffffff;
                 align-items: center;
 
                 &:hover {
-                    background-color: #e8edff;
+                    background-color: $sideNav-hover;
                     border-radius: 20px;
                 }
 
@@ -89,19 +103,16 @@ $navLinkstext : #ffffff;
         margin-left: 310px;
         align-items: center;
 
-        // background-color: $dashboardBG;
-
         .sideDB__navtopContainer {
             width: 100%;
-
 
             .navTop__fixed {
                 background-color: $dashboardBG;
                 top: 0;
                 align-items: center;
                 width: 100%;
-                // box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
+                // box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
                 .fixedNav__items {
                     position: relative;
                     width: 80%;
@@ -113,12 +124,11 @@ $navLinkstext : #ffffff;
                 overflow: hidden;
                 transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-                &:hover {
-                    // transition: 1.5s ease-in-out;
-                    // outline: 1px solid #003dff;
-                    // border-radius: 5px;
-                }
-
+                // &:hover {
+                //     transition: 1.5s ease-in-out;
+                //     outline: 1px solid #003dff;
+                //     border-radius: 5px;
+                // }
                 .searchBar__input {
                     border: 1.2px solid #003dff;
                     border-left: none;
@@ -164,7 +174,6 @@ $navLinkstext : #ffffff;
             padding: 20px 3em;
 
             .contentWrapper__dashboard {
-
                 .headerDB__items {
                     .headerTitle {
                         h1 {
@@ -176,7 +185,6 @@ $navLinkstext : #ffffff;
                 }
 
                 .topDB__information {
-
                     .informationContent__items {
                         border-radius: 10px;
                         width: 19em;
@@ -265,7 +273,6 @@ $navLinkstext : #ffffff;
                         }
 
                         .count__kotaItems {
-
                             .numberOf__kota {
                                 position: relative;
                                 z-index: 6;
@@ -519,8 +526,6 @@ $navLinkstext : #ffffff;
                                             padding: 6px 11px 6px 11px;
                                             background-color: #003dff;
                                             color: #fff;
-
-
                                         }
                                     }
 
@@ -538,7 +543,6 @@ $navLinkstext : #ffffff;
 
                                             &:hover {
                                                 background-color: #0636d1;
-
                                             }
                                         }
                                     }
@@ -546,14 +550,9 @@ $navLinkstext : #ffffff;
                             }
                         }
                     }
-
                 }
-
             }
-
         }
-
-
     }
 
     .listHistory__container {
@@ -565,7 +564,6 @@ $navLinkstext : #ffffff;
 
                 &:hover {
                     background-color: #03257a;
-
                 }
             }
         }
@@ -714,19 +712,15 @@ select:not(size) {
                 font-family: 'Archivo', sans-serif;
                 font-weight: 600;
             }
-
         }
-
 
         .accordion__toggleBtn {
             background-color: #0035b0;
-
         }
 
         .active__accordion {
             background-color: #0035b0;
             font-family: 'Nunito', sans-serif;
         }
-
     }
 }

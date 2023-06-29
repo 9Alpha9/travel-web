@@ -19,7 +19,7 @@
                 <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
                     <div class="flex flex-col flex-wrap justify-between useR__type">
                         <span class="z-10 block pt-6 leading-7 text-justify">
-                            <p>Ajukan atau request verifikasi untuk dapat melakukan pengelola tempat wisata anda</p>
+                            <p>Ajukan atau request verifikasi untuk dapat melakukan pengelolaan tempat wisata anda</p>
                         </span>
                         <div class="relative z-10 w-full pt-8 verification__Btnreq">
                             <button type="submit" class="w-full p-3 px-8 req__Cta rounded-xl">Ajukan Sekarang</button>
@@ -82,20 +82,18 @@
                     </div>
                     <div id="accordion-flush-body-tc" class="hidden" aria-labelledby="accordion-flush-items-tc">
                         <div class="py-5 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
-                            <p class="px-5 mb-2 leading-7 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Magnam esse aspernatur nam, facere quaerat culpa saepe,
-                                vero
-                                assumenda repellat enim eius possimus minima repudiandae laudantium at tempore velit
-                                quasi,
-                                totam soluta maxime. Magnam maiores veniam, laboriosam ab eius laudantium dicta iure
-                                nulla
-                                nihil
-                                non laborum exercitationem dolores ducimus reiciendis saepe, inventore sunt. Temporibus
-                                et
-                                libero magnam repudiandae atque ut vitae incidunt quas suscipit quos. Cupiditate
-                                molestias
-                                velit
-                                fugiat itaque omnis.</p>
+                            <span class="leading-7 text-gray-500 dark:text-gray-400">
+                                <ul class="pl-10 mb-2 leading-7">
+                                    <li class="text-gray-500 list-decimal">
+                                        <p>Anda dapat mengunggah dan mengelolah tempat wisata yang anda punya ke dalam
+                                            website.</p>
+                                    </li>
+                                    <li class="text-gray-500 list-decimal">Lorem ipsum dolor sit amet consectetur,
+                                        adipisicing elit.
+                                        Neque, architecto
+                                        veritatis aperiam sequi culpa ipsam alias dicta unde animi aliquam.</li>
+                                </ul>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -117,14 +115,19 @@
                         </div>
                     </div>
                     <div id="accordion-flush-body-tb" class="hidden" aria-labelledby="accordion-flush-items-tb">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="px-5 mb-2 leading-7 text-gray-500 dark:text-gray-400">Lorem ipsum
-                                dolor sit amet
-                                consectetur adipisicing elit. Porro ipsum maxime explicabo officia, magnam aperiam id ex
-                                repudiandae. Sed earum nemo quibusdam necessitatibus perspiciatis vel nobis a
-                                reprehenderit,
-                                libero aperiam consequatur repellat sit hic autem deleniti minus porro dolorem maiores!
-                            </p>
+                        <div class="border-b border-gray-200 dark:border-gray-700">
+                            <span class="px-5 text-gray-500 dark:text-gray-400">
+                                <ul class="pl-10 mb-2 leading-7">
+                                    <li class="text-gray-500 list-decimal">
+                                        <p>Anda dapat mengunggah dan mengelolah tempat wisata yang anda punya ke dalam
+                                            website.</p>
+                                    </li>
+                                    <li class="text-gray-500 list-decimal">Lorem ipsum dolor sit amet consectetur,
+                                        adipisicing elit.
+                                        Neque, architecto
+                                        veritatis aperiam sequi culpa ipsam alias dicta unde animi aliquam.</li>
+                                </ul>
+                            </span>
                         </div>
                     </div>
                 </div>

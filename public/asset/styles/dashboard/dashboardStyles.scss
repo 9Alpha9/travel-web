@@ -787,7 +787,7 @@ select:not(size) {
             }
 
             .dataTables_wrapper .dataTables_length select {
-                width: 60px;
+                width: 86px;
             }
 
             .dataTables_length {
@@ -837,6 +837,11 @@ select:not(size) {
             }
         }
 
+        .dataTables_wrapper .dataTables_length select {
+            border: none;
+            background-color: rgb(9, 11, 108);
+            color: #fff;
+        }
     }
 }
 

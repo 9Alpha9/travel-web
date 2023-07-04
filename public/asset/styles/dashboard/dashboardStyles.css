@@ -570,7 +570,7 @@ select:not(size) {
   font-weight: 500;
 }
 .verificationRules__Container .superAdmin__container .superAdmin__wrapper .dataTables_wrapper .dataTables_length select {
-  width: 60px;
+  width: 86px;
 }
 .verificationRules__Container .superAdmin__container .superAdmin__wrapper .dataTables_length {
   margin: 2em 0;
@@ -607,6 +607,11 @@ select:not(size) {
 .verificationRules__Container .superAdmin__container .superAdmin__wrapper table.dataTable tbody th,
 .verificationRules__Container .superAdmin__container .superAdmin__wrapper table.dataTable tbody td {
   padding: 10px 10px;
+}
+.verificationRules__Container .superAdmin__container .dataTables_wrapper .dataTables_length select {
+  border: none;
+  background-color: rgb(9, 11, 108);
+  color: #fff;
 }
 
 .swal2-container .swal2-actions .swalConfirm__cta {

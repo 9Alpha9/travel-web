@@ -551,6 +551,9 @@ video {
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
+.float-right {
+  float: right;
+}
 .float-left {
   float: left;
 }
@@ -963,6 +966,21 @@ video {
 }
 .border-t {
   border-top-width: 1px;
+}
+.border-l-2 {
+  border-left-width: 2px;
+}
+.border-r-2 {
+  border-right-width: 2px;
+}
+.border-r-0 {
+  border-right-width: 0px;
+}
+.border-r {
+  border-right-width: 1px;
+}
+.border-l {
+  border-left-width: 1px;
 }
 .border-none {
   border-style: none;

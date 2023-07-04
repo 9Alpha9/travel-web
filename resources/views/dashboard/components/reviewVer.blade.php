@@ -192,20 +192,23 @@
                 <table class="w-full text-sm text-left dataTable">
                     <thead class="text-white uppercase tableHead">
                         <tr>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 border-r dark:bg-gray-800 dark:border-gray-700">
+                                No
+                            </th>
+                            <th scope="col" class="px-6 py-3 border-r dark:bg-gray-800 dark:border-gray-700">
                                 Nama Lengkap
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 border-r dark:bg-gray-800 dark:border-gray-700">
                                 <div class="flex items-center">
                                     Nomor Telephone
                                 </div>
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 border-r dark:bg-gray-800 dark:border-gray-700">
                                 <div class="flex items-center">
                                     Alamat Email
                                 </div>
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 border-r dark:bg-gray-800 dark:border-gray-700">
                                 Aksi
                             </th>
                         </tr>
@@ -213,20 +216,20 @@
                     <tbody>
                         @foreach($user as $row)
                         <tr class="my-3 border-b dark:bg-gray-800 dark:border-gray-700">
+                            <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                                {{ $loop->iteration }}.
+                            </td>
                             <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                class="px-6 py-4 font-medium text-gray-900 border-r whitespace-nowrap dark:text-white dark:bg-gray-800 dark:border-gray-700">
                                 {{ $row->full_name }}
                             </th>
-                            <td class="px-6 py-4">
-                                <span class="flex items-center gap-2 numCol">
-                                    <p class="num">+62</p>
-                                    {{ $row->mobile_number }}
-                                </span>
+                            <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                                {{ $row->mobile_number }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $row->email }}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border-l dark:bg-gray-800 dark:border-gray-700">
                                 <div class="flex gap-2 actionCta">
                                     <a href="" id='btnProses' class="font-medium dark:text-blue-500 editCta">
                                         <span>

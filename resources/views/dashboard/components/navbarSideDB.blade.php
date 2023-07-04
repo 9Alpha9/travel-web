@@ -1,7 +1,9 @@
 <div class="fixed w-80 navbarSide__container">
     <div class="p-4 m-4 sideNavbar__navbar">
         <div class="relative flex flex-col flex-wrap sideNav__sidelogo">
-            <h1>BirentCar</h1>
+            <a href={{ route('admin.dashboard') }}>
+                <h1>BirentCar</h1>
+            </a>
             <span>database systems</span>
         </div>
         <div class="flex flex-col mt-16 sideNavbar__items">

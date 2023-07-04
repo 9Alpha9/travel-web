@@ -743,6 +743,16 @@ select:not(size) {
     }
 
     .superAdmin__container {
+        tr {
+            &::before {
+                content: "";
+                width: 100%;
+                height: 1px;
+                background-color: #d1d1d1;
+                position: absolute;
+            }
+        }
+
         .superAdmin__wrapper {
             .inf {
                 background-color: rgb(233, 233, 233);

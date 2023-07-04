@@ -18,6 +18,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 
+    {{-- Data Table Component --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+    {{-- Sweetalert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     {{-- Import Google Fonts Components --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +53,32 @@
             @include('dashboard.components.footerDB')
         </div>
     </div>
+    <form id="formLogout" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+    </form>
+
+    <script>
+        $('#btnLogout').on('click', function(){
+            // alert('tes');
+            $('#formLogout').submit();
+        });
+
+        $(document).ready(function(){
+            let table = new DataTable('.dataTable');
+
+            $('input[type="number"]').attr('onkeypress', 'return isNumber(event)');
+        });
+
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+    </script>
     @stack('scripts')
 </body>
 

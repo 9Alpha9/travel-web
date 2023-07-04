@@ -5,6 +5,7 @@
 
 @section('pageContent')
 <div class="relative verificationRules__Container">
+    @if(Auth::user()->user_type == 'User')
     <div class="relative pt-12 mt-12 verification__Content">
         <span class="block pt-12 verification__Title">
             <h1>Request Verifikasi</h1>
@@ -16,6 +17,7 @@
                     pengelolah, atau pengurus dari tempat wisata!</span>
             </p>
             <div class="grid grid-flow-col grid-cols-2 gap-8 pt-12 verification__Card">
+                @if(Auth::user()->pengajuan == false)
                 <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
                     <div class="flex flex-col flex-wrap justify-between useR__type">
                         <span class="z-10 block pt-6 leading-7 text-justify">
@@ -26,7 +28,19 @@
                         </div>
                     </div>
                 </div>
-                total wisata yang anda punya
+                @else
+                <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
+                    <div class="flex flex-col flex-wrap justify-between useR__type">
+                        <span class="z-10 block pt-6 leading-7 text-justify">
+                            <p>Mohon tunggu sebentar, pengajuan anda saat ini sedang diproses.</p>
+                        </span>
+                        <div class="relative z-10 w-full pt-8 verification__Wait">
+                            <div class="w-full p-3 px-8 rounded-xl pleaseWait__cta">Sedang
+                                diproses</div>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -162,11 +176,102 @@
             </div>
         </div>
     </div>
-
+    @elseif (Auth::user()->user_type == 'Admin')
+    <div class="adminContainer">
+        ini Admin Rules
+    </div>
+    @elseif(Auth::user()->user_type == 'superAdmin')
+    <div class="mt-10 superAdmin__container">
+        <div class="mt-32 superAdmin__wrapper">
+            <span class="block headingText">List Pengajuan</span>
+            <p class="inf">Silahkan tekan tombol <strong>"Proses pengajuan"</strong> untuk menyetujui atau menolak
+                persetujuan
+                request
+                verifikasi.</p>
+            <div class="relative overflow-x-auto sm:rounded-lg mt-9">
+                <table class="w-full text-sm text-left dataTable">
+                    <thead class="text-white uppercase tableHead">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Nama Lengkap
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                <div class="flex items-center">
+                                    Nomor Telephone
+                                </div>
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                <div class="flex items-center">
+                                    Alamat Email
+                                </div>
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Aksi
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($user as $row)
+                        <tr class="my-3 border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $row->full_name }}
+                            </th>
+                            <td class="px-6 py-4">
+                                <span class="flex items-center gap-2 numCol">
+                                    <p class="num">+62</p>
+                                    {{ $row->mobile_number }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $row->email }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex gap-2 actionCta">
+                                    <a href="" id='btnProses' class="font-medium dark:text-blue-500 editCta">
+                                        <span>
+                                            <i class="ri-settings-fill"></i>
+                                        </span>
+                                        Proses pengajuan
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@else
+@endif
 </div>
 
 @endsection
 
 @push('scripts')
-
+<script>
+    $('#btnProses').on('click', function(e){
+        e.preventDefault();
+        Swal.fire({
+            text: 'Yakin ingin memproses persetujuan ini?',
+            icon: 'question',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Setujui',
+            denyButtonText: 'Tolak',
+            customClass: {
+                confirmButton: 'swalConfirm__cta'
+            }
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('Perubahan data berhasil disimpan!', '', 'success')
+            } else if (result.isDenied) {
+                Swal.fire('Yakin ingin menolak perubahan data?', '', 'info')
+            }
+        });
+    });
+</script>
 @endpush

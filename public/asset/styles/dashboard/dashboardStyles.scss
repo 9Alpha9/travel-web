@@ -701,6 +701,24 @@ select:not(size) {
                             background-image: linear-gradient(135deg, rgb(91, 53, 230) 0%, rgb(74, 147, 255) 100%);
                         }
                     }
+
+                    .pleaseWait__cta {
+                        color: rgb(236, 236, 236);
+                        background-image: linear-gradient(135deg, rgb(192, 91, 32) 0%, rgb(250, 33, 80) 100%);
+                        font-weight: 500;
+                        transition: 1s cubic-bezier(.32, .86, .82, .4);
+                    }
+                }
+
+                .verification__Wait {
+
+                    .pleaseWait__cta {
+                        color: rgb(236, 236, 236);
+                        background-image: linear-gradient(135deg, rgb(192, 77, 32) 0%, rgb(250, 33, 80) 100%);
+                        font-weight: 500;
+                        transition: 1s cubic-bezier(.32, .86, .82, .4);
+                        text-align: center;
+                    }
                 }
             }
         }
@@ -722,5 +740,117 @@ select:not(size) {
             background-color: #0035b0;
             font-family: 'Nunito', sans-serif;
         }
+    }
+
+    .superAdmin__container {
+        .superAdmin__wrapper {
+            .inf {
+                background-color: rgb(233, 233, 233);
+                padding: 0.37em 10px;
+                margin: 20px 0;
+                color: rgb(75, 75, 75);
+            }
+
+            .numCol {
+                .num {
+                    background-color: rgb(209, 209, 209);
+                    color: #1f1f1f;
+                    border-radius: 3px;
+                    position: relative;
+                    padding: 2px 9px;
+                }
+            }
+
+            .tableHead {
+                background-color: rgb(9, 11, 108);
+            }
+
+            .dataTable {
+                font-family: 'Nunito', sans-serif;
+            }
+
+            .headingText {
+                font-size: 2em;
+                font-family: 'Nunito', sans-serif;
+                color: #082068;
+                font-weight: 500;
+            }
+
+            .dataTables_wrapper .dataTables_length select {
+                width: 60px;
+            }
+
+            .dataTables_length {
+                margin: 2em 0;
+            }
+
+            .dataTables_filter {
+                margin: 2em 0;
+            }
+
+            .dataTables_info {
+                margin: 2em 0;
+            }
+
+            .dataTables_paginate {
+                margin: 2em 0;
+            }
+
+            .actionCta {
+                color: #fff;
+
+                .editCta {
+                    border-radius: 4px;
+                    background-color: rgb(9, 108, 30);
+                    padding: 4px 15px;
+
+                    &:hover {
+                        background-color: rgb(9, 136, 37);
+                    }
+                }
+            }
+
+            .paginate_button.current {
+                background-color: rgb(15, 17, 177) !important;
+                border: transparent !important;
+                color: rgb(255, 255, 255) !important;
+
+                &:hover {
+                    background-color: rgb(20, 24, 235) !important;
+                    color: rgb(255, 255, 255) !important;
+                }
+            }
+
+            table.dataTable tbody th,
+            table.dataTable tbody td {
+                padding: 10px 10px;
+            }
+        }
+
+    }
+}
+
+.swal2-container {
+    .swal2-actions {
+        .swalConfirm__cta {
+            background-color: rgb(1, 26, 87);
+
+            &:hover {
+                background-color: rgb(13, 15, 160) !important;
+            }
+        }
+    }
+
+    .swal2-confirm {
+        background-color: rgb(1, 26, 87) !important;
+
+        &:hover {
+            background-color: rgb(13, 15, 160) !important;
+        }
+    }
+
+    .swal2-title {
+        font-size: 1.3em;
+        font-weight: 400;
     }
 }

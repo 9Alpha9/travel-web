@@ -5,6 +5,7 @@
             <span>database systems</span>
         </div>
         <div class="flex flex-col mt-16 sideNavbar__items">
+            @if(Auth::user()->user_type != 'User')
             <div class="navItems__db">
                 <a href="{{ route('admin.dashboard') }}">
                     <span class="block navLinks @isset($dashboard) {{ $dashboard }} @endif">
@@ -29,6 +30,15 @@
                     </span>
                 </a>
             </div>
+            <div class="navItems__db">
+                <a href="{{ route('wisata.requestView') }}">
+                    <span class="block navLinks @isset($pengajuan) {{ $pengajuan }} @endif">
+                        <i class="ri-play-list-add-fill iconsDB"></i>
+                        List Pengajuan
+                    </span>
+                </a>
+            </div>
+            @endif
         </div>
     </div>
 </div>

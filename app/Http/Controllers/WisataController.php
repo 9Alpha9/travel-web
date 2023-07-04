@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\KategoriFasilitas;
 use App\Models\Kecamatan;
 use App\Models\Kota;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,7 +48,8 @@ class WisataController extends Controller
     }
 
     public function requestView(){
-        return view('dashboard.components.reviewVer')->with(['request' => 'active', 'pageTitle' => 'Verifikasi Rules']);
+        $user = User::where('pengajuan', true)->get();
+        return view('dashboard.components.reviewVer')->with(['request' => 'active', 'pageTitle' => 'Verifikasi Rules', 'pengajuan' => 'active', 'user' => $user]);
     }
 
     public function requestReview(){

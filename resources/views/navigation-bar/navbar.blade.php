@@ -77,6 +77,27 @@
                                         </span>
                                     </li>
                                 </a>
+                                @if(Auth::user()->user_type != 'User')
+                                <a href="{{ route('admin.dashboard') }}">
+                                    <li
+                                        class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
+                                        <i class="ri-dashboard-fill"></i>
+                                        <span class="px-3 font-medium">
+                                            Dashboard
+                                        </span>
+                                    </li>
+                                </a>
+                                @else
+                                <a href="{{ route('wisata.requestView') }}">
+                                    <li
+                                        class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
+                                        <i class="ri-dashboard-fill"></i>
+                                        <span class="px-3 font-medium">
+                                            Request Verifikasi
+                                        </span>
+                                    </li>
+                                </a>
+                                @endif
                                 <li class="border-t sign__outAccount">
                                     <button
                                         class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start"

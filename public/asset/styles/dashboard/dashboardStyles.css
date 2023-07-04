@@ -513,6 +513,19 @@ select:not(size) {
 .verificationRules__Container .verification__Content .verification__Card .useR .verification__Btnreq .req__Cta:hover {
   background-image: linear-gradient(135deg, rgb(91, 53, 230) 0%, rgb(74, 147, 255) 100%);
 }
+.verificationRules__Container .verification__Content .verification__Card .useR .verification__Btnreq .pleaseWait__cta {
+  color: rgb(236, 236, 236);
+  background-image: linear-gradient(135deg, rgb(192, 91, 32) 0%, rgb(250, 33, 80) 100%);
+  font-weight: 500;
+  transition: 1s cubic-bezier(0.32, 0.86, 0.82, 0.4);
+}
+.verificationRules__Container .verification__Content .verification__Card .useR .verification__Wait .pleaseWait__cta {
+  color: rgb(236, 236, 236);
+  background-image: linear-gradient(135deg, rgb(192, 77, 32) 0%, rgb(250, 33, 80) 100%);
+  font-weight: 500;
+  transition: 1s cubic-bezier(0.32, 0.86, 0.82, 0.4);
+  text-align: center;
+}
 .verificationRules__Container .accordionWrapper .accordionContent .accordionTitle {
   font-family: "Archivo", sans-serif;
   font-weight: 600;
@@ -523,4 +536,85 @@ select:not(size) {
 .verificationRules__Container .accordionWrapper .active__accordion {
   background-color: #0035b0;
   font-family: "Nunito", sans-serif;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .inf {
+  background-color: rgb(233, 233, 233);
+  padding: 0.37em 10px;
+  margin: 20px 0;
+  color: rgb(75, 75, 75);
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .numCol .num {
+  background-color: rgb(209, 209, 209);
+  color: #1f1f1f;
+  border-radius: 3px;
+  position: relative;
+  padding: 2px 9px;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .tableHead {
+  background-color: rgb(9, 11, 108);
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .dataTable {
+  font-family: "Nunito", sans-serif;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .headingText {
+  font-size: 2em;
+  font-family: "Nunito", sans-serif;
+  color: #082068;
+  font-weight: 500;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .dataTables_wrapper .dataTables_length select {
+  width: 60px;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .dataTables_length {
+  margin: 2em 0;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .dataTables_filter {
+  margin: 2em 0;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .dataTables_info {
+  margin: 2em 0;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .dataTables_paginate {
+  margin: 2em 0;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .actionCta {
+  color: #fff;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .actionCta .editCta {
+  border-radius: 4px;
+  background-color: rgb(9, 108, 30);
+  padding: 4px 15px;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .actionCta .editCta:hover {
+  background-color: rgb(9, 136, 37);
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .paginate_button.current {
+  background-color: rgb(15, 17, 177) !important;
+  border: transparent !important;
+  color: rgb(255, 255, 255) !important;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .paginate_button.current:hover {
+  background-color: rgb(20, 24, 235) !important;
+  color: rgb(255, 255, 255) !important;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper table.dataTable tbody th,
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper table.dataTable tbody td {
+  padding: 10px 10px;
+}
+
+.swal2-container .swal2-actions .swalConfirm__cta {
+  background-color: rgb(1, 26, 87);
+}
+.swal2-container .swal2-actions .swalConfirm__cta:hover {
+  background-color: rgb(13, 15, 160) !important;
+}
+.swal2-container .swal2-confirm {
+  background-color: rgb(1, 26, 87) !important;
+}
+.swal2-container .swal2-confirm:hover {
+  background-color: rgb(13, 15, 160) !important;
+}
+.swal2-container .swal2-title {
+  font-size: 1.3em;
+  font-weight: 400;
 }/*# sourceMappingURL=dashboardStyles.css.map */

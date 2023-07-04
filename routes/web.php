@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth', 'role:User']], function () {
     Route::post('/admin/wisata/request', [WisataController::class, 'request'])->name('wisata.request');
 });
 
-Route::group(['middleware' => ['auth', 'role:superAdmin,User']], function () {
+Route::group(['middleware' => ['auth', 'role:superAdmin,Admin,User']], function () {
     Route::get('/admin/wisata/request/view', [WisataController::class, 'requestView'])->name('wisata.requestView');
 });
 

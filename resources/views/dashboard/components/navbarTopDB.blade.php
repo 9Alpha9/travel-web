@@ -18,14 +18,14 @@
     <div class="flex items-center gap-4 p-3 align-middle px-60 topNav__items">
         <div class="navProfiles profilesDB">
             <div class="flex items-center gap-3 topNav__linkspicture">
-                <img src="{{ asset('asset/img/avatar.png') }}" alt="Dashboard profile pictures"
-                    class="object-cover rounded-full h-14 w-14">
+                <img src="{{ empty(Auth::user()->social_id) ? asset('asset/img/avatar/' . Auth::user()->image) : Auth::user()->image }}"
+                    alt="Dashboard profile pictures" class="object-cover rounded-full h-14 w-14">
                 <div class="flex flex-col profilePictures__DB">
                     <div id="dropdownTop__navprofile" data-dropdown-toggle="dropdownsDB__profiles"
                         class="flex items-center align-middle cursor-pointer">
                         <h2 class="font-semibold whitespace-nowrap">
                             <span class="font-semibold">Hi,</span>
-                            Super Admin BirentCar
+                            {{ Auth::user()->full_name }}
                         </h2>
                         <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -48,16 +48,16 @@
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                    <div class="text-left">
-                                        <span class="py-1">
-                                            <i class="ri-logout-circle-r-line"></i>
-                                            Keluar
-                                        </span>
-                                    </div>
-                                </a>
+                            <li></li>
+                            <a href="#" id="btnLogout"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                <div class="text-left">
+                                    <span class="py-1">
+                                        <i class="ri-logout-circle-r-line"></i>
+                                        Keluar
+                                    </span>
+                                </div>
+                            </a>
                             </li>
                         </ul>
                     </div>

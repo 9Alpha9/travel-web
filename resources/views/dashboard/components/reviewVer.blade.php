@@ -5,7 +5,7 @@
 
 @section('pageContent')
 <div class="relative verificationRules__Container">
-    @if(Auth::user()->user_type == 'User')
+    @if(Auth::user()->user_type == 'User' || Auth::user()->user_type == 'Admin')
     <div class="relative pt-12 mt-12 verification__Content">
         <span class="block pt-12 verification__Title">
             <h1>Request Verifikasi</h1>
@@ -16,32 +16,72 @@
                 <span class="block">Verifikasi dilakukan hanya digunakan untuk menunjukkan bahwa anda adalah pemilik,
                     pengelolah, atau pengurus dari tempat wisata!</span>
             </p>
-            <div class="grid grid-flow-col grid-cols-2 gap-8 pt-12 verification__Card">
-                @if(Auth::user()->pengajuan == false)
-                <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
-                    <div class="flex flex-col flex-wrap justify-between useR__type">
-                        <span class="z-10 block pt-6 leading-7 text-justify">
-                            <p>Ajukan atau request verifikasi untuk dapat melakukan pengelolaan tempat wisata anda</p>
-                        </span>
-                        <div class="relative z-10 w-full pt-8 verification__Btnreq">
-                            <button type="submit" class="w-full p-3 px-8 req__Cta rounded-xl">Ajukan Sekarang</button>
+            <form action="{{ route('wisata.request') }}" method="post">
+                <div class="grid grid-flow-col grid-cols-2 gap-8 pt-12 verification__Card">
+                    {{ csrf_field() }}
+                    @if(Auth::user()->pengajuan == false)
+                    <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
+                        <div class="flex flex-col flex-wrap justify-between useR__type">
+                            <span class="z-10 block pt-6 leading-7 text-justify">
+                                <p>Ajukan atau request verifikasi untuk dapat melakukan pengelolaan tempat wisata anda
+                                </p>
+                            </span>
+                            <div class="relative z-10 w-full pt-8 verification__Btnreq">
+                                <button type="submit" class="w-full p-3 px-8 req__Cta rounded-xl">Ajukan
+                                    Sekarang</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @else
-                <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
-                    <div class="flex flex-col flex-wrap justify-between useR__type">
-                        <span class="z-10 block pt-6 leading-7 text-justify">
-                            <p>Mohon tunggu sebentar, pengajuan anda saat ini sedang diproses.</p>
-                        </span>
-                        <div class="relative z-10 w-full pt-8 verification__Wait">
-                            <div class="w-full p-3 px-8 rounded-xl pleaseWait__cta">Sedang
-                                diproses</div>
+                    @elseif(Auth::user()->pengajuan == true && Auth::user()->status != "terima" && Auth::user()->status
+                    != "tolak")
+                    <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
+                        <div class="flex flex-col flex-wrap justify-between useR__type">
+                            <span class="z-10 block pt-6 leading-7 text-justify">
+                                <p>Mohon tunggu sebentar, pengajuan anda saat ini sedang diproses.</p>
+                            </span>
+                            <div class="relative z-10 w-full pt-8 verification__Wait">
+                                <div class="w-full p-3 px-8 rounded-xl pleaseWait__cta">Sedang
+                                    diproses</div>
+                            </div>
                         </div>
                     </div>
+                    @elseif(Auth::user()->pengajuan == true && Auth::user()->status == "terima")
+                    <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
+                        <div class="flex flex-col flex-wrap justify-between useR__type">
+                            <span class="z-10 block pt-6 leading-7 text-justify">
+                                <p>Selamat, akun anda berhasil disetuji.</p>
+                            </span>
+                            <div class="relative z-10 w-full pt-8 verification__Wait">
+                                <div class="w-full p-3 px-8 rounded-xl sucess__cta">Berhasil disetuji</div>
+                            </div>
+                        </div>
+                    </div>
+                    @elseif(Auth::user()->pengajuan == true && Auth::user()->status == "tolak")
+                    <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
+                        <div class="flex flex-col flex-wrap justify-between useR__type">
+                            <span class="z-10 block pt-6 leading-7 text-justify">
+                                <p>Mohon maaf, pengajuan anda ditolak. Silahkan ajukan kembali setelah melengkapi data
+                                    yang dirasa kurang!</p>
+                            </span>
+                            <div class="relative z-10 w-full pt-20 verification__Wait">
+                                <div class="w-full p-3 px-8 rounded-xl denied__cta">Ditolak</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="informationSolution__wrapper">
+                        <section class="block shadow-2xl information__itemsP">
+                            <span class="block pb-4 titleInformation__hd">Alasan Penolakan :</span>
+                            <p>{{ Auth::user()->alasan }}</p>
+                            <div class="relative z-10 w-full pt-28 verification__Wait">
+                                <input type="text" name="inputPengajuan" value="1" hidden />
+                                <button type="submit" class="w-full p-3 px-8 rounded-xl reload__cta">Ajukan
+                                    Kembali</button>
+                            </div>
+                        </section>
+                    </div>
+                    @endif
                 </div>
-                @endif
-            </div>
+            </form>
         </div>
     </div>
     <div class="py-24 accordionWrapper">
@@ -176,10 +216,6 @@
             </div>
         </div>
     </div>
-    @elseif (Auth::user()->user_type == 'Admin')
-    <div class="adminContainer">
-        ini Admin Rules
-    </div>
     @elseif(Auth::user()->user_type == 'superAdmin')
     <div class="mt-10 superAdmin__container">
         <div class="mt-32 superAdmin__wrapper">
@@ -209,14 +245,22 @@
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3 border-r dark:bg-gray-800 dark:border-gray-700">
+                                <div class="flex items-center">
+                                    Tanggal Pengajuan
+                                </div>
+                            </th>
+                            <th scope="col" class="px-6 py-3 border-r dark:bg-gray-800 dark:border-gray-700">
                                 Aksi
+                            </th>
+                            <th scope="col" class="px-6 py-3 dark:bg-gray-800 dark:border-gray-700">
+                                Status
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($user as $row)
-                        <tr class="my-3 border-b dark:bg-gray-800 dark:border-gray-700">
-                            <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                        <tr class="my-3 border-b border-l dark:bg-gray-800 dark:border-gray-700">
+                            <td class="px-6 py-4 border-l border-r dark:bg-gray-800 dark:border-gray-700">
                                 {{ $loop->iteration }}.
                             </td>
                             <th scope="row"
@@ -226,18 +270,48 @@
                             <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
                                 {{ $row->mobile_number }}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
                                 {{ $row->email }}
                             </td>
-                            <td class="px-6 py-4 border-l dark:bg-gray-800 dark:border-gray-700">
-                                <div class="flex gap-2 actionCta">
-                                    <a href="" id='btnProses' class="font-medium dark:text-blue-500 editCta">
+                            <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                                {{ $row->tanggal_pengajuan }}
+                            </td>
+                            <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                                <div class="flex items-center gap-2 actionCta">
+                                    <a href="" name='btnProses' data-id="{{ $row->id_user }}"
+                                        class="flex items-center gap-3 font-medium dark:text-blue-500 editCta">
                                         <span>
-                                            <i class="ri-settings-fill"></i>
+                                            <i class="text-xl ri-settings-fill"></i>
                                         </span>
                                         Proses pengajuan
                                     </a>
                                 </div>
+                            </td>
+                            <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                                @if($row->status == "terima")
+                                <div class="flex items-center gap-2 statusCta ">
+                                    <span class="block">
+                                        <i class="text-xl ri-check-line"></i>
+                                    </span>
+                                    Diterima
+                                </div>
+                                @endif
+                                @if($row->status == "tolak")
+                                <div class="flex items-center gap-2 statusDenied">
+                                    <span class="block">
+                                        <i class="text-xl ri-close-fill "></i>
+                                    </span>
+                                    Ditolak
+                                </div>
+                                @endif
+                                @if($row->status == "ulang")
+                                <div class="flex items-center gap-2 whitespace-nowrap statusDenied">
+                                    <span class="block">
+                                        <i class="text-xl ri-close-fill "></i>
+                                    </span>
+                                    Pengajuan Ulang
+                                </div>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
@@ -245,18 +319,76 @@
                 </table>
             </div>
         </div>
+        <div class="relative mt-10 overflow-x-auto informationPenolakan__container py-7">
+            <table class="w-full mb-10 text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-gray-700 uppercase text-md dark:text-gray-400 declineTable__container">
+                    <tr>
+                        <th scope="col" class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            No
+                        </th>
+                        <th scope="col" class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            Nama Lengkap
+                        </th>
+                        <th scope="col" class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            Nomor Telephone
+                        </th>
+                        <th scope="col" class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            Alamat Email
+                        </th>
+                        <th scope="col" class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            Tanggal Pengajuan
+                        </th>
+                        <th scope="col" class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            Alasan Penolakan
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($tolak as $row)
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row"
+                            class="px-6 py-4 font-medium text-gray-900 border-l border-r whitespace-nowrap dark:text-white dark:bg-gray-800 dark:border-gray-700">
+                            {{ $loop->iteration }}.
+                            </td>
+                        <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            {{ $row->full_name }}
+                        </td>
+                        <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            {{ $row->mobile_number }}
+                        </td>
+                        <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            {{ $row->email }}
+                        </td>
+                        <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            {{ $row->tanggal_pengajuan }}
+                        </td>
+                        <td class="px-6 py-4 border-r dark:bg-gray-800 dark:border-gray-700">
+                            {{ $row->alasan }}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>
+<form action="{{ route('wisata.requestReview') }}" method="post" id='formUpdate'>
+    {{ csrf_field() }}
+    <input type="text" name="statusPengajuan" hidden />
+    <input type="text" name="alasanPengajuan" hidden />
+    <input type="text" name="idUser" hidden />
+</form>
 @else
 @endif
-</div>
 
 @endsection
 
 @push('scripts')
 <script>
-    $('#btnProses').on('click', function(e){
+    $('[name="btnProses"]').on('click', function(e){
         e.preventDefault();
+        const id = $(this).data('id');
         Swal.fire({
             text: 'Yakin ingin memproses persetujuan ini?',
             icon: 'question',
@@ -270,11 +402,40 @@
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                Swal.fire('Perubahan data berhasil disimpan!', '', 'success')
+                // Swal.fire('Perubahan data berhasil disimpan!', '', 'success')
+                prosesPengajuan('terima', 'Diterima', id);
             } else if (result.isDenied) {
-                Swal.fire('Yakin ingin menolak perubahan data?', '', 'info')
+                konfirmasiPenolakan(id);
             }
         });
     });
+
+    async function konfirmasiPenolakan(id){
+        const { value: alasan } = await Swal.fire({
+            title: 'Konfirmasi Penolakan',
+            text: 'Yakin ingin menolak pengajuan?',
+            input: 'text',
+            icon: 'info',
+            inputLabel: 'Alasan penolakan',
+            showCancelButton: true,
+            inputValidator: (value) => {
+                if(!value){
+                    return 'mohon alasan penolakan untuk di isi!'
+                }
+            }
+        });
+
+        if(alasan){
+            prosesPengajuan('tolak', alasan, id);
+            // Swal.fire(`Alasan penolakan :  ${alasan}`)
+        }
+    }
+
+    function prosesPengajuan(status, alasan, id){
+        $('input[name="statusPengajuan"]').val(status);
+        $('input[name="alasanPengajuan"]').val(alasan);
+        $('input[name="idUser"]').val(id);
+        $('#formUpdate').submit();
+    }
 </script>
 @endpush

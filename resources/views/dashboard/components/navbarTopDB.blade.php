@@ -18,7 +18,7 @@
     <div class="flex items-center gap-4 p-3 align-middle px-60 topNav__items">
         <div class="navProfiles profilesDB">
             <div class="flex items-center gap-3 topNav__linkspicture">
-                <img src="{{ empty(Auth::user()->social_id) ? asset('asset/img/avatar/' . Auth::user()->image) : Auth::user()->image }}"
+                <img src="{{ empty(Auth::user()->social_id) ? !empty(Auth::user()->image) ? asset('asset/img/avatar/' . Auth::user()->image) : asset('asset/img/avatar.png') : Auth::user()->image }}"
                     alt="Dashboard profile pictures" class="object-cover rounded-full h-14 w-14">
                 <div class="flex flex-col profilePictures__DB">
                     <div id="dropdownTop__navprofile" data-dropdown-toggle="dropdownsDB__profiles"

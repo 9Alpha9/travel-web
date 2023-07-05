@@ -526,6 +526,46 @@ select:not(size) {
   transition: 1s cubic-bezier(0.32, 0.86, 0.82, 0.4);
   text-align: center;
 }
+.verificationRules__Container .verification__Content .verification__Card .useR .verification__Wait .sucess__cta {
+  color: rgb(236, 236, 236);
+  background-image: linear-gradient(135deg, rgb(14, 134, 10) 0%, rgb(6, 100, 27) 100%);
+  font-weight: 500;
+  transition: 1s cubic-bezier(0.32, 0.86, 0.82, 0.4);
+  text-align: center;
+}
+.verificationRules__Container .verification__Content .verification__Card .useR .verification__Wait .denied__cta {
+  color: rgb(236, 236, 236);
+  background-image: linear-gradient(135deg, rgb(134, 39, 10) 0%, rgb(100, 6, 6) 100%);
+  font-weight: 500;
+  transition: 1s cubic-bezier(0.32, 0.86, 0.82, 0.4);
+  text-align: center;
+}
+.verificationRules__Container .verification__Content .verification__Card .informationSolution__wrapper {
+  position: relative;
+}
+.verificationRules__Container .verification__Content .verification__Card .informationSolution__wrapper .information__itemsP {
+  background-color: #353845;
+  padding: 2em;
+  border-radius: 10px;
+  line-height: 1.5em;
+  max-height: 600px;
+  height: 300px;
+  color: #fff;
+}
+.verificationRules__Container .verification__Content .verification__Card .informationSolution__wrapper .titleInformation__hd {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.verificationRules__Container .verification__Content .verification__Card .informationSolution__wrapper .verification__Wait .reload__cta {
+  color: rgb(236, 236, 236);
+  background-image: linear-gradient(135deg, rgb(10, 84, 134) 0%, rgb(6, 31, 100) 100%);
+  font-weight: 500;
+  transition: 1s cubic-bezier(0.32, 0.86, 0.82, 0.4);
+  text-align: center;
+}
+.verificationRules__Container .verification__Content .verification__Card .informationSolution__wrapper .verification__Wait .reload__cta:hover {
+  background-image: linear-gradient(135deg, rgb(16, 112, 177) 0%, rgb(9, 43, 138) 100%);
+}
 .verificationRules__Container .accordionWrapper .accordionContent .accordionTitle {
   font-family: "Archivo", sans-serif;
   font-weight: 600;
@@ -589,11 +629,23 @@ select:not(size) {
 }
 .verificationRules__Container .superAdmin__container .superAdmin__wrapper .actionCta .editCta {
   border-radius: 4px;
-  background-color: rgb(9, 108, 30);
+  background-color: rgb(12, 26, 155);
   padding: 4px 15px;
 }
 .verificationRules__Container .superAdmin__container .superAdmin__wrapper .actionCta .editCta:hover {
-  background-color: rgb(9, 136, 37);
+  background-color: rgb(16, 33, 190);
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .statusCta {
+  background-color: #14531d;
+  padding: 0 10px;
+  color: #fff;
+  border-radius: 3px;
+}
+.verificationRules__Container .superAdmin__container .superAdmin__wrapper .statusDenied {
+  background-color: #c21e1e;
+  padding: 0 10px;
+  color: #fff;
+  border-radius: 3px;
 }
 .verificationRules__Container .superAdmin__container .superAdmin__wrapper .paginate_button.current {
   background-color: rgb(15, 17, 177) !important;
@@ -612,6 +664,68 @@ select:not(size) {
   border: none;
   background-color: rgb(9, 11, 108);
   color: #fff;
+  padding: 4px 10px;
+}
+.verificationRules__Container .superAdmin__container .dataTables_wrapper .dataTables_filter input {
+  margin-right: 1px;
+}
+.verificationRules__Container .superAdmin__container .declineTable__container {
+  background-color: rgb(9, 11, 108);
+  color: #fff;
+}
+
+.containerTambah__wisata {
+  width: 1201px;
+  margin: 0 50px;
+  font-family: "Nunito", sans-serif;
+  position: relative;
+}
+.containerTambah__wisata .wisata__tableCount {
+  width: 100%;
+}
+.containerTambah__wisata .titleTable {
+  padding: 10px 0;
+  position: relative;
+}
+.containerTambah__wisata .titleTable .titleList {
+  font-size: 1.9em;
+  font-weight: 500;
+  color: #082068;
+  font-family: "Poppins", sans-serif;
+}
+.containerTambah__wisata .dataTables_wrapper .dataTables_length select {
+  width: 80px;
+  padding: 4px 10px;
+  background-color: rgb(1, 26, 87);
+  color: #fff;
+  border: none;
+}
+.containerTambah__wisata .tableWrapper {
+  position: relative;
+}
+.containerTambah__wisata .dataTables_wrapper {
+  margin: 1.3em 0;
+}
+.containerTambah__wisata .dataTables_length {
+  padding: 20px 0;
+  position: fixed !important;
+}
+.containerTambah__wisata .dataTables_filter {
+  padding: 20px 1px;
+}
+.containerTambah__wisata .dataTable__wrapper {
+  background-color: rgb(1, 26, 87);
+  color: #fff;
+  font-weight: 300;
+}
+.containerTambah__wisata .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.containerTambah__wisata .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background-color: rgb(1, 26, 87);
+  color: #fff !important;
+  margin: 2em 0;
+}
+.containerTambah__wisata .dataTables_wrapper .dataTables_info {
+  margin: 2em 0;
 }
 
 .swal2-container .swal2-actions .swalConfirm__cta {

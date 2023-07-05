@@ -620,6 +620,7 @@ select:not(size) {
     margin: 0 3rem;
     display: block;
     font-family: 'Nunito', sans-serif;
+    // height: 100%;
 
     .verification__Content {
         .verification__Title {
@@ -720,6 +721,60 @@ select:not(size) {
                         text-align: center;
                     }
                 }
+
+                .verification__Wait {
+                    .sucess__cta {
+                        color: rgb(236, 236, 236);
+                        background-image: linear-gradient(135deg, rgb(14, 134, 10) 0%, rgb(6, 100, 27) 100%);
+                        font-weight: 500;
+                        transition: 1s cubic-bezier(.32, .86, .82, .4);
+                        text-align: center;
+                    }
+                }
+
+                .verification__Wait {
+                    .denied__cta {
+                        color: rgb(236, 236, 236);
+                        background-image: linear-gradient(135deg, rgb(134, 39, 10) 0%, rgb(100, 6, 6) 100%);
+                        font-weight: 500;
+                        transition: 1s cubic-bezier(.32, .86, .82, .4);
+                        text-align: center;
+                    }
+                }
+
+            }
+
+            .informationSolution__wrapper {
+                position: relative;
+
+                .information__itemsP {
+                    background-color: #353845;
+                    padding: 2em;
+                    border-radius: 10px;
+                    line-height: 1.5em;
+                    max-height: 600px;
+                    height: 300px;
+                    color: #fff;
+                }
+
+                .titleInformation__hd {
+                    font-weight: 600;
+                    font-size: 1.2em;
+                }
+
+                .verification__Wait {
+                    .reload__cta {
+                        color: rgb(236, 236, 236);
+                        background-image: linear-gradient(135deg, rgb(10, 84, 134) 0%, rgb(6, 31, 100) 100%);
+                        font-weight: 500;
+                        transition: 1s cubic-bezier(.32, .86, .82, .4);
+                        text-align: center;
+
+                        &:hover {
+                            background-image: linear-gradient(135deg, rgb(16, 112, 177) 0%, rgb(9, 43, 138) 100%);
+                        }
+                    }
+                }
             }
         }
     }
@@ -811,13 +866,27 @@ select:not(size) {
 
                 .editCta {
                     border-radius: 4px;
-                    background-color: rgb(9, 108, 30);
+                    background-color: rgb(12, 26, 155);
                     padding: 4px 15px;
 
                     &:hover {
-                        background-color: rgb(9, 136, 37);
+                        background-color: rgb(16, 33, 190);
                     }
                 }
+            }
+
+            .statusCta {
+                background-color: #14531d;
+                padding: 0 10px;
+                color: #fff;
+                border-radius: 3px;
+            }
+
+            .statusDenied {
+                background-color: #c21e1e;
+                padding: 0 10px;
+                color: #fff;
+                border-radius: 3px;
             }
 
             .paginate_button.current {
@@ -841,7 +910,90 @@ select:not(size) {
             border: none;
             background-color: rgb(9, 11, 108);
             color: #fff;
+            padding: 4px 10px;
         }
+
+        .dataTables_wrapper .dataTables_filter input {
+            margin-right: 1px;
+        }
+
+        .declineTable__container {
+            background-color: rgb(9, 11, 108);
+            color: #fff;
+        }
+    }
+}
+
+
+.containerTambah__wisata {
+    width: 1201px;
+    margin: 0 50px;
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+
+    .wisata__tableCount {
+        width: 100%;
+    }
+
+    .titleTable {
+        padding: 10px 0;
+        position: relative;
+
+        .titleList {
+            font-size: 1.9em;
+            font-weight: 500;
+            color: #082068;
+            font-family: 'Poppins', sans-serif;
+        }
+    }
+
+    .dataTables_wrapper .dataTables_length select {
+        width: 80px;
+        padding: 4px 10px;
+        background-color: rgb(1, 26, 87);
+        color: #fff;
+        border: none;
+    }
+
+    .tableWrapper {
+        position: relative;
+        // margin-top: 7em;
+    }
+
+    .dataTables_wrapper {
+        margin: 1.3em 0;
+    }
+
+    .dataTables_length {
+        padding: 20px 0;
+        position: fixed !important;
+        // bottom: 650px;
+    }
+
+    .dataTables_filter {
+        padding: 20px 1px;
+        // position: fixed !important;
+        // right: 650px;
+        // bottom: 650px;
+        // max-width: 1201px !important;
+        // z-index: 2;
+    }
+
+    .dataTable__wrapper {
+        background-color: rgb(1, 26, 87);
+        color: #fff;
+        font-weight: 300;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        background-color: rgb(1, 26, 87);
+        color: #fff !important;
+        margin: 2em 0;
+    }
+
+    .dataTables_wrapper .dataTables_info {
+        margin: 2em 0;
     }
 }
 

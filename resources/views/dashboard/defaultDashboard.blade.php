@@ -20,6 +20,7 @@
 
     {{-- Data Table Component --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
     {{-- Sweetalert --}}
@@ -79,6 +80,7 @@
         }
 
     </script>
+    @include('dashboard.components.sweetalert')
     @stack('scripts')
 </body>
 

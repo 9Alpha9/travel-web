@@ -127,6 +127,7 @@
 }
 .dashboardContainer__inner .sideDB__content .contentContainer {
   padding: 20px 3em;
+  width: 1201px;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .headerDB__items .headerTitle h1 {
   font-size: 2em;
@@ -160,6 +161,9 @@
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .iconsSubdistrict__title {
   background-color: #193844;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .iconsUser__title {
+  background-color: #0d3d2b;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahWisata {
   background-color: #0035b0;
@@ -236,6 +240,37 @@
   filter: blur(30px);
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .kecamatansWisata .count__kecamatansItems .numberOf__kecamatans {
+  position: relative;
+  z-index: 6;
+  font-size: 1.8em;
+  font-family: "Archivo", sans-serif;
+  font-weight: 600;
+  width: 290px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .usersCount {
+  background-color: #1a5840;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .usersCount::before {
+  z-index: 4;
+  position: absolute;
+  content: "";
+  background-color: #217e5a;
+  -webkit-clip-path: fill-box;
+          clip-path: fill-box;
+  height: 10em;
+  width: 10em;
+  right: -10%;
+  bottom: -30%;
+  border-radius: 100%;
+  filter: blur(30px);
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .usersCount .count__usersItems .numberOf__users {
   position: relative;
   z-index: 6;
   font-size: 1.8em;
@@ -692,6 +727,31 @@ select:not(size) {
   font-weight: 500;
   color: #082068;
   font-family: "Poppins", sans-serif;
+}
+.containerTambah__wisata .titleTable .notedSuperAdm {
+  background-color: rgb(8, 32, 104);
+  position: relative;
+  overflow: hidden;
+}
+.containerTambah__wisata .titleTable .notedSuperAdm::after {
+  content: "";
+  background-color: rgb(255, 99, 71);
+  position: absolute;
+  z-index: 2;
+  width: 4px;
+  height: 100%;
+  top: 0;
+}
+.containerTambah__wisata .createContainer {
+  position: relative;
+}
+.containerTambah__wisata .createContainer .addWisata__supadm .addWisata__cta {
+  background-color: rgb(8, 32, 104);
+  color: #fff;
+  border-radius: 10px;
+}
+.containerTambah__wisata .createContainer .addWisata__supadm .addWisata__cta:hover {
+  background-color: rgb(12, 48, 156);
 }
 .containerTambah__wisata .dataTables_wrapper .dataTables_length select {
   width: 80px;

@@ -35,20 +35,24 @@
                 </a>
             </div>
             <div class="mt-2 profilesContent__item text-gray-primary hover:bg-primary-birent/5">
+                @if(Auth::user()->user_type != 'superAdmin')
                 <a href="{{ route('informasi.index') }}">
                     <span class="flex items-center gap-2 p-8 py-2">
                         <i class="text-2xl ri-shopping-bag-fill text-cta-login-birent"></i>
                         <h2 class="font-semibold">List Pembelian</h2>
                     </span>
                 </a>
+                @endif
             </div>
             <div class="mt-2 border-b text-gray-primary infoProfileContent__item hover:bg-primary-birent/5">
+                @if(Auth::user()->user_type != 'superAdmin')
                 <a href="{{ route('booking.index') }}">
                     <span class="flex items-center gap-2 p-8 py-2">
                         <i class="text-2xl ri-calendar-2-fill text-cta-login-birent"></i>
                         <h2 class="font-semibold">My Booking</h2>
                     </span>
                 </a>
+                @endif
             </div>
             <div class="mt-8 text-gray-primary infoProfileContent__item hover:bg-primary-birent/5">
                 <button class="flex items-center p-8 py-2" id="btnLogout">

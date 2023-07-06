@@ -59,6 +59,7 @@
                                         </span>
                                     </li>
                                 </a>
+                                @if(Auth::user()->user_type != 'superAdmin')
                                 <a href="{{ route('informasi.index') }}">
                                     <li
                                         class="block w-full px-4 py-2 info__payStatus hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
@@ -77,6 +78,7 @@
                                         </span>
                                     </li>
                                 </a>
+                                @endif
                                 @if(Auth::user()->user_type != 'User')
                                 <a href="{{ route('admin.dashboard') }}">
                                     <li
@@ -88,6 +90,7 @@
                                     </li>
                                 </a>
                                 @else
+                                @if(Auth::user()->user_type != 'superAdmin')
                                 <a href="{{ route('wisata.requestView') }}">
                                     <li
                                         class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-start">
@@ -97,6 +100,7 @@
                                         </span>
                                     </li>
                                 </a>
+                                @endif
                                 @endif
                                 <li class="border-t sign__outAccount">
                                     <button

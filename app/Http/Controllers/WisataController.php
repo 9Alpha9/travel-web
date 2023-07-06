@@ -20,7 +20,7 @@ class WisataController extends Controller
         else{
             $wisata = Wisata::get();
         }
-        return view('dashboard.pages.listwisata')->with(['wisata' => 'active', 'pageTitle' => 'Wisata', 'wisata' => $wisata]);
+        return view('dashboard.pages.listwisata')->with(['wisata' => 'active', 'pageTitle' => 'Wisata', 'tableWisata' => $wisata]);
     }
 
     public function create(){

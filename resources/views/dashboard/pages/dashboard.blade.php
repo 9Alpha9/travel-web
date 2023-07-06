@@ -58,7 +58,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="informationContent__items">empty data</div>
+                <div class="informationContent__items usersCount">
+                    <span class="flex items-center gap-3 align-middle headingInformation whitespace-nowrap">
+                        <i class="ri-user-fill text-xl infoDB__icons iconsUser__title"></i>
+                        <h2>Jumlah Pengelolah</h2>
+                    </span>
+                    <div class="usersNumber__count">
+                        <div class="flex flex-col count__usersItems whitespace-nowrap">
+                            <span class="pt-4 numberOf__users">
+                                60 Pengelolah
+                            </span>
+                            <span class="smallInfo">
+                                Jumlah total pengelolah aktif
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="itemsDB__datawrapper">
                 <div class="grid grid-cols-2 gap-3 dbData__items">

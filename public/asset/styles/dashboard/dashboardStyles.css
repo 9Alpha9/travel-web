@@ -709,6 +709,10 @@ select:not(size) {
   color: #fff;
 }
 
+.dataTables_wrapper .dataTables_filter input {
+  width: 281.23px;
+}
+
 .containerTambah__wisata {
   width: 1201px;
   margin: 0 50px;

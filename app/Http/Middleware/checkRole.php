@@ -20,6 +20,6 @@ class checkRole
         if(in_array($request->user()->user_type, $role)){
             return $next($request);
         }
-        return redirect()->back()->with('errorAkses', 'Anda tidak mempunyai hak akses!');
+        return redirect()->route('landingpage')->with('errorAkses', 'Anda tidak mempunyai hak akses!');
     }
 }

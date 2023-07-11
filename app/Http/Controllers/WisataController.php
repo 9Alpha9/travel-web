@@ -25,9 +25,14 @@ class WisataController extends Controller
 
     public function create(){
         $fasilitas = KategoriFasilitas::get();
-        $kota = Kota::get();
+        $kota = Kota::where('province_id', '35')->get();
         $kecamatan = Kecamatan::get();
         return view('dashboard.pages.wisataComponent')->with(['wisata' => 'active', 'pageTitle' => 'Wisata', 'fasilitas' => $fasilitas, 'kota' => $kota, 'kecamatan' => $kecamatan]);
+    }
+
+    public function getKecamatan(Request $request){
+        $kecamatan = Kecamatan::where('regency_id', $request->kota)->get();
+        return response()->json(['kecamatan' => $kecamatan->all()], 200);
     }
 
     public function show($id){
@@ -39,7 +44,7 @@ class WisataController extends Controller
     }
 
     public function store(Request $request){
-        dd(json_decode($request->listFasilitas));
+        dd($request);
     }
 
     public function update(Request $request, $id){

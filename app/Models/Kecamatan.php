@@ -14,15 +14,15 @@ class Kecamatan extends Model
     protected $primaryKey = 'id_kecamatan';
 
     protected $fillable = [
-        'id_kecamatan', 'nama_kecamatan', 'id_kota'
+        'id', 'regency_id', 'name', 'alt_name', 'latitude', 'longitude'
     ];
 
     public function Kota(){
-        return $this->belongsTo(Kota::class, 'id_kota', 'id_kota');
+        return $this->belongsTo(Kota::class, 'regency_id', 'id');
     }
 
     public function Wisata(){
-        return $this->hasMany(Wisata::class, 'id_wisata', 'id_wisata');
+        return $this->hasMany(Wisata::class, 'id_kecamatan', 'id');
     }
 
 }

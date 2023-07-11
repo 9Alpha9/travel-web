@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Models\Wilayah;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Wisata;
@@ -12,17 +13,16 @@ class Kota extends Model
 
     protected $table = 'kotas';
 
-    protected $primaryKey = 'id_kota';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-        'id_kota', 'nama_kota'
+        'id', 'province_id', 'name', 'alt_name', 'latitude', 'longitude'
     ];
 
-    public function Wisata(){
-        return $this->hasMany(Wisata::class, 'id_kota', 'id_kota');
+    public function Wilayah(){
+        return $this->belongsTo(Wilayah::class, 'province_id', 'id');
     }
-
     public function Kecamatan(){
-        return $this->hasMany(Kecamatan::class, 'id_kota', 'id_kota');
+        return $this->hasMany(Kecamatan::class, 'regency_id', 'id');
     }
 }

@@ -32,14 +32,14 @@
                             <span class="flex flex-col inputWisata__name">
                                 <label for="wisata__name" class="flex items-center py-2 ">
                                     <h3>
-                                        Kecamatan
+                                        Kota / Kabupaten
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <select name="inputKecamatan" id="inputKecamatan">
-                                    <option value="" selected hidden>Pilih Kecamatan</option>
-                                    @foreach($kecamatan as $row)
-                                    <option value="{{ $row->id_kecamatan }}">{{ $row->nama_kecamatan }}</option>
+                                <select name="inputKota" id="inputKota">
+                                    <option value="" selected hidden>Pilih Kota</option>
+                                    @foreach($kota as $row)
+                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </span>
@@ -48,15 +48,12 @@
                             <span class="flex flex-col inputWisata__name">
                                 <label for="wisata__name" class="flex items-center py-2 ">
                                     <h3>
-                                        Kota
+                                        Kecamatan
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <select name="inputKota" id="inputKota">
-                                    <option value="" selected hidden>Pilih Kota</option>
-                                    @foreach($kota as $row)
-                                    <option value="{{ $row->id_kota }}">{{ $row->nama_kota }}</option>
-                                    @endforeach
+                                <select name="inputKecamatan" id="inputKecamatan">
+                                    <option value="" selected hidden>Pilih Kecamatan</option>
                                 </select>
                             </span>
                         </div>
@@ -299,6 +296,18 @@
 
     $('input[name="checkFasilitas"]').on('change', function(){
         setFasilitas($(this).val(), $(this).data('nama'));
+    });
+
+    $('#inputKota').on('change', function(){
+        $.post("{{ route('data.kecamatan') }}", {
+            kota:$(this).val()
+        }, function(result){
+            let data = "";
+            result.kecamatan.forEach(element => {
+                data += "<option value='" + element.id + "'>" + element.name + "</option>";
+            });
+            $('#inputKecamatan').html(data);
+        });
     });
 
     function setFasilitas(id, name){

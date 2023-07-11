@@ -47,6 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/pembayaran-tiket/{id}', [OrderTicketController::class, 'show'])->name('payment');
 });
 
+Route::post('/admin/kecamatan', [WisataController::class, 'getKecamatan'])->name('data.kecamatan');
+
 Route::group(['middleware' => ['auth', 'role:User']], function () {
     Route::post('/admin/wisata/request', [WisataController::class, 'request'])->name('wisata.request');
 });

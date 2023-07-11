@@ -18,7 +18,7 @@
                     <div class="wisataNumber__count">
                         <div class="flex flex-col count__wisataItems whitespace-nowrap">
                             <span class="pt-4 numberOf__wisata">
-                                1650 Wisata
+                                {{ $wisata->count('id') }} Wisata
                             </span>
                             <span class="smallInfo">
                                 seluruh tempat wisata di Jawa Timur
@@ -34,10 +34,10 @@
                     <div class="kotaNumber__count">
                         <div class="flex flex-col count__kotaItems whitespace-nowrap">
                             <span class="pt-4 numberOf__kota">
-                                38 Kota
+                                {{ $kota->count('id') }} Kota
                             </span>
-                            <span class="smallInfo">
-                                diseluruh Jawa Timur
+                            <span class="smallInfo"></span>
+                            diseluruh Jawa Timur
                             </span>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="kecamatansNumber__count">
                         <div class="flex flex-col count__kecamatansItems whitespace-nowrap">
                             <span class="pt-4 numberOf__kecamatans">
-                                666 Kecamatan
+                                {{ $kota->sum('kecamatan_count') }} Kecamatan
                             </span>
                             <span class="smallInfo">
                                 diseluruh Jawa Timur
@@ -60,13 +60,13 @@
                 </div>
                 <div class="informationContent__items usersCount">
                     <span class="flex items-center gap-3 align-middle headingInformation whitespace-nowrap">
-                        <i class="ri-user-fill text-xl infoDB__icons iconsUser__title"></i>
+                        <i class="text-xl ri-user-fill infoDB__icons iconsUser__title"></i>
                         <h2>Jumlah Pengelolah</h2>
                     </span>
                     <div class="usersNumber__count">
                         <div class="flex flex-col count__usersItems whitespace-nowrap">
                             <span class="pt-4 numberOf__users">
-                                60 Pengelolah
+                                {{ $pengelolah->count('id_user') }} Pengelolah
                             </span>
                             <span class="smallInfo">
                                 Jumlah total pengelolah aktif

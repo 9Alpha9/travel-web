@@ -1096,3 +1096,126 @@ select:not(size) {
         font-weight: 400;
     }
 }
+
+
+.kategoriContainer {
+    top: 3rem;
+    position: relative;
+    width: 1201px;
+    margin: 0 50px;
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+
+    .dataTable__wrapper {
+        background-color: rgb(1, 26, 87);
+        color: #fff;
+        font-weight: 300;
+    }
+
+    .headingTitle__kategori {
+        font-size: 2em;
+        font-weight: 600;
+        font-family: 'Poppins'sans-serif;
+        color: #011a57;
+    }
+
+    .modalContainer {
+        .modalToogle {
+            background-color: rgb(1, 26, 87);
+            color: #fff;
+            transition: ease-in-out .3s;
+
+            &:hover {
+                background-color: rgb(8, 59, 189);
+            }
+        }
+    }
+
+    .kategoriInput__container {
+        .kategoriWrapper {
+            .deleteCta__btn {
+                background-color: rgb(192, 5, 5);
+                color: #fff;
+                transition: ease-in-out .3s;
+
+                &:hover {
+                    background-color: rgb(134, 2, 2);
+                }
+            }
+        }
+    }
+
+    .btnCancel__kategori {
+        border: solid 1.4px rgb(129, 3, 3);
+        color: rgb(129, 3, 3);
+        transition: ease-in-out .3s;
+
+        &:hover {
+            background-color: rgb(129, 3, 3);
+            color: #fff;
+        }
+    }
+
+    .moreSpace {
+        .inputCta__btn {
+            background-color: rgb(1, 26, 87);
+            font-size: .8em;
+            color: #fff;
+
+            &:hover {
+                background-color: rgb(8, 59, 189);
+            }
+        }
+    }
+
+    .kategoriWrapper__content {
+        .dataTables_wrapper .dataTables_length select {
+            width: 80px;
+            padding: 4px 10px;
+            background-color: rgb(1, 26, 87);
+            color: #fff;
+            border: none;
+        }
+
+        .dataTables_filter {
+            padding: 20px 1px;
+        }
+
+        .dataTables_wrapper {
+            margin: 1.3em 0;
+        }
+
+        .dataTables_length {
+            padding: 20px 0;
+            position: fixed !important;
+        }
+
+        .dataTables_info {
+            margin: 2em 0;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+            background-color: rgb(1, 26, 87);
+            color: #fff !important;
+            margin: 2em 0;
+        }
+    }
+
+    .actionTo__action {
+        .actionItems {
+            .actionEdit__cta {
+                background-color: tomato;
+            }
+
+            .actionDelete__cta {
+                background-color: rgb(192, 5, 5);
+                color: #fff;
+
+                &:hover {
+                    background-color: rgb(129, 3, 3);
+                }
+            }
+        }
+    }
+}

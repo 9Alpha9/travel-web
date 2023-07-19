@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileAccountController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\OrderTicketController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,7 @@ Route::group(['middleware' => ['auth', 'role:superAdmin,Admin,User']], function 
 
 Route::group(['middleware' => ['auth', 'role:superAdmin']], function () {
     Route::post('/admin/wisata/request/review', [WisataController::class, 'requestReview'])->name('wisata.requestReview');
+    Route::resource('/admin/kategori', KategoriController::class);
 });
 
 Route::group(['middleware' => ['auth', 'role:superAdmin,Admin']], function () {

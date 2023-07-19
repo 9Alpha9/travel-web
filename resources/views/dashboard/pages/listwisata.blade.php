@@ -32,7 +32,7 @@
                 <table class="relative w-full text-sm text-left dark:text-gray-400 dataTable" style="width: 100%;">
                     <thead class="text-gray-700 uppercase text-md dataTable__wrapper whitespace-nowrap">
                         <tr>
-                            <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
+                            <th scope="col" class="px-6 py-3 border-l dark:border-gray-700">
                                 No
                             </th>
                             <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
@@ -63,10 +63,10 @@
                     </thead>
                     <tbody>
                         <tr class="align-top bg-white border-b border-l dark:border-gray-700 ">
-                            <th scope="row" class="px-6 py-4 font-medium border-l dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium border-l border-r dark:border-gray-700">
                                 1
                             </th>
-                            <td class="px-6 py-4 border-l border-r dark:border-gray-700">
+                            <td class="px-6 py-4 border-r dark:border-gray-700">
 
                             </td>
                             <td class="px-6 py-4 border-r dark:border-gray-700">

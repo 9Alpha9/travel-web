@@ -807,4 +807,93 @@ select:not(size) {
 .swal2-container .swal2-title {
   font-size: 1.3em;
   font-weight: 400;
+}
+
+.kategoriContainer {
+  top: 3rem;
+  position: relative;
+  width: 1201px;
+  margin: 0 50px;
+  font-family: "Nunito", sans-serif;
+  position: relative;
+}
+.kategoriContainer .dataTable__wrapper {
+  background-color: rgb(1, 26, 87);
+  color: #fff;
+  font-weight: 300;
+}
+.kategoriContainer .headingTitle__kategori {
+  font-size: 2em;
+  font-weight: 600;
+  font-family: "Poppins" sans-serif;
+  color: #011a57;
+}
+.kategoriContainer .modalContainer .modalToogle {
+  background-color: rgb(1, 26, 87);
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+.kategoriContainer .modalContainer .modalToogle:hover {
+  background-color: rgb(8, 59, 189);
+}
+.kategoriContainer .kategoriInput__container .kategoriWrapper .deleteCta__btn {
+  background-color: rgb(192, 5, 5);
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+.kategoriContainer .kategoriInput__container .kategoriWrapper .deleteCta__btn:hover {
+  background-color: rgb(134, 2, 2);
+}
+.kategoriContainer .btnCancel__kategori {
+  border: solid 1.4px rgb(129, 3, 3);
+  color: rgb(129, 3, 3);
+  transition: ease-in-out 0.3s;
+}
+.kategoriContainer .btnCancel__kategori:hover {
+  background-color: rgb(129, 3, 3);
+  color: #fff;
+}
+.kategoriContainer .moreSpace .inputCta__btn {
+  background-color: rgb(1, 26, 87);
+  font-size: 0.8em;
+  color: #fff;
+}
+.kategoriContainer .moreSpace .inputCta__btn:hover {
+  background-color: rgb(8, 59, 189);
+}
+.kategoriContainer .kategoriWrapper__content .dataTables_wrapper .dataTables_length select {
+  width: 80px;
+  padding: 4px 10px;
+  background-color: rgb(1, 26, 87);
+  color: #fff;
+  border: none;
+}
+.kategoriContainer .kategoriWrapper__content .dataTables_filter {
+  padding: 20px 1px;
+}
+.kategoriContainer .kategoriWrapper__content .dataTables_wrapper {
+  margin: 1.3em 0;
+}
+.kategoriContainer .kategoriWrapper__content .dataTables_length {
+  padding: 20px 0;
+  position: fixed !important;
+}
+.kategoriContainer .kategoriWrapper__content .dataTables_info {
+  margin: 2em 0;
+}
+.kategoriContainer .kategoriWrapper__content .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.kategoriContainer .kategoriWrapper__content .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background-color: rgb(1, 26, 87);
+  color: #fff !important;
+  margin: 2em 0;
+}
+.kategoriContainer .actionTo__action .actionItems .actionEdit__cta {
+  background-color: tomato;
+}
+.kategoriContainer .actionTo__action .actionItems .actionDelete__cta {
+  background-color: rgb(192, 5, 5);
+  color: #fff;
+}
+.kategoriContainer .actionTo__action .actionItems .actionDelete__cta:hover {
+  background-color: rgb(129, 3, 3);
 }/*# sourceMappingURL=dashboardStyles.css.map */

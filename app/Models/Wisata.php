@@ -14,8 +14,12 @@ class Wisata extends Model
     protected $primaryKey = 'id_wisata';
 
     protected $fillable = [
-        'id_wisata', 'id_pengelolah', 'harga', 'diskon', 'nama_wisata', 'id_kategori_wisata', 'id_fasilitas_wisata', 'id_kecamatan'
+        'id_wisata', 'id_pengelolah', 'harga', 'diskon', 'artikel', 'nama_wisata', 'id_kategori_wisata', 'id_fasilitas_wisata', 'id_kecamatan'
     ];
+
+    public function Informasi(){
+        return $this->hasMany(Informasi::class, 'id_wisata', 'id_wisata');
+    }
 
     public function User(){
         return $this->belongsTo(User::class, 'id_pengelolah', 'id_user');

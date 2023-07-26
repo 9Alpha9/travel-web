@@ -45,6 +45,7 @@ class WisataController extends Controller
 
     public function store(Request $request){
         dd($request);
+        file_put_contents($filename, file_get_contents($base64_string));
     }
 
     public function update(Request $request, $id){

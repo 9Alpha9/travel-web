@@ -379,11 +379,33 @@ $sideNav-hover: rgb(224, 232, 255);
                 }
             }
 
+            .continer__selectionDiv {
+                width: 1201px;
+
+                .activityWrapper {
+                    border-radius: 10px;
+                    font-weight: 500;
+                    color: #1f1e1e;
+                    padding: 2em;
+                    background-color: #ced0d4;
+                }
+
+                .listInfo__content {
+                    border-radius: 10px;
+                    font-weight: 500;
+                    color: #1f1e1e;
+                    padding: 2em;
+                    background-color: #ced0d4;
+                }
+            }
+
+
             .dbData__Wisataitems {
                 position: relative;
 
                 width: 1201px;
                 max-width: 1201px;
+
 
                 .dbData__listWisata {
                     border-radius: 10px;
@@ -392,9 +414,7 @@ $sideNav-hover: rgb(224, 232, 255);
                     padding: 2em;
                     background-color: #ced0d4;
 
-                    .labelRequire__infowisata {
-                        color: #b5001b;
-                    }
+
 
                     .add__Customdb--cta {
                         .add__Customebtn--cta {
@@ -526,8 +546,14 @@ $sideNav-hover: rgb(224, 232, 255);
             }
 
             .bannerContent__thumbnail {
+                width: 1201px;
+                overflow: hidden;
+
                 .tumbnail__content {
                     border-radius: 10px;
+                    width: 100em;
+                    overflow-y: hidden;
+                    overflow-x: auto;
 
                     .thumbnail__items {
                         .thumbnailView__img {
@@ -553,7 +579,6 @@ $sideNav-hover: rgb(224, 232, 255);
                                     width: 250px;
                                     height: 350px;
                                     object-fit: cover;
-
                                 }
 
                                 .thumbnailSettings {
@@ -821,24 +846,6 @@ select:not(size) {
                     }
                 }
             }
-        }
-    }
-
-    .accordionWrapper {
-        .accordionContent {
-            .accordionTitle {
-                font-family: 'Archivo', sans-serif;
-                font-weight: 600;
-            }
-        }
-
-        .accordion__toggleBtn {
-            background-color: #0035b0;
-        }
-
-        .active__accordion {
-            background-color: #0035b0;
-            font-family: 'Nunito', sans-serif;
         }
     }
 
@@ -1231,4 +1238,68 @@ select:not(size) {
 
 .tox-statusbar__branding {
     display: none;
+}
+
+
+.accordionWrapper {
+    .accordionContent {
+        .accordionTitle {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 600;
+        }
+    }
+
+    .accordion__toggleBtn {
+        background-color: #0035b0;
+    }
+
+    .active__accordion {
+        background-color: #0035b0;
+        font-family: 'Nunito', sans-serif;
+    }
+}
+
+.labelRequire__infowisata {
+    color: #b5001b;
+}
+
+.listInfo__container {
+    .modalToogle {
+        background-color: #1543ec;
+    }
+
+    .btnCancel {
+        border: solid 1.4px rgb(129, 3, 3);
+        color: rgb(129, 3, 3);
+        transition: ease-in-out .3s;
+
+        &:hover {
+            background-color: rgb(129, 3, 3);
+            color: #fff;
+        }
+    }
+
+    .deleteCta__btn {
+        background-color: rgb(192, 5, 5);
+        color: #fff;
+        transition: ease-in-out .3s;
+
+        &:hover {
+            background-color: rgb(134, 2, 2);
+        }
+    }
+
+    .inputCta__btn {
+        background-color: rgb(1, 26, 87);
+        font-size: .8em;
+        color: #fff;
+
+        &:hover {
+            background-color: rgb(8, 59, 189);
+        }
+    }
+
+    .labelInput {
+        color: #8f8f8f;
+    }
 }

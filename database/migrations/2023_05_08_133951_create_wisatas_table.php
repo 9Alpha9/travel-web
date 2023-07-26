@@ -22,6 +22,7 @@ class CreateWisatasTable extends Migration
             $table->string('nama_wisata');
             $table->integer('harga');
             $table->integer('diskon');
+            $table->longText('artikel')->nullable();
             $table->timestamps();
 
             $table->foreign('id_pengelolah')

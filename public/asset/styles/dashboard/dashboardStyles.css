@@ -290,6 +290,23 @@
   color: #082068;
   font-weight: 500;
 }
+.dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv {
+  width: 1201px;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv .activityWrapper {
+  border-radius: 10px;
+  font-weight: 500;
+  color: #1f1e1e;
+  padding: 2em;
+  background-color: #ced0d4;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv .listInfo__content {
+  border-radius: 10px;
+  font-weight: 500;
+  color: #1f1e1e;
+  padding: 2em;
+  background-color: #ced0d4;
+}
 .dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems {
   position: relative;
   width: 1201px;
@@ -301,9 +318,6 @@
   color: #1f1e1e;
   padding: 2em;
   background-color: #ced0d4;
-}
-.dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata .labelRequire__infowisata {
-  color: #b5001b;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .dbData__Wisataitems .dbData__listWisata .add__Customdb--cta .add__Customebtn--cta {
   background-color: #1543ec;
@@ -390,8 +404,15 @@
 .dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .inputSection__thumbnail .add__Thumbnail--cta:hover {
   background-color: #023dc9;
 }
+.dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .bannerContent__thumbnail {
+  width: 1201px;
+  overflow: hidden;
+}
 .dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .bannerContent__thumbnail .tumbnail__content {
   border-radius: 10px;
+  width: 100em;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 .dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .bannerContent__thumbnail .tumbnail__content .thumbnail__items .thumbnailView__img .figureInner::after {
   content: "";
@@ -603,17 +624,6 @@ select:not(size) {
 }
 .verificationRules__Container .verification__Content .verification__Card .informationSolution__wrapper .verification__Wait .reload__cta:hover {
   background-image: linear-gradient(135deg, rgb(16, 112, 177) 0%, rgb(9, 43, 138) 100%);
-}
-.verificationRules__Container .accordionWrapper .accordionContent .accordionTitle {
-  font-family: "Archivo", sans-serif;
-  font-weight: 600;
-}
-.verificationRules__Container .accordionWrapper .accordion__toggleBtn {
-  background-color: #0035b0;
-}
-.verificationRules__Container .accordionWrapper .active__accordion {
-  background-color: #0035b0;
-  font-family: "Nunito", sans-serif;
 }
 .verificationRules__Container .superAdmin__container tr::before {
   content: "";
@@ -906,4 +916,52 @@ select:not(size) {
 
 .tox-statusbar__branding {
   display: none;
+}
+
+.accordionWrapper .accordionContent .accordionTitle {
+  font-family: "Archivo", sans-serif;
+  font-weight: 600;
+}
+.accordionWrapper .accordion__toggleBtn {
+  background-color: #0035b0;
+}
+.accordionWrapper .active__accordion {
+  background-color: #0035b0;
+  font-family: "Nunito", sans-serif;
+}
+
+.labelRequire__infowisata {
+  color: #b5001b;
+}
+
+.listInfo__container .modalToogle {
+  background-color: #1543ec;
+}
+.listInfo__container .btnCancel {
+  border: solid 1.4px rgb(129, 3, 3);
+  color: rgb(129, 3, 3);
+  transition: ease-in-out 0.3s;
+}
+.listInfo__container .btnCancel:hover {
+  background-color: rgb(129, 3, 3);
+  color: #fff;
+}
+.listInfo__container .deleteCta__btn {
+  background-color: rgb(192, 5, 5);
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+.listInfo__container .deleteCta__btn:hover {
+  background-color: rgb(134, 2, 2);
+}
+.listInfo__container .inputCta__btn {
+  background-color: rgb(1, 26, 87);
+  font-size: 0.8em;
+  color: #fff;
+}
+.listInfo__container .inputCta__btn:hover {
+  background-color: rgb(8, 59, 189);
+}
+.listInfo__container .labelInput {
+  color: #8f8f8f;
 }/*# sourceMappingURL=dashboardStyles.css.map */

@@ -25,3 +25,26 @@
     })
 </script>
 @endif
+
+<script>
+    $('button.btnDelete').on('click', function() {
+        var href = $(this).attr('href');
+        var no = $(this).data('no');
+        Swal.fire({
+                title: "Anda yakin untuk menghapus data nomer : \"" + no + "\"?",
+                text: "Setelah dihapus, data tidak bisa dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Ya, hapus'
+            })
+            .then((willDelete) => {
+                if (willDelete.value) {
+                    $('#deleteForm').attr('action', href);
+                    $('#deleteForm').submit();
+                }
+            })
+    });
+</script>

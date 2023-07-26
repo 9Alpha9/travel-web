@@ -453,6 +453,11 @@ $sideNav-hover: rgb(224, 232, 255);
                 }
             }
 
+            .tinyMce__container {
+                .tinyMce__infoheading {
+                    background-color: #011a57;
+                }
+            }
         }
 
         .notificationRing__icons {
@@ -1205,7 +1210,11 @@ select:not(size) {
     .actionTo__action {
         .actionItems {
             .actionEdit__cta {
-                background-color: tomato;
+                background-color: rgb(31, 82, 214);
+
+                &:hover {
+                    background-color: rgb(10, 40, 114);
+                }
             }
 
             .actionDelete__cta {
@@ -1218,4 +1227,8 @@ select:not(size) {
             }
         }
     }
+}
+
+.tox-statusbar__branding {
+    display: none;
 }

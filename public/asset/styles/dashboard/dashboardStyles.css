@@ -343,6 +343,9 @@
 .dashboardContainer__inner .sideDB__content .contentContainer .buttonCta__container .button__Additems .addSection__cta:hover {
   background-color: #1136bb;
 }
+.dashboardContainer__inner .sideDB__content .contentContainer .tinyMce__container .tinyMce__infoheading {
+  background-color: #011a57;
+}
 .dashboardContainer__inner .sideDB__content .notificationRing__icons {
   align-items: center;
   border: 2px solid rgb(255, 255, 255);
@@ -888,7 +891,10 @@ select:not(size) {
   margin: 2em 0;
 }
 .kategoriContainer .actionTo__action .actionItems .actionEdit__cta {
-  background-color: tomato;
+  background-color: rgb(31, 82, 214);
+}
+.kategoriContainer .actionTo__action .actionItems .actionEdit__cta:hover {
+  background-color: rgb(10, 40, 114);
 }
 .kategoriContainer .actionTo__action .actionItems .actionDelete__cta {
   background-color: rgb(192, 5, 5);
@@ -896,4 +902,8 @@ select:not(size) {
 }
 .kategoriContainer .actionTo__action .actionItems .actionDelete__cta:hover {
   background-color: rgb(129, 3, 3);
+}
+
+.tox-statusbar__branding {
+  display: none;
 }/*# sourceMappingURL=dashboardStyles.css.map */

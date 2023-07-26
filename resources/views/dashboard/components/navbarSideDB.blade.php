@@ -40,6 +40,14 @@
                     </span>
                 </a>
             </div>
+            <div class="navItems__db">
+                <a href="{{ route('kategori.index') }}">
+                    <span class="block navLinks @isset($kategori) {{ $kategori }} @endif">
+                        <i class="ri-archive-drawer-fill iconsDB"></i>
+                        Kategori
+                    </span>
+                </a>
+            </div>
             @endif
         </div>
     </div>

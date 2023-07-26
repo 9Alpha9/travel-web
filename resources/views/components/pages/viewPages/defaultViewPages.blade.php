@@ -316,7 +316,7 @@
     </script>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
     </script>
-    <script>
+    {{-- <script>
         const payButton = document.querySelector('#paymentTicket');
         payButton.addEventListener('click', function(e) {
             e.preventDefault();
@@ -328,7 +328,7 @@
                 console.log(response);
             });
         });
-    </script>
+    </script> --}}
 </body>
 
 </html>

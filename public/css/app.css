@@ -591,6 +591,10 @@ video {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -598,14 +602,6 @@ video {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
 }
 .-mt-1 {
   margin-top: -0.25rem;
@@ -618,6 +614,9 @@ video {
 }
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
 }
 .mb-4 {
   margin-bottom: 1rem;
@@ -633,6 +632,9 @@ video {
 }
 .mr-4 {
   margin-right: 1rem;
+}
+.mt-0 {
+  margin-top: 0px;
 }
 .mt-10 {
   margin-top: 2.5rem;
@@ -664,15 +666,6 @@ video {
 .mt-9 {
   margin-top: 2.25rem;
 }
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-.mt-6 {
-  margin-top: 1.5rem;
-}
-.mt-0 {
-  margin-top: 0px;
-}
 .box-content {
   box-sizing: content-box;
 }
@@ -699,6 +692,9 @@ video {
 }
 .h-14 {
   height: 3.5rem;
+}
+.h-3 {
+  height: 0.75rem;
 }
 .h-4 {
   height: 1rem;
@@ -730,12 +726,6 @@ video {
 .h-full {
   height: 100%;
 }
-.h-3 {
-  height: 0.75rem;
-}
-.h-\[calc\(100\%-2rem\)\] {
-  height: calc(100% - 2rem);
-}
 .max-h-40 {
   max-height: 10rem;
 }
@@ -745,8 +735,14 @@ video {
 .max-h-full {
   max-height: 100%;
 }
+.w-10 {
+  width: 2.5rem;
+}
 .w-14 {
   width: 3.5rem;
+}
+.w-3 {
+  width: 0.75rem;
 }
 .w-4 {
   width: 1rem;
@@ -787,29 +783,44 @@ video {
 .w-full {
   width: 100%;
 }
-.w-3 {
-  width: 0.75rem;
+.w-11\/12 {
+  width: 91.666667%;
 }
-.w-32 {
-  width: 8rem;
+.w-\[4rem\] {
+  width: 4rem;
 }
-.w-10 {
-  width: 2.5rem;
+.w-\[14rem\] {
+  width: 14rem;
 }
-.w-20 {
-  width: 5rem;
+.w-\[34rem\] {
+  width: 34rem;
 }
-.w-24 {
-  width: 6rem;
+.w-\[84rem\] {
+  width: 84rem;
 }
-.w-36 {
-  width: 9rem;
+.w-\[80rem\] {
+  width: 80rem;
 }
-.w-72 {
-  width: 18rem;
+.w-\[79rem\] {
+  width: 79rem;
+}
+.w-\[78rem\] {
+  width: 78rem;
+}
+.w-\[77rem\] {
+  width: 77rem;
+}
+.w-\[75rem\] {
+  width: 75rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
 }
 .max-w-3xl {
   max-width: 48rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
 }
 .max-w-\[70rem\] {
   max-width: 70rem;
@@ -819,12 +830,6 @@ video {
 }
 .max-w-sm {
   max-width: 24rem;
-}
-.max-w-2xl {
-  max-width: 42rem;
-}
-.max-w-4xl {
-  max-width: 56rem;
 }
 .flex-shrink {
   flex-shrink: 1;
@@ -911,29 +916,26 @@ video {
 .gap-5 {
   gap: 1.25rem;
 }
-.gap-8 {
-  gap: 2rem;
-}
-.gap-9 {
-  gap: 2.25rem;
-}
 .gap-6 {
   gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
 }
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-}
 .space-y-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
@@ -1187,18 +1189,6 @@ video {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-.py-9 {
-  padding-top: 2.25rem;
-  padding-bottom: 2.25rem;
-}
-.px-44 {
-  padding-left: 11rem;
-  padding-right: 11rem;
-}
 .pb-20 {
   padding-bottom: 5rem;
 }
@@ -1243,15 +1233,6 @@ video {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pt-3 {
-  padding-top: 0.75rem;
-}
-.pb-3 {
-  padding-bottom: 0.75rem;
-}
-.pl-44 {
-  padding-left: 11rem;
 }
 .text-left {
   text-align: left;
@@ -1328,6 +1309,9 @@ video {
 }
 .uppercase {
   text-transform: uppercase;
+}
+.italic {
+  font-style: italic;
 }
 .leading-7 {
   line-height: 1.75rem;

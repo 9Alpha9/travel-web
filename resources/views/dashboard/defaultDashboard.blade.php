@@ -27,6 +27,9 @@
     {{-- Sweetalert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+    <script src="https://cdn.tiny.cloud/1/smrd3od8fwoqal7lpb5mxs1y0saxrmn6xj1jimybixsr8amf/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
     {{-- Import Google Fonts Components --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +60,10 @@
     </div>
     <form id="formLogout" action="{{ route('logout') }}" method="POST" style="display: none;">
         {{ csrf_field() }}
+    </form>
+    <form action="" method="post" id="deleteForm">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
     </form>
 
     <script>

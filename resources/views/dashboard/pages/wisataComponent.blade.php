@@ -8,6 +8,7 @@
         <div class="relative headerDB__items">
             <span class="block py-6 headerTitle">
                 <h1>Wisata</h1>
+                <p>Silahkan isi form berikut untuk ditampilkan pada halaman website.</p>
             </span>
             <form action="{{ route('wisata.store') }}" method="POST">
                 {{ csrf_field() }}
@@ -210,6 +211,17 @@
                             </div> --}}
                         </div>
                     </div>
+                    <div class="tinyMce__container mt-10 relative">
+                        <span
+                            class="tinyMce__infoheading inline-block py-3 px-3 rounded-md text-white whitespace-wrap w-[75rem]"><i
+                                class="ri-information-fill text-lg"></i>
+                            Setelah selesai melakukan pemilihan atau penginputan tentang fasilitas dan kategori wisata,
+                            silahkan masukkan informasi mengenai tempat wisata yang akan anda upload kedalam website !
+                        </span>
+                        <section class="tinyText__controlarea w-full py-3">
+                            <textarea></textarea>
+                        </section>
+                    </div>
                     {{-- Thumbnail Wisata --}}
                     <div class="thumbnailContainer">
                         <div class="relative mt-12 thumbnail__wrapperContent">
@@ -223,7 +235,7 @@
                                 </p>
                             </span>
                             <div class="inputSection__thumbnail">
-                                <div class="relative flex justify-between py-6">
+                                <div class="relative flex justify-between py-6 w-[75rem]">
                                     <input type="file" name="Thumbnail-images"
                                         accept="image/png, image/jpg, image/jpeg, image/webp" class="thumbnail__Btncta">
                                     <span class="block">
@@ -277,6 +289,14 @@
 
 @endsection
 @push('scripts')
+<script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+      toolbar: 'undo redo | blocks fontsize | bold italic underline strikethrough | align lineheight | numlist bullist indent outdent | removeformat',
+      width: 1201
+    });
+</script>
 <script>
     const paragraph = document.querySelector('.textFacility');
     paragraph.addEventListener('dblclick', event => {

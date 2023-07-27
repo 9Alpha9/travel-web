@@ -407,12 +407,27 @@
 .dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .bannerContent__thumbnail {
   width: 1201px;
   overflow: hidden;
+  overflow-x: auto;
+}
+.dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .bannerContent__thumbnail::-webkit-scrollbar {
+  height: 10px;
+}
+.dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .bannerContent__thumbnail::-webkit-scrollbar-thumb:horizontal {
+  background-color: rgb(231, 231, 231);
+  border-radius: 3px;
+  overflow-x: visible;
+  width: 3px;
+}
+.dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .bannerContent__thumbnail::-webkit-scrollbar-track {
+  background: #011a57;
+  border-radius: 4px;
 }
 .dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .bannerContent__thumbnail .tumbnail__content {
   border-radius: 10px;
   width: 100em;
   overflow-y: hidden;
   overflow-x: auto;
+  margin: 20px 0;
 }
 .dashboardContainer__inner .thumbnailContainer .thumbnail__wrapperContent .bannerContent__thumbnail .tumbnail__content .thumbnail__items .thumbnailView__img .figureInner::after {
   content: "";

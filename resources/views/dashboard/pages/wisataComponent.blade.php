@@ -169,7 +169,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="continer__selectionDiv grid grid-cols-2 w-full gap-4">
+                    <div class="grid w-full grid-cols-2 gap-4 continer__selectionDiv">
                         <div class="relative mt-12 activityContainer">
                             <span class="block py-4 dbText__header">
                                 <h1>Kategori Tempat Wisata</h1>
@@ -197,11 +197,11 @@
                             </div>
                         </div>
                         {{-- List Info Wisata --}}
-                        <div class="listInfo__container mt-12">
+                        <div class="mt-12 listInfo__container">
                             <span class="block py-4 dbText__header">
                                 <h1>Informasi Tempat Wisata</h1>
                             </span>
-                            <div class="listInfo__content relative ">
+                            <div class="relative listInfo__content ">
                                 <div class="dbData__listWisata">
                                     <label for="wisata__name" class="flex items-center py-2 ">
                                         <h3>
@@ -210,9 +210,9 @@
                                         </h3>
                                     </label>
                                     <button data-modal-target="infoModal" data-modal-toggle="infoModal"
-                                        class="block modalToogle text-white rounded-lg text-sm w-full px-5 py-2.5 text-center"
+                                        class="block modalToogle text-white rounded-lg text-sm w-full px-5 py-2.5 text-center hover:bg-blue-800"
                                         type="button">
-                                        Tambah Informasi Wisata
+                                        Tambah / Edit Informasi Wisata
                                     </button>
                                     <div id="infoModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
                                         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -224,7 +224,7 @@
                                                         Tambah Informasi Wisata
                                                     </h3>
                                                     <button type="button"
-                                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                        class="inline-flex items-center justify-center w-8 h-8 ml-auto text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                                                         data-modal-hide="infoModal">
                                                         <svg class="w-3 h-3" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -244,12 +244,12 @@
                                                             dibawah!
                                                         </p>
                                                     </span>
-                                                    <section class="infoWisata__Wrapper pt-6">
+                                                    <section class="pt-6 infoWisata__Wrapper">
                                                         <label for="infoInput"
-                                                            class="block text-sm labelInput font-medium text-gray-900 dark:text-white mb-3">Tambah
-                                                            Informasi Wisata</label>
+                                                            class="block mb-3 text-sm text-gray-900 labelInput dark:text-white">Tambahkan
+                                                            List Informasi Wisata</label>
                                                         <span class="flex flex-row items-center gap-4 pb-4">
-                                                            <div class="flexInput flex flex-col w-full">
+                                                            <div class="flex flex-col w-full flexInput">
                                                                 <input type="text" id="informaisInput" required
                                                                     class="bg-gray-50 border border-gray-300 text-sm font-thin rounded-lg w-full p-2.5 inputFields"
                                                                     autocomplete="off" placeholder="Informasi Wisata"
@@ -258,21 +258,21 @@
                                                             <span class="relative">
                                                                 <button type="button" onclick="deleteInput(this)"
                                                                     disabled
-                                                                    class="deleteCta__btn p-2 mt-0 px-4 py-10 rounded-lg"><i
+                                                                    class="p-2 px-4 py-10 mt-0 rounded-lg cursor-pointer deleteCta__btn"><i
                                                                         class="ri-delete-bin-7-fill"></i></button>
                                                             </span>
                                                         </span>
                                                     </section>
-                                                    <section class="relative space-y-5 block moreSpace">
+                                                    <section class="relative block space-y-5 moreSpace">
                                                         <button type="button"
-                                                            class="inputCta__btn p-2 mt-3 py-10 rounded-lg"><i
+                                                            class="p-2 py-10 mt-3 rounded-lg inputCta__btn"><i
                                                                 class="ri-add-line"></i> Tambah informasi
                                                             wisata</button>
                                                     </section>
 
                                                 </div>
                                                 <div
-                                                    class="flex justify-between items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                                    class="flex items-center justify-between p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                                                     <button data-modal-hide="infoModal" type="submit" id=""
                                                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center "><i
                                                             class="ri-save-fill"></i>
@@ -291,10 +291,10 @@
                     <div class="tinyMce__container mt-[4rem] relative">
                         <span
                             class="tinyMce__infoheading inline-block py-3 px-3 rounded-md text-white whitespace-wrap w-[75rem]"><i
-                                class="ri-information-fill text-lg"></i>
+                                class="text-lg ri-information-fill"></i>
                             Silahkan masukkan informasi mengenai tempat wisata yang akan anda upload kedalam website !
                         </span>
-                        <section class="tinyText__controlarea w-full py-3">
+                        <section class="w-full py-3 tinyText__controlarea">
                             <textarea name="artikel"></textarea>
                         </section>
                     </div>
@@ -302,7 +302,7 @@
                     <div class="thumbnailContainer">
                         <div class="relative mt-12 thumbnail__wrapperContent">
                             <span class="block py-4 dbText__header">
-                                <h1>Thumbnail Wisata</h1>
+                                <h1>Gallery List Wisata</h1>
                                 <p class="py-3 text-xs">Thumbnail wisata digunakan untuk memberikan informasi
                                     halaman
                                     awal
@@ -319,7 +319,7 @@
                                 </div>
                             </div>
                             <div class="bannerContent__thumbnail">
-                                <div class="flex flex-row gap-2 overflow-hidden tumbnail__content overflow-x-auto">
+                                <div class="flex flex-row gap-2 overflow-hidden tumbnail__content">
                                     {{-- preview images --}}
                                     {{-- <div class="thumbnail__items">
                                         <div class="thumbnailView__img">
@@ -394,14 +394,14 @@
         let html = "";
         html +=
         '<span class="flex flex-row items-center gap-4 pb-4">'
-        + '<div class="flexInput flex flex-col w-full">'
+        + '<div class="flex flex-col w-full flexInput">'
         + '<input type="text" id="informaisInput" required '
         + 'autocomplete="off"'
         + 'class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"'
         + 'placeholder="Informasi Wisata" name="inputInformasi[]" onchange="disableButton(this)">'
         + '</div>'
         + '<span class="relative">'
-        + '<button type="button" onclick="deleteInput(this)" disabled class="deleteCta__btn p-2 mt-0 px-4 py-10 rounded-lg"><i '
+        + '<button type="button" onclick="deleteInput(this)" disabled class="p-2 px-4 py-10 mt-0 rounded-lg deleteCta__btn"><i '
         + 'class="ri-delete-bin-7-fill"></i></button>'
         + '</span>'
         + '</span>';

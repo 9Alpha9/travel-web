@@ -548,12 +548,32 @@ $sideNav-hover: rgb(224, 232, 255);
             .bannerContent__thumbnail {
                 width: 1201px;
                 overflow: hidden;
+                overflow-x: auto;
+
+                &::-webkit-scrollbar {
+                    height: 10px;
+                    // background: gray;
+                    // padding: 1.2em 0;
+                }
+
+                &::-webkit-scrollbar-thumb:horizontal {
+                    background-color: rgb(231, 231, 231);
+                    border-radius: 3px;
+                    overflow-x: visible;
+                    width: 3px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: #011a57;
+                    border-radius: 4px;
+                }
 
                 .tumbnail__content {
                     border-radius: 10px;
                     width: 100em;
                     overflow-y: hidden;
                     overflow-x: auto;
+                    margin: 20px 0;
 
                     .thumbnail__items {
                         .thumbnailView__img {

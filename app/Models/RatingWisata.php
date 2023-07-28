@@ -14,7 +14,7 @@ class RatingWisata extends Model
     protected $primaryKey = 'id_rating_wisata';
 
     protected $fillable = [
-        'id_rating_wisata', 'id_wisata', 'niilai', 'id_user'
+        'id_rating_wisata', 'id_wisata', 'nilai', 'komentar', 'id_user'
     ];
 
     public function Wisata(){

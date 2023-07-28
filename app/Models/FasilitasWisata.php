@@ -14,11 +14,11 @@ class FasilitasWisata extends Model
     protected $primaryKey = 'id_fasilitas_wisata';
 
     protected $fillable = [
-        'id_fasilitas_wisata', 'fasilitas_wisata', 'id_kategori_fasilitas'
+        'id_fasilitas_wisata', 'id_wisata', 'id_kategori_fasilitas'
     ];
 
     public function Wisata(){
-        return $this->hasMany(Wisata::class, 'id_fasilitas_wisata', 'id_fasilitas_wisata');
+        return $this->belongsTo(Wisata::class, 'id_wisata', 'id_wisata');
     }
 
     public function KategoriFasilitas(){

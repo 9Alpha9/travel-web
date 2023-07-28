@@ -56,4 +56,8 @@ class User extends Authenticatable
     public function OrderTicket(){
         return $this->hasMany(OrderTicket::class, 'id_pelanggan', 'id_user');
     }
+
+    public function BobotKriteria(){
+        return $this->hasMany(BobotKriteria::class, 'id_user', 'id_user');
+    }
 }

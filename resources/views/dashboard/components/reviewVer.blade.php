@@ -34,25 +34,38 @@
                     </div>
                     @elseif(Auth::user()->pengajuan == true && Auth::user()->status != "terima" && Auth::user()->status
                     != "tolak")
-                    <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
+                    <div class="col-span-2 px-6 shadow-2xl rounded-xl verification__Items-card useR">
                         <div class="flex flex-col flex-wrap justify-between useR__type">
                             <span class="z-10 block pt-6 leading-7 text-justify">
-                                <p>Mohon tunggu sebentar, pengajuan anda saat ini sedang diproses.</p>
+                                <p>Mohon tunggu, pengajuan anda saat ini sedang ditinjau kembali oleh pihak Birentcar
+                                    Travel Agency. Dibutuhkan proses kurang lebih 1-3 Hari kerja untuk meninjau kembali
+                                    data anda.</p>
                             </span>
                             <div class="relative z-10 w-full pt-8 verification__Wait">
-                                <div class="w-full p-3 px-8 rounded-xl pleaseWait__cta">Sedang
-                                    diproses</div>
+                                <div class="flex justify-center w-full gap-3 p-3 px-8 rounded-xl pleaseWait__cta">
+                                    <i class="ri-eye-fill"></i>Sedang
+                                    ditinjau...
+                                </div>
                             </div>
                         </div>
                     </div>
                     @elseif(Auth::user()->pengajuan == true && Auth::user()->status == "terima")
-                    <div class="px-6 shadow-2xl rounded-xl verification__Items-card useR">
+                    <div class="col-span-2 px-6 shadow-2xl rounded-xl verification__Items-card useR">
                         <div class="flex flex-col flex-wrap justify-between useR__type">
-                            <span class="z-10 block pt-6 leading-7 text-justify">
-                                <p>Selamat, akun anda berhasil disetuji.</p>
+                            <div class="absolute top-6 dataAccepted left-16">
+                                <h3 class="text-xl font-semibold uppercase">Congratulation !</h3>
+                            </div>
+                            <span class="z-10 block pt-8 leading-7 text-justify">
+                                <p>Selamat, akun anda berhasil disetuji. Sekarang akun anda dapat menggunakan
+                                    Dashboard untuk melakukan penginputan data tempat wisata yang anda
+                                    kelolah. Untuk dapat menginputkan data tempat wisata yang anda kelolah silahkan
+                                    pilih menu <strong>List Wisata.</strong></p>
                             </span>
                             <div class="relative z-10 w-full pt-8 verification__Wait">
-                                <div class="w-full p-3 px-8 rounded-xl sucess__cta">Berhasil disetuji</div>
+                                <div class="w-full p-3 px-8 rounded-xl sucess__cta">
+                                    <i class="ri-check-line"></i>
+                                    Berhasil disetuji
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -61,20 +74,29 @@
                         <div class="flex flex-col flex-wrap justify-between useR__type">
                             <span class="z-10 block pt-6 leading-7 text-justify">
                                 <p>Mohon maaf, pengajuan anda ditolak. Silahkan ajukan kembali setelah melengkapi data
-                                    yang dirasa kurang!</p>
+                                    yang dirasa kurang! Jika anda merasa data yang anda kirim sudah lengkap atau benar,
+                                    silahkan
+                                    hubungi pihak Birentcar Travel atau tekan tombol Ajukan Kembali.</p>
                             </span>
                             <div class="relative z-10 w-full pt-20 verification__Wait">
-                                <div class="w-full p-3 px-8 rounded-xl denied__cta">Ditolak</div>
+                                <span class="flex flex-col items-center gap-6 statusUsers whitespace-nowrap">
+                                    <p>Status pengajuan anda saat ini</p>
+                                    <div
+                                        class="flex items-center justify-center w-full gap-2 p-3 px-8 uppercase denied__cta">
+                                        <i class="text-2xl ri-close-fill"></i>
+                                        Ditolak
+                                    </div>
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <div class="informationSolution__wrapper">
-                        <section class="block shadow-2xl information__itemsP">
-                            <span class="block pb-4 titleInformation__hd">Alasan Penolakan :</span>
-                            <p>{{ Auth::user()->alasan }}</p>
-                            <div class="relative z-10 w-full pt-28 verification__Wait">
+                    <div class="relative informationSolution__wrapper">
+                        <section class="relative block shadow-2xl information__itemsP">
+                            <span class="block p-6 pb-4 titleInformation__hd">Alasan Penolakan :</span>
+                            <p class="pl-6 pr-6">{{ Auth::user()->alasan }}</p>
+                            <div class="z-10 w-full pl-6 pr-6 verification__Wait">
                                 <input type="text" name="inputPengajuan" value="1" hidden />
-                                <button type="submit" class="w-full p-3 px-8 rounded-xl reload__cta">Ajukan
+                                <button type="submit" class="w-full rounded-xl reload__cta">Ajukan
                                     Kembali</button>
                             </div>
                         </section>
@@ -142,10 +164,18 @@
                                         <p>Anda dapat mengunggah dan mengelolah tempat wisata yang anda punya ke dalam
                                             website.</p>
                                     </li>
-                                    <li class="text-gray-500 list-decimal">Lorem ipsum dolor sit amet consectetur,
-                                        adipisicing elit.
-                                        Neque, architecto
-                                        veritatis aperiam sequi culpa ipsam alias dicta unde animi aliquam.</li>
+                                    <li class="text-gray-500 list-decimal">Anda dapat memantau perkembangan dari wisata
+                                        anda.</li>
+                                    <li class="text-gray-500 list-decimal">Anda dapat menambahkan multiple atau beberapa
+                                        kriteria tempat wisata yang anda kelolah.</li>
+                                    <li class="text-gray-500 list-decimal">Anda dapat memonitor secara langsung melalui
+                                        Dashboard tentang wisata anda.</li>
+                                    <li class="text-gray-500 list-decimal">Anda dapat langsung memantau feedback dari
+                                        pelanggan anda melalui komentar.</li>
+                                    <li class="text-gray-500 list-decimal">Anda dapat melakukan pengubahan data secara
+                                        realtime.</li>
+                                    <li class="text-gray-500 list-decimal">Anda menjadi prioritas utama bagi Birentcar
+                                        Travel Agency.</li>
                                 </ul>
                             </span>
                         </div>
@@ -173,14 +203,23 @@
                             <span class="px-5 text-gray-500 dark:text-gray-400">
                                 <ul class="pl-10 mb-2 leading-7">
                                     <li class="text-gray-500 list-decimal">
-                                        <p>Anda dapat mengunggah dan mengelolah tempat wisata yang anda punya ke dalam
-                                            website.</p>
+                                        <p>Silahkan siapkan data yang dibutuhkan oleh pihak Birentcar Travel Agency.</p>
                                     </li>
-                                    <li class="text-gray-500 list-decimal">Lorem ipsum dolor sit amet consectetur,
-                                        adipisicing elit.
-                                        Neque, architecto
-                                        veritatis aperiam sequi culpa ipsam alias dicta unde animi aliquam.</li>
+                                    <li class="text-gray-500 list-decimal">Pastikan anda adalah pemilik atau pengelolah
+                                        atau asisten dari tempat wisata.</li>
+                                    <li class="text-gray-500 list-decimal">Identitas dari tempat wisata yang anda
+                                        kelolah seperti Alamat, Kota, Lokasi
+                                        tempat wisata anda.</li>
+                                    <li class="text-gray-500 list-decimal">Surat surat lainnya seperti perkembangan
+                                        tempat wisata yang anda kelolah kurang lebih selama 2 Tahun.</li>
+                                    <li class="text-gray-500 list-decimal">Nama pengelolah wisata aktif.</li>
+                                    <li class="text-gray-500 list-decimal">Pernah menggunakan media promosi lainnya
+                                        seperti menggunakan media promosi menggunakan situs website.</li>
                                 </ul>
+                                <p class="py-4 pl-10">
+                                    Selebihnya anda dapat menanyakan kepada Customer Service kami mengenai syarat dan
+                                    ketentuan atau panduan perihal untuk verifikasi data.
+                                </p>
                             </span>
                         </div>
                     </div>
@@ -203,12 +242,12 @@
                     </div>
                     <div id="accordion-flush-body-tn" class="hidden" aria-labelledby="accordion-flush-items-tn">
                         <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="px-5 mb-2 leading-7 text-gray-500 dark:text-gray-400">Lorem ipsum
-                                dolor sit amet
-                                consectetur adipisicing elit. Porro ipsum maxime explicabo officia, magnam aperiam id ex
-                                repudiandae. Sed earum nemo quibusdam necessitatibus perspiciatis vel nobis a
-                                reprehenderit,
-                                libero aperiam consequatur repellat sit hic autem deleniti minus porro dolorem maiores!
+                            <p class="px-5 mb-2 leading-7 text-gray-500 dark:text-gray-400">
+                                Lama proses pengajuan dilakukan selama 1-3 Hari kerja. Tanggal merah atau hari spesial
+                                kami tidak
+                                melayani pemrosesan data yang anda ajukan. Jika anda membutuhkan pertanyaan seputar
+                                pengajuan data
+                                silahkan hubungi kami melalui Customer Service.
                             </p>
                         </div>
                     </div>

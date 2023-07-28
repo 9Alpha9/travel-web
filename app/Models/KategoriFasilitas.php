@@ -14,7 +14,7 @@ class KategoriFasilitas extends Model
     protected $primaryKey = 'id_kategori_fasilitas';
 
     protected $fillable = [
-        'id_kategori_fasilitas', 'kategori_fasilitas', 'ketengaran_fasilitas'
+        'id_kategori_fasilitas', 'kategori_fasilitas', 'keterangan_fasilitas'
     ];
 
     public function FasilitasWisata(){

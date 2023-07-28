@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FasilitasWisata;
+use App\Models\GambarWisata;
+use App\Models\Informasi;
 use App\Models\KategoriFasilitas;
 use App\Models\Kecamatan;
 use App\Models\Kota;
@@ -45,7 +48,56 @@ class WisataController extends Controller
 
     public function store(Request $request){
         dd($request);
-        file_put_contents($filename, file_get_contents($base64_string));
+        try {
+            $wisata = Wisata::create([
+                "id_pengelolah" => Auth::user()->id_user,
+                "harga" => $request->inputHarga,
+                "diskon" => $request->inputDiskon,
+                "nama_wisata" => $request->inputNama,
+                "artikel" => $request->artikel,
+                "id_kategori_wisata" => $request->wisataList__activity,
+                "id_kecamatan" => $request->inputKecamatan,
+                "created_at" => date('Y-m-d H:i:s'),
+                "updated_at" => date('Y-m-d H:i:s')
+            ]);
+
+            foreach ($request->listFasilitas as $key => $value) {
+                # code...
+                $fasilitas = FasilitasWisata::create([
+                    "id_wisata" => $wisata->id_wisata,
+                    "id_kategori_fasilitas" => $value,
+                    "created_at" => date('Y-m-d H:i:s'),
+                    "updated_at" => date('Y-m-d H:i:s')
+                ]);
+            }
+
+            foreach ($request->inputImages as $key => $value) {
+                # code...
+                if(file_put_contents(asset('dashboard/gallery-wisata/' + $value->name), file_get_contents($value->img)) !== false){
+                    $gambar = GambarWisata::create([
+                        "id_wisata" => $wisata->id_wisata,
+                        "nama_gambar" => $value->name,
+                        "keterangan_gambar" => "Gambar " + $value->name + " dari Wisata " + $wisata->nama_wisata,
+                        "created_at" => date('Y-m-d H:i:s'),
+                        "updated_at" => date('Y-m-d H:i:s')
+                    ]);
+                }
+            }
+
+            foreach ($request->inputInformasi as $key => $value) {
+                # code...
+                if(!empty($value)){
+                    $informasi = Informasi::create([
+                        "id_wisata" => $wisata->id_wisata,
+                        "informasi" => $value,
+                        "created_at" => date('Y-m-d H:i:s'),
+                        "updated_at" => date('Y-m-d H:i:s')
+                    ]);
+                }
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     public function update(Request $request, $id){

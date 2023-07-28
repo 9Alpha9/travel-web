@@ -10,20 +10,20 @@
                 List Tempat Wisata
             </h2>
             <p class="text-sm text-gray-primary">Berikut adalah list dari tempat wisata yang ada di Jawa Timur. </p>
-            {{-- <section class="notedSuperAdm mt-4 text-white">
-                <span class="flex flex-row gap-4 p-2 items-center px-3">
-                    <i class="ri-eye-fill text-white text-2xl"></i>
-                    <p class="notesList text-sm">Super
+            {{-- <section class="mt-4 text-white notedSuperAdm">
+                <span class="flex flex-row items-center gap-4 p-2 px-3">
+                    <i class="text-2xl text-white ri-eye-fill"></i>
+                    <p class="text-sm notesList">Super
                         Admin hanya dapat melihat list wisata yang dimasukkan oleh masing-masing Admin dari
                         pengelolah
                         tempat
                         wisata dan tidak dapat mengubah data tersebut!</p>
                 </span>
             </section> --}}
-            <section class="createContainer mt-8">
-                <span class="addWisata__supadm block">
+            <section class="mt-8 createContainer">
+                <span class="block addWisata__supadm">
                     <button type="button" id="btnTambah" onclick="location.href = '{{ route('wisata.create') }}'"
-                        class="addWisata__cta p-3 px-6">Tambah Wisata</button>
+                        class="addWisata__cta px-5 py-2.5 text-sm">Tambah Wisata</button>
                 </span>
             </section>
         </span>

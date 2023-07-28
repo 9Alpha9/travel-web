@@ -1,6 +1,7 @@
 $dashboardBG : #f4f5fb;
 $navLinkstext : #ffffff;
 $sideNav-hover: rgb(224, 232, 255);
+$-moz-appearance: textfield;
 
 .dashboardContainer__inner {
     .navbarSide__container {
@@ -458,6 +459,20 @@ $sideNav-hover: rgb(224, 232, 255);
 
             }
 
+            .tagPrice__Container {
+                width: 1201px;
+
+                .priceWrapper {
+                    .dbData__priceWisata {
+                        border-radius: 10px;
+                        font-weight: 500;
+                        color: #1f1e1e;
+                        padding: 2em;
+                        background-color: #ced0d4;
+                    }
+                }
+            }
+
             .buttonCta__container {
                 .button__Additems {
                     .addSection__cta {
@@ -548,36 +563,37 @@ $sideNav-hover: rgb(224, 232, 255);
             .bannerContent__thumbnail {
                 width: 1201px;
                 overflow: hidden;
-                overflow-x: auto;
-
-                &::-webkit-scrollbar {
-                    height: 10px;
-                    // background: gray;
-                    // padding: 1.2em 0;
-                }
-
-                &::-webkit-scrollbar-thumb:horizontal {
-                    background-color: rgb(231, 231, 231);
-                    border-radius: 3px;
-                    overflow-x: visible;
-                    width: 3px;
-                }
-
-                &::-webkit-scrollbar-track {
-                    background: #011a57;
-                    border-radius: 4px;
-                }
 
                 .tumbnail__content {
                     border-radius: 10px;
-                    width: 100em;
                     overflow-y: hidden;
                     overflow-x: auto;
                     margin: 20px 0;
 
+
+                    &::-webkit-scrollbar {
+                        height: 10px;
+                    }
+
+                    &::-webkit-scrollbar-thumb:horizontal {
+                        background-color: rgb(231, 231, 231);
+                        border-radius: 3px;
+                        overflow-x: visible;
+                        width: 3px;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background: #011a57;
+                        border-radius: 4px;
+                    }
+
                     .thumbnail__items {
+
                         .thumbnailView__img {
                             .figureInner {
+                                width: 230px;
+                                margin: 20px 0;
+                                overflow-x: auto;
 
                                 &::after {
                                     content: "";
@@ -613,7 +629,7 @@ $sideNav-hover: rgb(224, 232, 255);
                                         h2 {
                                             text-align: center;
                                             font-weight: 500;
-                                            padding: 6px 11px 6px 11px;
+                                            padding: 6px 14px 6px 14px;
                                             background-color: #003dff;
                                             color: #fff;
                                         }
@@ -627,12 +643,12 @@ $sideNav-hover: rgb(224, 232, 255);
                                         padding: 20px;
 
                                         .btnThumb__delete {
-                                            background-color: #003dff;
+                                            background-color: rgb(158, 4, 4);
                                             color: #fff;
                                             padding: 6px 11px 6px 10px;
 
                                             &:hover {
-                                                background-color: #0636d1;
+                                                background-color: rgb(255, 0, 0);
                                             }
                                         }
                                     }
@@ -839,11 +855,11 @@ select:not(size) {
 
                 .information__itemsP {
                     background-color: #353845;
-                    padding: 2em;
+                    // padding: 2em;
                     border-radius: 10px;
                     line-height: 1.5em;
                     max-height: 600px;
-                    height: 300px;
+                    height: 420px;
                     color: #fff;
                 }
 
@@ -853,12 +869,21 @@ select:not(size) {
                 }
 
                 .verification__Wait {
+                    bottom: 50px;
+                    position: absolute;
+
                     .reload__cta {
                         color: rgb(236, 236, 236);
                         background-image: linear-gradient(135deg, rgb(10, 84, 134) 0%, rgb(6, 31, 100) 100%);
                         font-weight: 500;
                         transition: 1s cubic-bezier(.32, .86, .82, .4);
                         text-align: center;
+                        padding: 0.75em 140px;
+                        justify-content: center;
+                        align-items: center;
+                        margin: auto;
+                        display: flex;
+                        left: 0;
 
                         &:hover {
                             background-image: linear-gradient(135deg, rgb(16, 112, 177) 0%, rgb(9, 43, 138) 100%);
@@ -1219,7 +1244,6 @@ select:not(size) {
 
         .dataTables_length {
             padding: 20px 0;
-            position: fixed !important;
         }
 
         .dataTables_info {
@@ -1232,6 +1256,17 @@ select:not(size) {
             color: #fff !important;
             margin: 2em 0;
         }
+
+
+        // .dataTables_wrapper .dataTables_paginate .paginate_button {
+        // }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            // background: rgb(1, 26, 87) !important;
+            // color: #fff !important;
+            margin: 3px 1px;
+        }
+
     }
 
     .actionTo__action {
@@ -1321,5 +1356,28 @@ select:not(size) {
 
     .labelInput {
         color: #8f8f8f;
+    }
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    $-moz-appearance: textfield;
+}
+
+.priceTag__item {
+    .inputSelection {
+        padding-left: 3.5em;
+    }
+}
+
+.diskonInput__list {
+    .inputSelection {
+        padding-left: 3.5em;
     }
 }

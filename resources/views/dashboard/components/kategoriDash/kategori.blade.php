@@ -116,7 +116,11 @@
                         </div>
                         <div class="p-6 kategoriInput__container">
                             <span class="block headWrapper">
-                                <p class="headText">Silahkan edit kategori wisata pada form dibawah!</p>
+                                <p class="headText bg-primary-birent text-white p-2 "><i
+                                        class="ri-information-fill"></i>&nbsp;Silahkan edit kategori wisata
+                                    pada
+                                    form dibawah!
+                                </p>
                             </span>
                             <section class="kategoriWrapper pt-6">
                                 <label for="inputedNama"

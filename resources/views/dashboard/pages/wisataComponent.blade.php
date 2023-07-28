@@ -59,12 +59,68 @@
                             </span>
                         </div>
                     </div>
+                    <div class="tagPrice__Container grid grid-cols-2 gap-4 mt-12">
+                        <div class="priceWrapper">
+                            <span class="block py-4 dbText__header">
+                                <h1>Harga Tempat Wisata</h1>
+                            </span>
+                            <div class="dbData__priceWisata">
+                                <span class="flex flex-col inputWisata__name">
+                                    <label for="wisata__name" class="flex items-center py-2 ">
+                                        <h3>
+                                            Harga Wisata
+                                            <span class="labelRequire__infowisata">*</span>
+                                        </h3>
+                                    </label>
+                                    <div class="priceTag__item overflow-hidden relative">
+                                        <input type="number" id="inputHarga" name="inputHarga"
+                                            class="rounded-lg inputSelection font-thin w-full focus:ring-0"
+                                            placeholder="500.000">
+                                        <div
+                                            class="diskonTag absolute left-0 bottom-0 font-semibold bg-primary-birent p-2.5 text-white px-4 rounded-l-lg">
+                                            Rp
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="priceWrapper">
+                            <span class="block py-4 dbText__header">
+                                <h1>Diskon Tempat Wisata</h1>
+                            </span>
+                            <div class="dbData__priceWisata">
+                                <span class="flex flex-col inputWisata__name relative">
+                                    <label for="wisata__name" class="flex flex-col py-2 ">
+                                        <h3>
+                                            Diskon Wisata
+                                        </h3>
+                                    </label>
+                                    <div class="diskonInput__list overflow-hidden w-full relative">
+                                        <input type="number" id="inputDiskon" name="inputDiskon"
+                                            class="rounded-lg inputSelection font-thin w-full focus:ring-0"
+                                            placeholder="Harga Diskon..." min="0" maxlength="100"
+                                            onKeyUp="if(this.value>100){this.value='100';}else if(this.value<0){this.value='0';}">
+                                        <div
+                                            class="diskonTag absolute left-0 bottom-0 font-semibold bg-primary-birent p-2.5 text-white px-5 rounded-l-lg">
+                                            %
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="diskonInfo block col-span-2 text-gray-600"><i
+                                class="ri-information-fill text-cta-login-birent"></i>&nbsp;Silahkan masukkan diskon
+                            harga jika ada,
+                            jika tidak
+                            ada tawaran
+                            diskon maka tidak perlu di isi. Maksimal harga diskon yang diberikan adalah 100%.</span>
+                    </div>
                     <div class="relative mt-12 facilityContainer">
                         <span class="block py-4 dbText__header">
                             <h1>Fasilitas Tempat Wisata</h1>
                         </span>
-                        <div class="grid grid-cols-3 gap-4 facilityWrapper dbData__Wisataitems">
-                            <div class="col-span-2 dbData__listWisata">
+                        <div class="facilityWrapper dbData__Wisataitems">
+                            <div class="dbData__listWisata">
                                 <span class="flex flex-col inputWisata__name">
                                     <label for="wisata__name" class="flex items-center py-2 ">
                                         <h3>
@@ -82,11 +138,7 @@
                                     <div id="modalFacility__list" tabindex="-1"
                                         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                         <div class="relative w-full max-w-[70rem] max-h-full ">
-                                            {{--
-                                            <!-- Modal content --> --}}
                                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                                {{--
-                                                <!-- Modal header --> --}}
                                                 <div
                                                     class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
                                                     <button type="button"
@@ -101,8 +153,6 @@
                                                         <span class="sr-only">Close modal</span>
                                                     </button>
                                                 </div>
-                                                {{--
-                                                <!-- Modal body --> --}}
                                                 <div class="p-6 space-y-6">
                                                     <div class="listCheck__facilityContainer">
                                                         <div
@@ -123,24 +173,20 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{--
-                                                <!-- Modal footer --> --}}
                                                 <div
                                                     class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- History List Wisata --}}
                                     <div class="listHistory__container ">
                                         <div class="flex flex-row flex-wrap w-full gap-2 py-4 whitespace-normal listHistory__content"
                                             id="fasilitasHistory">
                                         </div>
                                     </div>
-                                    {{-- End History List Wisata --}}
                                 </span>
                             </div>
-                            <div class="dbData__listWisata">
+                            {{-- <div class="dbData__listWisata">
                                 <span class="relative flex flex-col inputWisata__name">
                                     <label for="wisata__name" class="flex items-center py-2 ">
                                         <h3>
@@ -158,17 +204,16 @@
                                     <span class="py-2 text-xs font-normal listingFacility__new">
                                         <i>Penambahan Fasilitas :</i>
                                     </span>
-                                    {{-- History List Wisata --}}
                                     <div class="flex flex-col listHistoryExt__container">
                                         <div class="flex flex-row flex-wrap gap-2 py-4 whitespace-normal listHistoryExt__content"
                                             id="fasilitasExt">
                                         </div>
                                     </div>
-                                    {{-- End History List Wisata --}}
                                 </span>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
+
                     <div class="grid w-full grid-cols-2 gap-4 continer__selectionDiv">
                         <div class="relative mt-12 activityContainer">
                             <span class="block py-4 dbText__header">
@@ -238,21 +283,27 @@
                                                 </div>
                                                 <div class="p-6 kategoriInput__container">
                                                     <span class="block headWrapper">
-                                                        <p class="headText">Silahkan tambah informasi wisata dengan
+                                                        <p
+                                                            class="font-thin text-md bg-primary-birent p-2 text-white headText">
+                                                            <i class="ri-information-fill"></i>
+                                                            Data informasi
+                                                            yang
+                                                            dimasukkan
+                                                            akan otomatis bertambah. Silahkan tambah informasi wisata
+                                                            dengan
                                                             mengisi
-                                                            form
-                                                            dibawah!
+                                                            form.
                                                         </p>
                                                     </span>
                                                     <section class="pt-6 infoWisata__Wrapper">
-                                                        <label for="infoInput"
+                                                        <label for="inputInformasi"
                                                             class="block mb-3 text-sm text-gray-900 labelInput dark:text-white">Tambahkan
                                                             List Informasi Wisata</label>
                                                         <span class="flex flex-row items-center gap-4 pb-4">
                                                             <div class="flex flex-col w-full flexInput">
-                                                                <input type="text" id="informaisInput" required
+                                                                <input type="text"
                                                                     class="bg-gray-50 border border-gray-300 text-sm font-thin rounded-lg w-full p-2.5 inputFields"
-                                                                    autocomplete="off" placeholder="Informasi Wisata"
+                                                                    autocomplete="off" placeholder="Informasi Wisata..."
                                                                     name="inputInformasi[]">
                                                             </div>
                                                             <span class="relative">
@@ -266,12 +317,12 @@
                                                     <section class="relative block space-y-5 moreSpace">
                                                         <button type="button"
                                                             class="p-2 py-10 mt-3 rounded-lg inputCta__btn"><i
-                                                                class="ri-add-line"></i> Tambah informasi
-                                                            wisata</button>
+                                                                class="ri-add-line"></i> Tambah Input Informasi
+                                                            Wisata</button>
                                                     </section>
 
                                                 </div>
-                                                <div
+                                                {{-- <div
                                                     class="flex items-center justify-between p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                                                     <button data-modal-hide="infoModal" type="submit" id=""
                                                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center "><i
@@ -280,7 +331,7 @@
                                                     </button>
                                                     <button data-modal-hide="infoModal" type="button" id=""
                                                         class="text-gray-500 btnCancel text-white rounded-lg text-sm font-medium px-5 py-2.5 hover:text-white focus:z-10">Batal</button>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -292,7 +343,7 @@
                         <span
                             class="tinyMce__infoheading inline-block py-3 px-3 rounded-md text-white whitespace-wrap w-[75rem]"><i
                                 class="text-lg ri-information-fill"></i>
-                            Silahkan masukkan informasi mengenai tempat wisata yang akan anda upload kedalam website !
+                            Silahkan masukkan deskripsi tempat wisata yang akan anda upload kedalam website !
                         </span>
                         <section class="w-full py-3 tinyText__controlarea">
                             <textarea name="artikel"></textarea>
@@ -316,6 +367,7 @@
                                     <input type="file" name="Thumbnail-images" id="wisataImages"
                                         accept="image/png, image/jpg, image/jpeg, image/webp" class="thumbnail__Btncta"
                                         multiple>
+                                    <input type="text" name="inputImages" hidden>
                                 </div>
                             </div>
                             <div class="bannerContent__thumbnail">
@@ -395,9 +447,9 @@
         html +=
         '<span class="flex flex-row items-center gap-4 pb-4">'
         + '<div class="flex flex-col w-full flexInput">'
-        + '<input type="text" id="informaisInput" required '
+        + '<input type="text" id="informaisInput" '
         + 'autocomplete="off"'
-        + 'class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"'
+        + 'class="bg-gray-50 border border-gray-300 text-gray-900 font-thin text-sm rounded-lg w-full p-2.5"'
         + 'placeholder="Informasi Wisata" name="inputInformasi[]" onchange="disableButton(this)">'
         + '</div>'
         + '<span class="relative">'
@@ -413,7 +465,7 @@
     tinymce.init({
       selector: 'textarea',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-      toolbar: 'undo redo | blocks fontsize | bold italic underline strikethrough | align lineheight | numlist bullist indent outdent | removeformat',
+      toolbar: 'undo redo | blocks | bold italic underline strikethrough | align lineheight | numlist bullist indent outdent | removeformat',
       width: 1201
     });
 </script>
@@ -501,16 +553,16 @@
 {{-- PREVIEW & DELETE UPLOADED IMAGE--}}
 <script>
     // GLOBAL ARRAY DELETE BY VALUE
-    Array.prototype.remove = function() {
-        var what, a = arguments, L = a.length, ax;
-        while (L && this.length) {
-            what = a[--L];
-            while ((ax = this.indexOf(what)) !== -1) {
-                this.splice(ax, 1);
-            }
-        }
-        return this;
-    };
+    // Array.prototype.remove = function() {
+    //     var what, a = arguments, L = a.length, ax;
+    //     while (L && this.length) {
+    //         what = a[--L];
+    //         while ((ax = this.indexOf(what)) !== -1) {
+    //             this.splice(ax, 1);
+    //         }
+    //     }
+    //     return this;
+    // };
 
     var imgFile = new Array();
     $(document).ready(function() {
@@ -521,7 +573,10 @@
                 for (var i = 0; i < allFiles.length; i++) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
-                        imgFile.push(e.target.result);
+                        var obj = {};
+                        obj['name'] = allFiles[fileLoaded].name;
+                        obj['img'] = e.target.result;
+                        imgFile.push(obj);
                         fileLoaded++;
                         if(fileLoaded === allFiles.length){
                             previewThumb();
@@ -542,7 +597,7 @@
             html += '<div class="thumbnail__items">';
             html += '<div class="thumbnailView__img">';
             html += '<figure class="relative block figureInner">';
-            html += '<img src="' + imgFile[i] + '" class="relative rounded-2xl imgThumb" alt="" title="">';
+            html += '<img src="' + imgFile[i].img + '" class="relative rounded-2xl imgThumb" alt="' + imgFile[i].name + '" title="' + imgFile[i].name + '">';
             html += '<div class="thumbnailSettings">';
             html += '<span class="block thumbnailNumber">';
             html += '<h2 class="rounded-full">' + (i+1) + '</h2>';
@@ -557,6 +612,8 @@
             html += '</div>';
             html += '</div>';
         }
+
+        $('[name="inputImages"]').val(JSON.stringify(imgFile));
         $('.tumbnail__content').html(html);
     }
 
@@ -565,7 +622,8 @@
         var selectedTns = $(e).closest('.thumbnail__items');
         var selectedImg = $(e).closest('.thumbnailSettings').parent().find('img').attr('src');
 
-        imgFile.remove(selectedImg);
+        // imgFile.remove(selectedImg);
+        imgFile = imgFile.filter(image => image.img != selectedImg);
 
         previewThumb();
     }

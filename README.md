@@ -21,36 +21,21 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Clone Repo Projects
-
+Start with clone this repo.
 ```bash
 https://github.com/9Alpha9/travel-web.git
 ```
 
 ## NPM Installation
-Install via npm for add node-packages modules Tailwind Css 
-
+Install via npm for add node-packages modules Tailwind Css. 
 ```bash
 > cd travel-web
 npm install
 ```
-## Composer Installation and Migration
-Install via artisan for run laravel packages modules 
-
+## Composer Installation And Migration
+Install via artisan for run laravel packages modules.
 ```bash
 > locate to travel-web folder
 
@@ -63,8 +48,8 @@ mv .env.example .env
 php artisan migrate
 ```
 
-## Add Google configuration
-first of all locate to google services to app/Http/config/services.php and add this command 
+## Add Google Configuration
+First of all locate to google services to app/Http/config/services.php and add this command. 
 ```bash
 'google' => [
     'client_id'     => env('GOOGLE_CLIENT_ID'),
@@ -72,8 +57,9 @@ first of all locate to google services to app/Http/config/services.php and add t
     'redirect'      => env('GOOGLE_REDIRECT'),
 ],
 ```
-Next add this code to .env 
 
+## Next Add This Code Into .env 
+This is important, please add this code into your .env files for **GOOGLE CLIENT** and please register your account for add **GOOGLE CLIENT ID**.
 ```bash
 GOOGLE_CLIENT_ID=your-client-ID
 GOOGLE_APP_SECRET=google-secreat-key
@@ -84,7 +70,7 @@ GOOGLE_REDIRECT=http://127.0.0.1:8000/auth/callback
 
 
 ## Add Midtrans Configuration
-locate to .env and add this code
+locate to .env and add this code.
 ```bash
 MIDTRANS_IS_PRODUCTION=false
 MIDTRANS_MERCHAT_ID=your-merchant-ID
@@ -95,8 +81,8 @@ MIDTRANS_SERVER_KEY=SB-Mid-server-your-server-KEY
 > please register your Midtrans API to [Midtrans Official Website](https://midtrans.com/id)
 > for testing Midtrans you can visit [Midtrans Mock Payment Testing](https://simulator.sandbox.midtrans.com/bca/klikbca/index)
 
-Next generate key php artisan.
-
+## Next Generate Key Php Artisan.
+type this command into your terminal for generate Key into your Php projects.
 ```bash
 php artisan key:generate
 ```
@@ -106,9 +92,8 @@ php artisan key:generate
 ## Sass Compilling Extension
 I'm using Sass for create a external Css for better styles, so u need Sass compiler extensions on your Code Editor for create a Css with Sass styles components. After you install the extensions, click Watch Sass and start styling component with Sass.
 
-
 ## Run The Projects
-run the projects by type this command in to terminal
+Finnal steps. Run the projects by type this command in to terminal.
 ```bash
 > run Xampp or another Database engine
 npm run watch

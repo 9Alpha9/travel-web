@@ -103,6 +103,9 @@ php artisan key:generate
 > **Note**
 > this command for generate APP_KEY on your .env
 
+## Sass Compilling Extension
+I'm using Sass for create a external Css for better styles, so u need Sass compiler extensions on your Code Editor for create a Css with Sass styles components. After you install the extensions, click Watch Sass and start styling component with Sass.
+
 
 ## Run The Projects
 run the projects by type this command in to terminal
@@ -111,5 +114,8 @@ run the projects by type this command in to terminal
 npm run watch
 php artisan serve
 ```
-
+#
+| Laravel Version | Php  Version | Remix Icon |
+| ------- | ------- | ------- |
+| ```8.83```| ```7.4.33``` | ```v3.5.0``` |
 

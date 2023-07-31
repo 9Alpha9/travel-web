@@ -95,6 +95,15 @@ MIDTRANS_SERVER_KEY=SB-Mid-server-your-server-KEY
 > please register your Midtrans API to [Midtrans Official Website](https://midtrans.com/id)
 > for testing Midtrans you can visit [Midtrans Mock Payment Testing](https://simulator.sandbox.midtrans.com/bca/klikbca/index)
 
+Next generate key php artisan.
+
+```bash
+php artisan key:generate
+```
+> **Note**
+> this command for generate APP_KEY on your .env
+
+
 ## Run The Projects
 run the projects by type this command in to terminal
 ```bash

@@ -48,7 +48,7 @@ Install via npm for add node-packages modules Tailwind Css
 > cd travel-web
 npm install
 ```
-## Composer Installation
+## Composer Installation and Migration
 Install via artisan for run laravel packages modules 
 
 ```bash

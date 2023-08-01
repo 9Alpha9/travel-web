@@ -59,7 +59,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="tagPrice__Container grid grid-cols-2 gap-4 mt-12">
+                    <div class="grid grid-cols-2 gap-4 mt-12 tagPrice__Container">
                         <div class="priceWrapper">
                             <span class="block py-4 dbText__header">
                                 <h1>Harga Tempat Wisata</h1>
@@ -72,9 +72,9 @@
                                             <span class="labelRequire__infowisata">*</span>
                                         </h3>
                                     </label>
-                                    <div class="priceTag__item overflow-hidden relative">
+                                    <div class="relative overflow-hidden priceTag__item">
                                         <input type="number" id="inputHarga" name="inputHarga"
-                                            class="rounded-lg inputSelection font-thin w-full focus:ring-0"
+                                            class="w-full font-thin rounded-lg inputSelection focus:ring-0"
                                             placeholder="500.000">
                                         <div
                                             class="diskonTag absolute left-0 bottom-0 font-semibold bg-primary-birent p-2.5 text-white px-4 rounded-l-lg">
@@ -89,15 +89,15 @@
                                 <h1>Diskon Tempat Wisata</h1>
                             </span>
                             <div class="dbData__priceWisata">
-                                <span class="flex flex-col inputWisata__name relative">
+                                <span class="relative flex flex-col inputWisata__name">
                                     <label for="wisata__name" class="flex flex-col py-2 ">
                                         <h3>
                                             Diskon Wisata
                                         </h3>
                                     </label>
-                                    <div class="diskonInput__list overflow-hidden w-full relative">
+                                    <div class="relative w-full overflow-hidden diskonInput__list">
                                         <input type="number" id="inputDiskon" name="inputDiskon"
-                                            class="rounded-lg inputSelection font-thin w-full focus:ring-0"
+                                            class="w-full font-thin rounded-lg inputSelection focus:ring-0"
                                             placeholder="Harga Diskon..." min="0" maxlength="100"
                                             onKeyUp="if(this.value>100){this.value='100';}else if(this.value<0){this.value='0';}">
                                         <div
@@ -108,7 +108,7 @@
                                 </span>
                             </div>
                         </div>
-                        <span class="diskonInfo block col-span-2 text-gray-600"><i
+                        <span class="block col-span-2 text-gray-600 diskonInfo"><i
                                 class="ri-information-fill text-cta-login-birent"></i>&nbsp;Silahkan masukkan diskon
                             harga jika ada,
                             jika tidak
@@ -231,11 +231,10 @@
                                         <select name="wisataList__activity" id="activity">
                                             <option value hidden disabled selected>Silahkan Pilih List Kategori Wisata
                                             </option>
-                                            <option value="">Wisata Alam</option>
-                                            <option value="">Wisata Sejarah dan Budaya</option>
-                                            <option value="">Wisata Petualangan</option>
-                                            <option value="">Wisata Kuliner</option>
-                                            <option value="">Wisata Religi</option>
+                                            @foreach($kategori as $row)
+                                            <option value="{{ $row->id_kategori_wisata }}">{{ $row->nama_kategori_wisata
+                                                }}</option>
+                                            @endforeach
                                         </select>
                                     </span>
                                 </div>
@@ -284,7 +283,7 @@
                                                 <div class="p-6 kategoriInput__container">
                                                     <span class="block headWrapper">
                                                         <p
-                                                            class="font-thin text-md bg-primary-birent p-2 text-white headText">
+                                                            class="p-2 font-thin text-white text-md bg-primary-birent headText">
                                                             <i class="ri-information-fill"></i>
                                                             Data informasi
                                                             yang

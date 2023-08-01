@@ -6,6 +6,7 @@ use App\Models\FasilitasWisata;
 use App\Models\GambarWisata;
 use App\Models\Informasi;
 use App\Models\KategoriFasilitas;
+use App\Models\KategoriWisata;
 use App\Models\Kecamatan;
 use App\Models\Kota;
 use App\Models\User;
@@ -23,14 +24,16 @@ class WisataController extends Controller
         else{
             $wisata = Wisata::get();
         }
+
         return view('dashboard.pages.listwisata')->with(['wisata' => 'active', 'pageTitle' => 'Wisata', 'tableWisata' => $wisata]);
     }
 
     public function create(){
         $fasilitas = KategoriFasilitas::get();
+        $kategori = KategoriWisata::get();
         $kota = Kota::where('province_id', '35')->get();
         $kecamatan = Kecamatan::get();
-        return view('dashboard.pages.wisataComponent')->with(['wisata' => 'active', 'pageTitle' => 'Wisata', 'fasilitas' => $fasilitas, 'kota' => $kota, 'kecamatan' => $kecamatan]);
+        return view('dashboard.pages.wisataComponent')->with(['wisata' => 'active', 'pageTitle' => 'Wisata', 'fasilitas' => $fasilitas, 'kota' => $kota, 'kecamatan' => $kecamatan, 'kategori' => $kategori]);
     }
 
     public function getKecamatan(Request $request){
@@ -47,7 +50,7 @@ class WisataController extends Controller
     }
 
     public function store(Request $request){
-        dd($request);
+        // dd(asset('dashboard/gallery-wisata/'));
         try {
             $wisata = Wisata::create([
                 "id_pengelolah" => Auth::user()->id_user,
@@ -61,7 +64,7 @@ class WisataController extends Controller
                 "updated_at" => date('Y-m-d H:i:s')
             ]);
 
-            foreach ($request->listFasilitas as $key => $value) {
+            foreach (json_decode($request->listFasilitas) as $key => $value) {
                 # code...
                 $fasilitas = FasilitasWisata::create([
                     "id_wisata" => $wisata->id_wisata,
@@ -71,13 +74,22 @@ class WisataController extends Controller
                 ]);
             }
 
-            foreach ($request->inputImages as $key => $value) {
+            foreach (json_decode($request->inputImages) as $key => $value) {
                 # code...
-                if(file_put_contents(asset('dashboard/gallery-wisata/' + $value->name), file_get_contents($value->img)) !== false){
+                $image = base64_decode($value->img);
+
+                $filename = 'wisata_' . str_replace(' ', '_', $wisata->nama_wisata) . '_' . str_replace(' ', '_', $value->name);
+
+                if (!file_exists(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)))) {
+                    mkdir(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)), 0777, true);
+                }
+
+                if($fileImage = file_put_contents(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata) . '/' . $filename), $image) !== false){
+                    // $fileImage->move(base_path('public/dashboard/gallery-wisata/'));
                     $gambar = GambarWisata::create([
                         "id_wisata" => $wisata->id_wisata,
-                        "nama_gambar" => $value->name,
-                        "keterangan_gambar" => "Gambar " + $value->name + " dari Wisata " + $wisata->nama_wisata,
+                        "nama_gambar" => $filename,
+                        "keterangan_gambar" => "Gambar " . $value->name . " dari Wisata " . $wisata->nama_wisata,
                         "created_at" => date('Y-m-d H:i:s'),
                         "updated_at" => date('Y-m-d H:i:s')
                     ]);
@@ -95,8 +107,8 @@ class WisataController extends Controller
                     ]);
                 }
             }
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (\Exception $e) {
+            dd($e);
         }
     }
 

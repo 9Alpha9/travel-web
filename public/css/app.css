@@ -476,6 +476,39 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -675,6 +708,12 @@ video {
 .mt-\[4rem\] {
   margin-top: 4rem;
 }
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+.mr-10 {
+  margin-right: 2.5rem;
+}
 .box-content {
   box-sizing: content-box;
 }
@@ -735,6 +774,9 @@ video {
 .h-full {
   height: 100%;
 }
+.h-64 {
+  height: 16rem;
+}
 .max-h-40 {
   max-height: 10rem;
 }
@@ -743,6 +785,9 @@ video {
 }
 .max-h-full {
   max-height: 100%;
+}
+.max-h-96 {
+  max-height: 24rem;
 }
 .w-10 {
   width: 2.5rem;
@@ -795,6 +840,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-72 {
+  width: 18rem;
+}
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -812,6 +860,9 @@ video {
 }
 .max-w-sm {
   max-width: 24rem;
+}
+.max-w-7xl {
+  max-width: 80rem;
 }
 .flex-shrink {
   flex-shrink: 1;
@@ -936,6 +987,9 @@ video {
 .overflow-y-hidden {
   overflow-y: hidden;
 }
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
 .whitespace-normal {
   white-space: normal;
 }
@@ -1005,6 +1059,10 @@ video {
 }
 .border-none {
   border-style: none;
+}
+.border-gray-primary {
+  --tw-border-opacity: 1;
+  border-color: rgb(127 140 159 / var(--tw-border-opacity));
 }
 .bg-cta-login-birent {
   --tw-bg-opacity: 1;
@@ -1079,6 +1137,9 @@ video {
 }
 .p-\[10px\] {
   padding: 10px;
+}
+.p-0 {
+  padding: 0px;
 }
 .px-12 {
   padding-left: 3rem;
@@ -1227,6 +1288,30 @@ video {
 .pt-8 {
   padding-top: 2rem;
 }
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
+.pl-2 {
+  padding-left: 0.5rem;
+}
+.pl-4 {
+  padding-left: 1rem;
+}
+.pr-3 {
+  padding-right: 0.75rem;
+}
+.pr-5 {
+  padding-right: 1.25rem;
+}
+.pr-4 {
+  padding-right: 1rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+.pl-0 {
+  padding-left: 0px;
+}
 .text-left {
   text-align: left;
 }
@@ -1275,6 +1360,10 @@ video {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1304,6 +1393,9 @@ video {
 }
 .leading-7 {
   line-height: 1.75rem;
+}
+.leading-relaxed {
+  line-height: 1.625;
 }
 .text-black-birent {
   --tw-text-opacity: 1;

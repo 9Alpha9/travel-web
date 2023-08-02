@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('asset/styles/dashboard/dashboardStyles.css') }}">
 
@@ -21,7 +25,6 @@
 
     {{-- Data Table Component --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
     {{-- Sweetalert --}}
@@ -29,6 +32,8 @@
 
     <script src="https://cdn.tiny.cloud/1/smrd3od8fwoqal7lpb5mxs1y0saxrmn6xj1jimybixsr8amf/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
+
+
 
     {{-- Import Google Fonts Components --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">

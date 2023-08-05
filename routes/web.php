@@ -7,6 +7,7 @@ use App\Http\Controllers\MyBookingController;
 use App\Http\Controllers\PaymentWisataController;
 use App\Http\Controllers\ProfileAccountController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\OrderTicketController;
 use App\Http\Controllers\KategoriController;
@@ -61,6 +62,7 @@ Route::group(['middleware' => ['auth', 'role:superAdmin,Admin,User']], function 
 Route::group(['middleware' => ['auth', 'role:superAdmin']], function () {
     Route::post('/admin/wisata/request/review', [WisataController::class, 'requestReview'])->name('wisata.requestReview');
     Route::resource('/admin/kategori', KategoriController::class);
+    Route::resource('/admin/fasilitas', FasilitasController::class);
 });
 
 Route::group(['middleware' => ['auth', 'role:superAdmin,Admin']], function () {

@@ -185,7 +185,8 @@
 
         $('input[name="datefilter"]').daterangepicker({
             autoUpdateInput: false,
-            opens: "center",
+            singleDatePicker : true,
+            opens: "right",
             drops: "down",
             autoApply: true,
             locale: {
@@ -196,10 +197,13 @@
             }
         });
 
-        $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
-            $(this).val(customFormatDate(picker.startDate._d) + ' - ' + customFormatDate(picker.endDate
-                ._d));
+        // $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+            // $(this).val(customFormatDate(picker.startDate._d) + ' - ' + customFormatDate(picker.endDate
+                // ._d));
             // Jumat, 15 Feb, 2023 (Indonesia Time)
+        // });
+        $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(customFormatDate(picker.startDate._d));
         });
 
         $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {

@@ -48,6 +48,14 @@
                     </span>
                 </a>
             </div>
+            <div class="navItems__db">
+                <a href="{{ route('fasilitas.index') }}">
+                    <span class="block navLinks @isset($fasilitas) {{ $fasilitas }} @endif">
+                        <i class="ri-archive-drawer-fill iconsDB"></i>
+                        Fasilitas Wisata
+                    </span>
+                </a>
+            </div>
             @endif
         </div>
     </div>

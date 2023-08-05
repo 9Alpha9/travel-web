@@ -21,7 +21,7 @@ class WisataController extends Controller
         if(Auth::user()->user_type == "Admin"){
             $wisata = Wisata::where('id_pengelolah', Auth::user()->id_user)->get();
         }
-        else{
+        else if(Auth::user()->user_type == "superAdmin"){
             $wisata = Wisata::get();
         }
 
@@ -85,7 +85,6 @@ class WisataController extends Controller
                 }
 
                 if($fileImage = file_put_contents(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata) . '/' . $filename), $image) !== false){
-                    // $fileImage->move(base_path('public/dashboard/gallery-wisata/'));
                     $gambar = GambarWisata::create([
                         "id_wisata" => $wisata->id_wisata,
                         "nama_gambar" => $filename,
@@ -107,6 +106,8 @@ class WisataController extends Controller
                     ]);
                 }
             }
+
+            return redirect()->route('wisata.index')->with(['success' => 'Data Berhasil Disimpan!']);
         } catch (\Exception $e) {
             dd($e);
         }

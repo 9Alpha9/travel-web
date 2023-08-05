@@ -1026,7 +1026,7 @@ select:not(size) {
 }
 
 .containerTambah__wisata {
-    width: 1201px;
+    width: 1204px;
     margin: 0 50px;
     font-family: 'Nunito', sans-serif;
     position: relative;
@@ -1079,6 +1079,7 @@ select:not(size) {
         }
     }
 
+
     .dataTables_wrapper .dataTables_length select {
         width: 80px;
         padding: 4px 10px;
@@ -1098,14 +1099,14 @@ select:not(size) {
 
     .dataTables_length {
         padding: 20px 0;
-        position: fixed !important;
+        position: relative !important;
         // bottom: 650px;
     }
 
     .dataTables_filter {
         padding: 20px 1px;
-        // position: fixed !important;
-        // right: 650px;
+        position: absolute !important;
+        right: -140px;
         // bottom: 650px;
         // max-width: 1201px !important;
         // z-index: 2;
@@ -1115,6 +1116,11 @@ select:not(size) {
         background-color: rgb(1, 26, 87);
         color: #fff;
         font-weight: 300;
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        position: absolute;
+        right: -140px;
     }
 
     .dataTables_wrapper .dataTables_paginate .paginate_button.current,

@@ -280,6 +280,10 @@
   color: #000000;
 }
 
+input[type=text] {
+  padding: 10px 2.5rem;
+}
+
 .bg__button__selectGuest {
   background-color: #1f065e;
 }

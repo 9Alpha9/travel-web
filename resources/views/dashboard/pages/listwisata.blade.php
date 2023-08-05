@@ -70,7 +70,7 @@
                                 1.
                             </th>
                             <td class="px-6 py-4 border-r dark:border-gray-700">
-
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             </td>
                             <td class="px-6 py-4 border-r dark:border-gray-700">
                                 Surabaya
@@ -85,18 +85,20 @@
                                 Toilet umum, Area parkir mobil, Area parkir bus, Umkm
                             </td>
                             <td class="px-6 py-4 border-r dark:border-gray-700">
-
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsam, doloremque alias
+                                fuga magni veniam corporis.
                             </td>
                             <td class="px-6 py-4 border-r dark:border-gray-700 whitespace-nowrap">
                                 Rp. 450.000
                             </td>
                             <td class="px-6 py-4 border-r dark:border-gray-700">
-
+                                15%
                             </td>
                             <td class="px-6 py-4 border-r dark:border-gray-700">
                                 <button data-modal-target="tableModal__view" data-modal-toggle="tableModal__view"
                                     class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     type="button">
+                                    <i class="ri-folder-info-fill"></i>
                                     Lihat Informasi
                                 </button>
                                 <div id="tableModal__view" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"

@@ -27,7 +27,7 @@
 @endif
 
 <script>
-    $('button.btnDelete').on('click', function() {
+    $('.btnDelete').on('click', function() {
         var href = $(this).attr('href');
         var no = $(this).data('no');
         Swal.fire({

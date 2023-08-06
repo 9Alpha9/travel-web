@@ -26,15 +26,15 @@ class FasilitasController extends Controller
     }
 
     public function store(Request $request){
-
+        dd('store');
     }
 
     public function update(Request $request, $id){
-
+        dd('update');
     }
 
     public function destroy($id){
-
+        dd('delete');
     }
 
 }

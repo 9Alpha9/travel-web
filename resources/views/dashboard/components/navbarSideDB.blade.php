@@ -9,7 +9,7 @@
         <div class="flex flex-col mt-16 sideNavbar__items">
             @if(Auth::user()->user_type != 'User')
             <div class="navItems__db">
-                <a href="{{ route('admin.dashboard') }}">
+                <a href={{ route('admin.dashboard') }}>
                     <span class="block navLinks @isset($dashboard) {{ $dashboard }} @endif">
                         <i class="ri-home-fill iconsDB"></i>
                         Dashboard
@@ -17,7 +17,7 @@
                 </a>
             </div>
             <div class="navItems__db">
-                <a href="{{ route('wisata.index') }}">
+                <a href={{ route('wisata.index') }}>
                     <span class="block navLinks @isset($wisata) {{ $wisata }} @endif">
                         <i class="ri-book-3-fill iconsDB"></i>
                         List Wisata
@@ -33,7 +33,7 @@
                 </a>
             </div>
             <div class="navItems__db">
-                <a href="{{ route('wisata.requestView') }}">
+                <a href={{ route('wisata.requestView') }}>
                     <span class="block navLinks @isset($pengajuan) {{ $pengajuan }} @endif">
                         <i class="ri-survey-fill iconsDB"></i>
                         List Pengajuan
@@ -41,18 +41,18 @@
                 </a>
             </div>
             <div class="navItems__db">
-                <a href="{{ route('kategori.index') }}">
+                <a href={{ route('kategori.index') }}>
                     <span class="block navLinks @isset($kategori) {{ $kategori }} @endif">
                         <i class="ri-archive-drawer-fill iconsDB"></i>
-                        Kategori Wisata
+                        Add Kategori Wisata
                     </span>
                 </a>
             </div>
             <div class="navItems__db">
-                <a href="{{ route('fasilitas.index') }}">
+                <a href={{ route('fasilitas.index') }}>
                     <span class="block navLinks @isset($fasilitas) {{ $fasilitas }} @endif">
                         <i class="ri-archive-drawer-fill iconsDB"></i>
-                        Fasilitas Wisata
+                        Add Fasilitas Wisata
                     </span>
                 </a>
             </div>

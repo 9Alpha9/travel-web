@@ -1097,4 +1097,46 @@ input::-webkit-inner-spin-button {
   background-color: rgb(1, 26, 87);
   padding: 10px;
   border-radius: 6px;
+}
+
+.fasilitasForm__container {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 300;
+}
+.fasilitasForm__container .fasilitasForm__wrapper .inputFasilitas__Wrapper .inputFasilitas__modClass {
+  background-color: rgb(1, 26, 87);
+}
+.fasilitasForm__container .fasilitasForm__wrapper .inputFasilitas__Wrapper .inputFasilitas__modClass:hover {
+  background-color: rgb(8, 59, 189);
+}
+.fasilitasForm__container .fasilitasForm__wrapper .fasilitasForm__items .dataTables_wrapper .dataTables_length select {
+  width: 80px;
+  padding: 4px 10px;
+  background-color: rgb(1, 26, 87);
+  color: #fff;
+  border: none;
+}
+.fasilitasForm__container .fasilitasForm__wrapper .fasilitasForm__items .dataTables_filter {
+  padding: 20px 1px;
+}
+.fasilitasForm__container .fasilitasForm__wrapper .fasilitasForm__items .dataTables_wrapper {
+  margin: 1.3em 0;
+}
+.fasilitasForm__container .fasilitasForm__wrapper .fasilitasForm__items .dataTables_length {
+  padding: 20px 0;
+}
+.fasilitasForm__container .fasilitasForm__wrapper .fasilitasForm__items .dataTables_info {
+  margin: 2em 0;
+}
+.fasilitasForm__container .fasilitasForm__wrapper .fasilitasForm__items .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.fasilitasForm__container .fasilitasForm__wrapper .fasilitasForm__items .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background-color: rgb(1, 26, 87);
+  color: #fff !important;
+  margin: 2em 0;
+}
+.fasilitasForm__container .fasilitasForm__wrapper .tablesData__list {
+  font-family: "Nunito", sans-serif;
+}
+.fasilitasForm__container .fasilitasForm__wrapper .tablesData__list .tablesData__items {
+  font-family: "Poppins", sans-serif !important;
 }/*# sourceMappingURL=dashboardStyles.css.map */

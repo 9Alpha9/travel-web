@@ -36,8 +36,9 @@
                             <span class="pt-4 numberOf__kota">
                                 {{ $kota->count('id') }} Kota
                             </span>
-                            <span class="smallInfo"></span>
-                            diseluruh Jawa Timur
+                            <span class="smallInfo">
+                                diseluruh Jawa Timur
+                            </span>
                             </span>
                         </div>
                     </div>

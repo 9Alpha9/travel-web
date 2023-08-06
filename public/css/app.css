@@ -545,6 +545,12 @@ video {
 .top-0 {
   top: 0px;
 }
+.top-2 {
+  top: 0.5rem;
+}
+.top-3 {
+  top: 0.75rem;
+}
 .top-6 {
   top: 1.5rem;
 }
@@ -750,6 +756,9 @@ video {
 .max-h-full {
   max-height: 100%;
 }
+.w-1 {
+  width: 0.25rem;
+}
 .w-10 {
   width: 2.5rem;
 }
@@ -786,11 +795,20 @@ video {
 .w-96 {
   width: 24rem;
 }
+.w-\[10rem\] {
+  width: 10rem;
+}
+.w-\[1201px\] {
+  width: 1201px;
+}
 .w-\[15rem\] {
   width: 15rem;
 }
 .w-\[17rem\] {
   width: 17rem;
+}
+.w-\[25rem\] {
+  width: 25rem;
 }
 .w-\[75rem\] {
   width: 75rem;
@@ -1015,6 +1033,10 @@ video {
 .border-none {
   border-style: none;
 }
+.bg-button-delete-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(192 5 5 / var(--tw-bg-opacity));
+}
 .bg-cta-login-birent {
   --tw-bg-opacity: 1;
   background-color: rgb(22 47 137 / var(--tw-bg-opacity));
@@ -1040,8 +1062,16 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(50 55 210 / var(--tw-bg-opacity));
 }
+.bg-tables-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(1 26 87 / var(--tw-bg-opacity));
+}
 .bg-transparent {
   background-color: transparent;
+}
+.bg-button-red {
+  --tw-bg-opacity: 1;
+  background-color: rgb(213 37 49 / var(--tw-bg-opacity));
 }
 .bg-clip-padding {
   background-clip: padding-box;
@@ -1191,11 +1221,17 @@ video {
 .pb-20 {
   padding-bottom: 5rem;
 }
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
 .pb-4 {
   padding-bottom: 1rem;
 }
 .pl-10 {
   padding-left: 2.5rem;
+}
+.pl-12 {
+  padding-left: 3rem;
 }
 .pl-14 {
   padding-left: 3.5rem;
@@ -1277,6 +1313,10 @@ video {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1323,6 +1363,9 @@ video {
 .leading-7 {
   line-height: 1.75rem;
 }
+.leading-relaxed {
+  line-height: 1.625;
+}
 .text-black-birent {
   --tw-text-opacity: 1;
   color: rgb(15 3 46 / var(--tw-text-opacity));
@@ -1342,6 +1385,10 @@ video {
 .text-primary-birent {
   --tw-text-opacity: 1;
   color: rgb(50 55 210 / var(--tw-text-opacity));
+}
+.text-text-primary {
+  --tw-text-opacity: 1;
+  color: rgb(22 47 137 / var(--tw-text-opacity));
 }
 .text-text-primary-white {
   --tw-text-opacity: 1;

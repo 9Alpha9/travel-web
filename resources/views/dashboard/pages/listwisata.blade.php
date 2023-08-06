@@ -149,7 +149,7 @@
                                                         @foreach($informasi as $row3)
                                                         <span
                                                             class="listInfo__item relative border-b border-gray-600 pl-4 pb-2">{{
-                                                            $row3->informasi }}</span>
+                                                            $row3->informasi }}.</span>
                                                         @endforeach
                                                     </div>
                                                 </section>

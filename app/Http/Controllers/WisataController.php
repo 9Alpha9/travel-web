@@ -19,7 +19,7 @@ class WisataController extends Controller
     //
     public function index(){
         if(Auth::user()->user_type == "Admin"){
-            $wisata = Wisata::where('id_pengelolah', Auth::user()->id_user)->get();
+            $wisata = Wisata::where('id_pengelolah', Auth::user()->id_user)->orderBy('created_at', 'asc')->get();
         }
         else if(Auth::user()->user_type == "superAdmin"){
             $wisata = Wisata::get();
@@ -76,15 +76,13 @@ class WisataController extends Controller
 
             foreach (json_decode($request->inputImages) as $key => $value) {
                 # code...
-                $image = base64_decode($value->img);
-
                 $filename = 'wisata_' . str_replace(' ', '_', $wisata->nama_wisata) . '_' . str_replace(' ', '_', $value->name);
 
                 if (!file_exists(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)))) {
                     mkdir(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)), 0777, true);
                 }
 
-                if($fileImage = file_put_contents(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata) . '/' . $filename), $image) !== false){
+                if($fileImage = file_put_contents(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata) . '/' . $filename), file_get_contents($value->img)) !== false){
                     $gambar = GambarWisata::create([
                         "id_wisata" => $wisata->id_wisata,
                         "nama_gambar" => $filename,
@@ -118,7 +116,16 @@ class WisataController extends Controller
     }
 
     public function destroy($id){
-
+        try{
+            $informasi = Informasi::where('id_wisata', $id)->delete();
+            $gambar = GambarWisata::where('id_wisata', $id)->delete();
+            $fasilitas = FasilitasWisata::where('id_wisata', $id)->delete();
+            if($informasi && $gambar && $fasilitas){
+                $wisata = Wisata::find($id)->delete();
+            }
+        } catch (\Exception $e){
+            dd($e);
+        }
     }
 
     public function request(Request $request){

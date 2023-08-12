@@ -59,31 +59,33 @@
                             <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
                                 Diskon
                             </th>
-                            <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
+                            <th scope="col" class="px-6 py-3 border-r w-60 dark:border-gray-700">
                                 Informasi Lainnya
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($tableWisata as $row)
-                        <tr class="align-top bg-white border-b border-l dark:border-gray-700 ">
-                            <th scope="row" class="px-6 py-4 font-medium border-l border-r dark:border-gray-700">
+                        <tr class="align-middle bg-white border-b border-l dark:border-gray-700 ">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium border-b border-l border-r dark:border-gray-700">
                                 {{ $loop->iteration }}.
                             </th>
-                            <td class="px-6 py-4 border-r dark:border-gray-700">
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700">
                                 {{ $row->user->full_name }}
                             </td>
-                            <td class="px-6 py-4 border-r dark:border-gray-700 whitespace-nowrap">
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 {{ $row->kecamatan->kota->name }}
                             </td>
-                            <td class="px-6 py-4 border-r dark:border-gray-700">
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 {{ $row->nama_wisata }}
                             </td>
-                            <td class="px-6 py-4 border-r dark:border-gray-700 whitespace-nowrap">
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 {{ $row->kategoriwisata->nama_kategori_wisata }}
                             </td>
-                            <td class="px-6 py-4 border-r dark:border-gray-700 flex flex-wrap w-40">
-                                <span class="block">
+                            <td
+                                class="flex flex-wrap w-[15rem] max-w-[15rem] px-6 py-4 border-b border-r dark:border-gray-700">
+                                <span class="py-5">
                                     @php($fasilitas = App\Models\FasilitasWisata::where('id_wisata',
                                     $row->id_wisata)->get())
                                     @foreach($fasilitas as $row2)
@@ -94,97 +96,127 @@
                                     @endforeach
                                 </span>
                             </td>
-                            <td class="px-6 py-4 border-r dark:border-gray-700">
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700">
                                 {{ $row->kecamatan->name }}
                             </td>
-                            <td class="px-6 py-4 border-r dark:border-gray-700 whitespace-nowrap">
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 Rp
                                 {{ number_format($row->harga, 2, ',', '.') }}
                             </td>
-                            <td class="px-6 py-4 border-r dark:border-gray-700">
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700">
                                 {{ $row->diskon }}%
                             </td>
-                            <td class="px-6 py-4 border-r dark:border-gray-700">
-                                <button data-modal-target="tableModal__view" data-modal-toggle="tableModal__view"
-                                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                    type="button">
-                                    <i class="ri-folder-info-fill"></i>
-                                    Lihat Informasi
-                                </button>
-                                {{-- MODAL --}}
-                                <div id="tableModal__view" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-                                    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                                    <div class="relative w-full max-w-7xl max-h-full">
-                                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                            <div
-                                                class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                                                <div class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer"
-                                                    data-modal-hide="tableModal__view">
-                                                    <svg class="w-3 h-3" aria-hidden="true"
-                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 14 14">
-                                                        <path stroke="currentColor" stroke-linecap="round"
-                                                            stroke-linejoin="round" stroke-width="2"
-                                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                    </svg>
-                                                    <span class="sr-only">Close modal</span>
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700">
+                                <div class="flex flex-row gap-3 modalInfo__more">
+                                    <button data-modal-target="tableModal__view#{{ $row->id_wisata }}"
+                                        data-modal-toggle="tableModal__view#{{ $row->id_wisata }}"
+                                        class="whitespace-nowrap block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                        type="button">
+                                        <i class="ri-eye-fill"></i> Lainnya
+                                    </button>
+                                    {{-- MODAL --}}
+                                    <div id="tableModal__view#{{ $row->id_wisata }}" data-modal-backdrop="static"
+                                        tabindex="-1" aria-hidden="true"
+                                        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                        <div class="relative w-full max-h-full max-w-7xl">
+                                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                                <div
+                                                    class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                                                    <div class="inline-flex items-center justify-center w-8 h-8 ml-auto text-sm text-gray-400 bg-transparent rounded-lg cursor-pointer hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                        data-modal-hide="tableModal__view#{{ $row->id_wisata }}">
+                                                        <svg class="w-3 h-3" aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 14 14">
+                                                            <path stroke="currentColor" stroke-linecap="round"
+                                                                stroke-linejoin="round" stroke-width="2"
+                                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                        </svg>
+                                                        <span class="sr-only">Close modal</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="p-6 infoNext__wisata grid grid-cols-2 gap-6">
-                                                <section class="wisata__listWrapper">
-                                                    <div
-                                                        class="headingInformasi__list mb-5 font-medium text-xl relative overflow-hidden flex gap-3">
-                                                        <span class="headIcon p-2 px-3">
-                                                            <i class="ri-list-check"></i>
-                                                        </span>
-                                                        <h2 class="p-2">
-                                                            List Informasi Wisata
-                                                        </h2>
-                                                    </div>
-                                                    <div
-                                                        class="infoWisata__add flex flex-col gap-2 text-black font-light relative overflow-hidden overflow-y-auto h-64 pr-4">
-                                                        @php($informasi =
-                                                        App\Models\Informasi::where('id_wisata',
-                                                        $row->id_wisata)->get())
-                                                        @foreach($informasi as $row3)
-                                                        <span
-                                                            class="listInfo__item relative border-b border-gray-600 pl-4 pb-2">{{
-                                                            $row3->informasi }}.</span>
-                                                        @endforeach
-                                                    </div>
-                                                </section>
-                                                <section class="wisata__listSlider">
-                                                    <div
-                                                        class="headingInformasi__list mb-5 font-medium text-xl relative overflow-hidden flex gap-3">
-                                                        <span class="headIcon p-2 px-3">
-                                                            <i class="ri-image-fill"></i>
-                                                        </span>
-                                                        <h2 class="p-2">
-                                                            Gallery Wisata
-                                                        </h2>
-                                                    </div>
-                                                    <div class="wisata__listWrapper">
-                                                        <div class="slideInner__tables swiper slideThumbnails">
-                                                            <div class="swiper-wrapper">
-                                                                @php($gambar =
-                                                                App\Models\GambarWisata::where('id_wisata',
-                                                                $row->id_wisata)->get())
-                                                                @foreach($gambar as $row4)
-                                                                <div class="swiper-slide">
-                                                                    <figure class="slideTable__items">
-                                                                        <img src="{{ asset('gallery-wisata/'. str_replace(' ', '_', $row->nama_wisata) . '/' . $row4->nama_gambar) }}"
-                                                                            alt="{{ $row4->nama_gambar }}" srcset="">
-                                                                    </figure>
-                                                                </div>
-                                                                @endforeach
-                                                            </div>
-                                                            <div class="swiper-button-next"></div>
-                                                            <div class="swiper-button-prev"></div>
+                                                <div class="grid grid-cols-2 gap-6 p-6 infoNext__wisata">
+                                                    <section class="wisata__listWrapper">
+                                                        <div
+                                                            class="relative flex gap-3 mb-5 overflow-hidden text-xl font-medium headingInformasi__list">
+                                                            <span class="p-2 px-3 headIcon">
+                                                                <i class="ri-list-check"></i>
+                                                            </span>
+                                                            <h2 class="p-2">
+                                                                List Informasi Wisata
+                                                            </h2>
                                                         </div>
-                                                </section>
+                                                        <div
+                                                            class="relative flex flex-col h-64 gap-2 pr-4 overflow-hidden overflow-y-auto font-light text-black infoWisata__add">
+                                                            @php($informasi =
+                                                            App\Models\Informasi::where('id_wisata',
+                                                            $row->id_wisata)->get())
+                                                            @foreach($informasi as $row3)
+                                                            <span
+                                                                class="relative pb-2 pl-4 border-b border-gray-600 listInfo__item">{{
+                                                                $row3->informasi }}.</span>
+                                                            @endforeach
+                                                        </div>
+                                                    </section>
+                                                    <section class="wisata__listSlider">
+                                                        <div
+                                                            class="relative flex gap-3 mb-5 overflow-hidden text-xl font-medium headingInformasi__list">
+                                                            <span class="p-2 px-3 headIcon">
+                                                                <i class="ri-image-fill"></i>
+                                                            </span>
+                                                            <h2 class="p-2">
+                                                                Gallery Wisata
+                                                            </h2>
+                                                        </div>
+                                                        <div class="wisata__listWrapper">
+                                                            <div class="slideInner__tables swiper slideThumbnails">
+                                                                <div class="swiper-wrapper">
+                                                                    @php($gambar =
+                                                                    App\Models\GambarWisata::where('id_wisata',
+                                                                    $row->id_wisata)->get())
+                                                                    @foreach($gambar as $row4)
+                                                                    <div class="swiper-slide">
+                                                                        <figure class="slideTable__items">
+                                                                            <img src="{{ asset('gallery-wisata/'. str_replace(' ', '_', $row->nama_wisata) . '/' . $row4->nama_gambar) }}"
+                                                                                alt="{{ $row4->nama_gambar }}"
+                                                                                srcset="">
+                                                                        </figure>
+                                                                    </div>
+                                                                    @endforeach
+                                                                </div>
+                                                                {{-- <div class="swiper-wrapper">
+                                                                    <div class="swiper-slide">
+                                                                        <figure class="slideTable__items">
+                                                                            <img src="https://images.unsplash.com/photo-1682685796852-aa311b46f50d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                                                                alt="" srcset="">
+                                                                        </figure>
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                        <figure class="slideTable__items">
+                                                                            <img src="https://images.unsplash.com/photo-1682685796852-aa311b46f50d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                                                                alt="" srcset="">
+                                                                        </figure>
+                                                                    </div>
+                                                                    <div class="swiper-slide">
+                                                                        <figure class="slideTable__items">
+                                                                            <img src="https://images.unsplash.com/photo-1682685796852-aa311b46f50d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                                                                alt="" srcset="">
+                                                                        </figure>
+                                                                    </div>
+                                                                </div> --}}
+                                                                <div class="swiper-button-next"></div>
+                                                                <div class="swiper-button-prev"></div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <span class="block rounded-md bg-button-red hover:bg-button-red-hover">
+                                        <button type="button" id="listDelete" class="px-5 py-2.5 text-white">
+                                            <i class="ri-delete-bin-7-fill"></i>
+                                        </button>
+                                    </span>
                                 </div>
                             </td>
                         </tr>
@@ -200,16 +232,10 @@
 @push('scripts')
 <script>
     var swiper = new Swiper(".slideThumbnails", {
-            {
-                {
-                    --slidesPerView % 3 A % 202 % 2 C--
-                }
-            }
-            spaceBetween: 7,
             navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
             },
-        });
+          });
 </script>
 @endpush

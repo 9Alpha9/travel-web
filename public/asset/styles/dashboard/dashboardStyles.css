@@ -827,7 +827,7 @@ select:not(size) {
 .containerTambah__wisata .dataTables_filter {
   padding: 20px 1px;
   position: absolute !important;
-  right: -140px;
+  right: -285px;
 }
 .containerTambah__wisata .dataTable__wrapper {
   background-color: rgb(1, 26, 87);

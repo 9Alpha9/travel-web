@@ -26,7 +26,7 @@
                                     </h3>
                                 </label>
                                 <input type="text" id="inputNama" name="inputNama" class="rounded-lg inputSelection"
-                                    placeholder="Wisata...">
+                                    placeholder="Wisata..." autocomplete="off">
                             </span>
                         </div>
                         <div class="dbData__listWisata">
@@ -73,8 +73,10 @@
                                         </h3>
                                     </label>
                                     <div class="relative overflow-hidden priceTag__item">
-                                        <input type="number" id="inputHarga" name="inputHarga"
-                                            class="w-full font-thin rounded-lg inputSelection focus:ring-0"
+                                        <input type="number" class="dataSend" hidden name="inputHarga">
+                                        <input type="text" id="userInputHarga" name="userInputHarga"
+                                            data-name="inputHarga"
+                                            class="w-full font-thin rounded-lg inputSelection focus:ring-0 currency inputNumber"
                                             placeholder="500.000">
                                         <div
                                             class="diskonTag absolute left-0 bottom-0 font-semibold bg-primary-birent p-2.5 text-white px-4 rounded-l-lg">

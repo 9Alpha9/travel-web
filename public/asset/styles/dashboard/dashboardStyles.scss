@@ -1106,7 +1106,7 @@ select:not(size) {
     .dataTables_filter {
         padding: 20px 1px;
         position: absolute !important;
-        right: -140px;
+        right: -285px;
         // bottom: 650px;
         // max-width: 1201px !important;
         // z-index: 2;
@@ -1544,3 +1544,10 @@ input[type=number] {
         }
     }
 }
+
+
+// .btnTable__delete {
+//     &:hover {
+//         background-color: tomato;
+//     }
+// }

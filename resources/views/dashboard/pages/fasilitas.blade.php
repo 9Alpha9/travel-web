@@ -4,14 +4,14 @@
 
 @section('pageContent')
 <div class="fasilitasForm__container relative mt-12 w-[1201px] pl-12">
-    <div class="fasilitasForm__wrapper pt-20 top-3 pb-20 relative">
+    <div class="relative pt-20 pb-20 fasilitasForm__wrapper top-3">
         <span class="block">
-            <h2 class="text-3xl text-text-primary font-medium">Fasilitas Wisata</h2>
+            <h2 class="text-3xl font-medium text-text-primary">Fasilitas Wisata</h2>
             <p class="py-3 text-sm">Silahkan tambahkan kategori fasilitas wisata dengan cara menekan tombol yang ada
                 dibawah!
             </p>
         </span>
-        <section class="inputFasilitas__Wrapper py-6">
+        <section class="py-6 inputFasilitas__Wrapper">
             <button data-modal-target="inputFasilitas__modal" data-modal-toggle="inputFasilitas__modal"
                 class="block text-white inputFasilitas__modClass font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 type="button"><i class="ri-file-add-fill"></i>
@@ -24,7 +24,7 @@
                         <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-xl font-medium text-text-primary">Tambah Kategori Fasilitas Wisata</h3>
                             <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                class="inline-flex items-center justify-center w-8 h-8 ml-auto text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                                 data-modal-hide="inputFasilitas__modal">
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 14 14">
@@ -34,16 +34,16 @@
                                 <span class="sr-only">Close modal</span>
                             </button>
                         </div>
-                        <div class="p-6 relative py-3">
+                        <div class="relative p-6 py-3">
                             <label for="formFasilitas" class="block">Fasilitas
                                 Wisata</label>
-                            <span class="formFasilitas__wrap block w-full py-3">
+                            <span class="block w-full py-3 formFasilitas__wrap">
                                 <input type="text" id="addFasilitas"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                     placeholder="Taman Bermain Anak ..." required>
                             </span>
                             <div class="relative pb-3 my-3">
-                                <label for="addKeterangan" class="py-2 flex flex-row gap-3">Keterangan
+                                <label for="addKeterangan" class="flex flex-row gap-3 py-2">Keterangan
                                     Fasilitas
                                     Wisata
                                     <span class="block text-xs">(Opsional)</span>
@@ -65,12 +65,12 @@
                 </div>
             </div>
         </section>
-        <section class="fasilitasForm__items fasilitas__Tables relative top-2 py-2">
+        <section class="relative py-2 fasilitasForm__items fasilitas__Tables top-2">
             <div class="relative overflow-x-auto sm:rounded-lg">
-                <table class="w-full text-md text-left dataTable tablesData__list">
-                    <thead class="text-md text-gray-700 uppercase text-white  bg-tables-primary">
+                <table class="w-full text-left text-md dataTable tablesData__list">
+                    <thead class="text-white text-gray-700 uppercase text-md bg-tables-primary">
                         <tr>
-                            <th scope="col" class="px-6 py-3 border-r w-1">
+                            <th scope="col" class="w-1 px-6 py-3 border-r">
                                 No.
                             </th>
                             <th scope="col" class="px-6 py-3 border-r w-[15rem]">
@@ -86,32 +86,32 @@
                     </thead>
                     <tbody>
                         @foreach($tableFasilitas as $row)
-                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 align-middle">
-                            <td scope="row" class="px-6 border-b py-3 border-l border-r font-medium text-gray-900 ">
+                        <tr class="align-middle bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <td scope="row" class="px-6 py-3 font-medium text-gray-900 border-b border-l border-r ">
                                 {{ $loop->iteration }}.
                             </td>
-                            <td class="px-6 py-3 border-r border-b font-medium text-gray-900 dark:text-white ">
+                            <td class="px-6 py-3 font-medium text-gray-900 border-b border-r dark:text-white ">
                                 {{ $row->kategori_fasilitas }}
                             </td>
-                            <td class="border-r px-6 border-b py-3">
+                            <td class="px-6 py-3 border-b border-r">
                                 <p>{{ $row->keterangan_fasilitas }}</p>
                             </td>
-                            <td class="border-r px-6 border-b py-3">
-                                <div class="flex flex-row gap-2 modalFasilitas__container w-full">
+                            <td class="px-6 py-3 border-b border-r">
+                                <div class="flex flex-row w-full gap-2 modalFasilitas__container">
                                     {{-- Modal toggle --}}
-                                    <div class="flex align-middle m-auto gap-3">
+                                    <div class="flex gap-3 m-auto align-middle">
                                         <button data-modal-target="modalAcceptor-fasilitas"
                                             data-modal-toggle="modalAcceptor-fasilitas"
                                             class="block text-white bg-blue-700 hover:bg-blue-800  focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center"
                                             type="button">
-                                            <span class="flex flex-row gap-2 align-middle items-center">
-                                                <i class="ri-pencil-fill font-medium"></i>
+                                            <span class="flex flex-row items-center gap-2 align-middle">
+                                                <i class="font-medium ri-pencil-fill"></i>
                                                 <h2>Ubah Data</h2>
                                             </span>
                                         </button>
                                         <button data-no="{{ $loop->iteration }}"
                                             href="{{ route('fasilitas.destroy', $row->id_kategori_fasilitas) }}"
-                                            class="btnDelete block bg-button-delete-primary text-white p-2.5 text-sm px-4 rounded-md">
+                                            class="btnDelete block bg-button-delete-primary hover:bg-button-red-hover text-white p-2.5 text-sm px-4 rounded-md">
                                             <i class="ri-delete-bin-7-fill"></i>
                                         </button>
                                     </div>
@@ -126,7 +126,7 @@
                                                 <div
                                                     class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                                                     <button type="button"
-                                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                        class="inline-flex items-center justify-center w-8 h-8 ml-auto text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                                                         data-modal-hide="modalAcceptor-fasilitas">
                                                         <svg class="w-3 h-3" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -141,17 +141,17 @@
                                                 {{-- Modal body --}}
                                                 <div class="p-6 space-y-6">
 
-                                                    <div class="formFasilitas__wrapper flex flex-col">
-                                                        <label for="formFasilitas" class="py-2 block">Fasilitas
+                                                    <div class="flex flex-col formFasilitas__wrapper">
+                                                        <label for="formFasilitas" class="block py-2">Fasilitas
                                                             Wisata</label>
-                                                        <span class="formFasilitas__wrap block w-full">
+                                                        <span class="block w-full formFasilitas__wrap">
                                                             <input type="text" id="updateFasilitas"
                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                                                 required>
                                                         </span>
                                                         <div class="relative pb-3 my-3">
                                                             <label for="updateKeterangan"
-                                                                class="py-2 flex flex-row gap-3">Keterangan
+                                                                class="flex flex-row gap-3 py-2">Keterangan
                                                                 Fasilitas
                                                                 Wisata
                                                                 <span class="block text-xs">(Opsional)</span>

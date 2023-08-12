@@ -33,7 +33,9 @@
     <script src="https://cdn.tiny.cloud/1/smrd3od8fwoqal7lpb5mxs1y0saxrmn6xj1jimybixsr8amf/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
 
-
+    {{-- Auto Numeric --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.8.1"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/4.8.1/autoNumeric.js"></script>
 
     {{-- Import Google Fonts Components --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,8 +82,26 @@
         $(document).ready(function(){
             let table = new DataTable('.dataTable');
 
-            $('input[type="number"]').attr('onkeypress', 'return isNumber(event)');
+            $('input[type="text"].inputNumber').on('keypress', function(){
+                let currValue = $(this).val();
+                let currName = $(this).data('name');
+                $('input[type="number"].dataSend[name="' + currName + '"]').val(currValue);
+            });
+
+            $('input[type="text"].inputNumber.currency').attr('onkeypress', 'return isNumber(event)');
+            // $('input[type="text"].inputNumber.currency').autoNumeric('init', {
+            //     aSep: '.',
+            //     aDec: ',',
+            //     aForm: true,
+            //     vMax: '999999999',
+            //     vMin: '-999999999'
+            // });
+            // $('input[type="text"].inputNumber.currency').attr('onkeypress', 'return thousandSeparator(event)');
         });
+
+        function thousandSeparator(evt){
+            return evt.target.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
 
         function isNumber(evt) {
             evt = (evt) ? evt : window.event;

@@ -190,18 +190,6 @@
                                                                                 alt="" srcset="">
                                                                         </figure>
                                                                     </div>
-                                                                    <div class="swiper-slide">
-                                                                        <figure class="slideTable__items">
-                                                                            <img src="https://images.unsplash.com/photo-1682685796852-aa311b46f50d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                                                                                alt="" srcset="">
-                                                                        </figure>
-                                                                    </div>
-                                                                    <div class="swiper-slide">
-                                                                        <figure class="slideTable__items">
-                                                                            <img src="https://images.unsplash.com/photo-1682685796852-aa311b46f50d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                                                                                alt="" srcset="">
-                                                                        </figure>
-                                                                    </div>
                                                                 </div> --}}
                                                                 <div class="swiper-button-next"></div>
                                                                 <div class="swiper-button-prev"></div>
@@ -213,7 +201,9 @@
                                         </div>
                                     </div>
                                     <span class="block rounded-md bg-button-red hover:bg-button-red-hover">
-                                        <button type="button" id="listDelete" class="px-5 py-2.5 text-white">
+                                        <button type="button" id="listDelete" class="px-5 py-2.5 text-white btnDelete"
+                                            data-no="{{ $loop->iteration }}"
+                                            href="{{ route('wisata.destroy', $row->id_wisata) }}">
                                             <i class="ri-delete-bin-7-fill"></i>
                                         </button>
                                     </span>

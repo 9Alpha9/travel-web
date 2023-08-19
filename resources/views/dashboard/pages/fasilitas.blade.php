@@ -35,22 +35,30 @@
                             </button>
                         </div>
                         <div class="relative p-6 py-3">
-                            <label for="formFasilitas" class="block">Fasilitas
-                                Wisata</label>
-                            <span class="block w-full py-3 formFasilitas__wrap">
-                                <input type="text" id="addFasilitas"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    placeholder="Taman Bermain Anak ..." required>
-                            </span>
+                            <div class="flex flex-col formAdd__fasilitas">
+                                <div class="flex flex-row">
+                                    <label for="formFasilitas" class="block">Fasilitas
+                                        Wisata</label>
+                                    <span class="block text-xs text-red-600">*</span>
+                                </div>
+                                <div class="flexForm__input">
+                                    <span class="block w-full py-3 formFasilitas__wrap">
+                                        <input type="text" id="addFasilitas" name="addFasilitas"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                            placeholder="Taman Bermain Anak ..." required>
+                                    </span>
+                                </div>
+                            </div>
                             <div class="relative pb-3 my-3">
-                                <label for="addKeterangan" class="flex flex-row gap-3 py-2">Keterangan
+                                <label for="addKeterangan" class="flex flex-row py-2">Keterangan
                                     Fasilitas
                                     Wisata
-                                    <span class="block text-xs">(Opsional)</span>
+                                    <span class="block text-xs text-red-600">*</span>
                                 </label>
                                 <textarea id="addKeterangan" rows="4"
                                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Isi keterangan fasilitas ..."></textarea>
+                                    placeholder="Isi keterangan fasilitas ..." name="addKeterangan"
+                                    style="resize:none"></textarea>
                             </div>
                         </div>
                         <div
@@ -102,8 +110,10 @@
                                     <div class="flex gap-3 m-auto align-middle">
                                         <button data-modal-target="modalAcceptor-fasilitas"
                                             data-modal-toggle="modalAcceptor-fasilitas"
-                                            class="block text-white bg-blue-700 hover:bg-blue-800  focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center"
-                                            type="button">
+                                            class="block text-white bg-blue-700 hover:bg-blue-800  focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center btn-edit"
+                                            type="button" data-fasilitas="{{ $row->kategori_fasilitas }}"
+                                            data-keterangan="{{ $row->keterangan_fasilitas }}"
+                                            data-id="{{ $row->id_kategori_fasilitas }}">
                                             <span class="flex flex-row items-center gap-2 align-middle">
                                                 <i class="font-medium ri-pencil-fill"></i>
                                                 <h2>Ubah Data</h2>
@@ -140,33 +150,32 @@
                                                 </div>
                                                 {{-- Modal body --}}
                                                 <div class="p-6 space-y-6">
-
                                                     <div class="flex flex-col formFasilitas__wrapper">
                                                         <label for="formFasilitas" class="block py-2">Fasilitas
                                                             Wisata</label>
                                                         <span class="block w-full formFasilitas__wrap">
                                                             <input type="text" id="updateFasilitas"
+                                                                name="updateFasilitas"
                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                                                 required>
                                                         </span>
-                                                        <div class="relative pb-3 my-3">
-                                                            <label for="updateKeterangan"
-                                                                class="flex flex-row gap-3 py-2">Keterangan
-                                                                Fasilitas
-                                                                Wisata
-                                                                <span class="block text-xs">(Opsional)</span>
-                                                            </label>
-                                                            <textarea id="updateKeterangan" rows="4"
-                                                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                                placeholder="Isi keterangan fasilitas ..."></textarea>
-                                                        </div>
+                                                        <div class="relative pb-3 my-3"></div>
+                                                        <label for="updateKeterangan"
+                                                            class="flex flex-row gap-3 py-2">Keterangan
+                                                            Fasilitas
+                                                            Wisata
+                                                            <span class="block text-xs">(Opsional)</span>
+                                                        </label>
+                                                        <textarea id="updateKeterangan" rows="4"
+                                                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="Isi keterangan fasilitas ..."
+                                                            style="resize:none"></textarea>
                                                     </div>
                                                 </div>
                                                 {{-- Modal footer --}}
                                                 <div
                                                     class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                                                     <button data-modal-hide="modalAcceptor-fasilitas" type="button"
-                                                        data-id="{{ $row->id_kategori_fasilitas }}"
                                                         class="btnUpdate text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ubah
                                                         Data</button>
                                                     <button data-modal-hide="modalAcceptor-fasilitas" type="button"
@@ -195,20 +204,30 @@
 
 @push('scripts')
 <script>
+    let fasilitas, keterangan;
     $('.btnStore').on('click', function(){
-        $('input[name="inputNama"]').val($('#addFasilitas').val());
-        $('input[name="inputKeterangan"]').val($('#addKeterangan').val());
+        fasilitas = $('#addFasilitas').val();
+        keterangan = $('#addKeterangan').val();
+        $('input[name="inputNama"]').val(fasilitas);
+        $('input[name="inputKeterangan"]').val(keterangan);
         $('form#formCRUD').attr('action', '{{ route("fasilitas.store") }}');
         $('[name="_method"]').val('POST');
         $('form#formCRUD').submit();
     });
 
-    $('.btnUpdate').on('click', function(){
+    $('.btn-edit').on('click', function(){
+        $('#updateFasilitas').val($(this).data('fasilitas'));
+        $('#updateKeterangan').val($(this).data('keterangan'));
         let href = '{{ route("fasilitas.update", "id") }}';
         href = href.replace('id', $(this).data('id'));
-        $('input[name="inputNama"]').val($('#updateFasilitas').val());
-        $('input[name="inputKeterangan"]').val($('#updateKeterangan').val());
         $('form#formCRUD').attr('action', href);
+    });
+
+    $('.btnUpdate').on('click', function(){
+        fasilitas = $('#updateFasilitas').val();
+        keterangan = $('#updateKeterangan').val();
+        $('input[name="inputNama"]').val(fasilitas);
+        $('input[name="inputKeterangan"]').val(keterangan);
         $('[name="_method"]').val('PUT');
         $('form#formCRUD').submit();
     });

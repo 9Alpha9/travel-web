@@ -117,12 +117,20 @@ class WisataController extends Controller
 
     public function destroy($id){
         try{
-            $informasi = Informasi::where('id_wisata', $id)->delete();
-            $gambar = GambarWisata::where('id_wisata', $id)->delete();
-            $fasilitas = FasilitasWisata::where('id_wisata', $id)->delete();
-            if($informasi && $gambar && $fasilitas){
-                $wisata = Wisata::find($id)->delete();
+            $checkInformasi = Informasi::where('id_wisata', $id)->get();
+            if($checkInformasi->count() > 0){
+                $informasi = Informasi::where('id_wisata', $id)->delete();
             }
+            $checkGambar = GambarWisata::where('id_wisata', $id)->get();
+            if($checkGambar->count() > 0){
+                $gambar = GambarWisata::where('id_wisata', $id)->delete();
+            }
+            $checkFasilitas = FasilitasWisata::where('id_wisata', $id)->get();
+            if($checkFasilitas->count() > 0){
+                $fasilitas = FasilitasWisata::where('id_wisata', $id)->delete();
+            }
+            $wisata = Wisata::find($id)->delete();
+            return redirect()->route('wisata.index')->with(['success' => 'Data Berhasil Dihapus!']);
         } catch (\Exception $e){
             dd($e);
         }

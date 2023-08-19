@@ -146,7 +146,7 @@
         {{-- End Wisata Viral --}}
 
         {{-- Wisata Baru Component --}}
-        @include('components.landingpages.wisata-baru.wisatabaru')
+        {{-- @include('components.landingpages.wisata-baru.wisatabaru') --}}
         {{-- Wisata Baru Component --}}
 
 

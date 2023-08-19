@@ -124,6 +124,16 @@
   color: white;
 }
 
+.review__container {
+  /* Ratings widget */
+  /* Hide radio */
+  /* Order correctly by floating highest to the right */
+  /* The star of the show */
+  /* Half star trick */
+  /* Click + hover color */
+  /* color previous stars on hover */
+  /* Hover highlights */
+}
 .review__container .rate__number {
   font-weight: 700;
   font-size: 1.063em;
@@ -154,6 +164,48 @@
   font-family: "Golos-Text", sans-serif;
   font-weight: 500;
   color: var(--secondaryTextColor);
+}
+.review__container textarea {
+  resize: none;
+}
+.review__container .rate {
+  display: inline-block;
+  border: 0;
+  color: #011a57;
+}
+.review__container .rate > input {
+  display: none;
+}
+.review__container .rate > label {
+  float: right;
+}
+.review__container .rate > label:before {
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 0.3rem 0.2rem;
+  margin: 0;
+  cursor: pointer;
+  font-family: FontAwesome;
+  content: "\f005";
+  /* full star */
+}
+.review__container .rate .half:before {
+  content: "\f089";
+  /* half star no outline */
+  position: absolute;
+  z-index: 2;
+  padding-right: 0;
+}
+.review__container input:checked ~ label,
+.review__container label:hover,
+.review__container label:hover ~ label {
+  color: #e95237;
+}
+.review__container input:checked + label:hover,
+.review__container input:checked ~ label:hover,
+.review__container input:checked ~ label:hover ~ label,
+.review__container label:hover ~ input:checked ~ label {
+  color: #b32810;
 }
 
 .wisata__information .wisata__header__inf .btn__cta__booking {

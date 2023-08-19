@@ -26,6 +26,7 @@ module.exports = {
             "hover-button-add-primary": "rgb(8, 59, 189)",
             "button-red": "#D52531",
             "button-red-hover": "#b71e28",
+            "primary-birent-dark": "#162F89",
         },
     },
     plugins: [],

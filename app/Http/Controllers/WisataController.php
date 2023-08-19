@@ -63,7 +63,7 @@ class WisataController extends Controller
                 "created_at" => date('Y-m-d H:i:s'),
                 "updated_at" => date('Y-m-d H:i:s')
             ]);
-
+        // jika kosong maka dilewati jika tidak maka tidak.
             foreach (json_decode($request->listFasilitas) as $key => $value) {
                 # code...
                 $fasilitas = FasilitasWisata::create([

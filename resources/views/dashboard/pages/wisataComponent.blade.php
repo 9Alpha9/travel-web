@@ -93,9 +93,12 @@
                             <div class="dbData__priceWisata">
                                 <span class="relative flex flex-col inputWisata__name">
                                     <label for="wisata__name" class="flex flex-col py-2 ">
-                                        <h3>
-                                            Diskon Wisata
-                                        </h3>
+                                        <div class="flex flex-row gap-1">
+                                            <h3>
+                                                Diskon Wisata
+                                            </h3>
+                                            <span class="labelRequire__infowisata">*</span>
+                                        </div>
                                     </label>
                                     <div class="relative w-full overflow-hidden diskonInput__list">
                                         <input type="number" id="inputDiskon" name="inputDiskon"
@@ -115,7 +118,7 @@
                             harga jika ada,
                             jika tidak
                             ada tawaran
-                            diskon maka tidak perlu di isi. Maksimal harga diskon yang diberikan adalah 100%.</span>
+                            diskon maka masukkan angka 0 (nol). Maksimal harga diskon yang diberikan adalah 100%.</span>
                     </div>
                     <div class="relative mt-12 facilityContainer">
                         <span class="block py-4 dbText__header">
@@ -143,6 +146,7 @@
                                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                                 <div
                                                     class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
+                                                    <h3>Pilih Fasilitas Wisata</h3>
                                                     <button type="button"
                                                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                                         data-modal-hide="modalFacility__list">
@@ -158,10 +162,10 @@
                                                 <div class="p-6 space-y-6">
                                                     <div class="listCheck__facilityContainer">
                                                         <div
-                                                            class="grid items-center w-full grid-flow-col grid-cols-4 gap-4 align-middle facilityList__content">
+                                                            class="grid grid-cols-2 items-center w-full gap-4 align-middle facilityList__content  max-h-[13rem] whitespace-nowrap overflow-x-auto p-4">
                                                             @foreach($fasilitas as $row)
                                                             <span class="relative block facilityCheck__items">
-                                                                <label class="flex w-full gap-2 ">
+                                                                <label class="flex w-full gap-2 flex-row">
                                                                     <input type="checkbox" name="checkFasilitas"
                                                                         value="{{ $row->id_kategori_fasilitas }}"
                                                                         data-nama="{{ $row->kategori_fasilitas }}">
@@ -355,12 +359,13 @@
                         <div class="relative mt-12 thumbnail__wrapperContent">
                             <span class="block py-4 dbText__header">
                                 <h1>Gallery List Wisata</h1>
-                                <p class="py-3 text-xs">Thumbnail wisata digunakan untuk memberikan informasi
+                                <p class="py-3 text-xs text-gray-500">Thumbnail wisata digunakan untuk memberikan
+                                    informasi
                                     halaman
                                     awal
                                     foto gallery dari
                                     tempat wisata. Silahkan upload foto dengan menggunakan format
-                                    <i>.Png, .Jpg, .Jpeg, </i>atau<i> Webp</i>
+                                    <i>.Png, .Jpg, .Jpeg, </i>atau<i> Webp</i>, maksimal ukuran foto adalah 1920x1080.
                                 </p>
                             </span>
                             <div class="inputSection__thumbnail">

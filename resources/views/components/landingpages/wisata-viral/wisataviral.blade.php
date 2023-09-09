@@ -2,7 +2,7 @@
 <div class="mt-16 wisata__viral wisata__landing__wrapper ">
     <div class="wisata__heading">
         <span class="flex items-end justify-between title__wisata__viral">
-            <h1 class="mb-4 wisata__title__viral">Pilihan Wisata Jawa Timur</h1>
+            <h1 class="mb-4 wisata__title__viral">Wisata Pilihan Jawa Timur</h1>
             {{-- <h1 class="mb-4 wisata__viral__more">
                 <a href="#!" class="text-sm hover:underline">lihat semua</a>
             </h1> --}}
@@ -23,7 +23,7 @@
                             <div class="wisata__info__title">
                                 {{-- Wisata Name --}}
                                 <a href="#!">
-                                    <h5>Wisata Viral</h5>
+                                    <h5>De Laponte</h5>
                                 </a>
                             </div>
                             {{-- Rating --}}

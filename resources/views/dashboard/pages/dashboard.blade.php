@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="itemsDB__datawrapper">
+            {{-- <div class="itemsDB__datawrapper">
                 <div class="grid grid-cols-2 gap-3 dbData__items">
                     <div class="dbData__list">empty data</div>
                     <div class="dbData__list">empty data</div>
@@ -86,7 +86,7 @@
                     velit in amet? Voluptatum, consequatur atque vero doloremque quod ipsum totam error rerum dolor aut
                     explicabo.
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

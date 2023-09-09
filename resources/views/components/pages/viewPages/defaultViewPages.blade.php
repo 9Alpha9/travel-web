@@ -59,7 +59,7 @@
                 </li>
                 <li>/</li>
                 <li class="font-semibold text-primary-birent">
-                    <a href="#!" class="hover:underline">Wisata Viral</a>
+                    <a href="#!" class="hover:underline">Wisata Jatim</a>
                 </li>
                 <li>/</li>
                 <li class="font-semibold text-gray-primary">

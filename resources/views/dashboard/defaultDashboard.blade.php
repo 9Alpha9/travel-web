@@ -79,13 +79,20 @@
             $('#formLogout').submit();
         });
 
+        //Merubah ke angka Rupiah
         $(document).ready(function(){
             let table = new DataTable('.dataTable');
 
-            $('input[type="text"].inputNumber').on('keypress', function(){
-                let currValue = $(this).val();
+            var $curr = $('.currencyFront,.currencyBack').on('keyup', function(e){
+                let currency = inputCurrency(this.value);
+                $curr.not(this).val(currency);
+                // $(this).val('');
+                // return false;
+                // let currValue = $(this).val();
                 let currName = $(this).data('name');
-                $('input[type="number"].dataSend[name="' + currName + '"]').val(currValue);
+                let inputSend = $('.currencyBack[name="' + currName + '"]');
+                inputSend.val(this.value);
+                $(this).val(currencyIDR(currency));
             });
 
             $('input[type="text"].inputNumber.currency').attr('onkeypress', 'return isNumber(event)');
@@ -99,8 +106,29 @@
             // $('input[type="text"].inputNumber.currency').attr('onkeypress', 'return thousandSeparator(event)');
         });
 
-        function thousandSeparator(evt){
-            return evt.target.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        function inputCurrency(value){
+            // find the index of ',' from string
+            let index = value.indexOf(',');
+            // get string that wants to be removed
+            let remove = value.substr(index, 3);
+            // split the value and remove the string that needs to be removed
+            let split = value.split(remove);
+            // join back the splitted value after the removal of string
+            value = split[0] + split[1];
+            // takes only number from string
+            value = value.replace(/[^0-9]/g,'');
+
+            return value;
+        }
+
+        function currencyIDR(value){
+            let num = new Number(value);
+            const myObj = {
+                style: "currency",
+                currency: "IDR",
+                decimal: false
+            }
+            return num.toLocaleString('id-ID', myObj);
         }
 
         function isNumber(evt) {

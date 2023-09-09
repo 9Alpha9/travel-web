@@ -11,6 +11,7 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\OrderTicketController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\HomePagesController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,7 @@ Route::get('/register', [LoginController::class, 'registerForm'])->name('registe
 Route::get('/auth/redirect', [LoginController::class, 'redirectToProvider'])->name('loginGoogle');
 Route::get('/auth/callback', [LoginController::class, 'handleProviderCallback']);
 
-Route::get('/', function () {
-    return view('components/landingpages/home');
-})->name('landingpage');
+Route::get('/', [HomePagesController::class, 'landingPage'])->name('landingpage');
 Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages');
 // Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol
 

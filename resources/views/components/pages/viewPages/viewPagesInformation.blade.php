@@ -21,18 +21,7 @@
     <div class="py-10 description">
         <h1 class="border-b-[1px] py-4 font-semibold text-lg">Deskripsi</h1>
         <section class="inline-block py-3 font-normal description__wisata">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam id aliquam voluptate architecto
-            distinctio quasi commodi. Eos unde sit sunt culpa blanditiis beatae! Placeat perferendis accusamus
-            tempora omnis blanditiis nam rerum neque. Fuga aut recusandae aliquid vero alias corrupti facilis
-            unde ipsa tempore suscipit accusamus esse corporis facere possimus, sed porro cumque adipisci
-            architecto molestiae temporibus, doloremque odit dignissimos sequi! Atque inventore possimus vero,
-            vitae, iste fuga magni illum doloribus non consequuntur dolorum velit excepturi, dolore ad. Non
-            labore quas laboriosam possimus. Iste libero inventore cum commodi, enim magni natus eaque explicabo
-            similique. Reiciendis numquam tenetur repellendus tempore. Ipsum, delectus! Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Deserunt odit ratione sunt, vero enim doloremque accusamus
-            reprehenderit ea, corporis minus porro reiciendis quos fuga eveniet nam id obcaecati distinctio!
-            Qui, doloremque tempore. Dicta beatae dolore odit quasi quos porro fugit, tempore tempora excepturi
-            accusamus qui eius quo minima ut velit.
+            DESKRIPSI WISATA
         </section>
     </div>
 </div>

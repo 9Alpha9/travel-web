@@ -26,7 +26,10 @@
                                     </h3>
                                 </label>
                                 <input type="text" id="inputNama" name="inputNama" class="rounded-lg inputSelection"
-                                    placeholder="Wisata..." autocomplete="off">
+                                    placeholder="Wisata..." autocomplete="off" required>
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                    <span class="font-medium">Oops!</span> Data tidak boleh kosong!
+                                </p>
                             </span>
                         </div>
                         <div class="dbData__listWisata">
@@ -37,12 +40,15 @@
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <select name="inputKota" id="inputKota">
+                                <select name="inputKota" id="inputKota" required>
                                     <option value="" selected hidden>Pilih Kota</option>
                                     @foreach($kota as $row)
                                     <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                    <span class="font-medium">Oops!</span> Kota / Kabupaten tidak boleh kosong!
+                                </p>
                             </span>
                         </div>
                         <div class="dbData__listWisata">
@@ -53,9 +59,12 @@
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <select name="inputKecamatan" id="inputKecamatan">
+                                <select name="inputKecamatan" id="inputKecamatan" required>
                                     <option value="" selected hidden>Pilih Kecamatan</option>
                                 </select>
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                    <span class="font-medium">Oops!</span> Kecamatan tidak boleh kosong!
+                                </p>
                             </span>
                         </div>
                     </div>
@@ -73,13 +82,19 @@
                                         </h3>
                                     </label>
                                     <div class="relative overflow-hidden priceTag__item">
-                                        <input type="number" class="dataSend" hidden name="inputHarga">
-                                        <input type="text" id="userInputHarga" name="userInputHarga"
-                                            data-name="inputHarga"
-                                            class="w-full font-thin rounded-lg inputSelection focus:ring-0 currency inputNumber"
-                                            placeholder="500.000">
+                                        <div class="relative overflow-hidden inputPrice__list">
+                                            <input type="number" class="overflow-hidden currencyBack" hidden
+                                                name="inputHarga" required>
+                                            <input type="text" id="userInputHarga" name="userInputHarga"
+                                                data-name="inputHarga"
+                                                class="w-full font-thin h-[2.8rem] rounded-lg inputSelection focus:ring-0 currency currencyFront"
+                                                placeholder="500.000" required>
+                                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                                <span class="font-medium">Oops!</span> Harga tidak boleh kosong!
+                                            </p>
+                                        </div>
                                         <div
-                                            class="diskonTag absolute left-0 bottom-0 font-semibold bg-primary-birent p-2.5 text-white px-4 rounded-l-lg">
+                                            class="absolute top-0 left-0 p-2.5 px-4 font-semibold text-white rounded-l-lg diskonTag bg-primary-birent ">
                                             Rp
                                         </div>
                                     </div>
@@ -102,11 +117,15 @@
                                     </label>
                                     <div class="relative w-full overflow-hidden diskonInput__list">
                                         <input type="number" id="inputDiskon" name="inputDiskon"
-                                            class="w-full font-thin rounded-lg inputSelection focus:ring-0"
+                                            class="w-full h-[2.8rem] font-thin rounded-lg inputSelection focus:ring-0"
                                             placeholder="Harga Diskon..." min="0" maxlength="100"
-                                            onKeyUp="if(this.value>100){this.value='100';}else if(this.value<0){this.value='0';}">
+                                            onKeyUp="if(this.value>100){this.value='100';}else if(this.value<0){this.value='0';}"
+                                            required>
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            <span class="font-medium">Oops!</span> Harga diskon tidak boleh kosong!
+                                        </p>
                                         <div
-                                            class="diskonTag absolute left-0 bottom-0 font-semibold bg-primary-birent p-2.5 text-white px-5 rounded-l-lg">
+                                            class="diskonTag absolute left-0 top-0 font-semibold bg-primary-birent p-2.5 text-white px-5 rounded-l-lg">
                                             %
                                         </div>
                                     </div>
@@ -140,6 +159,10 @@
                                     <span class="py-2 text-xs font-normal listingFacility__new">
                                         <i> Fasilitas Tempat Wisata Yang Dipilih :</i>
                                     </span>
+                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        <span class="font-medium">Oops!</span> Fasilitas wisata
+                                        tidak boleh kosong!
+                                    </p>
                                     <div id="modalFacility__list" tabindex="-1"
                                         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                         <div class="relative w-full max-w-[70rem] max-h-full ">
@@ -165,10 +188,11 @@
                                                             class="grid grid-cols-2 items-center w-full gap-4 align-middle facilityList__content  max-h-[13rem] whitespace-nowrap overflow-x-auto p-4">
                                                             @foreach($fasilitas as $row)
                                                             <span class="relative block facilityCheck__items">
-                                                                <label class="flex w-full gap-2 flex-row">
+                                                                <label class="flex flex-row w-full gap-2">
                                                                     <input type="checkbox" name="checkFasilitas"
                                                                         value="{{ $row->id_kategori_fasilitas }}"
-                                                                        data-nama="{{ $row->kategori_fasilitas }}">
+                                                                        data-nama="{{ $row->kategori_fasilitas }}"
+                                                                        required>
                                                                     <h2
                                                                         class="block -mt-1 font-normal text-md textFacility">
                                                                         {{ $row->kategori_fasilitas }}
@@ -234,7 +258,7 @@
                                                 <span class="labelRequire__infowisata">*</span>
                                             </h3>
                                         </label>
-                                        <select name="wisataList__activity" id="activity">
+                                        <select name="wisataList__activity" id="activity" required>
                                             <option value hidden disabled selected>Silahkan Pilih List Kategori Wisata
                                             </option>
                                             @foreach($kategori as $row)
@@ -242,6 +266,10 @@
                                                 }}</option>
                                             @endforeach
                                         </select>
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            <span class="font-medium">Oops!</span> Kategori wisata
+                                            tidak boleh kosong!
+                                        </p>
                                     </span>
                                 </div>
                             </div>
@@ -264,6 +292,10 @@
                                         type="button">
                                         Tambah / Edit Informasi Wisata
                                     </button>
+                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        <span class="font-medium">Oops!</span> Informasi wisata
+                                        tidak boleh kosong!
+                                    </p>
                                     <div id="infoModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
                                         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                         <div class="relative w-full max-w-4xl max-h-full">
@@ -309,7 +341,7 @@
                                                                 <input type="text"
                                                                     class="bg-gray-50 border border-gray-300 text-sm font-thin rounded-lg w-full p-2.5 inputFields"
                                                                     autocomplete="off" placeholder="Informasi Wisata..."
-                                                                    name="inputInformasi[]">
+                                                                    name="inputInformasi[]" required>
                                                             </div>
                                                             <span class="relative">
                                                                 <button type="button" onclick="deleteInput(this)"

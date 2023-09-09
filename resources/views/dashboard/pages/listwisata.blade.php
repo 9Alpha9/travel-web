@@ -23,7 +23,7 @@
             <section class="mt-8 createContainer">
                 <span class="block addWisata__supadm">
                     <button type="button" id="btnTambah" onclick="location.href = '{{ route('wisata.create') }}'"
-                        class="addWisata__cta px-5 py-2.5 text-sm">Tambah Wisata</button>
+                        class="addWisata__cta px-5 py-2.5 text-sm">Tambah Tempat Wisata</button>
                 </span>
             </section>
         </span>

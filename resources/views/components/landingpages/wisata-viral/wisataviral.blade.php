@@ -9,6 +9,7 @@
         </span>
         <div class="grid grid-cols-2 gap-4 mt-10 mb-10 wisata__content md:grid-cols-4 xl:grid-cols-4">
             {{-- Content --}}
+            @foreach($wisata as $key => $value)
             <div class="flex flex-row wisata__card">
                 <div class="block max-w-md dark:bg-neutral-700 wisata__viral__card__item">
                     <a href="{{ route('viewpages') }}">
@@ -18,12 +19,12 @@
                         </figure>
                     </a>
                     {{-- Card Wisata Information --}}
-                    <div class="my-8 card__title__info ">
+                    <div class="my-8 card__title__info">
                         <div class="flex flex-row justify-between gap-2 wisata__info__header">
                             <div class="wisata__info__title">
                                 {{-- Wisata Name --}}
                                 <a href="#!">
-                                    <h5>De Laponte</h5>
+                                    <h5>{{ $value->nama_wisata }}</h5>
                                 </a>
                             </div>
                             {{-- Rating --}}
@@ -50,7 +51,8 @@
                             </svg>
                             {{-- Wisata Location Information --}}
                             <p class="text-xs text-neutral-600 dark:text-neutral-200 text__location">
-                                Kecamatan Gadung Asri Joyobonto, Surabaya.
+                                {{ $value->kecamatan->name }}, {{ $value->kecamatan->kota->name }}
+                                {{-- Kecamatan Gadung Asri Joyobonto, Surabaya. --}}
                             </p>
                             {{-- End Wisata Location Information --}}
                         </div>
@@ -58,6 +60,7 @@
                     {{-- End Card Wisata Information --}}
                 </div>
             </div>
+            @endforeach
             {{-- End Content --}}
         </div>
         <div class="relative flex cta__more">

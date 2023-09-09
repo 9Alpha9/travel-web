@@ -51,6 +51,7 @@ class WisataController extends Controller
 
     public function store(Request $request){
         // dd(asset('dashboard/gallery-wisata/'));
+        dd($request);
         try {
             $wisata = Wisata::create([
                 "id_pengelolah" => Auth::user()->id_user,

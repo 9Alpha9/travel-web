@@ -24,7 +24,7 @@
                             <div class="wisata__info__title">
                                 {{-- Wisata Name --}}
                                 <a href="#!">
-                                    <h5>{{ $value->nama_wisata }}</h5>
+                                    <h5 class="font-semibold">{{ $value->nama_wisata }}</h5>
                                 </a>
                             </div>
                             {{-- Rating --}}
@@ -42,7 +42,7 @@
                             </div>
                             {{-- End Rating --}}
                         </div>
-                        <div class="flex flex-row items-center gap-3 py-3 m-auto card__location__graph">
+                        <div class="flex flex-row items-center gap-2 py-3 m-auto card__location__graph">
                             <svg width="20" height="20" viewBox="0 0 10 13" fill="none" class="block align-middle"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path

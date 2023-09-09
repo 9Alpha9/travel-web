@@ -24,14 +24,14 @@
                     </span>
                 </a>
             </div>
-            <div class="navItems__db">
+            {{-- <div class="navItems__db">
                 <a href="#">
                     <span class="block navLinks">
                         <i class="ri-database-2-line iconsDB"></i>
                         Data
                     </span>
                 </a>
-            </div>
+            </div> --}}
             <div class="navItems__db">
                 <a href={{ route('wisata.requestView') }}>
                     <span class="block navLinks @isset($pengajuan) {{ $pengajuan }} @endif">

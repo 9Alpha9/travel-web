@@ -766,26 +766,17 @@ video {
 .h-full {
   height: 100%;
 }
-.h-\[4rem\] {
-  height: 4rem;
-}
-.h-\[6rem\] {
-  height: 6rem;
-}
-.h-\[13rem\] {
-  height: 13rem;
-}
 .max-h-40 {
   max-height: 10rem;
 }
 .max-h-60 {
   max-height: 15rem;
 }
-.max-h-full {
-  max-height: 100%;
-}
 .max-h-\[13rem\] {
   max-height: 13rem;
+}
+.max-h-full {
+  max-height: 100%;
 }
 .w-1 {
   width: 0.25rem;
@@ -907,9 +898,6 @@ video {
 }
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;

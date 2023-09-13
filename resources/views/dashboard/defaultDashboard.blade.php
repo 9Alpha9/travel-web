@@ -84,18 +84,16 @@
             let table = new DataTable('.dataTable');
 
             var $curr = $('.currencyFront,.currencyBack').on('keyup', function(e){
-                let currency = inputCurrency(this.value);
-                $curr.not(this).val(currency);
-                // $(this).val('');
-                // return false;
-                // let currValue = $(this).val();
+                let number = $(this).val().replace(/\./g, '');
+                let currency = currencyIDR(number);
+                //console.log(number);
                 let currName = $(this).data('name');
                 let inputSend = $('.currencyBack[name="' + currName + '"]');
-                inputSend.val(this.value);
-                $(this).val(currencyIDR(currency));
+                inputSend.val(number);
+                $(this).val(currency);
             });
 
-            $('input[type="text"].inputNumber.currency').attr('onkeypress', 'return isNumber(event)');
+            $('.currencyFront').attr('onkeypress', 'return isNumber(event)');
             // $('input[type="text"].inputNumber.currency').autoNumeric('init', {
             //     aSep: '.',
             //     aDec: ',',
@@ -124,11 +122,25 @@
         function currencyIDR(value){
             let num = new Number(value);
             const myObj = {
-                style: "currency",
-                currency: "IDR",
-                decimal: false
+                // style: "currency",
+                // currency: "IDR",
+                // decimal: false,
+                unitDisplay: 'long',
             }
-            return num.toLocaleString('id-ID', myObj);
+            // return num.toLocaleString('id-ID', myObj);
+            return num.toLocaleString('id-ID');
+        }
+
+        function regexCurrency(value){
+            value += '';
+            var x = value.split('.');
+            var x1 = x[0];
+            var x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + '.' + '$2');
+            }
+            return x1 + x2;
         }
 
         function isNumber(evt) {

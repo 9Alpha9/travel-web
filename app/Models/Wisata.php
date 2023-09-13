@@ -42,7 +42,7 @@ class Wisata extends Model
     }
 
     public function GambarWisata(){
-        return $this->hasMany(GambarWisata::class, 'id_gambar_wisata', 'id_gambar_wisata');
+        return $this->hasMany(GambarWisata::class, 'id_wisata', 'id_wisata');
     }
 
     public function RatingWisata(){

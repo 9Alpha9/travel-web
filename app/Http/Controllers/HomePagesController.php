@@ -12,6 +12,9 @@ class HomePagesController extends Controller
         return view('components.homepages')->with(['homepages']);
     }
     public function landingPage() {
+        // $wisata = Wisata::with('GambarWisata', function ($query){
+        //     $query->orderBy('created_at', 'desc');
+        // })->orderBy('created_at', 'desc')->get();
         $wisata = Wisata::with('GambarWisata')->orderBy('created_at', 'desc')->get();
         // dd($wisata);
         return view('components/landingpages/home')->with(['home' => 'active', 'pageTitle' => 'Travel', 'wisata' => $wisata]);

@@ -554,9 +554,6 @@ video {
 .top-6 {
   top: 1.5rem;
 }
-.bottom-1 {
-  bottom: 0.25rem;
-}
 .z-10 {
   z-index: 10;
 }
@@ -697,9 +694,6 @@ video {
 .mt-\[4rem\] {
   margin-top: 4rem;
 }
-.mt-1 {
-  margin-top: 0.25rem;
-}
 .box-content {
   box-sizing: content-box;
 }
@@ -720,9 +714,6 @@ video {
 }
 .grid {
   display: grid;
-}
-.list-item {
-  display: list-item;
 }
 .hidden {
   display: none;
@@ -766,6 +757,9 @@ video {
 .h-\[10rem\] {
   height: 10rem;
 }
+.h-\[2\.8rem\] {
+  height: 2.8rem;
+}
 .h-\[30rem\] {
   height: 30rem;
 }
@@ -774,27 +768,6 @@ video {
 }
 .h-full {
   height: 100%;
-}
-.h-\[5rem\] {
-  height: 5rem;
-}
-.h-\[2rem\] {
-  height: 2rem;
-}
-.h-\[3rem\] {
-  height: 3rem;
-}
-.h-\[2\.5rem\] {
-  height: 2.5rem;
-}
-.h-\[2\.6rem\] {
-  height: 2.6rem;
-}
-.h-\[2\.7rem\] {
-  height: 2.7rem;
-}
-.h-\[2\.8rem\] {
-  height: 2.8rem;
 }
 .max-h-40 {
   max-height: 10rem;
@@ -919,9 +892,6 @@ video {
 }
 .list-decimal {
   list-style-type: decimal;
-}
-.list-disc {
-  list-style-type: disc;
 }
 .grid-flow-col {
   grid-auto-flow: column;

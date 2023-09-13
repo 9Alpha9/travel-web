@@ -13,6 +13,7 @@
             <div class="flex flex-row wisata__card">
                 <div class="block max-w-md dark:bg-neutral-700 wisata__viral__card__item">
                     <a href="{{ route('viewpages') }}">
+                        {{-- @php(dd($wisata)) --}}
                         <figure class="wisata__banner">
                             <img src="https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg"
                                 class="max-h-60 md:max-h-60 xl:max-h-96" alt="" />
@@ -24,7 +25,7 @@
                             <div class="wisata__info__title">
                                 {{-- Wisata Name --}}
                                 <a href="#!">
-                                    <h5 class="font-semibold">{{ $value->nama_wisata }}</h5>
+                                    <h5 class="font-semibold">{{-- $value->nama_wisata --}}</h5>
                                 </a>
                             </div>
                             {{-- Rating --}}
@@ -51,7 +52,7 @@
                             </svg>
                             {{-- Wisata Location Information --}}
                             <p class="text-xs text-neutral-600 dark:text-neutral-200 text__location">
-                                {{ $value->kecamatan->name }}, {{ $value->kecamatan->kota->name }}
+                                {{$value->kecamatan->name }}, {{$value->kecamatan->kota->name }}
                                 {{-- Kecamatan Gadung Asri Joyobonto, Surabaya. --}}
                             </p>
                             {{-- End Wisata Location Information --}}

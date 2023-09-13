@@ -83,8 +83,8 @@
                                     </label>
                                     <div class="relative overflow-hidden priceTag__item">
                                         <div class="relative overflow-hidden inputPrice__list">
-                                            <input type="number" class="overflow-hidden currencyBack" hidden
-                                                name="inputHarga" required>
+                                            {{-- <input type="number" class="overflow-hidden currencyBack" hidden
+                                                name="inputHarga" required> --}}
                                             <input type="text" id="userInputHarga" name="userInputHarga"
                                                 data-name="inputHarga"
                                                 class="w-full font-thin h-[2.8rem] rounded-lg inputSelection focus:ring-0 currency currencyFront"

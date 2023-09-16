@@ -3,6 +3,9 @@
 @endpush
 
 @section('pageContent')
+@foreach($errors->all() as $error)
+{{ $error }}
+@endforeach
 <div class="relative mt-10 contentContainer">
     <div class="relative w-full pt-20 pb-20 contentWrapper__dashboard">
         <div class="relative headerDB__items">
@@ -26,10 +29,16 @@
                                     </h3>
                                 </label>
                                 <input type="text" id="inputNama" name="inputNama" class="rounded-lg inputSelection"
-                                    placeholder="Wisata..." autocomplete="off" required>
-                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                    <span class="font-medium">Oops!</span> Data tidak boleh kosong!
-                                </p>
+                                    placeholder="Wisata..." autocomplete="off">
+                                @if($errors->has('inputNama'))
+                                @foreach($errors->get('inputNama') as $message)
+                                <div class="errorsPop__messages">
+                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        <span class="font-medium">Oops!</span> {{ $message }}
+                                    </p>
+                                </div>
+                                @endforeach
+                                @endif
                             </span>
                         </div>
                         <div class="dbData__listWisata">
@@ -40,15 +49,24 @@
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <select name="inputKota" id="inputKota" required>
+                                <select name="inputKota" id="inputKota">
                                     <option value="" selected hidden>Pilih Kota</option>
                                     @foreach($kota as $row)
                                     <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
                                 </select>
-                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                @if($errors->has('inputKota'))
+                                @foreach($errors->get('inputKota') as $message)
+                                <div class="errorsPop__messages">
+                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        <span class="font-medium">Oops!</span> {{ $message }}
+                                    </p>
+                                </div>
+                                @endforeach
+                                @endif
+                                {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                     <span class="font-medium">Oops!</span> Kota / Kabupaten tidak boleh kosong!
-                                </p>
+                                </p> --}}
                             </span>
                         </div>
                         <div class="dbData__listWisata">
@@ -59,12 +77,21 @@
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <select name="inputKecamatan" id="inputKecamatan" required>
+                                <select name="inputKecamatan" id="inputKecamatan">
                                     <option value="" selected hidden>Pilih Kecamatan</option>
                                 </select>
-                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                @if($errors->has('inputKecamatan'))
+                                @foreach($errors->get('inputKecamatan') as $message)
+                                <div class="errorsPop__messages">
+                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        <span class="font-medium">Oops!</span> {{ $message }}
+                                    </p>
+                                </div>
+                                @endforeach
+                                @endif
+                                {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                     <span class="font-medium">Oops!</span> Kecamatan tidak boleh kosong!
-                                </p>
+                                </p> --}}
                             </span>
                         </div>
                     </div>
@@ -83,15 +110,21 @@
                                     </label>
                                     <div class="relative overflow-hidden priceTag__item">
                                         <div class="relative overflow-hidden inputPrice__list">
-                                            {{-- <input type="number" class="overflow-hidden currencyBack" hidden
-                                                name="inputHarga" required> --}}
-                                            <input type="text" id="userInputHarga" name="userInputHarga"
-                                                data-name="inputHarga"
-                                                class="w-full font-thin h-[2.8rem] rounded-lg inputSelection focus:ring-0 currency currencyFront"
-                                                placeholder="500.000" required>
-                                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            <input type="text" id="inputHarga" name="inputHarga"
+                                                class="w-full font-thin h-[2.8rem] rounded-lg inputSelection focus:ring-0 currency"
+                                                placeholder="500.000">
+                                            @if($errors->has('inputHarga'))
+                                            @foreach($errors->get('inputHarga') as $message)
+                                            <div class="errorsPop__messages">
+                                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                                    <span class="font-medium">Oops!</span> {{ $message }}
+                                                </p>
+                                            </div>
+                                            @endforeach
+                                            @endif
+                                            {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                                 <span class="font-medium">Oops!</span> Harga tidak boleh kosong!
-                                            </p>
+                                            </p> --}}
                                         </div>
                                         <div
                                             class="absolute top-0 left-0 p-2.5 px-4 font-semibold text-white rounded-l-lg diskonTag bg-primary-birent ">
@@ -119,11 +152,19 @@
                                         <input type="number" id="inputDiskon" name="inputDiskon"
                                             class="w-full h-[2.8rem] font-thin rounded-lg inputSelection focus:ring-0"
                                             placeholder="Harga Diskon..." min="0" maxlength="100"
-                                            onKeyUp="if(this.value>100){this.value='100';}else if(this.value<0){this.value='0';}"
-                                            required>
-                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            onKeyUp="if(this.value>100){this.value='100';}else if(this.value<0){this.value='0';}">
+                                        @if($errors->has('inputDiskon'))
+                                        @foreach($errors->get('inputDiskon') as $message)
+                                        <div class="errorsPop__messages">
+                                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                                <span class="font-medium">Oops!</span> {{ $message }}
+                                            </p>
+                                        </div>
+                                        @endforeach
+                                        @endif
+                                        {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                             <span class="font-medium">Oops!</span> Harga diskon tidak boleh kosong!
-                                        </p>
+                                        </p> --}}
                                         <div
                                             class="diskonTag absolute left-0 top-0 font-semibold bg-primary-birent p-2.5 text-white px-5 rounded-l-lg">
                                             %
@@ -159,10 +200,19 @@
                                     <span class="py-2 text-xs font-normal listingFacility__new">
                                         <i> Fasilitas Tempat Wisata Yang Dipilih :</i>
                                     </span>
-                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                    @if($errors->has('listFasilitas'))
+                                    @foreach($errors->get('listFasilitas') as $message)
+                                    <div class="errorsPop__messages">
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            <span class="font-medium">Oops!</span> {{ $message }}
+                                        </p>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                         <span class="font-medium">Oops!</span> Fasilitas wisata
                                         tidak boleh kosong!
-                                    </p>
+                                    </p> --}}
                                     <div id="modalFacility__list" tabindex="-1"
                                         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                         <div class="relative w-full max-w-[70rem] max-h-full ">
@@ -191,8 +241,7 @@
                                                                 <label class="flex flex-row w-full gap-2">
                                                                     <input type="checkbox" name="checkFasilitas"
                                                                         value="{{ $row->id_kategori_fasilitas }}"
-                                                                        data-nama="{{ $row->kategori_fasilitas }}"
-                                                                        required>
+                                                                        data-nama="{{ $row->kategori_fasilitas }}">
                                                                     <h2
                                                                         class="block -mt-1 font-normal text-md textFacility">
                                                                         {{ $row->kategori_fasilitas }}
@@ -258,7 +307,7 @@
                                                 <span class="labelRequire__infowisata">*</span>
                                             </h3>
                                         </label>
-                                        <select name="wisataList__activity" id="activity" required>
+                                        <select name="wisataList__activity" id="activity">
                                             <option value hidden disabled selected>Silahkan Pilih List Kategori Wisata
                                             </option>
                                             @foreach($kategori as $row)
@@ -266,10 +315,19 @@
                                                 }}</option>
                                             @endforeach
                                         </select>
-                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        @if($errors->has('wisataList__activity'))
+                                        @foreach($errors->get('wisataList__activity') as $message)
+                                        <div class="errorsPop__messages">
+                                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                                <span class="font-medium">Oops!</span> {{ $message }}
+                                            </p>
+                                        </div>
+                                        @endforeach
+                                        @endif
+                                        {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                             <span class="font-medium">Oops!</span> Kategori wisata
                                             tidak boleh kosong!
-                                        </p>
+                                        </p> --}}
                                     </span>
                                 </div>
                             </div>
@@ -341,7 +399,7 @@
                                                                 <input type="text"
                                                                     class="bg-gray-50 border border-gray-300 text-sm font-thin rounded-lg w-full p-2.5 inputFields"
                                                                     autocomplete="off" placeholder="Informasi Wisata..."
-                                                                    name="inputInformasi[]" required>
+                                                                    name="inputInformasi[]">
                                                             </div>
                                                             <span class="relative">
                                                                 <button type="button" onclick="deleteInput(this)"

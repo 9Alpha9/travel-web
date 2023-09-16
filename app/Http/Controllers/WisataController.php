@@ -13,10 +13,35 @@ use App\Models\User;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class WisataController extends Controller
 {
-    //
+    protected $rules, $messages;
+
+    public function __construct() {
+        $this->rules = array(
+            'inputHarga' => 'required|numeric',
+            'inputDiskon' => 'required|numeric|between:0,100',
+            'inputNama' => 'required|string',
+            'artikel' => 'required|string',
+            'wisataList__activity' => 'required|string',
+            'inputKecamatan' => 'required|string',
+            'listFasilitas' => 'required',
+        );
+        $this->messages = array(
+            'required' => ':attribute harus diisi.',
+            'numeric' => ':attribute harus diisi.',
+            'string' => ':attribute harus diisi.',
+            'between' => ':attribute harus di antara :min - :max',
+            'min' => ':attribute minimal :value',
+            'max' => ':attribute maksimal :value',
+            'digits_between' => 'inputan :attribute harus diantara :min - :max',
+            'email' => ':attribute tidak valid!',
+            'listFasilitas.required' => ':attribute harus dipilih minimal satu fasilitas!',
+        );
+    }
+
     public function index(){
         if(Auth::user()->user_type == "Admin"){
             $wisata = Wisata::where('id_pengelolah', Auth::user()->id_user)->orderBy('created_at', 'asc')->get();
@@ -50,65 +75,71 @@ class WisataController extends Controller
     }
 
     public function store(Request $request){
-        // dd(asset('dashboard/gallery-wisata/'));
-        dd($request);
-        try {
-            $wisata = Wisata::create([
-                "id_pengelolah" => Auth::user()->id_user,
-                "harga" => $request->inputHarga,
-                "diskon" => $request->inputDiskon,
-                "nama_wisata" => $request->inputNama,
-                "artikel" => $request->artikel,
-                "id_kategori_wisata" => $request->wisataList__activity,
-                "id_kecamatan" => $request->inputKecamatan,
-                "created_at" => date('Y-m-d H:i:s'),
-                "updated_at" => date('Y-m-d H:i:s')
-            ]);
-        // jika kosong maka dilewati jika tidak maka tidak.
-            foreach (json_decode($request->listFasilitas) as $key => $value) {
-                # code...
-                $fasilitas = FasilitasWisata::create([
-                    "id_wisata" => $wisata->id_wisata,
-                    "id_kategori_fasilitas" => $value,
+        // $validator = Validator::make({
+        //     'inputDiskon' ->
+        // });
+        $validationResponse = $this->validationForm($request, $this->rules, $this->messages);
+        if($validationResponse == "passed") {
+            try {
+                $wisata = Wisata::create([
+                    "id_pengelolah" => Auth::user()->id_user,
+                    "harga" => str_replace('.','',$request->inputHarga),
+                    "diskon" => $request->inputDiskon,
+                    "nama_wisata" => $request->inputNama,
+                    "artikel" => $request->artikel,
+                    "id_kategori_wisata" => $request->wisataList__activity,
+                    "id_kecamatan" => $request->inputKecamatan,
                     "created_at" => date('Y-m-d H:i:s'),
                     "updated_at" => date('Y-m-d H:i:s')
                 ]);
-            }
-
-            foreach (json_decode($request->inputImages) as $key => $value) {
-                # code...
-                $filename = 'wisata_' . str_replace(' ', '_', $wisata->nama_wisata) . '_' . str_replace(' ', '_', $value->name);
-
-                if (!file_exists(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)))) {
-                    mkdir(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)), 0777, true);
-                }
-
-                if($fileImage = file_put_contents(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata) . '/' . $filename), file_get_contents($value->img)) !== false){
-                    $gambar = GambarWisata::create([
+                // jika kosong maka dilewati jika tidak maka tidak.
+                foreach (json_decode($request->listFasilitas) as $key => $value) {
+                    # code...
+                    $fasilitas = FasilitasWisata::create([
                         "id_wisata" => $wisata->id_wisata,
-                        "nama_gambar" => $filename,
-                        "keterangan_gambar" => "Gambar " . $value->name . " dari Wisata " . $wisata->nama_wisata,
+                        "id_kategori_fasilitas" => $value,
                         "created_at" => date('Y-m-d H:i:s'),
                         "updated_at" => date('Y-m-d H:i:s')
                     ]);
                 }
-            }
 
-            foreach ($request->inputInformasi as $key => $value) {
-                # code...
-                if(!empty($value)){
-                    $informasi = Informasi::create([
-                        "id_wisata" => $wisata->id_wisata,
-                        "informasi" => $value,
-                        "created_at" => date('Y-m-d H:i:s'),
-                        "updated_at" => date('Y-m-d H:i:s')
-                    ]);
+                foreach (json_decode($request->inputImages) as $key => $value) {
+                    # code...
+                    $filename = 'wisata_' . str_replace(' ', '_', $wisata->nama_wisata) . '_' . str_replace(' ', '_', $value->name);
+
+                    if (!file_exists(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)))) {
+                        mkdir(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)), 0777, true);
+                    }
+
+                    if($fileImage = file_put_contents(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata) . '/' . $filename), file_get_contents($value->img)) !== false){
+                        $gambar = GambarWisata::create([
+                            "id_wisata" => $wisata->id_wisata,
+                            "nama_gambar" => $filename,
+                            "keterangan_gambar" => "Gambar " . $value->name . " dari Wisata " . $wisata->nama_wisata,
+                            "created_at" => date('Y-m-d H:i:s'),
+                            "updated_at" => date('Y-m-d H:i:s')
+                        ]);
+                    }
                 }
-            }
 
-            return redirect()->route('wisata.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        } catch (\Exception $e) {
-            dd($e);
+                foreach ($request->inputInformasi as $key => $value) {
+                    # code...
+                    if(!empty($value)){
+                        $informasi = Informasi::create([
+                            "id_wisata" => $wisata->id_wisata,
+                            "informasi" => $value,
+                            "created_at" => date('Y-m-d H:i:s'),
+                            "updated_at" => date('Y-m-d H:i:s')
+                        ]);
+                    }
+                }
+
+                return redirect()->route('wisata.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            } catch (\Exception $e) {
+                dd($e);
+            }
+        } else {
+            return redirect()->back()->withErrors($validationResponse)->withInput();
         }
     }
 
@@ -182,6 +213,20 @@ class WisataController extends Controller
             return redirect()->route('wisata.requestView')->with(['success' => 'Pengajuan berhasil diproses.']);
         } catch(\Exception $e){
             return redirect()->back()->withErrors($e);
+        }
+    }
+
+    public function validationForm($input, $rules, $messages = null){
+        if ($messages == null) {
+            $validator = Validator::make($input->all(), $rules);
+        } else {
+            $validator = Validator::make($input->all(), $rules, $messages);
+        }
+        if ($validator->fails()) {
+            $messages = $validator->errors();
+            return $messages;
+        } else {
+            return 'passed';
         }
     }
 }

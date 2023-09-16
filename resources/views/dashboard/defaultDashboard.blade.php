@@ -83,15 +83,17 @@
         $(document).ready(function(){
             let table = new DataTable('.dataTable');
 
-            var $curr = $('.currencyFront,.currencyBack').on('keyup', function(e){
+            var $curr = $('.currency').on('keyup', function(e){
                 let number = $(this).val().replace(/\./g, '');
                 let currency = currencyIDR(number);
                 //console.log(number);
-                let currName = $(this).data('name');
-                let inputSend = $('.currencyBack[name="' + currName + '"]');
-                inputSend.val(number);
                 $(this).val(currency);
             });
+
+            // var $currDec = $('.currencyDecimal').on('keyup', function(e) {
+            //     let number = $(this).val().replace(/\./g, '');
+            //     number = $(number).val().replace(/\,/, '.');
+            // })
 
             $('.currencyFront').attr('onkeypress', 'return isNumber(event)');
             // $('input[type="text"].inputNumber.currency').autoNumeric('init', {
@@ -104,21 +106,6 @@
             // $('input[type="text"].inputNumber.currency').attr('onkeypress', 'return thousandSeparator(event)');
         });
 
-        function inputCurrency(value){
-            // find the index of ',' from string
-            let index = value.indexOf(',');
-            // get string that wants to be removed
-            let remove = value.substr(index, 3);
-            // split the value and remove the string that needs to be removed
-            let split = value.split(remove);
-            // join back the splitted value after the removal of string
-            value = split[0] + split[1];
-            // takes only number from string
-            value = value.replace(/[^0-9]/g,'');
-
-            return value;
-        }
-
         function currencyIDR(value){
             let num = new Number(value);
             const myObj = {
@@ -129,18 +116,6 @@
             }
             // return num.toLocaleString('id-ID', myObj);
             return num.toLocaleString('id-ID');
-        }
-
-        function regexCurrency(value){
-            value += '';
-            var x = value.split('.');
-            var x1 = x[0];
-            var x2 = x.length > 1 ? '.' + x[1] : '';
-            var rgx = /(\d+)(\d{3})/;
-            while (rgx.test(x1)) {
-                    x1 = x1.replace(rgx, '$1' + '.' + '$2');
-            }
-            return x1 + x2;
         }
 
         function isNumber(evt) {

@@ -13,8 +13,8 @@
 @if($errors->count() > 0)
 <script>
     let message = "";
-    @foreach($errors->all() as $message)
-    message += '{{ $message }}';
+    @foreach($errors->all() as $key => $value)
+    message += '{{ $value }}';
     message += '<br>';
     @endforeach
     Swal.fire({

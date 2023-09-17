@@ -176,25 +176,25 @@
                         {{ $row->nama_kategori_wisata }}
                     </td>
                     <td class="px-6 py-4 border-r dark:border-gray-700 border-b max-w-2xl w-60">
-                        <section class="actionTo__action flex flex-row gap-6">
-                            <div class="actionItems relative">
-                                {{-- Edit Modal Table --}}
-                                <button class="block text-white actionEdit__cta px-6 p-1 rounded-md editBtn"
-                                    data-id="{{ $row->id_kategori_wisata }}" data-modal-toggle="kategoriedModal"
-                                    data-nama="{{ $row->nama_kategori_wisata }}" type="button">
-                                    <span class="gap-3 block">
-                                        <i class="ri-pencil-fill"></i>
-                                        Edit
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="actionItems relative">
-                                <button type="button" id="" class="actionDelete__cta px-6 p-1 rounded-md btnDelete"
-                                    data-no="{{ $loop->iteration }}"
-                                    href="{{ route('kategori.destroy', $row->id_kategori_wisata) }}">
-                                    <i class="ri-delete-bin-7-fill"></i> Hapus
-                                </button>
-                            </div>
+                        <section class="actionTo__action flex flex-row gap-6"></section>
+                        <div class="actionItems relative">
+                            {{-- Edit Modal Table --}}
+                            <button class="block text-white actionEdit__cta px-6 p-1 rounded-md editBtn"
+                                data-id="{{ $row->id_kategori_wisata }}" data-modal-toggle="kategoriedModal"
+                                data-nama="{{ $row->nama_kategori_wisata }}" type="button">
+                                <span class="gap-3 block">
+                                    <i class="ri-pencil-fill"></i>
+                                    Edit
+                                </span>
+                            </button>
+                        </div>
+                        <div class="actionItems relative">
+                            <button type="button" id="" class="actionDelete__cta px-6 p-1 rounded-md btnDelete"
+                                data-no="{{ $loop->iteration }}"
+                                href="{{ route('kategori.destroy', $row->id_kategori_wisata) }}">
+                                <i class="ri-delete-bin-7-fill"></i> Hapus
+                            </button>
+                        </div>
                         </section>
                     </td>
                 </tr>

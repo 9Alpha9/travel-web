@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             KategoriWisataSeeder::class,
             KriteriaSeeder::class,
-            BobotKriteriaSeeder::class
+            BobotKriteriaSeeder::class,
+            KategoriFasilitasSeeder::class
         ]);
     }
 }

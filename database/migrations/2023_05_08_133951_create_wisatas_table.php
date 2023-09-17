@@ -17,6 +17,7 @@ class CreateWisatasTable extends Migration
             $table->increments('id_wisata');
             $table->integer('id_pengelolah')->unsigned();
             $table->integer('id_kategori_wisata')->unsigned();
+            $table->bigInteger('id_kota')->unsigned();
             $table->bigInteger('id_kecamatan')->unsigned();
             $table->string('nama_wisata');
             $table->integer('harga');
@@ -31,6 +32,11 @@ class CreateWisatasTable extends Migration
 
             $table->foreign('id_kategori_wisata')
             ->references('id_kategori_wisata')->on('kategori_wisatas')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
+
+            $table->foreign('id_kota')
+            ->references('id')->on('kotas')
             ->onUpdate('cascade')
             ->onDelete('restrict');
 

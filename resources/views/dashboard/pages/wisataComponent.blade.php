@@ -28,10 +28,11 @@
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <input type="text" id="inputNama" name="inputNama" class="rounded-lg inputSelection"
-                                    placeholder="Wisata..." autocomplete="off">
-                                @if($errors->has('inputNama'))
-                                @foreach($errors->get('inputNama') as $message)
+                                <input type="text" id="inputNama" name="nama" class="rounded-lg inputSelection"
+                                    placeholder="Wisata..." autocomplete="off"
+                                    value="{{ !empty($tableWisata) ? $tableWisata->first()->nama_wisata : '' }}">
+                                @if($errors->has('nama'))
+                                @foreach($errors->get('nama') as $message)
                                 <div class="errorsPop__messages">
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                         <span class="font-medium">Oops!</span> {{ $message }}
@@ -49,14 +50,20 @@
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <select name="inputKota" id="inputKota">
+                                <select name="kota" id="inputKota">
                                     <option value="" selected hidden>Pilih Kota</option>
-                                    @foreach($kota as $row)
-                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @foreach($tableKota as $row)
+                                    <option value="{{ $row->id }}" @empty($tableWisata) @else @if($tableWisata->
+                                        first()->id_kota
+                                        == $row->id)
+                                        selected
+                                        @endif
+                                        @endempty
+                                        >{{ $row->name }}</option>
                                     @endforeach
                                 </select>
-                                @if($errors->has('inputKota'))
-                                @foreach($errors->get('inputKota') as $message)
+                                @if($errors->has('kota'))
+                                @foreach($errors->get('kota') as $message)
                                 <div class="errorsPop__messages">
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                         <span class="font-medium">Oops!</span> {{ $message }}
@@ -77,11 +84,11 @@
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <select name="inputKecamatan" id="inputKecamatan">
+                                <select name="kecamatan" id="inputKecamatan">
                                     <option value="" selected hidden>Pilih Kecamatan</option>
                                 </select>
-                                @if($errors->has('inputKecamatan'))
-                                @foreach($errors->get('inputKecamatan') as $message)
+                                @if($errors->has('kecamatan'))
+                                @foreach($errors->get('kecamatan') as $message)
                                 <div class="errorsPop__messages">
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                         <span class="font-medium">Oops!</span> {{ $message }}
@@ -110,11 +117,11 @@
                                     </label>
                                     <div class="relative overflow-hidden priceTag__item">
                                         <div class="relative overflow-hidden inputPrice__list">
-                                            <input type="text" id="inputHarga" name="inputHarga"
+                                            <input type="text" id="inputHarga" name="harga"
                                                 class="w-full font-thin h-[2.8rem] rounded-lg inputSelection focus:ring-0 currency"
                                                 placeholder="500.000">
-                                            @if($errors->has('inputHarga'))
-                                            @foreach($errors->get('inputHarga') as $message)
+                                            @if($errors->has('harga'))
+                                            @foreach($errors->get('harga') as $message)
                                             <div class="errorsPop__messages">
                                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                                     <span class="font-medium">Oops!</span> {{ $message }}
@@ -149,12 +156,12 @@
                                         </div>
                                     </label>
                                     <div class="relative w-full overflow-hidden diskonInput__list">
-                                        <input type="number" id="inputDiskon" name="inputDiskon"
+                                        <input type="number" id="inputDiskon" name="diskon"
                                             class="w-full h-[2.8rem] font-thin rounded-lg inputSelection focus:ring-0"
                                             placeholder="Harga Diskon..." min="0" maxlength="100"
                                             onKeyUp="if(this.value>100){this.value='100';}else if(this.value<0){this.value='0';}">
-                                        @if($errors->has('inputDiskon'))
-                                        @foreach($errors->get('inputDiskon') as $message)
+                                        @if($errors->has('diskon'))
+                                        @foreach($errors->get('diskon') as $message)
                                         <div class="errorsPop__messages">
                                             <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                                 <span class="font-medium">Oops!</span> {{ $message }}
@@ -236,7 +243,7 @@
                                                     <div class="listCheck__facilityContainer">
                                                         <div
                                                             class="grid grid-cols-2 items-center w-full gap-4 align-middle facilityList__content  max-h-[13rem] whitespace-nowrap overflow-x-auto p-4">
-                                                            @foreach($fasilitas as $row)
+                                                            @foreach($tableFasilitas as $row)
                                                             <span class="relative block facilityCheck__items">
                                                                 <label class="flex flex-row w-full gap-2">
                                                                     <input type="checkbox" name="checkFasilitas"
@@ -310,7 +317,7 @@
                                         <select name="wisataList__activity" id="activity">
                                             <option value hidden disabled selected>Silahkan Pilih List Kategori Wisata
                                             </option>
-                                            @foreach($kategori as $row)
+                                            @foreach($tableKategori as $row)
                                             <option value="{{ $row->id_kategori_wisata }}">{{ $row->nama_kategori_wisata
                                                 }}</option>
                                             @endforeach
@@ -463,7 +470,7 @@
                                     <input type="file" name="Thumbnail-images" id="wisataImages"
                                         accept="image/png, image/jpg, image/jpeg, image/webp" class="thumbnail__Btncta"
                                         multiple>
-                                    <input type="text" name="inputImages" hidden>
+                                    <input type="text" name="images" hidden>
                                 </div>
                             </div>
                             <div class="bannerContent__thumbnail">
@@ -523,19 +530,28 @@
 
     function deleteInput(e){
         $(e).closest('span').parent().closest('span').remove();
+        statusInformasi();
     }
 
     $('input[name="inputInformasi[]"]').on('change', function(){
         disableButton(this);
     });
 
-    function disableButton(e){
-        if($(e).val() != ""){
-            $(e).closest('span').find('button').prop('disabled', false);
+    function statusInformasi(){
+        let informasi = $('input[name="inputInformasi[]"]').length;
+        let status;
+        if (informasi > 1) {
+            status = false;
+        } else {
+            status = true;
         }
-        else{
-            $(e).closest('span').find('button').prop('disabled', true);
-        }
+        $.each(informasi, function(key, value) {
+            disableButton(value, status);
+        });
+    }
+
+    function disableButton(e, status){
+        $(e).closest('span').find('button').prop('disabled', status);
     };
 
     $('.inputCta__btn').on('click', function(){
@@ -549,11 +565,12 @@
         + 'placeholder="Informasi Wisata" name="inputInformasi[]" onchange="disableButton(this)">'
         + '</div>'
         + '<span class="relative">'
-        + '<button type="button" onclick="deleteInput(this)" disabled class="p-2 px-4 py-10 mt-0 rounded-lg deleteCta__btn"><i '
+        + '<button type="button" onclick="deleteInput(this)" class="p-2 px-4 py-10 mt-0 rounded-lg deleteCta__btn"><i '
         + 'class="ri-delete-bin-7-fill"></i></button>'
         + '</span>'
         + '</span>';
         $('section.infoWisata__Wrapper').append(html);
+        statusInformasi();
     });
 
 </script>
@@ -709,7 +726,7 @@
             html += '</div>';
         }
 
-        $('[name="inputImages"]').val(JSON.stringify(imgFile));
+        $('[name="images"]').val(JSON.stringify(imgFile));
         $('.tumbnail__content').html(html);
     }
 

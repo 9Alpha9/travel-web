@@ -107,10 +107,10 @@
                                 {{ $row->diskon }}%
                             </td>
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700">
-                                <div class="flex flex-row gap-3 modalInfo__more">
+                                <div class="flex flex-row gap-2 modalInfo__more">
                                     <button data-modal-target="tableModal__view#{{ $row->id_wisata }}"
                                         data-modal-toggle="tableModal__view#{{ $row->id_wisata }}"
-                                        class="whitespace-nowrap block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                        class="whitespace-nowrap block text-white bg-green-700 hover:bg-green-800 focus:ring-3 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                                         type="button">
                                         <i class="ri-eye-fill"></i> Lainnya
                                     </button>
@@ -200,13 +200,25 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <span class="block rounded-md bg-button-red hover:bg-button-red-hover">
-                                        <button type="button" id="listDelete" class="px-5 py-2.5 text-white btnDelete"
-                                            data-no="{{ $loop->iteration }}"
-                                            href="{{ route('wisata.destroy', $row->id_wisata) }}">
-                                            <i class="ri-delete-bin-7-fill"></i>
-                                        </button>
-                                    </span>
+                                    <div class="action__button flex gap-2">
+                                        <span class="actionEdit__cta">
+                                            <button data-modal-target="staticModal" data-modal-toggle="editList"
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 flex w-24 h-full text-center align-middle justify-center items-center relative gap-2"
+                                                type="button">
+                                                <a href="{{ route('wisata.edit', $row->id_wisata) }}"><i
+                                                        class="ri-pencil-fill"></i> Edit</a>
+                                            </button>
+                                        </span>
+                                        <div class="rounded-md bg-button-red hover:bg-button-red-hover">
+                                            <button type="button" id="listDelete"
+                                                class="px-5 py-2.5 text-white btnDelete flex w-24 h-full text-center align-middle justify-center items-center relative gap-2"
+                                                data-no="{{ $loop->iteration }}"
+                                                href="{{ route('wisata.destroy', $row->id_wisata) }}">
+                                                <i class="ri-delete-bin-7-fill"></i> Hapus
+                                            </button>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </td>
                         </tr>

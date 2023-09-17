@@ -17,17 +17,19 @@ use Illuminate\Support\Facades\Validator;
 
 class WisataController extends Controller
 {
-    protected $rules, $messages;
+    protected $rules, $messages, $page;
 
     public function __construct() {
         $this->rules = array(
-            'inputHarga' => 'required|numeric',
-            'inputDiskon' => 'required|numeric|between:0,100',
-            'inputNama' => 'required|string',
+            'harga' => 'required|numeric',
+            'diskon' => 'required|numeric|between:0,100',
+            'nama' => 'required|string',
             'artikel' => 'required|string',
             'wisataList__activity' => 'required|string',
-            'inputKecamatan' => 'required|string',
+            'kecamatan' => 'required|string',
+            'kota' => 'required|string',
             'listFasilitas' => 'required',
+            'inputInformasi.*' => 'required'
         );
         $this->messages = array(
             'required' => ':attribute harus diisi.',
@@ -39,6 +41,12 @@ class WisataController extends Controller
             'digits_between' => 'inputan :attribute harus diantara :min - :max',
             'email' => ':attribute tidak valid!',
             'listFasilitas.required' => ':attribute harus dipilih minimal satu fasilitas!',
+            'inputKecamatan.required' => 'Harap pilih :attribute!',
+            'inputKota.required' => 'Harap pilih :attribute!',
+        );
+        $this->page = array(
+            'wisata' => 'active',
+            'pageTitle' => 'Wisata'
         );
     }
 
@@ -49,16 +57,20 @@ class WisataController extends Controller
         else if(Auth::user()->user_type == "superAdmin"){
             $wisata = Wisata::get();
         }
-
-        return view('dashboard.pages.listwisata')->with(['wisata' => 'active', 'pageTitle' => 'Wisata', 'tableWisata' => $wisata]);
+        $this->page['tableWisata'] = $wisata;
+        return view('dashboard.pages.listwisata')->with($this->page);
     }
 
     public function create(){
         $fasilitas = KategoriFasilitas::get();
         $kategori = KategoriWisata::get();
         $kota = Kota::where('province_id', '35')->get();
-        $kecamatan = Kecamatan::get();
-        return view('dashboard.pages.wisataComponent')->with(['wisata' => 'active', 'pageTitle' => 'Wisata', 'fasilitas' => $fasilitas, 'kota' => $kota, 'kecamatan' => $kecamatan, 'kategori' => $kategori]);
+
+        $this->page['tableFasilitas'] = $fasilitas;
+        $this->page['tableKota'] = $kota;
+        $this->page['tableKategori'] = $kategori;
+
+        return view('dashboard.pages.wisataComponent')->with($this->page);
     }
 
     public function getKecamatan(Request $request){
@@ -71,7 +83,17 @@ class WisataController extends Controller
     }
 
     public function edit($id){
+        $wisata = Wisata::where('id_wisata', $id)->with('gambarwisata', 'fasilitaswisata', 'informasi')->get();
+        $kota = Kota::where('province_id', '35')->get();
+        $fasilitas = KategoriFasilitas::get();
+        $kategori = KategoriWisata::get();
 
+        $this->page['tableKategori'] = $kategori;
+        $this->page['tableFasilitas'] = $fasilitas;
+        $this->page['tableKota'] = $kota;
+        $this->page['tableWisata'] = $wisata;
+
+        return view('dashboard.pages.wisataComponent')->with($this->page);
     }
 
     public function store(Request $request){
@@ -83,12 +105,13 @@ class WisataController extends Controller
             try {
                 $wisata = Wisata::create([
                     "id_pengelolah" => Auth::user()->id_user,
-                    "harga" => str_replace('.','',$request->inputHarga),
-                    "diskon" => $request->inputDiskon,
-                    "nama_wisata" => $request->inputNama,
+                    "harga" => str_replace('.','',$request->harga),
+                    "diskon" => $request->diskon,
+                    "nama_wisata" => $request->nama,
                     "artikel" => $request->artikel,
                     "id_kategori_wisata" => $request->wisataList__activity,
-                    "id_kecamatan" => $request->inputKecamatan,
+                    "id_kota" => $request->kota,
+                    "id_kecamatan" => $request->kecamatan,
                     "created_at" => date('Y-m-d H:i:s'),
                     "updated_at" => date('Y-m-d H:i:s')
                 ]);
@@ -103,7 +126,7 @@ class WisataController extends Controller
                     ]);
                 }
 
-                foreach (json_decode($request->inputImages) as $key => $value) {
+                foreach (json_decode($request->images) as $key => $value) {
                     # code...
                     $filename = 'wisata_' . str_replace(' ', '_', $wisata->nama_wisata) . '_' . str_replace(' ', '_', $value->name);
 

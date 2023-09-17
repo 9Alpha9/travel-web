@@ -22,7 +22,12 @@ class Kota extends Model
     public function Wilayah(){
         return $this->belongsTo(Wilayah::class, 'province_id', 'id');
     }
+
     public function Kecamatan(){
         return $this->hasMany(Kecamatan::class, 'regency_id', 'id');
+    }
+
+    public function Wisata(){
+        return $this->hasMany(Wisata::class, 'id_kota', 'id');
     }
 }

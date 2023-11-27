@@ -48,7 +48,7 @@
                                 Kategori
                             </th>
                             <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
-                                Fasilitas
+                                Fasilitas Wisata
                             </th>
                             <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
                                 Kecamatan
@@ -66,7 +66,7 @@
                     </thead>
                     <tbody>
                         @foreach($tableWisata as $row)
-                        <tr class="align-middle bg-white border-b border-l dark:border-gray-700 ">
+                        <tr class="align-middle bg-white border-b border-l dark:border-gray-700">
                             <th scope="row"
                                 class="px-6 py-4 font-medium border-b border-l border-r dark:border-gray-700">
                                 {{ $loop->iteration }}.
@@ -77,15 +77,17 @@
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 {{ $row->kecamatan->kota->name }}
                             </td>
-                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
+                            <td
+                                class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap font-bold uppercase">
                                 {{ $row->nama_wisata }}
                             </td>
-                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
+                            <td
+                                class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap uppercase font-bold">
                                 {{ $row->kategoriwisata->nama_kategori_wisata }}
                             </td>
                             <td
-                                class="flex flex-wrap w-[15rem] max-w-[15rem] px-6 py-4 border-b border-r dark:border-gray-700">
-                                <span class="py-5">
+                                class="flex flex-wrap w-[15rem] max-w-[15rem] px-6 border-b border-r dark:border-gray-700 h-14 overflow-auto ">
+                                <span class="overflow-hidden leading-7">
                                     @php($fasilitas = App\Models\FasilitasWisata::where('id_wisata',
                                     $row->id_wisata)->get())
                                     @foreach($fasilitas as $row2)
@@ -96,14 +98,14 @@
                                     @endforeach
                                 </span>
                             </td>
-                            <td class="px-6 py-4 border-b border-r dark:border-gray-700">
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 uppercase font-bold">
                                 {{ $row->kecamatan->name }}
                             </td>
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 Rp
                                 {{ number_format($row->harga, 2, ',', '.') }}
                             </td>
-                            <td class="px-6 py-4 border-b border-r dark:border-gray-700">
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 text-center">
                                 {{ $row->diskon }}%
                             </td>
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700">

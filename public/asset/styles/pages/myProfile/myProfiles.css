@@ -1,21 +1,30 @@
 .myProfileWrapper {
-  max-width: 986px;
+  max-width: 1200px;
+}
+.myProfileWrapper .informationContent__container {
+  width: 100%;
 }
 .myProfileWrapper .informationContent__container .items__profilesSidebar {
   border-radius: 10px;
   position: sticky;
   position: -webkit-sticky;
   top: 8em;
+  width: 300px;
 }
 .myProfileWrapper .informationContent__container .items__profilesSidebar .profile__account figure .avatar__profiles {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   -o-object-fit: cover;
      object-fit: cover;
-  width: 200px !important;
-  height: 110px;
+  max-width: 130px !important;
+  max-height: 120px !important;
   background-repeat: no-repeat;
+  border-radius: 100%;
+  -webkit-clip-path: circle();
+          clip-path: circle();
+  filter: drop-shadow(rgba(100, 100, 111, 0.2) 0px 7px 29px 0px);
 }
 .myProfileWrapper .informationContent__container .items__profilesSidebar .profile__account .profile__sideInfo {
-  width: 200px;
+  max-width: 200px;
   min-width: 0;
 }
 .myProfileWrapper .informationContent__container .items__profilesSidebar .profile__account .profile__sideInfo .profile__sideName h2 {
@@ -55,6 +64,11 @@
   background-color: #1c55f2;
 }
 
+.myProfileWrapper .active {
+  background-color: rgba(127, 140, 159, 0.2);
+  color: #000000;
+}
+
 .profile__settingContainer .profile__settingWrapper input[type=text] {
   padding-left: 1em;
 }
@@ -91,4 +105,22 @@
 .profile__settingContainer .error__notificationValue {
   color: #992F1E;
   font-weight: 400;
+}
+
+.dataWrapper .dataItem input::-webkit-outer-spin-button,
+.dataWrapper .dataItem input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.profileEdit__recommendation .resultMetode .resultsView__btn {
+  background-color: tomato;
+}
+
+.dataContainer__field .active {
+  background-color: rgb(22, 47, 136);
+  color: #ffffff;
+}
+.dataContainer__field .active:hover {
+  background-color: rgb(31, 60, 165);
 }/*# sourceMappingURL=myProfiles.css.map */

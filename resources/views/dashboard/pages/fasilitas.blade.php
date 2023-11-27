@@ -110,19 +110,20 @@
                                     <div class="flex gap-3 m-auto align-middle">
                                         <button data-modal-target="modalAcceptor-fasilitas"
                                             data-modal-toggle="modalAcceptor-fasilitas"
-                                            class="block text-white bg-blue-700 hover:bg-blue-800  focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center btn-edit"
+                                            class="text-white bg-blue-700 hover:bg-blue-800  focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center btn-edit flex"
                                             type="button" data-fasilitas="{{ $row->kategori_fasilitas }}"
                                             data-keterangan="{{ $row->keterangan_fasilitas }}"
                                             data-id="{{ $row->id_kategori_fasilitas }}">
-                                            <span class="flex flex-row items-center gap-2 align-middle">
+                                            <div class="flex flex-row items-center gap-1 align-middle">
                                                 <i class="font-medium ri-pencil-fill"></i>
-                                                <h2>Ubah Data</h2>
-                                            </span>
+                                                <span>Edit</span>
+                                            </div>
                                         </button>
                                         <button data-no="{{ $loop->iteration }}"
                                             href="{{ route('fasilitas.destroy', $row->id_kategori_fasilitas) }}"
                                             class="btnDelete block bg-button-delete-primary hover:bg-button-red-hover text-white p-2.5 text-sm px-4 rounded-md">
                                             <i class="ri-delete-bin-7-fill"></i>
+                                            <span>Delete</span>
                                         </button>
                                     </div>
                                     {{-- Main modal --}}

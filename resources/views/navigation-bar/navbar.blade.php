@@ -24,7 +24,7 @@
                     <a href="#">Tempat Wisata</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#">Tentukan Wisata</a>
+                    <a href="{{ route('profile.index') }}">Metode SMART</a>
                 </li>
                 <div class="items-center px-2 m-auto login__content">
                     @auth

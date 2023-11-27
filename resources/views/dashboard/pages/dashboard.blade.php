@@ -7,20 +7,20 @@
     <div class="relative w-full pt-20 contentWrapper__dashboard">
         <div class="relative headerDB__items">
             <span class="block py-6 headerTitle">
-                <h1>Dashboard</h1>
+                <h1 class="font-medium">Dashboard</h1>
             </span>
             <div class="flex flex-row gap-3 topDB__information">
                 <div class="informationContent__items jumlahWisata">
                     <span class="flex items-center gap-3 align-middle headingInformation whitespace-nowrap">
                         <i class="text-xl ri-map-pin-2-fill infoDB__icons iconsTour__title"></i>
-                        <h2>Jumlah Wisata</h2>
+                        <h2 class="font-semibold">Jumlah Wisata</h2>
                     </span>
                     <div class="wisataNumber__count">
                         <div class="flex flex-col count__wisataItems whitespace-nowrap">
                             <span class="pt-4 numberOf__wisata">
-                                {{ $wisata->count('id') }} Wisata
+                                {{ $tableWisata->count('id') }} Wisata
                             </span>
-                            <span class="smallInfo">
+                            <span class="z-10 smallInfo">
                                 seluruh tempat wisata di Jawa Timur
                             </span>
                         </div>
@@ -29,14 +29,14 @@
                 <div class="informationContent__items jumlahKota__wisata">
                     <span class="flex items-center gap-3 align-middle headingInformation whitespace-nowrap">
                         <i class="text-xl ri-map-fill infoDB__icons iconsCity__title"></i>
-                        <h2>Jumlah Kota atau Kabupaten</h2>
+                        <h2 class="z-10 font-semibold">Jumlah Kota atau Kabupaten</h2>
                     </span>
                     <div class="kotaNumber__count">
                         <div class="flex flex-col count__kotaItems whitespace-nowrap">
                             <span class="pt-4 numberOf__kota">
-                                {{ $kota->count('id') }} Kota
+                                {{ $tableKota->count('id') }} Kota
                             </span>
-                            <span class="smallInfo">
+                            <span class="z-10 smallInfo">
                                 diseluruh Jawa Timur
                             </span>
                             </span>
@@ -46,14 +46,14 @@
                 <div class="informationContent__items kecamatansWisata">
                     <span class="flex items-center gap-3 align-middle headingInformation whitespace-nowrap">
                         <i class="text-xl ri-road-map-fill infoDB__icons iconsSubdistrict__title"></i>
-                        <h2>Jumlah Kecamatan</h2>
+                        <h2 class="z-10 font-semibold">Jumlah Kecamatan</h2>
                     </span>
                     <div class="kecamatansNumber__count">
                         <div class="flex flex-col count__kecamatansItems whitespace-nowrap">
                             <span class="pt-4 numberOf__kecamatans">
-                                {{ $kota->sum('kecamatan_count') }} Kecamatan
+                                {{ $tableKota->sum('kecamatan_count') }} Kecamatan
                             </span>
-                            <span class="smallInfo">
+                            <span class="z-10 smallInfo">
                                 diseluruh Jawa Timur
                             </span>
                         </div>
@@ -62,14 +62,14 @@
                 <div class="informationContent__items usersCount">
                     <span class="flex items-center gap-3 align-middle headingInformation whitespace-nowrap">
                         <i class="text-xl ri-user-fill infoDB__icons iconsUser__title"></i>
-                        <h2>Jumlah Pengelolah</h2>
+                        <h2 class="z-10 font-semibold">Jumlah Pengelolah</h2>
                     </span>
                     <div class="usersNumber__count">
                         <div class="flex flex-col count__usersItems whitespace-nowrap">
                             <span class="pt-4 numberOf__users">
-                                {{ $pengelolah->count('id_user') }} Pengelolah
+                                {{ $tablePengelolah->count('id_user') }} Pengelolah
                             </span>
-                            <span class="smallInfo">
+                            <span class="z-10 smallInfo">
                                 Jumlah total pengelolah aktif
                             </span>
                         </div>

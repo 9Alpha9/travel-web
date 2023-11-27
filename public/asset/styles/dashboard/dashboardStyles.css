@@ -282,7 +282,6 @@
   text-overflow: ellipsis;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .headingInformation h2 {
-  font-weight: 300;
   font-size: 0.8em;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .itemsDB__dataWisatawrapper .dbText__header h1 {
@@ -827,7 +826,7 @@ select:not(size) {
 .containerTambah__wisata .dataTables_filter {
   padding: 20px 1px;
   position: absolute !important;
-  right: -285px;
+  right: -421px;
 }
 .containerTambah__wisata .dataTable__wrapper {
   background-color: rgb(1, 26, 87);
@@ -836,7 +835,7 @@ select:not(size) {
 }
 .containerTambah__wisata .dataTables_wrapper .dataTables_paginate {
   position: absolute;
-  right: -140px;
+  right: -421px;
 }
 .containerTambah__wisata .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .containerTambah__wisata .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {

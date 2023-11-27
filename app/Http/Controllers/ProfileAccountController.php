@@ -49,4 +49,9 @@ class ProfileAccountController extends Controller
         }
         return redirect()->route('profile.index');
     }
+
+    public function metodeSmart(){
+        return view ('components/pages/metodeSmart');
+
+    }
 }

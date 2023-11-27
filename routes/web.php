@@ -29,6 +29,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register/check', [LoginController::class, 'checkUsername'])->name('register.check');
 Route::get('/register', [LoginController::class, 'registerForm'])->name('register.form');
+
 //Google Login API
 Route::get('/auth/redirect', [LoginController::class, 'redirectToProvider'])->name('loginGoogle');
 Route::get('/auth/callback', [LoginController::class, 'handleProviderCallback']);
@@ -40,6 +41,7 @@ Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages')
 Route::group(['middleware' => ['auth', 'role:Admin,User']], function () {
     Route::get('/informasi-pemesanan', [InformasiPemesananController::class, 'index'])->name('informasi.index');
     Route::get('/pesanan-saya', [MyBookingController::class,'index'])->name('booking.index');
+    // Route::get('/perhitungan-metode', [PerhitunganSmartController::class,'index'->name('metodesmart.index')]);
 });
 
 Route::group(['middleware' => 'auth'], function () {

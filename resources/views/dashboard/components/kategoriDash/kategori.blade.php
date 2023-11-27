@@ -13,7 +13,7 @@
             <p>Silahkan tambahkan kategori wisata dengan cara menekan tombol yang ada dibawah!</p>
         </span>
     </section>
-    <section class="modalContainer relative py-8">
+    <section class="relative py-8 modalContainer">
         <button data-modal-target="kategoriModal" data-modal-toggle="kategoriModal"
             class="block modalToogle font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button"><i class="ri-file-add-fill"></i>
@@ -31,7 +31,7 @@
                                 Tambah Kategori Wisata
                             </h3>
                             <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                class="inline-flex items-center justify-center w-8 h-8 ml-auto text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                                 data-modal-hide="kategoriModal">
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 14 14">
@@ -45,40 +45,40 @@
                             <span class="block headWrapper">
                                 <p class="headText">Silahkan tambah kategori wisata dengan mengisi form dibawah!</p>
                             </span>
-                            <section class="kategoriWrapper pt-6">
-                                {{-- <span class="kategoriContent__input my-5 block">
+                            <section class="pt-6 kategoriWrapper">
+                                {{-- <span class="block my-5 kategoriContent__input">
                                     <label for="kategoriInput"
-                                        class="block text-sm font-medium text-gray-900 dark:text-white mb-3">Tambah
+                                        class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">Tambah
                                         Kategori</label>
                                     <input type="text" id="kategoriInput"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
                                         placeholder="Nama Kategori Wisata" name="inputNama[]">
                                 </span> --}}
                                 <label for="kategoriInput"
-                                    class="block text-sm font-medium text-gray-900 dark:text-white mb-3">Tambah
+                                    class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">Tambah
                                     Kategori</label>
                                 <span class="flex flex-row items-center gap-4 pb-4">
-                                    <div class="flexInput flex flex-col w-full">
+                                    <div class="flex flex-col w-full flexInput">
                                         <input type="text" id="kategoriInput" required
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
                                             autocomplete="off" placeholder="Kategori Wisata" name="inputNama[]">
                                     </div>
                                     <span class="relative">
                                         <button type="button" onclick="deleteInput(this)" disabled
-                                            class="deleteCta__btn p-2 mt-0 px-4 py-10 rounded-lg"><i
+                                            class="p-2 px-4 py-10 mt-0 rounded-lg deleteCta__btn"><i
                                                 class="ri-delete-bin-7-fill"></i></button>
                                     </span>
                                 </span>
                             </section>
-                            <section class="relative space-y-5 block moreSpace">
-                                <button type="button" class="inputCta__btn p-2 mt-3 py-10 rounded-lg"><i
+                            <section class="relative block space-y-5 moreSpace">
+                                <button type="button" class="p-2 py-10 mt-3 rounded-lg inputCta__btn"><i
                                         class="ri-add-line"></i> Tambah
                                     Input</button>
                             </section>
 
                         </div>
                         <div
-                            class="flex justify-between items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                            class="flex items-center justify-between p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                             <button data-modal-hide="kategoriModal" type="submit" id=""
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center "><i
                                     class="ri-save-fill"></i>
@@ -104,7 +104,7 @@
                                 Edit Kategori Wisata
                             </h3>
                             <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                class="inline-flex items-center justify-center w-8 h-8 ml-auto text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                                 data-modal-hide="kategoriedModal">
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 14 14">
@@ -116,18 +116,18 @@
                         </div>
                         <div class="p-6 kategoriInput__container">
                             <span class="block headWrapper">
-                                <p class="headText bg-primary-birent text-white p-2 "><i
+                                <p class="p-2 text-white headText bg-primary-birent "><i
                                         class="ri-information-fill"></i>&nbsp;Silahkan edit kategori wisata
                                     pada
                                     form dibawah!
                                 </p>
                             </span>
-                            <section class="kategoriWrapper pt-6">
+                            <section class="pt-6 kategoriWrapper">
                                 <label for="inputedNama"
-                                    class="block text-sm font-medium text-gray-900 dark:text-white mb-3">Edit Nama
+                                    class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">Edit Nama
                                     Kategori</label>
                                 <span class="flex flex-row items-center gap-4 pb-4">
-                                    <div class="flexInput flex flex-col w-full">
+                                    <div class="flex flex-col w-full flexInput">
                                         <input type="text" id="inputedNama" required
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
                                             autocomplete="off" placeholder="Kategori Wisata" name="inputedNama">
@@ -136,7 +136,7 @@
                             </section>
                         </div>
                         <div
-                            class="flex justify-between items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                            class="flex items-center justify-between p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                             <button data-modal-hide="kategoriedModal" type="submit" id=""
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center "><i
                                     class="ri-save-fill"></i>
@@ -151,10 +151,10 @@
         </form>
     </section>
     <div class="relative overflow-x-auto kategoriWrapper__content">
-        <table class="w-full text-md text-left dark:text-gray-400 dataTable">
+        <table class="w-full text-left text-md dark:text-gray-400 dataTable">
             <thead class="text-gray-700 uppercase text-md dataTable__wrapper whitespace-nowrap">
                 <tr>
-                    <th scope="col" class="px-6 py-3 border-r border-l dark:border-gray-700">
+                    <th scope="col" class="px-6 py-3 border-l border-r dark:border-gray-700">
                         No
                     </th>
                     <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
@@ -166,35 +166,35 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($dbKategori as $row)
-                <tr class="bg-white border-b border-l dark:border-gray-700 align-middle">
+                @foreach($tableKategori as $row)
+                <tr class="align-middle bg-white border-b border-l dark:border-gray-700">
                     <th scope="row"
-                        class="px-6 py-4 font-medium border-l dark:border-gray-700 w-10 border-b text-center">
+                        class="w-10 px-6 py-4 font-medium text-center border-b border-l dark:border-gray-700">
                         {{ $loop->iteration }}.
                     </th>
-                    <td class="px-6 py-4 border-l border-r dark:border-gray-700 border-b">
+                    <td class="px-6 py-4 border-b border-l border-r dark:border-gray-700">
                         {{ $row->nama_kategori_wisata }}
                     </td>
-                    <td class="px-6 py-4 border-r dark:border-gray-700 border-b max-w-2xl w-60">
-                        <section class="actionTo__action flex flex-row gap-6"></section>
-                        <div class="actionItems relative">
-                            {{-- Edit Modal Table --}}
-                            <button class="block text-white actionEdit__cta px-6 p-1 rounded-md editBtn"
-                                data-id="{{ $row->id_kategori_wisata }}" data-modal-toggle="kategoriedModal"
-                                data-nama="{{ $row->nama_kategori_wisata }}" type="button">
-                                <span class="gap-3 block">
-                                    <i class="ri-pencil-fill"></i>
-                                    Edit
-                                </span>
-                            </button>
-                        </div>
-                        <div class="actionItems relative">
-                            <button type="button" id="" class="actionDelete__cta px-6 p-1 rounded-md btnDelete"
-                                data-no="{{ $loop->iteration }}"
-                                href="{{ route('kategori.destroy', $row->id_kategori_wisata) }}">
-                                <i class="ri-delete-bin-7-fill"></i> Hapus
-                            </button>
-                        </div>
+                    <td class="max-w-2xl px-6 py-4 border-b border-r dark:border-gray-700 w-60">
+                        <section class="flex flex-row gap-6 actionTo__action">
+                            <div class="relative actionItems">
+                                {{-- Edit Modal Table --}}
+                                <button class="block p-1 px-6 text-white rounded-md actionEdit__cta editBtn"
+                                    data-id="{{ $row->id_kategori_wisata }}" data-modal-toggle="kategoriedModal"
+                                    data-nama="{{ $row->nama_kategori_wisata }}" type="button">
+                                    <span class="block gap-3">
+                                        <i class="ri-pencil-fill"></i>
+                                        Edit
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="relative text-white actionItems">
+                                <button type="button" id="" class="p-1 px-6 rounded-md actionDelete__cta btnDelete"
+                                    data-no="{{ $loop->iteration }}"
+                                    href="{{ route('kategori.destroy', $row->id_kategori_wisata) }}">
+                                    <i class="ri-delete-bin-7-fill"></i> Hapus
+                                </button>
+                            </div>
                         </section>
                     </td>
                 </tr>
@@ -240,14 +240,14 @@
         let html = "";
         html +=
         '<span class="flex flex-row items-center gap-4 pb-4">'
-        + '<div class="flexInput flex flex-col w-full">'
+        + '<div class="flex flex-col w-full flexInput">'
         + '<input type="text" id="kategoriInput" required '
         + 'autocomplete="off"'
         + 'class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"'
         + 'placeholder="Nama Kategori Wisata" name="inputNama[]" onchange="disableButton(this)">'
         + '</div>'
         + '<span class="relative">'
-        + '<button type="button" onclick="deleteInput(this)" disabled class="deleteCta__btn p-2 mt-0 px-4 py-10 rounded-lg"><i '
+        + '<button type="button" onclick="deleteInput(this)" disabled class="p-2 px-4 py-10 mt-0 rounded-lg deleteCta__btn"><i '
         + 'class="ri-delete-bin-7-fill"></i></button>'
         + '</span>'
         + '</span>';

@@ -297,7 +297,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($user as $row)
+                        @foreach($tableUser as $row)
                         <tr class="my-3 border-b border-l dark:bg-gray-800 dark:border-gray-700">
                             <td class="px-6 py-4 border-l border-r dark:bg-gray-800 dark:border-gray-700">
                                 {{ $loop->iteration }}.
@@ -383,7 +383,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($tolak as $row)
+                    @foreach($tableTolak as $row)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 border-l border-r whitespace-nowrap dark:text-white dark:bg-gray-800 dark:border-gray-700">

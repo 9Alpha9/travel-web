@@ -28,11 +28,11 @@
                                         <span class="labelRequire__infowisata">*</span>
                                     </h3>
                                 </label>
-                                <input type="text" id="inputNama" name="nama" class="rounded-lg inputSelection"
+                                <input type="text" id="inputNama" name="nama_wisata" class="rounded-lg inputSelection"
                                     placeholder="Wisata..." autocomplete="off"
                                     value="{{ !empty($tableWisata) ? $tableWisata->first()->nama_wisata : '' }}">
-                                @if($errors->has('nama'))
-                                @foreach($errors->get('nama') as $message)
+                                @if($errors->has('nama_wisata'))
+                                @foreach($errors->get('nama_wisata') as $message)
                                 <div class="errorsPop__messages">
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                         <span class="font-medium">Oops!</span> {{ $message }}
@@ -143,14 +143,14 @@
                         </div>
                         <div class="priceWrapper">
                             <span class="block py-4 dbText__header">
-                                <h1>Diskon Tempat Wisata</h1>
+                                <h1>Harga Diskon Tiket</h1>
                             </span>
                             <div class="dbData__priceWisata">
                                 <span class="relative flex flex-col inputWisata__name">
                                     <label for="wisata__name" class="flex flex-col py-2 ">
                                         <div class="flex flex-row gap-1">
                                             <h3>
-                                                Diskon Wisata
+                                                Harga Diskon
                                             </h3>
                                             <span class="labelRequire__infowisata">*</span>
                                         </div>
@@ -391,7 +391,7 @@
                                                             Data informasi
                                                             yang
                                                             dimasukkan
-                                                            akan otomatis bertambah. Silahkan tambah informasi wisata
+                                                            akan otomatis bertambah, silakan tambah informasi wisata
                                                             dengan
                                                             mengisi
                                                             form.
@@ -404,7 +404,7 @@
                                                         <span class="flex flex-row items-center gap-4 pb-4">
                                                             <div class="flex flex-col w-full flexInput">
                                                                 <input type="text"
-                                                                    class="bg-gray-50 border border-gray-300 text-sm font-thin rounded-lg w-full p-2.5 inputFields"
+                                                                    class="bg-gray-50 border border-gray-300 text-md font-normal rounded-lg w-full p-2.5 inputFields"
                                                                     autocomplete="off" placeholder="Informasi Wisata..."
                                                                     name="inputInformasi[]">
                                                             </div>
@@ -422,18 +422,16 @@
                                                                 class="ri-add-line"></i> Tambah Input Informasi
                                                             Wisata</button>
                                                     </section>
-
                                                 </div>
-                                                {{-- <div
-                                                    class="flex items-center justify-between p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                                <div
+                                                    class="flex items-center  p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                                                     <button data-modal-hide="infoModal" type="submit" id=""
-                                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center "><i
-                                                            class="ri-save-fill"></i>
+                                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center ">
                                                         Simpan Informasi Wisata
                                                     </button>
                                                     <button data-modal-hide="infoModal" type="button" id=""
                                                         class="text-gray-500 btnCancel text-white rounded-lg text-sm font-medium px-5 py-2.5 hover:text-white focus:z-10">Batal</button>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -598,18 +596,32 @@
 <script>
     let arrFasilitas = [];
     let extFasilitas = [];
-
+    let idkecamatan;
     $('input[name="checkFasilitas"]').on('change', function(){
         setFasilitas($(this).val(), $(this).data('nama'));
     });
+
+    @empty($tableWisata)
+    @else
+    idkecamatan = '{{ $tableWisata->first()->id_kecamatan }}';
+    $(document).ready(function() {
+        $('#inputKota').trigger('change');
+    });
+    console.log(idkecamatan);
+    @endempty
 
     $('#inputKota').on('change', function(){
         $.post("{{ route('data.kecamatan') }}", {
             kota:$(this).val()
         }, function(result){
+            console.log(result);
             let data = "";
             result.kecamatan.forEach(element => {
-                data += "<option value='" + element.id + "'>" + element.name + "</option>";
+                data += "<option value='" + element.id + "'";
+                if (idkecamatan === element.id) {
+                    data += 'selected';
+                }
+                data += '>' + element.name + '</option>';
             });
             $('#inputKecamatan').html(data);
         });

@@ -60,4 +60,8 @@ class User extends Authenticatable
     public function BobotKriteria(){
         return $this->hasMany(BobotKriteria::class, 'id_user', 'id_user');
     }
+
+    public function UtilityKriteria(){
+        return $this->hasMany(UtilityKriteria::class, 'id_user', 'id_user');
+    }
 }

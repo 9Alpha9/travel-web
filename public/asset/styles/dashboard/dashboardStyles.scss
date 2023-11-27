@@ -365,7 +365,6 @@ $-moz-appearance: textfield;
 
             .headingInformation {
                 h2 {
-                    font-weight: 300;
                     font-size: 0.8em;
                 }
             }
@@ -1106,7 +1105,7 @@ select:not(size) {
     .dataTables_filter {
         padding: 20px 1px;
         position: absolute !important;
-        right: -285px;
+        right: -421px;
         // bottom: 650px;
         // max-width: 1201px !important;
         // z-index: 2;
@@ -1120,7 +1119,7 @@ select:not(size) {
 
     .dataTables_wrapper .dataTables_paginate {
         position: absolute;
-        right: -140px;
+        right: -421px;
     }
 
     .dataTables_wrapper .dataTables_paginate .paginate_button.current,

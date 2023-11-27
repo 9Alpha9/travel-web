@@ -23,7 +23,7 @@ class WisataController extends Controller
         $this->rules = array(
             'harga' => 'required|numeric',
             'diskon' => 'required|numeric|between:0,100',
-            'nama' => 'required|string',
+            'nama_wisata' => 'required|string',
             'artikel' => 'required|string',
             'wisataList__activity' => 'required|string',
             'kecamatan' => 'required|string',
@@ -46,7 +46,11 @@ class WisataController extends Controller
         );
         $this->page = array(
             'wisata' => 'active',
-            'pageTitle' => 'Wisata'
+            'pageTitle' => 'Wisata',
+            'sweetalert' => true,
+            'sweetalertSuccess' => true,
+            'sweetalertError' => true,
+            'sweetalertDelete' => true
         );
     }
 
@@ -100,8 +104,10 @@ class WisataController extends Controller
         // $validator = Validator::make({
         //     'inputDiskon' ->
         // });
+        $this->page['sweetalertError'] = false;
+        // dd($this->page);
         $validationResponse = $this->validationForm($request, $this->rules, $this->messages);
-        if($validationResponse == "passed") {
+        if($validationResponse) {
             try {
                 $wisata = Wisata::create([
                     "id_pengelolah" => Auth::user()->id_user,
@@ -215,7 +221,15 @@ class WisataController extends Controller
     public function requestView(){
         $user = User::where('pengajuan', true)->orderBy('tanggal_pengajuan', 'desc')->get();
         $tolak = User::where('pengajuan', true)->where('status', 'tolak')->orWhere('status', 'ulang')->get();
-        return view('dashboard.components.reviewVer')->with(['request' => 'active', 'pageTitle' => 'Verifikasi Rules', 'pengajuan' => 'active', 'user' => $user, 'tolak' => $tolak]);
+        // return view('dashboard.components.reviewVer')->with(['request' => 'active', 'pageTitle' => 'Verifikasi Rules', 'pengajuan' => 'active', 'user' => $user, 'tolak' => $tolak]);
+        $this->page['request'] = 'active';
+        $this->page['pageTitle'] = 'Verifikasi Rules';
+        $this->page['pengajuan'] = 'active';
+        $this->page['tableUser'] = $user;
+        $this->page['tableTolak'] = $tolak;
+        unset($this->page['wisata']);
+
+        return view('dashboard.components.reviewVer')->with($this->page);
     }
 
     public function requestReview(Request $request){
@@ -249,7 +263,7 @@ class WisataController extends Controller
             $messages = $validator->errors();
             return $messages;
         } else {
-            return 'passed';
+            return true;
         }
     }
 }

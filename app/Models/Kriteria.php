@@ -14,10 +14,14 @@ class Kriteria extends Model
     protected $primaryKey = 'id_kriteria';
 
     protected $fillable = [
-        'id_kriteria', 'kriteria'
+        'id_kriteria', 'kriteria', 'bobot'
     ];
 
     public function Bobot(){
         return $this->hasMany(BobotKriteria::class, 'id_kriteria', 'id_kriteria');
+    }
+
+    public function Utility(){
+        return $this->hasMany(UtilityKriteria::class, 'id_kriteria', 'id_kriteria');
     }
 }

@@ -52,4 +52,8 @@ class Wisata extends Model
     public function RatingWisata(){
         return $this->hasMany(RatingWisata::class, 'id_wisata', 'id_wisata');
     }
+
+    public function NilaiWisata() {
+        return $this->hasMany(NilaiWisata::class, 'id_wisata', 'id_wisata');
+    }
 }

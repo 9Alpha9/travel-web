@@ -14,7 +14,7 @@ class Kriteria extends Model
     protected $primaryKey = 'id_kriteria';
 
     protected $fillable = [
-        'id_kriteria', 'kriteria', 'bobot'
+        'id_kriteria', 'kriteria', 'bobot', 'normalisasi'
     ];
 
     public function Bobot(){
@@ -22,6 +22,10 @@ class Kriteria extends Model
     }
 
     public function Utility(){
-        return $this->hasMany(UtilityKriteria::class, 'id_kriteria', 'id_kriteria');
+        // return $this->hasMany(UtilityKriteria::class, 'id_kriteria', 'id_kriteria');
+    }
+
+    public function NilaiWisata() {
+        return $this->hasMany(NilaiWisata::class, 'id_kriteria', 'id_kriteria');
     }
 }

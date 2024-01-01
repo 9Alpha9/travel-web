@@ -2,9 +2,161 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FasilitasWisata;
+use App\Models\Kriteria;
+use App\Models\NilaiKriteria;
+use App\Models\NilaiWisata;
+use App\Models\Wisata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SmartController extends Controller
 {
-    //
+    protected $rules, $messages, $page, $wisata, $kriteria;
+
+    public function __construct() {
+        $this->rules = array(
+            // 'harga' => 'required|numeric',
+            // 'diskon' => 'required|numeric|between:0,100',
+            // 'nama_wisata' => 'required|string',
+            // 'artikel' => 'required|string',
+            // 'wisataList__activity' => 'required|string',
+            // 'kecamatan' => 'required|string',
+            // 'kota' => 'required|string',
+            // 'listFasilitas' => 'required',
+            // 'inputInformasi.*' => 'required'
+        );
+
+        $this->messages = array(
+            'required' => ':attribute harus diisi.',
+            'numeric' => ':attribute harus diisi.',
+            'string' => ':attribute harus diisi.',
+            'between' => ':attribute harus di antara :min - :max',
+            'min' => ':attribute minimal :value',
+            'max' => ':attribute maksimal :value',
+            'digits_between' => 'inputan :attribute harus diantara :min - :max',
+            'email' => ':attribute tidak valid!',
+            'listFasilitas.required' => ':attribute harus dipilih minimal satu fasilitas!',
+            'inputKecamatan.required' => 'Harap pilih :attribute!',
+            'inputKota.required' => 'Harap pilih :attribute!',
+        );
+
+        $this->page = array(
+            'kategori' => 'active',
+            'pageTitle' => 'Perhitungan Smart',
+            'sweetalert' => true,
+            'sweetalertSuccess' => true,
+            'sweetalertError' => true,
+            'sweetalertDelete' => true
+        );
+
+        $this->wisata = Wisata::limit(3)->orderBy('id_wisata', 'asc')->get();
+        $this->kriteria = Kriteria::get();
+    }
+
+    public function PenilaianAlternatif(Request $request) {
+        foreach ($this->wisata as $key => $value) {
+            $nilai = NilaiWisata::where('id_wisata', $value->id_wisata)->get();
+
+            if ($nilai->count() == 0) {
+                foreach ($this->kriteria as $key2 => $value2) {
+                    $currNilai = 0;
+                    $nilai_wisata = 0;
+
+                    if ($value->kriteria == "Harga") {
+                        $currNilai = $value->harga;
+                    } else if ($value->kriteria == 'Fasilitas') {
+                        $currNilai = FasilitasWisata::where('id_wisata', $value->id_wisata)->count();
+                    } else if ($value->kriteria == 'Jarak') {
+                        // hitung jarak dengan latitude dan longtitude di tabel kecamatan
+                        $userKecamatan = Auth::user()->id_kecamatan;
+                        $wisataKecamatan = $value->id_kecamatan;
+
+                        $currNilai = $this->distance($userKecamatan->lattitude, $userKecamatan->longtitude, $wisataKecamatan->lattitude, $wisataKecamatan->longtitude, 'K');
+                    } else if ($value->kriteria == 'Aksesibilitas') {
+                        $nilai_wisata = $value->aksesibilitas->nilai;
+                    }
+
+                    if ($currNilai != 0 && $nilai_wisata == 0) {
+                        $nilai_wisata = NilaiKriteria::where('id_kriteria', $value2->id_kriteria)
+                                            ->where('id_user', '8')
+                                            ->where(function($query) use ($currNilai) {
+                                                $query->where('min >= ', $currNilai);
+                                                $query->orWhere('max <= ', $currNilai);
+                                            })
+                                            ->get()->nilai;
+                    }
+
+                    NilaiWisata::create([
+                        'id_wisata' => $value->id_wisata,
+                        'id_kriteria' => $value2->id_kriteria,
+                        'nilai_wisata' => $nilai_wisata,
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s')
+                    ]);
+                }
+            }
+        }
+    }
+
+    public function NormalisasiKriteria() {
+        $kriteria = Kriteria::get();
+        $total_bobot = $kriteria->sum('bobot');
+
+        foreach ($kriteria as $key => $value) {
+            $normalisasi = $kriteria->bobot / $total_bobot;
+
+            Kriteria::where('id_kriteria', $value->id_kriteria)->update([
+                'normalisasi' => $normalisasi
+            ]);
+        }
+    }
+
+    public function Utility() {
+        $nilaiUtility = array();
+
+        foreach($this->wisata as $key => $value) {
+            foreach($this->kriteria as $key2 => $value2) {
+                $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_kriteria')->get()->nilai_wisata;
+                $nilaiUtility[$value->id_wisata][$value2->id_kriteria] = 100 * ((100 - $nilai_wisata) / (100 - 0));
+            }
+        }
+
+        return $nilaiUtility;
+    }
+
+    public function NilaiAkhir() {
+        $nilaiUtility = $this->Utility();
+        $nilaiAkhir = array();
+
+        foreach ($nilaiUtility as $key => $value) {
+            $total_utility = 0;
+            foreach ($this->kriteria as $key2 => $value2) {
+                $total_alternatif = $value[$value2->id_kriteria] * $value2->normalisasi;
+                $nilaiAkhir[$key][$value2->id_kriteria] = $total_alternatif;
+                $total_utility += $total_alternatif;
+            }
+
+            $nilaiAkhir[$key]['total'] = $total_utility;
+        }
+
+        return $nilaiAkhir;
+    }
+
+    public function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+        $theta = $lon1 - $lon2;
+        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+        $dist = acos($dist);
+        $dist = rad2deg($dist);
+        $miles = $dist * 60 * 1.1515;
+        $unit = strtoupper($unit);
+
+        if ($unit == "K") {
+            return ($miles * 1.609344);
+        } else if ($unit == "N") {
+            return ($miles * 0.8684);
+        } else {
+            return $miles;
+        }
+    }
 }

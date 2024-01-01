@@ -18,6 +18,7 @@
         "tailwindcss": "^3.3.2"
     },
     "dependencies": {
+        "browserslist": "^4.22.2",
         "remixicon": "^3.3.0",
         "swiper": "^9.1.0"
     }

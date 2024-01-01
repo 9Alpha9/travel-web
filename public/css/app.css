@@ -1144,6 +1144,14 @@ video {
 .bg-transparent {
   background-color: transparent;
 }
+.bg-black-birent {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 3 46 / var(--tw-bg-opacity));
+}
+.bg-primary-birent-dark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 47 137 / var(--tw-bg-opacity));
+}
 .bg-clip-padding {
   background-clip: padding-box;
 }

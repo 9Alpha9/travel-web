@@ -113,7 +113,7 @@ class WisataController extends Controller
                     "id_pengelolah" => Auth::user()->id_user,
                     "harga" => str_replace('.','',$request->harga),
                     "diskon" => $request->diskon,
-                    "nama_wisata" => $request->nama,
+                    "nama_wisata" => $request->nama_wisata,
                     "artikel" => $request->artikel,
                     "id_kategori_wisata" => $request->wisataList__activity,
                     "id_kota" => $request->kota,
@@ -121,45 +121,51 @@ class WisataController extends Controller
                     "created_at" => date('Y-m-d H:i:s'),
                     "updated_at" => date('Y-m-d H:i:s')
                 ]);
-                // jika kosong maka dilewati jika tidak maka tidak.
-                foreach (json_decode($request->listFasilitas) as $key => $value) {
-                    # code...
-                    $fasilitas = FasilitasWisata::create([
-                        "id_wisata" => $wisata->id_wisata,
-                        "id_kategori_fasilitas" => $value,
-                        "created_at" => date('Y-m-d H:i:s'),
-                        "updated_at" => date('Y-m-d H:i:s')
-                    ]);
-                }
 
-                foreach (json_decode($request->images) as $key => $value) {
-                    # code...
-                    $filename = 'wisata_' . str_replace(' ', '_', $wisata->nama_wisata) . '_' . str_replace(' ', '_', $value->name);
-
-                    if (!file_exists(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)))) {
-                        mkdir(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)), 0777, true);
-                    }
-
-                    if($fileImage = file_put_contents(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata) . '/' . $filename), file_get_contents($value->img)) !== false){
-                        $gambar = GambarWisata::create([
+                // jika kosong maka dilewati.
+                if (!is_null($request->listFasilitas)) {
+                    foreach (json_decode($request->listFasilitas) as $key => $value) {
+                        $fasilitas = FasilitasWisata::create([
                             "id_wisata" => $wisata->id_wisata,
-                            "nama_gambar" => $filename,
-                            "keterangan_gambar" => "Gambar " . $value->name . " dari Wisata " . $wisata->nama_wisata,
+                            "id_kategori_fasilitas" => $value,
                             "created_at" => date('Y-m-d H:i:s'),
                             "updated_at" => date('Y-m-d H:i:s')
                         ]);
                     }
                 }
 
-                foreach ($request->inputInformasi as $key => $value) {
-                    # code...
-                    if(!empty($value)){
-                        $informasi = Informasi::create([
-                            "id_wisata" => $wisata->id_wisata,
-                            "informasi" => $value,
-                            "created_at" => date('Y-m-d H:i:s'),
-                            "updated_at" => date('Y-m-d H:i:s')
-                        ]);
+                if (!is_null($request->images)) {
+                    foreach (json_decode($request->images) as $key => $value) {
+                        # code...
+                        $filename = 'wisata_' . str_replace(' ', '_', $wisata->nama_wisata) . '_' . str_replace(' ', '_', $value->name);
+
+                        if (!file_exists(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)))) {
+                            mkdir(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)), 0777, true);
+                        }
+
+                        if($fileImage = file_put_contents(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata) . '/' . $filename), file_get_contents($value->img)) !== false){
+                            $gambar = GambarWisata::create([
+                                "id_wisata" => $wisata->id_wisata,
+                                "nama_gambar" => $filename,
+                                "keterangan_gambar" => "Gambar " . $value->name . " dari Wisata " . $wisata->nama_wisata,
+                                "created_at" => date('Y-m-d H:i:s'),
+                                "updated_at" => date('Y-m-d H:i:s')
+                            ]);
+                        }
+                    }
+                }
+
+                if (!is_null($request->inputInformasi)) {
+                    foreach ($request->inputInformasi as $key => $value) {
+                        # code...
+                        if(!empty($value)){
+                            $informasi = Informasi::create([
+                                "id_wisata" => $wisata->id_wisata,
+                                "informasi" => $value,
+                                "created_at" => date('Y-m-d H:i:s'),
+                                "updated_at" => date('Y-m-d H:i:s')
+                            ]);
+                        }
                     }
                 }
 

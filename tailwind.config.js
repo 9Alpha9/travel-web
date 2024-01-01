@@ -4,9 +4,9 @@ module.exports = {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
+    presets: [require("@acmecorp/base-tailwind-config")],
     theme: {
         colors: {
-            transparent: "transparent",
             "black-birent": "#0f032e",
             "primary-birent": "#3237d2",
             "primary-birent-hover": "#4045e7",
@@ -29,5 +29,5 @@ module.exports = {
             "primary-birent-dark": "#162F89",
         },
     },
-    plugins: [],
+    plugins: [require("flowbite/plugin")],
 };

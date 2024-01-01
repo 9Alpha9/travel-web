@@ -26,7 +26,7 @@ class ProfileAccountController extends Controller
         !empty($request->profileUsername) ? $data["full_name"] = $request->profileUsername : "";
         !empty($request->phoneNumber) ? $data["mobile_number"] = $request->phoneNumber : "";
         !empty($request->emailProfile) ? $data["email"] = $request->emailProfile : "";
-        !empty($request->password) ? $data["password"] = $request->password : "";
+        !empty($request->password) ? $data["password"] = bcrypt($request->password) : "";
 
         if($request->file('avatarProfile')){
             $uploadedFile = $request->file('avatarProfile');

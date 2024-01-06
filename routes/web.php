@@ -12,6 +12,7 @@ use App\Http\Controllers\WisataController;
 use App\Http\Controllers\OrderTicketController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\HomePagesController;
+use App\Http\Controllers\SmartController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register/check', [LoginController::class, 'checkUsername'])->name('register.check');
 Route::get('/register', [LoginController::class, 'registerForm'])->name('register.form');
+
+Route::post('/smart/alternative', [SmartController::class, 'PenilaianAlternatif'])->name('smart.alternatif');
+Route::post('/smart/normalisasi', [SmartController::class, 'NormalisasiKriteria'])->name('smart.normalisasi');
+Route::post('/smart/utility', [SmartController::class, 'Utility'])->name('smart.utility');
+Route::post('/smart/akhir', [SmartController::class, 'NilaiAkhir'])->name('smart.akhir');
 
 //Google Login API
 Route::get('/auth/redirect', [LoginController::class, 'redirectToProvider'])->name('loginGoogle');

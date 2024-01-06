@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alamat;
 use App\Models\FasilitasWisata;
+use App\Models\Kecamatan;
 use App\Models\Kriteria;
 use App\Models\NilaiKriteria;
 use App\Models\NilaiWisata;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SmartController extends Controller
 {
@@ -55,61 +58,100 @@ class SmartController extends Controller
     }
 
     public function PenilaianAlternatif(Request $request) {
-        foreach ($this->wisata as $key => $value) {
-            $nilai = NilaiWisata::where('id_wisata', $value->id_wisata)->get();
+        $err_code = 0;
+        $err_message = '';
+        // DB::beginTransaction();
 
-            if ($nilai->count() == 0) {
-                foreach ($this->kriteria as $key2 => $value2) {
-                    $currNilai = 0;
-                    $nilai_wisata = 0;
+        // try  {
+            foreach ($this->wisata as $key => $value) {
+                $nilai = NilaiWisata::where('id_wisata', $value->id_wisata)->get();
 
-                    if ($value->kriteria == "Harga") {
-                        $currNilai = $value->harga;
-                    } else if ($value->kriteria == 'Fasilitas') {
-                        $currNilai = FasilitasWisata::where('id_wisata', $value->id_wisata)->count();
-                    } else if ($value->kriteria == 'Jarak') {
-                        // hitung jarak dengan latitude dan longtitude di tabel kecamatan
-                        $userKecamatan = Auth::user()->id_kecamatan;
-                        $wisataKecamatan = $value->id_kecamatan;
+                if ($nilai->count() == 0) {
+                    foreach ($this->kriteria as $key2 => $value2) {
+                        $currNilai = 0;
+                        $nilai_wisata = 0;
 
-                        $currNilai = $this->distance($userKecamatan->lattitude, $userKecamatan->longtitude, $wisataKecamatan->lattitude, $wisataKecamatan->longtitude, 'K');
-                    } else if ($value->kriteria == 'Aksesibilitas') {
-                        $nilai_wisata = $value->aksesibilitas->nilai;
+                        if ($value2->kriteria == "Harga") {
+                            $currNilai = $value->harga;
+                        } else if ($value2->kriteria == 'Fasilitas') {
+                            $currNilai = FasilitasWisata::where('id_wisata', $value->id_wisata)->count();
+                        } else if ($value2->kriteria == 'Jarak') {
+                            // hitung jarak dengan latitude dan longtitude di tabel kecamatan
+                            $idUser = Auth::user()->id_user;
+                            $idkecamatanWisata = $value->id_kecamatan;
+
+                            $idkecamatanUser = Alamat::where('id_user', $idUser)->orderBy('created_at', 'desc')->get()->first()->id_kecamatan;
+
+                            $userKecamatan = Kecamatan::find($idkecamatanUser);
+                            $wisataKecamatan = Kecamatan::find($idkecamatanWisata);
+
+                            $currNilai = $this->distance($userKecamatan->lattitude, $userKecamatan->longtitude, $wisataKecamatan->lattitude, $wisataKecamatan->longtitude, 'K');
+                        } else if ($value2->kriteria == 'Aksesibilitas') {
+                            $nilai_wisata = $value->aksesibilitas->nilai;
+                        }
+
+                        if ($currNilai != 0 && $nilai_wisata == 0) {
+                            $nilai_wisata = NilaiKriteria::where('id_kriteria', $value2->id_kriteria)
+                                                ->where('id_user', '8')
+                                                ->where(function($query) use ($currNilai) {
+                                                    $query->where('min', '>=', $currNilai);
+                                                    $query->orWhere('max', '<=', $currNilai);
+                                                })
+                                                ->get()->first()->nilai;
+                        }
+
+                        NilaiWisata::create([
+                            'id_wisata' => $value->id_wisata,
+                            'id_kriteria' => $value2->id_kriteria,
+                            'nilai_wisata' => $nilai_wisata,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s')
+                        ]);
                     }
-
-                    if ($currNilai != 0 && $nilai_wisata == 0) {
-                        $nilai_wisata = NilaiKriteria::where('id_kriteria', $value2->id_kriteria)
-                                            ->where('id_user', '8')
-                                            ->where(function($query) use ($currNilai) {
-                                                $query->where('min >= ', $currNilai);
-                                                $query->orWhere('max <= ', $currNilai);
-                                            })
-                                            ->get()->nilai;
-                    }
-
-                    NilaiWisata::create([
-                        'id_wisata' => $value->id_wisata,
-                        'id_kriteria' => $value2->id_kriteria,
-                        'nilai_wisata' => $nilai_wisata,
-                        'created_at' => date('Y-m-d H:i:s'),
-                        'updated_at' => date('Y-m-d H:i:s')
-                    ]);
                 }
             }
-        }
+
+            // DB::commit();
+        // } catch (\Exception $e) {
+            // DB::rollback();
+            // $err_code++;
+            // $err_message = $e;
+        // }
+        $response = array(
+            'err_code' => $err_code,
+            'err_message' => $err_message
+        );
+
+        return response()->json($response);
     }
 
     public function NormalisasiKriteria() {
         $kriteria = Kriteria::get();
         $total_bobot = $kriteria->sum('bobot');
+        $err_code = 0;
+        $err_message = '';
+        DB::beginTransaction();
+        try  {
+            foreach ($kriteria as $key => $value) {
+                $normalisasi = $kriteria->bobot / $total_bobot;
 
-        foreach ($kriteria as $key => $value) {
-            $normalisasi = $kriteria->bobot / $total_bobot;
-
-            Kriteria::where('id_kriteria', $value->id_kriteria)->update([
-                'normalisasi' => $normalisasi
-            ]);
+                Kriteria::where('id_kriteria', $value->id_kriteria)->update([
+                    'normalisasi' => $normalisasi
+                ]);
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            $err_code++;
+            $err_message = $e;
         }
+
+        $response = array(
+            'err_code' => $err_code,
+            'err_message' => $err_message
+        );
+
+        return response()->json($response);
     }
 
     public function Utility() {
@@ -160,3 +202,4 @@ class SmartController extends Controller
         }
     }
 }
+

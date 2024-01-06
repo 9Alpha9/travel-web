@@ -104,11 +104,37 @@ input {
     border-bottom-left-radius: 50px;
   }
   .signup__header .signup__wrapper .signup__item__sec__right {
-    transform: translateY(50%);
+    transform: translateY(7.27em);
   }
 }
 @media screen and (max-width: 1200px) {
   .signup__header .signup__wrapper .signup__item__sec__right {
-    transform: translateY(45%);
+    transform: translateY(5.27em);
+  }
+}
+textarea {
+  resize: none !important;
+  background-color: #f5f5f5;
+}
+
+@media (300px <= width) {
+  .signup__set-up .svgBlock {
+    display: block;
+    right: 0;
+    top: -4em;
+    background-color: #162F89;
+    padding: 10px;
+    border-radius: 20%;
+    stroke: #ffffff;
+  }
+  .signup__set-up .svgBlock:hover {
+    border-radius: 50%;
+    rotate: 180deg;
+    animation-delay: 0.6ms;
+  }
+}
+@media (width >= 1201px) {
+  .signup__set-up .svgBlock {
+    display: block;
   }
 }/*# sourceMappingURL=signup-styles.css.map */

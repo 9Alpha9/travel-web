@@ -32,15 +32,12 @@
             <div class="p-10 login__set-up border-">
                 <div class="login__item__sec__right">
                     <div class="relative flex login__master__head">
-                        <span
-                            class="absolute inline-block duration-300 ease-in-out -top-32 xl:-top-32 lg:-top-32 md:-top-32 lg:right-0">
+                        <span class="absolute inline-block svgBlock__login duration-300 ease-in-out">
                             <a href="/">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 1L13.5 13.5" stroke="#162F89" stroke-width="1.5"
-                                        stroke-linecap="round" />
-                                    <path d="M1 13.5L13.5 1" stroke="#162F89" stroke-width="1.5"
-                                        stroke-linecap="round" />
+                                    <path d="M1 1L13.5 13.5" stroke-width="1.5" stroke-linecap="round" />
+                                    <path d="M1 13.5L13.5 1" stroke-width="1.5" stroke-linecap="round" />
                                 </svg>
                             </a>
                         </span>
@@ -49,9 +46,12 @@
                     <div class="login__forms">
                         <form method="post" action="{{ route('login') }} " autocomplete="off">
                             {{ csrf_field() }}
-                            <div class="mb-6 ">
+                            <div class="mb-6 mailsHolders">
+                                <span class="labelsLogin my-2 text-md text-gray-primary">
+                                    <label for="mail">Email atau Telephone</label>
+                                </span>
                                 <input type="text" id="email" name="email" autocomplete="off"
-                                    class="block w-full p-4 text-sm text-red-900 placeholder-red-700 border-red-500 rounded-lg bg-red-50 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400"
+                                    class="block w-full my-2 p-4 text-sm text-red-900 placeholder-red-700 border-red-500 rounded-lg bg-red-50 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400"
                                     placeholder="Nomor Handphone atau Email">
                                 @error('userNotFound')
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500">
@@ -61,9 +61,12 @@
                                 </p>
                                 @enderror
                             </div>
-                            <div class="">
+                            <div class="passwordHolder">
+                                <span class="labelsLogin my-2 text-md text-gray-primary">
+                                    <label for="password">Kata Sandi</label>
+                                </span>
                                 <input type="password" id="password" name="password"
-                                    class="block w-full p-4 text-sm text-red-900 placeholder-red-700 border-red-500 rounded-lg bg-red-50 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400"
+                                    class="block w-full my-2 p-4 text-sm text-red-900 placeholder-red-700 border-red-500 rounded-lg bg-red-50 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400"
                                     placeholder="Kata Sandi">
                                 @error('wrongPassword')
                                 <p class="mt-2 text-sm dark:text-red-500">

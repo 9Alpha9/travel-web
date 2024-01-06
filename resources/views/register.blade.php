@@ -38,15 +38,12 @@
             <div class="p-10 signup__set-up border-">
                 <div class="signup__item__sec__right">
                     <div class="relative flex signup__master__head">
-                        <span
-                            class="absolute inline-block duration-300 ease-in-out -top-32 xl:-top-32 lg:-top-32 md:-top-32 lg:right-0">
+                        <span class="absolute inline-block svgBlock duration-300 ease-in-out">
                             <a href="/">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 1L13.5 13.5" stroke="#162F89" stroke-width="1.5"
-                                        stroke-linecap="round" />
-                                    <path d="M1 13.5L13.5 1" stroke="#162F89" stroke-width="1.5"
-                                        stroke-linecap="round" />
+                                    <path d="M1 1L13.5 13.5" stroke-width="1.5" stroke-linecap="round" />
+                                    <path d="M1 13.5L13.5 1" stroke-width="1.5" stroke-linecap="round" />
                                 </svg>
                             </a>
                         </span>
@@ -55,20 +52,20 @@
                     <div class="signup__forms">
                         <form action="{{ route('register') }}" method="post" autocomplete="off">
                             {{ csrf_field() }}
-                            <div class="relative mb-6 emailNumber__input">
+                            <div class="relative mb-2 emailNumber__input">
                                 <label for="emailNumber"
                                     class="block my-2 text-md text-gray-primary labelInput__type">Email
                                     atau
                                     Telephone</label>
                                 <input type="text" id="email" name="email"
                                     class="block w-full p-4 text-sm rounded-lg inputType__include"
-                                    placeholder="john-doe@yourmail.com">
+                                    placeholder="john-doe@yourmail.com" autocomplete="off">
                                 <p id="notifP" class="mt-2 text-sm text-green-600 dark:text-green-500">
                                     <span id="notifSpan" class="font-medium availabel__notification">
                                     </span>
                                 </p>
                             </div>
-                            <div class="mb-6 ">
+                            <div class="mb-2">
                                 <label for="fullName" class="block my-2 text-md text-gray-primary labelInput__type">Nama
                                     Lengkap
                                     Anda</label>
@@ -80,10 +77,43 @@
                                     </span>
                                 </p>
                             </div>
+                            <div class="regencyInput">
+                                <div class="regencyShow__input grid gap-2 grid-cols-1 xl:grid-cols-2 md:grid-cols-2">
+                                    <div class="ctaKota">
+                                        <label for="kota" class="block my-2 text-md text-gray-primary labelInput__type">
+                                            Asal Kota</label>
+                                        <select name="kota" id="inputKota"
+                                            class="block w-full p-4 text-sm rounded-lg inputType__include bg-gray-primary">
+                                            <option value="" selected hidden>Pilih Kota</option>
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="ctaKecamatan">
+                                        <label for="kecamatan"
+                                            class="block my-2 text-md text-gray-primary labelInput__type">Asal
+                                            Kecamatan</label>
+                                        <select name="kota" id="inputKota"
+                                            class="block w-full p-4 text-sm rounded-lg inputType__include">
+                                            <option value="" selected hidden>Pilih Kecamatan</option>
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="addressInput my-2">
+                                    <div class="ctaAddress relative block">
+                                        <span class="addressUsers flex flex-col">
+                                            <label for="address"
+                                                class="text-md text-gray-primary labelInput__type">Alamat Anda</label>
+                                            <textarea name="address" id="" rows="10"
+                                                class="w-full resize-none text-sm my-2 px-2 w-96 h-40 rounded-md"></textarea>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="ctaPassword">
                                 <label for="password" class="block my-2 text-md text-gray-primary labelInput__type">Kata
                                     sandi</label>
-                                <input type="password" id="password" name="password"
+                                <input type="password" id="password" name="password" autocomplete="off"
                                     class="block w-full p-4 text-sm rounded-lg inputType__include">
                             </div>
                             <div class="signup__cta__procs">

@@ -30,4 +30,8 @@ class Kota extends Model
     public function Wisata(){
         return $this->hasMany(Wisata::class, 'id_kota', 'id');
     }
+
+    public function Alamat() {
+        return $this->hasMany(Alamat::class, 'id_alamat', 'id_alamat');
+    }
 }

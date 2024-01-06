@@ -107,4 +107,25 @@ input {
   .login__header .login__wrapper .login__item__sec__right {
     transform: translateY(45%);
   }
+}
+@media (300px <= width) {
+  .login__set-up .svgBlock__login {
+    display: block;
+    right: 0;
+    top: -4em;
+    background-color: #162F89;
+    padding: 10px;
+    border-radius: 20%;
+    stroke: #ffffff;
+  }
+  .login__set-up .svgBlock__login:hover {
+    border-radius: 50%;
+    rotate: 180deg;
+    animation-delay: 0.6ms;
+  }
+}
+@media (width >= 1201px) {
+  .login__set-up .svgBlock__login {
+    display: block;
+  }
 }/*# sourceMappingURL=login-styles.css.map */

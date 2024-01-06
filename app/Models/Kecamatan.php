@@ -11,7 +11,7 @@ class Kecamatan extends Model
 
     protected $table = 'kecamatans';
 
-    protected $primaryKey = 'id_kecamatan';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'id', 'regency_id', 'name', 'alt_name', 'latitude', 'longitude'
@@ -25,4 +25,7 @@ class Kecamatan extends Model
         return $this->hasMany(Wisata::class, 'id_kecamatan', 'id');
     }
 
+    public function Alamat() {
+        return $this->hasMany(Alamat::class, 'id_kecamatan', 'id_kecamatan');
+    }
 }

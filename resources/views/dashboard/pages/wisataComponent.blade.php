@@ -16,93 +16,105 @@
             <form action="{{ route('wisata.store') }}" method="POST">
                 {{ csrf_field() }}
                 <div class="itemsDB__dataWisatawrapper">
-                    <span class="block py-4 dbText__header">
-                        <h1>Tempat Wisata</h1>
-                    </span>
                     <div class="grid grid-cols-3 gap-4 dbData__Wisataitems">
-                        <div class="dbData__listWisata">
-                            <span class="flex flex-col inputWisata__name">
-                                <label for="wisata__name" class="flex items-center py-2 ">
-                                    <h3>
-                                        Nama Wisata
-                                        <span class="labelRequire__infowisata">*</span>
-                                    </h3>
-                                </label>
-                                <input type="text" id="inputNama" name="nama_wisata" class="rounded-lg inputSelection"
-                                    placeholder="Wisata..." autocomplete="off"
-                                    value="{{ !empty($tableWisata) ? $tableWisata->first()->nama_wisata : '' }}">
-                                @if($errors->has('nama_wisata'))
-                                @foreach($errors->get('nama_wisata') as $message)
-                                <div class="errorsPop__messages">
-                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                        <span class="font-medium">Oops!</span> {{ $message }}
-                                    </p>
-                                </div>
-                                @endforeach
-                                @endif
+                        <div class="dbWisata__header">
+                            <span class="block py-4 dbText__header">
+                                <h1>Nama Wisata</h1>
                             </span>
-                        </div>
-                        <div class="dbData__listWisata">
-                            <span class="flex flex-col inputWisata__name">
-                                <label for="wisata__name" class="flex items-center py-2 ">
-                                    <h3>
-                                        Kota / Kabupaten
-                                        <span class="labelRequire__infowisata">*</span>
-                                    </h3>
-                                </label>
-                                <select name="kota" id="inputKota">
-                                    <option value="" selected hidden>Pilih Kota</option>
-                                    @foreach($tableKota as $row)
-                                    <option value="{{ $row->id }}" @empty($tableWisata) @else @if($tableWisata->
-                                        first()->id_kota
-                                        == $row->id)
-                                        selected
-                                        @endif
-                                        @endempty
-                                        >{{ $row->name }}</option>
+                            <div class="dbData__listWisata">
+                                <span class="flex flex-col inputWisata__name">
+                                    <label for="wisata__name" class="flex items-center py-2 ">
+                                        <h3>
+                                            Nama Wisata
+                                            <span class="labelRequire__infowisata">*</span>
+                                        </h3>
+                                    </label>
+                                    <input type="text" id="inputNama" name="nama_wisata"
+                                        class="rounded-lg inputSelection" placeholder="Wisata..." autocomplete="off"
+                                        value="{{ !empty($tableWisata) ? $tableWisata->first()->nama_wisata : '' }}">
+                                    @if($errors->has('nama_wisata'))
+                                    @foreach($errors->get('nama_wisata') as $message)
+                                    <div class="errorsPop__messages">
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            <span class="font-medium">Oops!</span> {{ $message }}
+                                        </p>
+                                    </div>
                                     @endforeach
-                                </select>
-                                @if($errors->has('kota'))
-                                @foreach($errors->get('kota') as $message)
-                                <div class="errorsPop__messages">
-                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                        <span class="font-medium">Oops!</span> {{ $message }}
-                                    </p>
-                                </div>
-                                @endforeach
-                                @endif
-                                {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                    <span class="font-medium">Oops!</span> Kota / Kabupaten tidak boleh kosong!
-                                </p> --}}
-                            </span>
+                                    @endif
+                                </span>
+                            </div>
                         </div>
-                        <div class="dbData__listWisata">
-                            <span class="flex flex-col inputWisata__name">
-                                <label for="wisata__name" class="flex items-center py-2 ">
-                                    <h3>
-                                        Kecamatan
-                                        <span class="labelRequire__infowisata">*</span>
-                                    </h3>
-                                </label>
-                                <select name="kecamatan" id="inputKecamatan">
-                                    <option value="" selected hidden>Pilih Kecamatan</option>
-                                </select>
-                                @if($errors->has('kecamatan'))
-                                @foreach($errors->get('kecamatan') as $message)
-                                <div class="errorsPop__messages">
-                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                        <span class="font-medium">Oops!</span> {{ $message }}
-                                    </p>
-                                </div>
-                                @endforeach
-                                @endif
-                                {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                    <span class="font-medium">Oops!</span> Kecamatan tidak boleh kosong!
-                                </p> --}}
+                        <div class="dbWisata__header">
+                            <span class="block py-4 dbText__header">
+                                <h1>Kota / Kabupaten</h1>
                             </span>
+                            <div class="dbData__listWisata">
+                                <span class="flex flex-col inputWisata__name">
+                                    <label for="wisata__name" class="flex items-center py-2 ">
+                                        <h3>
+                                            Kota / Kabupaten
+                                            <span class="labelRequire__infowisata">*</span>
+                                        </h3>
+                                    </label>
+                                    <select name="kota" id="inputKota">
+                                        <option value="" selected hidden>Pilih Kota</option>
+                                        @foreach($tableKota as $row)
+                                        <option value="{{ $row->id }}" @empty($tableWisata) @else @if($tableWisata->
+                                            first()->id_kota
+                                            == $row->id)
+                                            selected
+                                            @endif
+                                            @endempty
+                                            >{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if($errors->has('kota'))
+                                    @foreach($errors->get('kota') as $message)
+                                    <div class="errorsPop__messages">
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            <span class="font-medium">Oops!</span> {{ $message }}
+                                        </p>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        <span class="font-medium">Oops!</span> Kota / Kabupaten tidak boleh kosong!
+                                    </p> --}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="dbWisata__header">
+                            <span class="block py-4 dbText__header">
+                                <h1>Kecamatan</h1>
+                            </span>
+                            <div class="dbData__listWisata">
+                                <span class="flex flex-col inputWisata__name">
+                                    <label for="wisata__name" class="flex items-center py-2 ">
+                                        <h3>
+                                            Kecamatan
+                                            <span class="labelRequire__infowisata">*</span>
+                                        </h3>
+                                    </label>
+                                    <select name="kecamatan" id="inputKecamatan">
+                                        <option value="" selected hidden>Pilih Kecamatan</option>
+                                    </select>
+                                    @if($errors->has('kecamatan'))
+                                    @foreach($errors->get('kecamatan') as $message)
+                                    <div class="errorsPop__messages">
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            <span class="font-medium">Oops!</span> {{ $message }}
+                                        </p>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        <span class="font-medium">Oops!</span> Kecamatan tidak boleh kosong!
+                                    </p> --}}
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 mt-12 tagPrice__Container">
+                    <div class="grid grid-cols-3 gap-4 mt-12 tagPrice__Container">
                         <div class="priceWrapper">
                             <span class="block py-4 dbText__header">
                                 <h1>Harga Tempat Wisata</h1>
@@ -119,7 +131,8 @@
                                         <div class="relative overflow-hidden inputPrice__list">
                                             <input type="text" id="inputHarga" name="harga"
                                                 class="w-full font-thin h-[2.8rem] rounded-lg inputSelection focus:ring-0 currency"
-                                                placeholder="500.000">
+                                                placeholder="500.000"
+                                                value="{{ !empty($tableWisata) ? $tableWisata->first()->harga : '' }}">
                                             @if($errors->has('harga'))
                                             @foreach($errors->get('harga') as $message)
                                             <div class="errorsPop__messages">
@@ -141,6 +154,36 @@
                                 </span>
                             </div>
                         </div>
+                        <div class="aksesbilitas">
+                            <span class="block py-4 dbText__header">
+                                <h1>Aksesbilitas</h1>
+                            </span>
+                            <div class="dbData__aksesbilitas">
+                                <span class="flex flex-col inputWisata__name">
+                                    <label for="wisata__name" class="flex items-center py-2 ">
+                                        <h3>
+                                            Aksesbilitas
+                                            <span class="labelRequire__infowisata">*</span>
+                                        </h3>
+                                    </label>
+                                    <select name="aksesbilitas" id="inputAksesbilitas">
+                                        <option value="" selected hidden>Pilih Aksesbilitas</option>
+                                    </select>
+                                    @if($errors->has('aksesbilitas'))
+                                    @foreach($errors->get('aksesbilitas') as $message)
+                                    <div class="errorsPop__messages">
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            <span class="font-medium">Oops!</span> {{ $message }}
+                                        </p>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        <span class="font-medium">Oops!</span> Kecamatan tidak boleh kosong!
+                                    </p> --}}
+                                </span>
+                            </div>
+                        </div>
                         <div class="priceWrapper">
                             <span class="block py-4 dbText__header">
                                 <h1>Harga Diskon Tiket</h1>
@@ -159,7 +202,8 @@
                                         <input type="number" id="inputDiskon" name="diskon"
                                             class="w-full h-[2.8rem] font-thin rounded-lg inputSelection focus:ring-0"
                                             placeholder="Harga Diskon..." min="0" maxlength="100"
-                                            onKeyUp="if(this.value>100){this.value='100';}else if(this.value<0){this.value='0';}">
+                                            onKeyUp="if(this.value>100){this.value='100';}else if(this.value<0){this.value='0';}"
+                                            value="{{ !empty($tableWisata) ? $tableWisata->first()->diskon : '' }}">
                                         @if($errors->has('diskon'))
                                         @foreach($errors->get('diskon') as $message)
                                         <div class="errorsPop__messages">
@@ -180,8 +224,8 @@
                                 </span>
                             </div>
                         </div>
-                        <span class="block col-span-2 text-gray-600 diskonInfo"><i
-                                class="ri-information-fill text-cta-login-birent"></i>&nbsp;Silahkan masukkan diskon
+                        <span class="block col-span-3 text-gray-600 diskonInfo w-full">
+                            <i class="ri-information-fill text-cta-login-birent"></i>&nbsp;Silahkan masukkan diskon
                             harga jika ada,
                             jika tidak
                             ada tawaran
@@ -272,31 +316,6 @@
                                     </div>
                                 </span>
                             </div>
-                            {{-- <div class="dbData__listWisata">
-                                <span class="relative flex flex-col inputWisata__name">
-                                    <label for="wisata__name" class="flex items-center py-2 ">
-                                        <h3>
-                                            Tambah Fasilitas Tempat Wisata
-                                            <span class="labelRequire__infowisata">*</span>
-                                        </h3>
-                                    </label>
-                                    <div class="relative flex flex-row add__Customdb--cta">
-                                        <input type="text" id="inputExtFasilitas" class="w-[15rem]"
-                                            name="wisataInput__Fasilityname" autocomplete="off"
-                                            placeholder="Kolam Renang">
-                                        <button type="button" id="tambahFasilitas"
-                                            class="p-2 px-4 add__Customebtn--cta">Tambah</button>
-                                    </div>
-                                    <span class="py-2 text-xs font-normal listingFacility__new">
-                                        <i>Penambahan Fasilitas :</i>
-                                    </span>
-                                    <div class="flex flex-col listHistoryExt__container">
-                                        <div class="flex flex-row flex-wrap gap-2 py-4 whitespace-normal listHistoryExt__content"
-                                            id="fasilitasExt">
-                                        </div>
-                                    </div>
-                                </span>
-                            </div> --}}
                         </div>
                     </div>
 
@@ -357,10 +376,10 @@
                                         type="button">
                                         Tambah / Edit Informasi Wisata
                                     </button>
-                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                    {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                         <span class="font-medium">Oops!</span> Informasi wisata
                                         tidak boleh kosong!
-                                    </p>
+                                    </p> --}}
                                     <div id="infoModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
                                         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                         <div class="relative w-full max-w-4xl max-h-full">
@@ -473,26 +492,6 @@
                             </div>
                             <div class="bannerContent__thumbnail">
                                 <div class="flex flex-row gap-2 overflow-hidden tumbnail__content">
-                                    {{-- preview images --}}
-                                    {{-- <div class="thumbnail__items">
-                                        <div class="thumbnailView__img">
-                                            <figure class="relative block figureInner">
-                                                <img src="https://images.unsplash.com/photo-1661956602926-db6b25f75947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=698&q=80"
-                                                    class="relative rounded-2xl imgThumb" alt="">
-                                                <div class="thumbnailSettings">
-                                                    <span class="block thumbnailNumber">
-                                                        <h2 class="rounded-full">01</h2>
-                                                    </span>
-                                                    <span class="block thumbnailDelete">
-                                                        <button class="rounded-full btnThumb__delete" id="thumbDel"
-                                                            type="">
-                                                            <i class="ri-delete-bin-7-fill"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>

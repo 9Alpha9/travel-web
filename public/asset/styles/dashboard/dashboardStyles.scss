@@ -377,6 +377,10 @@ $-moz-appearance: textfield;
                         font-weight: 500;
                     }
                 }
+
+                .facilityContainer {
+                    max-width: 1201px;
+                }
             }
 
             .continer__selectionDiv {
@@ -470,15 +474,28 @@ $-moz-appearance: textfield;
                         background-color: #ced0d4;
                     }
                 }
+
+                .aksesbilitas {
+                    .dbData__aksesbilitas {
+                        border-radius: 10px;
+                        font-weight: 500;
+                        color: #1f1e1e;
+                        padding: 2.13em;
+                        background-color: #ced0d4;
+                    }
+                }
             }
 
             .buttonCta__container {
+                max-width: 1201px;
+
                 .button__Additems {
                     .addSection__cta {
                         background-color: #1543ec;
                         color: #fff;
                         padding-left: 30px;
                         padding-right: 30px;
+                        width: 1201px;
 
                         &:hover {
                             background-color: #1136bb;

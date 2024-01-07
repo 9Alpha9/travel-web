@@ -53,16 +53,16 @@ class SmartController extends Controller
             'sweetalertDelete' => true
         );
 
-        $this->wisata = Wisata::limit(3)->orderBy('id_wisata', 'asc')->get();
+        $this->wisata = Wisata::limit(6)->orderBy('created_at', 'desc')->get();
         $this->kriteria = Kriteria::get();
     }
 
     public function PenilaianAlternatif(Request $request) {
         $err_code = 0;
         $err_message = '';
-        // DB::beginTransaction();
+        DB::beginTransaction();
 
-        // try  {
+        try  {
             foreach ($this->wisata as $key => $value) {
                 $nilai = NilaiWisata::where('id_wisata', $value->id_wisata)->get();
 
@@ -85,19 +85,28 @@ class SmartController extends Controller
                             $userKecamatan = Kecamatan::find($idkecamatanUser);
                             $wisataKecamatan = Kecamatan::find($idkecamatanWisata);
 
-                            $currNilai = $this->distance($userKecamatan->lattitude, $userKecamatan->longtitude, $wisataKecamatan->lattitude, $wisataKecamatan->longtitude, 'K');
-                        } else if ($value2->kriteria == 'Aksesibilitas') {
-                            $nilai_wisata = $value->aksesibilitas->nilai;
+                            $currNilai = $this->distance($userKecamatan->latitude, $userKecamatan->longitude, $wisataKecamatan->latitude, $wisataKecamatan->longitude, 'K');
+                        } else if ($value2->kriteria == 'Aksesbilitas') {
+                            $nilai_wisata = $value->aksesbilitas->nilai;
                         }
 
                         if ($currNilai != 0 && $nilai_wisata == 0) {
                             $nilai_wisata = NilaiKriteria::where('id_kriteria', $value2->id_kriteria)
                                                 ->where('id_user', '8')
                                                 ->where(function($query) use ($currNilai) {
-                                                    $query->where('min', '>=', $currNilai);
-                                                    $query->orWhere('max', '<=', $currNilai);
+                                                    $query->where('min', '<=', $currNilai);
+                                                    $query->where('max', '>=', $currNilai);
                                                 })
-                                                ->get()->first()->nilai;
+                                                ->get();
+
+                            if ($nilai_wisata->count() > 0) {
+                                $nilai_wisata = $nilai_wisata->first()->nilai;
+                            } else {
+                                $nilai_wisata = NilaiKriteria::where('id_kriteria', $value2->id_kriteria)
+                                                    ->where('id_user', '8')
+                                                    ->orderBy('nilai', 'asc')
+                                                    ->get()->first()->nilai;
+                            }
                         }
 
                         NilaiWisata::create([
@@ -111,12 +120,12 @@ class SmartController extends Controller
                 }
             }
 
-            // DB::commit();
-        // } catch (\Exception $e) {
-            // DB::rollback();
-            // $err_code++;
-            // $err_message = $e;
-        // }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            $err_code++;
+            $err_message = $e;
+        }
         $response = array(
             'err_code' => $err_code,
             'err_message' => $err_message
@@ -126,14 +135,13 @@ class SmartController extends Controller
     }
 
     public function NormalisasiKriteria() {
-        $kriteria = Kriteria::get();
-        $total_bobot = $kriteria->sum('bobot');
+        $total_bobot = $this->kriteria->sum('bobot');
         $err_code = 0;
         $err_message = '';
         DB::beginTransaction();
         try  {
-            foreach ($kriteria as $key => $value) {
-                $normalisasi = $kriteria->bobot / $total_bobot;
+            foreach ($this->kriteria as $key => $value) {
+                $normalisasi = $value->bobot / $total_bobot;
 
                 Kriteria::where('id_kriteria', $value->id_kriteria)->update([
                     'normalisasi' => $normalisasi
@@ -159,7 +167,7 @@ class SmartController extends Controller
 
         foreach($this->wisata as $key => $value) {
             foreach($this->kriteria as $key2 => $value2) {
-                $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_kriteria')->get()->nilai_wisata;
+                $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_kriteria', $value2->id_kriteria)->get()->first()->nilai_wisata;
                 $nilaiUtility[$value->id_wisata][$value2->id_kriteria] = 100 * ((100 - $nilai_wisata) / (100 - 0));
             }
         }
@@ -182,6 +190,11 @@ class SmartController extends Controller
             $nilaiAkhir[$key]['total'] = $total_utility;
         }
 
+        $response = array(
+            'kriteria' => Kriteria::get(),
+            // 'nilai_wisata' => NilaiWisata::
+            'nilai_akhir' => $nilaiAkhir,
+        );
         return $nilaiAkhir;
     }
 
@@ -201,5 +214,5 @@ class SmartController extends Controller
             return $miles;
         }
     }
-}
 
+}

@@ -289,6 +289,9 @@
   color: #082068;
   font-weight: 500;
 }
+.dashboardContainer__inner .sideDB__content .contentContainer .itemsDB__dataWisatawrapper .facilityContainer {
+  max-width: 1201px;
+}
 .dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv {
   width: 1201px;
 }
@@ -357,11 +360,22 @@
   padding: 2em;
   background-color: #ced0d4;
 }
+.dashboardContainer__inner .sideDB__content .contentContainer .tagPrice__Container .aksesbilitas .dbData__aksesbilitas {
+  border-radius: 10px;
+  font-weight: 500;
+  color: #1f1e1e;
+  padding: 2.13em;
+  background-color: #ced0d4;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .buttonCta__container {
+  max-width: 1201px;
+}
 .dashboardContainer__inner .sideDB__content .contentContainer .buttonCta__container .button__Additems .addSection__cta {
   background-color: #1543ec;
   color: #fff;
   padding-left: 30px;
   padding-right: 30px;
+  width: 1201px;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .buttonCta__container .button__Additems .addSection__cta:hover {
   background-color: #1136bb;

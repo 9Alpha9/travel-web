@@ -298,6 +298,10 @@
                                                 <div class="p-4 space-y-4 overflow-hidden md:p-5">
                                                     <div class="meterSection__p1">
                                                         <section class="dataMetode dataKriteria">
+                                                            <span
+                                                                class="labelsMetode py-3 block bg-primary-birent text-white px-3 rounded-md my-2 font-semibold">
+                                                                <h3>Nilai Bobot</h3>
+                                                            </span>
                                                             <div class="relative overflow-x-auto sm:rounded-lg">
                                                                 <table
                                                                     class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
@@ -367,9 +371,75 @@
                                                             </div>
                                                         </section>
                                                     </div>
-                                                    <div class="py-4 meterSection__p2">
+                                                    <div class="meterSection__p2">
                                                         <section
                                                             class="dataMetode dataProcess h-[10rem] overflow-x-hidden overflow-y-auto">
+                                                            <span
+                                                                class="labelsMetode py-3 block bg-primary-birent text-white px-3 rounded-md my-2 font-semibold">
+                                                                <h3>Nilai Utility</h3>
+                                                            </span>
+                                                            <div class="relative overflow-x-auto sm:rounded-lg">
+                                                                <table
+                                                                    class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                                                                    <thead
+                                                                        class="sticky text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                                        <tr>
+                                                                            <th scope="col" class="px-3 py-3">
+                                                                                No.
+                                                                            </th>
+                                                                            <th scope="col" class="px-6 py-3">
+                                                                                Alternatif
+                                                                            </th>
+                                                                            <th scope="col" class="px-6 py-3">
+                                                                                K1
+                                                                            </th>
+                                                                            <th scope="col" class="px-6 py-3">
+                                                                                K2
+                                                                            </th>
+                                                                            <th scope="col" class="px-6 py-3">
+                                                                                K3
+                                                                            </th>
+                                                                            <th scope="col" class="px-6 py-3">
+                                                                                K4
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr
+                                                                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                                            <th scope="row"
+                                                                                class="px-3 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                1.
+                                                                            </th>
+                                                                            <th scope="row"
+                                                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                -
+                                                                            </th>
+                                                                            <td class="px-6 py-4">
+                                                                                -
+                                                                            </td>
+                                                                            <td class="px-6 py-4">
+                                                                                -
+                                                                            </td>
+                                                                            <td class="px-6 py-4">
+                                                                                -
+                                                                            </td>
+                                                                            <td class="px-6 py-4">
+                                                                                -
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                    <div class="meterSection__p3">
+                                                        <section
+                                                            class="dataMetode dataProcess h-[10rem] overflow-x-hidden overflow-y-auto">
+                                                            <span
+                                                                class="labelsMetode py-3 block bg-primary-birent text-white px-3 rounded-md my-2 font-semibold">
+                                                                <h3>Perankingan Sementara</h3>
+                                                            </span>
                                                             <div class="relative overflow-x-auto sm:rounded-lg">
                                                                 <table
                                                                     class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
@@ -438,8 +508,12 @@
                                                         </section>
                                                     </div>
                                                     <div
-                                                        class="meterSection__p3 h-[10rem] overflow-x-hidden overflow-y-auto">
+                                                        class="meterSection__p4 h-[10rem] overflow-x-hidden overflow-y-auto">
                                                         <section class="relative overflow-hidden dataMetode">
+                                                            <span
+                                                                class="labelsMetode py-3 block bg-primary-birent text-white px-3 rounded-md my-2 font-semibold">
+                                                                <h3>Hasil Ranking / Rekomendasi Wisata</h3>
+                                                            </span>
                                                             <div class="sm:rounded-lg">
                                                                 <table
                                                                     class="relative w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
@@ -496,9 +570,6 @@
                                                     <button data-modal-hide="static-modal" type="button"
                                                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Proses
                                                         perhitungan</button>
-                                                    {{-- <button data-modal-hide="static-modal" type="button"
-                                                        class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Reset
-                                                        perhitungan</button> --}}
                                                 </div>
                                             </div>
                                         </div>

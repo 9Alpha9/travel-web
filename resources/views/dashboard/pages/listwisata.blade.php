@@ -54,6 +54,9 @@
                                 Kecamatan
                             </th>
                             <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
+                                Aksesbilitas
+                            </th>
+                            <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
                                 Harga
                             </th>
                             <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
@@ -100,6 +103,9 @@
                             </td>
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700 uppercase font-bold">
                                 {{ $row->kecamatan->name }}
+                            </td>
+                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 uppercase font-bold">
+
                             </td>
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 Rp

@@ -27,13 +27,12 @@
         </div>
 
         {{-- Box Reservasi --}}
-        <form action="" autocomplete="off">
+        {{-- <form action="" autocomplete="off">
             <div class="relative box__reserve">
                 <div class="box__name">
                     <h1>Booking Wisata</h1>
                 </div>
                 <div class="flex flex-col box__reserve__content md:flex-col xl:flex-col whitespace-nowrap">
-                    {{-- Kota Tujuan --}}
                     <div class="flex flex-col input__selection__stag whitespace-nowrap">
                         <label class="input__label__name">Kota Tujuan </label>
                         <div class="relative xl:my-3 md:my-3 lg:my-3">
@@ -49,10 +48,7 @@
                                 class="input__label city block pl-10 p-2.5 w-full rounded-md border-none whitespace-nowrap">
                         </div>
                     </div>
-                    {{-- End Kota Tujuan --}}
-
                     <div class="flex flex-col items-center gap-2 booking__input md:flex-row xl:flex-row">
-                        {{-- Tempat Wisata --}}
                         <div class="flex flex-col input__selection__stag whitespace-nowrap">
                             <label class="input__label__name">Tempat Wisata</label>
                             <div class="relative xl:my-3 md:my-3 lg:my-3">
@@ -68,9 +64,6 @@
                                     class="input__label block pl-10 p-2.5 rounded-md border-none">
                             </div>
                         </div>
-                        {{-- End Tempat Wisata --}}
-
-                        {{-- Tanggal Keberangkatan --}}
                         <div class="flex flex-col input__selection__stag whitespace-nowrap">
                             <label class="input__label__name">Tanggal</label>
                             <div class="relative xl:my-3 md:my-3 lg:my-3">
@@ -86,9 +79,6 @@
                                     class="input__label block pl-14 p-2.5 rounded-md border-none">
                             </div>
                         </div>
-                        {{-- End Tanggal Keberangkatan --}}
-
-                        {{-- Jumlah Tamu --}}
                         <div class="flex flex-col input__selection__stag whitespace-nowrap">
                             <label class="input__label__name">Tamu / Pengunjung</label>
                             <div class="relative items-center w-full xl:my-6 md:my-6 lg:my-6">
@@ -127,7 +117,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- End Jumlah Tamu --}}
                     </div>
                     <div class="py-8 booking__landingPages">
                         <button type="submit"
@@ -138,7 +127,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </form> --}}
         {{-- Box Reservasi --}}
 
         {{-- Wisata Viral --}}

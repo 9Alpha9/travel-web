@@ -64,7 +64,7 @@
             @endforeach
             {{-- End Content --}}
         </div>
-        <div class="relative flex cta__more">
+        {{-- <div class="relative flex cta__more">
             <div
                 class="top-0 bottom-0 left-0 right-0 flex flex-row justify-center m-auto text-center align-middle ctaa__link">
                 <a href="" class="flex justify-center gap-2 m-auto align-middle hover:underline">
@@ -77,7 +77,7 @@
                     </svg>
                 </a>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 {{-- End Wisata Viral --}}

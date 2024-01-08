@@ -38,7 +38,7 @@
             <div class="p-10 signup__set-up border-">
                 <div class="signup__item__sec__right">
                     <div class="relative flex signup__master__head">
-                        <span class="absolute inline-block svgBlock duration-300 ease-in-out">
+                        <span class="absolute inline-block duration-300 ease-in-out svgBlock">
                             <a href="/">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@
                                 </svg>
                             </a>
                         </span>
-                        <h1 class="w-full my-6 signup__title">Buat Akun</h1>
+                        <h1 class="w-full my-1 signup__title">Buat Akun</h1>
                     </div>
                     <div class="signup__forms">
                         <form action="{{ route('register') }}" method="post" autocomplete="off">
@@ -78,7 +78,7 @@
                                 </p>
                             </div>
                             <div class="regencyInput">
-                                <div class="regencyShow__input grid gap-2 grid-cols-1 xl:grid-cols-2 md:grid-cols-2">
+                                <div class="grid grid-cols-1 gap-2 regencyShow__input xl:grid-cols-2 md:grid-cols-2">
                                     <div class="ctaKota">
                                         <label for="kota" class="block my-2 text-md text-gray-primary labelInput__type">
                                             Asal Kota</label>
@@ -99,13 +99,13 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="addressInput my-2">
-                                    <div class="ctaAddress relative block">
-                                        <span class="addressUsers flex flex-col">
+                                <div class="my-2 addressInput">
+                                    <div class="relative block ctaAddress">
+                                        <span class="flex flex-col addressUsers">
                                             <label for="address"
                                                 class="text-md text-gray-primary labelInput__type">Alamat Anda</label>
                                             <textarea name="address" id="" rows="10"
-                                                class="w-full resize-none text-sm my-2 px-2 w-96 h-40 rounded-md"></textarea>
+                                                class="w-full h-20 px-2 my-2 text-sm rounded-md resize-none w-96"></textarea>
                                         </span>
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@
                                 </button>
                             </div>
                         </form>
-                        <section class="my-12 text-sm text-center signup__sert">
+                        <section class="my-3 text-sm text-center signup__sert">
                             Dengan membuat akun kamu menyetujui
                             <a href="#"
                                 class="font-semibold text-primary-birent hover:text-primary-birent-hover hover:underline">

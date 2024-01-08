@@ -53,7 +53,7 @@ class SmartController extends Controller
             'sweetalertDelete' => true
         );
 
-        $this->wisata = Wisata::limit(6)->orderBy('created_at', 'desc')->get();
+        $this->wisata = Wisata::limit(8)->orderBy('created_at', 'desc')->get();
         $this->kriteria = Kriteria::get();
     }
 

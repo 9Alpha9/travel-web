@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         //
         DB::table('users')->insert([
             'user_type' => 'superAdmin',
-            'email' => 'superadmin@lento.com',
+            'email' => '`superadmin@lento.com`',
             'full_name' => 'Admin BirentCar',
             'mobile_number' => '081234567891',
             'password' => bcrypt('aduhcantik'),

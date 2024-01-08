@@ -104,7 +104,7 @@ input {
     border-bottom-left-radius: 50px;
   }
   .signup__header .signup__wrapper .signup__item__sec__right {
-    transform: translateY(7.27em);
+    transform: translateY(4.27em);
   }
 }
 @media screen and (max-width: 1200px) {

@@ -138,8 +138,8 @@ class SmartController extends Controller
         $total_bobot = $this->kriteria->sum('bobot');
         $err_code = 0;
         $err_message = '';
-        DB::beginTransaction();
-        try  {
+        // DB::beginTransaction();
+        // try  {
             foreach ($this->kriteria as $key => $value) {
                 $normalisasi = $value->bobot / $total_bobot;
 
@@ -147,12 +147,12 @@ class SmartController extends Controller
                     'normalisasi' => $normalisasi
                 ]);
             }
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            $err_code++;
-            $err_message = $e;
-        }
+            // DB::commit();
+        // } catch (\Exception $e) {
+            // DB::rollback();
+            // $err_code++;
+            // $err_message = $e;
+        // }
 
         $response = array(
             'err_code' => $err_code,
@@ -195,7 +195,7 @@ class SmartController extends Controller
             // 'nilai_wisata' => NilaiWisata::
             'nilai_akhir' => $nilaiAkhir,
         );
-        return $nilaiAkhir;
+        return $response;
     }
 
     public function distance($lat1, $lon1, $lat2, $lon2, $unit) {

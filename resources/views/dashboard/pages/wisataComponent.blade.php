@@ -77,9 +77,6 @@
                                     </div>
                                     @endforeach
                                     @endif
-                                    {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                        <span class="font-medium">Oops!</span> Kota / Kabupaten tidak boleh kosong!
-                                    </p> --}}
                                 </span>
                             </div>
                         </div>
@@ -166,8 +163,18 @@
                                             <span class="labelRequire__infowisata">*</span>
                                         </h3>
                                     </label>
-                                    <select name="aksesbilitas" id="inputAksesbilitas">
+                                    <select name="aksesbilitas" id="aksesbilitas">
                                         <option value="" selected hidden>Pilih Aksesbilitas</option>
+                                        @foreach($tableAksesbilitas as $row)
+                                        <option value="{{ $row->id_aksesbilitas }}" @empty($tableAksesbilitas) @else
+                                            @if($tableAksesbilitas->
+                                            first()->id_aksesbilitas
+                                            == $row->id_aksesbilitas)
+                                            selected
+                                            @endif
+                                            @endempty
+                                            >{{ $row->nama_aksesbilitas }}</option>
+                                        @endforeach
                                     </select>
                                     @if($errors->has('aksesbilitas'))
                                     @foreach($errors->get('aksesbilitas') as $message)
@@ -178,9 +185,6 @@
                                     </div>
                                     @endforeach
                                     @endif
-                                    {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
-                                        <span class="font-medium">Oops!</span> Kecamatan tidak boleh kosong!
-                                    </p> --}}
                                 </span>
                             </div>
                         </div>

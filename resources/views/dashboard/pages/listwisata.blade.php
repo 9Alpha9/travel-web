@@ -105,7 +105,7 @@
                                 {{ $row->kecamatan->name }}
                             </td>
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700 uppercase font-bold">
-
+                                {{ $row->aksesbilitas->nama_aksesbilitas }}
                             </td>
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 Rp

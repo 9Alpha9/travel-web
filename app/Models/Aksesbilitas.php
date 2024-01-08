@@ -14,7 +14,7 @@ class Aksesbilitas extends Model
     protected $primaryKey = 'id_aksesbilitas';
 
     protected $fillable = [
-        'id_wisata', 'nama_aksesbilitas', 'nilai'
+        'id_aksesbilitas', 'nama_aksesbilitas', 'nilai'
     ];
 
     public function Wisata(){

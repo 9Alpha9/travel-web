@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aksesbilitas;
 use App\Models\FasilitasWisata;
 use App\Models\GambarWisata;
 use App\Models\Informasi;
@@ -68,11 +69,13 @@ class WisataController extends Controller
     public function create(){
         $fasilitas = KategoriFasilitas::get();
         $kategori = KategoriWisata::get();
+        $aksesbilitas = Aksesbilitas::get();
         $kota = Kota::where('province_id', '35')->get();
 
         $this->page['tableFasilitas'] = $fasilitas;
         $this->page['tableKota'] = $kota;
         $this->page['tableKategori'] = $kategori;
+        $this->page['tableAksesbilitas'] = $aksesbilitas;
 
         return view('dashboard.pages.wisataComponent')->with($this->page);
     }
@@ -91,11 +94,13 @@ class WisataController extends Controller
         $kota = Kota::where('province_id', '35')->get();
         $fasilitas = KategoriFasilitas::get();
         $kategori = KategoriWisata::get();
+        $aksesbilitas = Aksesbilitas::get();
 
         $this->page['tableKategori'] = $kategori;
         $this->page['tableFasilitas'] = $fasilitas;
         $this->page['tableKota'] = $kota;
         $this->page['tableWisata'] = $wisata;
+        $this->page['tableAksesbilitas'] = $aksesbilitas;
 
         return view('dashboard.pages.wisataComponent')->with($this->page);
     }
@@ -111,6 +116,7 @@ class WisataController extends Controller
             try {
                 $wisata = Wisata::create([
                     "id_pengelolah" => Auth::user()->id_user,
+                    "id_aksesbilitas" => $request->aksesbilitas,
                     "harga" => str_replace('.','',$request->harga),
                     "diskon" => $request->diskon,
                     "nama_wisata" => $request->nama_wisata,

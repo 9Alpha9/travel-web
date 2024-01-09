@@ -295,273 +295,275 @@
                                                 </div>
                                                 {{--
                                                 <!-- Modal body --> --}}
-                                                <div class="p-4 space-y-4 overflow-y-auto md:p-5 modalBody__smart">
-                                                    <div class="meterSection__p1">
-                                                        <section class="dataMetode dataKriteria">
-                                                            <span
-                                                                class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
-                                                                <h3>Nilai Bobot</h3>
-                                                            </span>
-                                                            <div class="relative overflow-x-auto sm:rounded-lg">
-                                                                <table
-                                                                    class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                                                                    <thead
-                                                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                                                        <tr>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                #
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Kriteria (K1) Harga
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Kriteria (K2) Fasilitas
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Kriteria (K3) Jarak
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Kriteria (K4) Aksesbilitas
-                                                                            </th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr
-                                                                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                                            <th scope="row"
-                                                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                Bobot
-                                                                            </th>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                    <tbody>
-                                                                        <tr
-                                                                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                                            <th scope="row"
-                                                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                Bobot Normalisasi
-                                                                            </th>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </section>
-                                                    </div>
-                                                    <div class="meterSection__p2">
-                                                        <section
-                                                            class="dataMetode dataProcess h-[10rem] overflow-x-hidden overflow-y-auto">
-                                                            <span
-                                                                class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
-                                                                <h3>Nilai Utility</h3>
-                                                            </span>
-                                                            <div class="relative overflow-x-auto sm:rounded-lg">
-                                                                <table
-                                                                    class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                                                                    <thead
-                                                                        class="sticky text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                                                        <tr>
-                                                                            <th scope="col" class="px-3 py-3">
-                                                                                No.
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Alternatif
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                K1
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                K2
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                K3
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                K4
-                                                                            </th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr
-                                                                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                                            <th scope="row"
-                                                                                class="px-3 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                1.
-                                                                            </th>
-                                                                            <th scope="row"
-                                                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                -
-                                                                            </th>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </section>
-                                                    </div>
-                                                    <div class="meterSection__p3">
-                                                        <section
-                                                            class="dataMetode dataProcess h-[10rem] overflow-x-hidden overflow-y-auto">
-                                                            <span
-                                                                class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
-                                                                <h3>Perankingan Sementara</h3>
-                                                            </span>
-                                                            <div class="relative overflow-x-auto sm:rounded-lg">
-                                                                <table
-                                                                    class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                                                                    <thead
-                                                                        class="sticky text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                                                        <tr>
-                                                                            <th scope="col" class="px-3 py-3">
-                                                                                No.
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Alternatif
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                K1
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                K2
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                K3
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                K4
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Total
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Ranking
-                                                                            </th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr
-                                                                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                                            <th scope="row"
-                                                                                class="px-3 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                1.
-                                                                            </th>
-                                                                            <th scope="row"
-                                                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                -
-                                                                            </th>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </section>
-                                                    </div>
-                                                    <div
-                                                        class="meterSection__p4 h-[10rem] overflow-x-hidden overflow-y-auto">
-                                                        <section class="relative overflow-hidden dataMetode">
-                                                            <span
-                                                                class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
-                                                                <h3>Hasil Ranking / Rekomendasi Wisata</h3>
-                                                            </span>
-                                                            <div class="sm:rounded-lg">
-                                                                <table
-                                                                    class="relative w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                                                                    <thead
-                                                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                                                        <tr>
-                                                                            <th scope="col" class="px-4 py-3">
-                                                                                No.
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Rekomendasi Wisata
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Nilai
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Total
-                                                                            </th>
-                                                                            <th scope="col" class="px-6 py-3">
-                                                                                Ranking
-                                                                            </th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr
-                                                                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                                            <th scope="row"
-                                                                                class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                1.
-                                                                            </th>
-                                                                            <th scope="row"
-                                                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                -
-                                                                            </th>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                            <td class="px-6 py-4">
-                                                                                -
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </section>
+                                                <div class="overflow-hidden rounded-md">
+                                                    <div class="p-4 space-y-4 overflow-y-auto md:p-5 modalBody__smart">
+                                                        <div class="meterSection__p1">
+                                                            <section class="dataMetode dataKriteria">
+                                                                <span
+                                                                    class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
+                                                                    <h3>Nilai Bobot</h3>
+                                                                </span>
+                                                                <div class="relative overflow-x-auto sm:rounded-lg">
+                                                                    <table
+                                                                        class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                                                                        <thead
+                                                                            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                                            <tr>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    #
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Kriteria (K1) Harga
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Kriteria (K2) Fasilitas
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Kriteria (K3) Jarak
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Kriteria (K4) Aksesbilitas
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr
+                                                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                                                <th scope="row"
+                                                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                    Bobot
+                                                                                </th>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                        <tbody>
+                                                                            <tr
+                                                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                                                <th scope="row"
+                                                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                    Bobot Normalisasi
+                                                                                </th>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </section>
+                                                        </div>
+                                                        <div class="meterSection__p2">
+                                                            <section
+                                                                class="dataMetode dataProcess h-[10rem] overflow-x-hidden overflow-y-auto">
+                                                                <span
+                                                                    class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
+                                                                    <h3>Nilai Utility</h3>
+                                                                </span>
+                                                                <div class="relative overflow-x-auto sm:rounded-lg">
+                                                                    <table
+                                                                        class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                                                                        <thead
+                                                                            class="sticky text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                                            <tr>
+                                                                                <th scope="col" class="px-3 py-3">
+                                                                                    No.
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Alternatif
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    K1
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    K2
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    K3
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    K4
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr
+                                                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                                                <th scope="row"
+                                                                                    class="px-3 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                    1.
+                                                                                </th>
+                                                                                <th scope="row"
+                                                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                    -
+                                                                                </th>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </section>
+                                                        </div>
+                                                        <div class="meterSection__p3">
+                                                            <section
+                                                                class="dataMetode dataProcess h-[10rem] overflow-x-hidden overflow-y-auto">
+                                                                <span
+                                                                    class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
+                                                                    <h3>Perankingan Sementara</h3>
+                                                                </span>
+                                                                <div class="relative overflow-x-auto sm:rounded-lg">
+                                                                    <table
+                                                                        class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                                                                        <thead
+                                                                            class="sticky text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                                            <tr>
+                                                                                <th scope="col" class="px-3 py-3">
+                                                                                    No.
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Alternatif
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    K1
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    K2
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    K3
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    K4
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Total
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Ranking
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr
+                                                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                                                <th scope="row"
+                                                                                    class="px-3 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                    1.
+                                                                                </th>
+                                                                                <th scope="row"
+                                                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                    -
+                                                                                </th>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </section>
+                                                        </div>
+                                                        <div
+                                                            class="meterSection__p4 h-[10rem] overflow-x-hidden overflow-y-auto">
+                                                            <section class="relative overflow-hidden dataMetode">
+                                                                <span
+                                                                    class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
+                                                                    <h3>Hasil Ranking / Rekomendasi Wisata</h3>
+                                                                </span>
+                                                                <div class="sm:rounded-lg">
+                                                                    <table
+                                                                        class="relative w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                                                                        <thead
+                                                                            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                                            <tr>
+                                                                                <th scope="col" class="px-4 py-3">
+                                                                                    No.
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Rekomendasi Wisata
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Nilai
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Total
+                                                                                </th>
+                                                                                <th scope="col" class="px-6 py-3">
+                                                                                    Ranking
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr
+                                                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                                                <th scope="row"
+                                                                                    class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                    1.
+                                                                                </th>
+                                                                                <th scope="row"
+                                                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                    -
+                                                                                </th>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                                <td class="px-6 py-4">
+                                                                                    -
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </section>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!-- Modal footer -->

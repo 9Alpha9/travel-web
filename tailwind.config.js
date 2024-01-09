@@ -28,6 +28,11 @@ module.exports = {
             "button-red-hover": "#b71e28",
             "primary-birent-dark": "#162F89",
         },
+        extend: {
+            height: {
+                45: "45rem",
+            },
+        },
     },
     plugins: [require("flowbite/plugin")],
 };

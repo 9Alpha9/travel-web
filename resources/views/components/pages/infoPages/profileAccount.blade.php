@@ -133,9 +133,9 @@
                                                     </span>
                                                     <div class="block mt-4 border-b "></div>
                                                 </div>
-                                                <div class="sectionInput__name name__profileSettings overflow-hidden">
+                                                <div class="overflow-hidden sectionInput__name name__profileSettings">
                                                     <div
-                                                        class="mt-4 sectionInput__nameContent whitespace-nowrap overflow-hidden">
+                                                        class="mt-4 overflow-hidden sectionInput__nameContent whitespace-nowrap">
                                                         <div class="sectionInput__nameItems">
                                                             <span class="block">
                                                                 <label for="FullnameProfile"
@@ -184,12 +184,12 @@
                                                             @enderror
                                                         </div>
                                                         <div class="address__">
-                                                            <span class="address__labels flex py-3">
+                                                            <span class="flex py-3 address__labels">
                                                                 <label for="address">Alamat</label>
                                                             </span>
                                                             <span class="address__input">
                                                                 <textarea name="" id="" rows="10"
-                                                                    class="w-full resize-none px-2 w-96 h-48 rounded-md"></textarea>
+                                                                    class="w-full h-48 px-2 rounded-md resize-none w-96"></textarea>
                                                                 {{-- <input type="text" name="" id=""
                                                                     class="w-full h-[10rem] text-gray-primary"> --}}
                                                             </span>
@@ -295,11 +295,11 @@
                                                 </div>
                                                 {{--
                                                 <!-- Modal body --> --}}
-                                                <div class="p-4 space-y-4 overflow-hidden md:p-5">
+                                                <div class="p-4 space-y-4 overflow-y-auto md:p-5 modalBody__smart">
                                                     <div class="meterSection__p1">
                                                         <section class="dataMetode dataKriteria">
                                                             <span
-                                                                class="labelsMetode py-3 block bg-primary-birent text-white px-3 rounded-md my-2 font-semibold">
+                                                                class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
                                                                 <h3>Nilai Bobot</h3>
                                                             </span>
                                                             <div class="relative overflow-x-auto sm:rounded-lg">
@@ -375,7 +375,7 @@
                                                         <section
                                                             class="dataMetode dataProcess h-[10rem] overflow-x-hidden overflow-y-auto">
                                                             <span
-                                                                class="labelsMetode py-3 block bg-primary-birent text-white px-3 rounded-md my-2 font-semibold">
+                                                                class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
                                                                 <h3>Nilai Utility</h3>
                                                             </span>
                                                             <div class="relative overflow-x-auto sm:rounded-lg">
@@ -437,7 +437,7 @@
                                                         <section
                                                             class="dataMetode dataProcess h-[10rem] overflow-x-hidden overflow-y-auto">
                                                             <span
-                                                                class="labelsMetode py-3 block bg-primary-birent text-white px-3 rounded-md my-2 font-semibold">
+                                                                class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
                                                                 <h3>Perankingan Sementara</h3>
                                                             </span>
                                                             <div class="relative overflow-x-auto sm:rounded-lg">
@@ -511,7 +511,7 @@
                                                         class="meterSection__p4 h-[10rem] overflow-x-hidden overflow-y-auto">
                                                         <section class="relative overflow-hidden dataMetode">
                                                             <span
-                                                                class="labelsMetode py-3 block bg-primary-birent text-white px-3 rounded-md my-2 font-semibold">
+                                                                class="block px-3 py-3 my-2 font-semibold text-white rounded-md labelsMetode bg-primary-birent">
                                                                 <h3>Hasil Ranking / Rekomendasi Wisata</h3>
                                                             </span>
                                                             <div class="sm:rounded-lg">
@@ -565,12 +565,12 @@
                                                     </div>
                                                 </div>
                                                 <!-- Modal footer -->
-                                                <div
+                                                {{-- <div
                                                     class="flex items-center gap-2 p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
                                                     <button data-modal-hide="static-modal" type="button"
                                                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Proses
                                                         perhitungan</button>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>

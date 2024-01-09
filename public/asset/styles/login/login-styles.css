@@ -59,7 +59,7 @@
   max-width: 500px;
   margin: auto;
   top: 50%;
-  height: 50%;
+  transform: translateY(10%);
 }
 .login__header .login__wrapper .login__item__sec__right .login__master__head .login__title {
   font-size: 2.188em;
@@ -100,12 +100,12 @@ input {
     border-bottom-left-radius: 50px;
   }
   .login__header .login__wrapper .login__item__sec__right {
-    transform: translateY(50%);
+    transform: translateY(13%);
   }
 }
 @media screen and (max-width: 1200px) {
   .login__header .login__wrapper .login__item__sec__right {
-    transform: translateY(45%);
+    transform: translateY(10%);
   }
 }
 @media (300px <= width) {

@@ -3,7 +3,7 @@
 @endpush
 
 @section('pageContent')
-<div class="py-10 containerTambah__wisata">
+<div class="py-10 pb-20 containerTambah__wisata">
     <div class="mt-20 wisata__wrapper wisata__tableCount">
         <span class="block titleTable">
             <h2 class="titleList">
@@ -81,11 +81,11 @@
                                 {{ $row->kecamatan->kota->name }}
                             </td>
                             <td
-                                class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap font-bold uppercase">
+                                class="px-6 py-4 font-bold uppercase border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 {{ $row->nama_wisata }}
                             </td>
                             <td
-                                class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap uppercase font-bold">
+                                class="px-6 py-4 font-bold uppercase border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 {{ $row->kategoriwisata->nama_kategori_wisata }}
                             </td>
                             <td
@@ -101,17 +101,17 @@
                                     @endforeach
                                 </span>
                             </td>
-                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 uppercase font-bold">
+                            <td class="px-6 py-4 font-bold uppercase border-b border-r dark:border-gray-700">
                                 {{ $row->kecamatan->name }}
                             </td>
-                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 uppercase font-bold">
+                            <td class="px-6 py-4 font-bold uppercase border-b border-r dark:border-gray-700">
                                 {{ $row->aksesbilitas->nama_aksesbilitas }}
                             </td>
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 Rp
                                 {{ number_format($row->harga, 2, ',', '.') }}
                             </td>
-                            <td class="px-6 py-4 border-b border-r dark:border-gray-700 text-center">
+                            <td class="px-6 py-4 text-center border-b border-r dark:border-gray-700">
                                 {{ $row->diskon }}%
                             </td>
                             <td class="px-6 py-4 border-b border-r dark:border-gray-700">
@@ -208,7 +208,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="action__button flex gap-2">
+                                    <div class="flex gap-2 action__button">
                                         <span class="actionEdit__cta">
                                             <button data-modal-target="staticModal" data-modal-toggle="editList"
                                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 flex w-24 h-full text-center align-middle justify-center items-center relative gap-2"

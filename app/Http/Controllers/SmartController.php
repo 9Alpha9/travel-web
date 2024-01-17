@@ -9,6 +9,7 @@ use App\Models\Kriteria;
 use App\Models\NilaiKriteria;
 use App\Models\NilaiWisata;
 use App\Models\Wisata;
+use ArrayObject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -53,7 +54,7 @@ class SmartController extends Controller
             'sweetalertDelete' => true
         );
 
-        $this->wisata = Wisata::limit(8)->orderBy('created_at', 'desc')->get();
+        $this->wisata = Wisata::limit(12)->orderBy('created_at', 'desc')->get();
         $this->kriteria = Kriteria::get();
     }
 
@@ -183,20 +184,39 @@ class SmartController extends Controller
             $total_utility = 0;
             foreach ($this->kriteria as $key2 => $value2) {
                 $total_alternatif = $value[$value2->id_kriteria] * $value2->normalisasi;
-                $nilaiAkhir[$key][$value2->id_kriteria] = $total_alternatif;
+                $nilaiAkhir['"' . $key . '"'][$value2->id_kriteria] = $total_alternatif;
                 $total_utility += $total_alternatif;
             }
 
-            $nilaiAkhir[$key]['total'] = $total_utility;
+            $nilaiAkhir['"' . $key . '"']['total'] = $total_utility;
+        }
+
+        $rearrange_wisata = array();
+        foreach ($this->wisata as $key => $value) {
+            $rearrange_wisata[$value['id_wisata']] = $value['nama_wisata'];
         }
 
         $response = array(
+            'wisata' => $rearrange_wisata,
             'kriteria' => Kriteria::get(),
-            // 'nilai_wisata' => NilaiWisata::
+            'utility' => $nilaiUtility,
             'nilai_akhir' => $nilaiAkhir,
         );
+
+        $sort_akhir = $nilaiAkhir;
+
+        $sorted_akhir = new ArrayObject($sort_akhir);
+        $sorted_akhir->uasort(function($a, $b) {
+            if ($b['total'] == $a['total']) return 0;
+            return ($b['total'] < $a['total']) ? -1 : 1;
+        });
+
+        $response['sorted_akhir'] = $sorted_akhir;
+
         return $response;
     }
+
+
 
     public function distance($lat1, $lon1, $lat2, $lon2, $unit) {
         $theta = $lon1 - $lon2;

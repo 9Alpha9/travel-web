@@ -1,22 +1,29 @@
 {{-- Wisata Viral --}}
 <div class="mt-16 wisata__viral wisata__landing__wrapper ">
     <div class="wisata__heading">
-        <span class="flex items-end justify-between title__wisata__viral">
+        {{-- <span class="flex items-end justify-between title__wisata__viral">
             <h1 class="mb-4 wisata__title__viral">Wisata Pilihan Jawa Timur</h1>
-            {{-- <h1 class="mb-4 wisata__viral__more">
+            <h1 class="mb-4 wisata__viral__more">
                 <a href="#!" class="text-sm hover:underline">lihat semua</a>
-            </h1> --}}
-        </span>
+            </h1>
+        </span> --}}
         <div class="grid grid-cols-2 gap-4 mt-10 mb-10 wisata__content md:grid-cols-4 xl:grid-cols-4">
             {{-- Content --}}
             @foreach($wisata as $key => $value)
             <div class="flex flex-row wisata__card">
                 <div class="block max-w-md dark:bg-neutral-700 wisata__viral__card__item">
                     <a href="{{ route('viewpages') }}">
-                        {{-- @php(dd($wisata)) --}}
+                        @php($url_nama_wisata = str_replace(' ', '_', $value->nama_wisata))
                         <figure class="wisata__banner">
-                            <img src="https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg"
-                                class="max-h-60 md:max-h-60 xl:max-h-96" alt="" />
+                            <img src="
+                            @if (count($value->gambarwisata) > 0)
+                                {{ !is_null($value->gambarwisata->first()->nama_gambar) ? url("gallery-wisata/$url_nama_wisata/{$value->gambarwisata->first()->nama_gambar}") :
+                            'https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg'
+                            }}
+                            @else
+                            https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg
+                            @endif
+                            " class="max-h-60 md:max-h-60 xl:max-h-96" alt="" />
                         </figure>
                     </a>
                     {{-- Card Wisata Information --}}
@@ -25,7 +32,7 @@
                             <div class="wisata__info__title">
                                 {{-- Wisata Name --}}
                                 <a href="#!">
-                                    <h5 class="font-semibold">{{-- $value->nama_wisata --}}</h5>
+                                    <h5 class="font-semibold">{{ $value->nama_wisata }}</h5>
                                 </a>
                             </div>
                             {{-- Rating --}}

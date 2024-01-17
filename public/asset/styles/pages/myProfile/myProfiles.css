@@ -132,4 +132,8 @@ textarea {
 
 .modalBody__smart {
   max-height: 30rem;
+}
+.modalBody__smart .text-n-bobot {
+  color: #000000;
+  font-weight: 600;
 }/*# sourceMappingURL=myProfiles.css.map */

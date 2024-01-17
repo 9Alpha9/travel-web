@@ -60,7 +60,7 @@ class WisataController extends Controller
             $wisata = Wisata::where('id_pengelolah', Auth::user()->id_user)->orderBy('created_at', 'asc')->get();
         }
         else if(Auth::user()->user_type == "superAdmin"){
-            $wisata = Wisata::get();
+            $wisata = Wisata::orderBy('created_at', 'desc')->get();
         }
         $this->page['tableWisata'] = $wisata;
         return view('dashboard.pages.listwisata')->with($this->page);

@@ -339,7 +339,7 @@
                                                                     <h3>Nilai Utility</h3>
                                                                 </span>
                                                                 <section
-                                                                    class="h-[10rem] overflow-x-hidden overflow-y-auto">
+                                                                    class="h-[30rem] overflow-x-hidden overflow-y-auto">
                                                                     <div class="relative overflow-x-auto sm:rounded-lg">
                                                                         <table
                                                                             class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400 utility">
@@ -403,7 +403,7 @@
                                                                     <h3>Perankingan Sementara</h3>
                                                                 </span>
                                                                 <section
-                                                                    class="h-[10rem] overflow-x-hidden overflow-y-auto">
+                                                                    class="h-[30rem] overflow-x-hidden overflow-y-auto">
                                                                     <div class="relative overflow-x-auto sm:rounded-lg">
                                                                         <table
                                                                             class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400 temp-rank">
@@ -1245,7 +1245,7 @@
             url: '{{ route("smart.akhir") }}',
             success: function(response) {
                 console.log(response);
-                let tblClass = 'class="px-6 py-3 text-n-bobot whitespace-nowrap font-semibold"';
+                let tblClass = 'class="px-6 py-3 font-semibold text-n-bobot whitespace-nowrap"';
 
                 // SETTING VARIABEL
 

@@ -131,7 +131,8 @@ textarea {
 }
 
 .modalBody__smart {
-  max-height: 30rem;
+  max-height: 40rem;
+  overflow-y: auto;
 }
 .modalBody__smart .text-n-bobot {
   color: #000000;

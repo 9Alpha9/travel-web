@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class ViewPagesController extends Controller
 {
     //
-    public function viewPages(){
-        $wisata = Wisata::get();
-        return view('components.pages.viewPages.defaultViewPages')->with(['viewpages' => 'active', 'wisata' => $wisata]);
+    public function viewPages($id){
+        $wisata = Wisata::find($id)->get();
+        return view('components.pages.viewPages.defaultViewPages')->with(['viewpages' => 'active', 'tableWisata' => $wisata]);
     }
 }

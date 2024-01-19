@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\Models\Wilayah;
+
+use App\Models\Wilayah;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Wisata;

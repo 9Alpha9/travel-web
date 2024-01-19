@@ -12,7 +12,7 @@
             @foreach($wisata as $key => $value)
             <div class="flex flex-row wisata__card">
                 <div class="block max-w-md dark:bg-neutral-700 wisata__viral__card__item">
-                    <a href="{{ route('viewpages') }}">
+                    <a href="{{ route('viewpages', $value->id_wisata) }}">
                         @php($url_nama_wisata = str_replace(' ', '_', $value->nama_wisata))
                         <figure class="wisata__banner">
                             <img src="

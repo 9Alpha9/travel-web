@@ -1,7 +1,7 @@
 <div class="relative py-10 wisata__information">
     <div class="flex flex-col justify-between wisata__header__inf booking">
         <div class="wisata__title">
-            <h1 class="py-4">Wisata De Laponte</h1>
+            <h1 class="py-4">{{ $tableWisata->first()->nama_wisata }}</h1>
             <div class="flex items-center gap-2 rate__location">
                 <svg width="18" height="18" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -9,7 +9,8 @@
                         fill="#3237d2" />
                 </svg>
                 <span class="font-semibold rating__indicators">4,7</span>
-                <span class="inline-block mx-6 font-medium underline">Malang, Jawa Timur</span>
+                <span class="inline-block mx-6 font-medium underline">{{ $tableWisata->first()->kota->name }}, {{
+                    $tableWisata->first()->kota->wilayah->name }}</span>
             </div>
         </div>
         <div class="py-12 booking__cta">
@@ -18,10 +19,11 @@
         </div>
     </div>
     {{-- booking cta --}}
+    {{-- Deskripsi wisata --}}
     <div class="py-10 description">
         <h1 class="border-b-[1px] py-4 font-semibold text-lg">Deskripsi</h1>
         <section class="inline-block py-3 font-normal description__wisata">
-            DESKRIPSI WISATA
+            {{ $tableWisata->first()->artikel }}
         </section>
     </div>
 </div>

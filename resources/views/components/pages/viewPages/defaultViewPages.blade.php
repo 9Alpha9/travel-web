@@ -59,11 +59,12 @@
                 </li>
                 <li>/</li>
                 <li class="font-semibold text-primary-birent">
-                    <a href="#!" class="hover:underline">Wisata Jatim</a>
+                    <a href="#!" class="hover:underline">{{ $tableWisata->first()->kategoriwisata->nama_kategori_wisata
+                        }}</a>
                 </li>
                 <li>/</li>
                 <li class="font-semibold text-gray-primary">
-                    <a href="#!" class="hover:underline">Wisata De Laponte</a>
+                    <a href="#!" class="hover:underline">{{ $tableWisata->first()->nama_wisata }}</a>
                 </li>
             </ul>
         </div>
@@ -185,7 +186,7 @@
 
         </div>
         {{-- View Pages Item Component --}}
-        @include('components.pages.viewPages.viewPagesInformation')
+        @include('components.pages.viewPages.viewPagesInformation', array('tableWisata' => $tableWisata))
         {{-- End View Pages Item Component --}}
 
         {{-- View Pages Item Component --}}

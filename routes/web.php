@@ -41,7 +41,7 @@ Route::get('/auth/redirect', [LoginController::class, 'redirectToProvider'])->na
 Route::get('/auth/callback', [LoginController::class, 'handleProviderCallback']);
 
 Route::get('/', [HomePagesController::class, 'landingPage'])->name('landingpage');
-Route::get('/view',[ViewPagesController::class, 'viewPages'])->name('viewpages');
+Route::get('/view/{id}',[ViewPagesController::class, 'viewPages'])->name('viewpages');
 // Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol
 
 Route::group(['middleware' => ['auth', 'role:Admin,User']], function () {

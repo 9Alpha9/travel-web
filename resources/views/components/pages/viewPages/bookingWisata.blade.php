@@ -3,14 +3,21 @@
         <div class="flex items-center justify-between align-middle booking__heading">
             <h1>Booking / Pesan tiket.</h1>
             <div class="align-middle booking__priceWisata">
-                <div class="flex flex-col discount__price">
-                    <span class="inline-block text-xs">Diskon Harga 5%</span>
-                    <span class="inline-block text-xs line-through">Rp 380.000</span>
+                @php($harga = $tableWisata->harga)
+                @if ($tableWisata->diskon != 0)
+                <div class="flex flex-col discount__price @if($tableWisata->diskon == 0) hide @endif">
+                    <span class="inline-block text-xs">Diskon Harga {{ $tableWisata->diskon }}%</span>
+                    <span class="inline-block text-xs line-through">Rp {{ number_format($tableWisata->harga, 0, ',',
+                        '.') }}</span>
+                    @php ($harga -= $harga * ($tableWisata->diskon / 100))
                 </div>
-                <span class="inline-block font-semibold">Rp. 340.000</span>
+                @endif
+                <span class="inline-block font-semibold">Rp {{ number_format($harga, 0, ',', '.') }}</span>
             </div>
         </div>
-        <p class="py-3">Pemesanan tiket untuk tempat wisata De Laponte, Malang, Jawa Timur.</p>
+        <p class="py-3">Pemesanan tiket untuk tempat {{ $tableWisata->nama_wisata }}, {{
+            ucwords(strtolower($tableWisata->kota->name)) }}, {{
+            ucwords(strtolower($tableWisata->kota->wilayah->name)) }}.</p>
         <div class="infoTiket__wisata">
             <h1>Informasi !</h1>
             <ul class="informasiTiket__wrapper">

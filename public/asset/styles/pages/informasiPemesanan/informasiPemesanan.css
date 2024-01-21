@@ -42,4 +42,8 @@
 }
 .informationWrapper .deleteContent__info:hover {
   background-color: #1c55f2;
+}
+
+.booking__infoWrapper > .hide {
+  display: none;
 }/*# sourceMappingURL=informasiPemesanan.css.map */

@@ -9,7 +9,7 @@ class ViewPagesController extends Controller
 {
     //
     public function viewPages($id){
-        $wisata = Wisata::find($id)->get();
+        $wisata = Wisata::find($id);
         return view('components.pages.viewPages.defaultViewPages')->with(['viewpages' => 'active', 'tableWisata' => $wisata]);
     }
 }

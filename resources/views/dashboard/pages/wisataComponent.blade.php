@@ -577,6 +577,7 @@
 </script>
 <script>
     tinymce.init({
+        forced_root_block : "",
       selector: 'textarea',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
       toolbar: 'undo redo | blocks | bold italic underline strikethrough | align lineheight | numlist bullist indent outdent | removeformat',

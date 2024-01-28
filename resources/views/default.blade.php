@@ -38,6 +38,9 @@
 
     @include('components.footer.footer')
 
+    <form action="" method="" id="blankForm">
+        {{ csrf_field() }}
+    </form>
 </body>
 @include('components.universalJavascript')
 @stack('scripts')

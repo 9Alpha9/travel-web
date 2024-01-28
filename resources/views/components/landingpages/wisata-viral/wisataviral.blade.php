@@ -1,12 +1,47 @@
 {{-- Wisata Viral --}}
-<div class="mt-16 wisata__viral wisata__landing__wrapper ">
+<div class="mt-16 wisata__viral wisata__landing__wrapper">
     <div class="wisata__heading">
-        {{-- <span class="flex items-end justify-between title__wisata__viral">
-            <h1 class="mb-4 wisata__title__viral">Wisata Pilihan Jawa Timur</h1>
-            <h1 class="mb-4 wisata__viral__more">
-                <a href="#!" class="text-sm hover:underline">lihat semua</a>
-            </h1>
-        </span> --}}
+        <div class="relative p-3 rounded-md filters__wisata">
+            <span class="block p-2 mb-8 border-b header__text">
+                <h2 class="text-lg font-extrabold">Filter Rekomendasi</h2>
+            </span>
+            <div class="flex flex-row items-center p-2 filters__control align-items-center">
+                <div class="w-full filters__category">
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">
+                        <h3>Filter
+                            Kategori Wisata</h3>
+                    </label>
+                    <select id="kategori"
+                        class="bg-gray-50 border border-gray-300  text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value='' selected>Pilih Kategori Wisata</option>
+                        @foreach($tableKategori as $key => $value)
+                        <option value="{{ $value->id_kategori_wisata }}">{{ $value->nama_kategori_wisata }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="w-full filters__tipe__wisata">
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">
+                        <h3>Filter Kota/Kabupaten</h3>
+                    </label>
+                    <select id="kota"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value='' selected>Pilih Kota/Kabupaten</option>
+                        @foreach($tableKota as $key => $value)
+                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <span class="items-center mx-2 on__submit">
+                    <button type="button"
+                        class="py-2.5 px-8  text-sm font-medium text-gray-900 focus:outline-none border border-gray-200 h focus:z-10 focus:ring-4 text-white btn-filter">
+                        <h3 class="flex items-center inline-block gap-2">
+                            Filter
+                            <i class="text-md ri-search-eye-line"></i>
+                        </h3>
+                    </button>
+            </div>
+            </span>
+        </div>
         <div class="grid grid-cols-2 gap-4 mt-10 mb-10 wisata__content md:grid-cols-4 xl:grid-cols-4">
             {{-- Content --}}
             @foreach($wisata as $key => $value)
@@ -71,20 +106,49 @@
             @endforeach
             {{-- End Content --}}
         </div>
-        {{-- <div class="relative flex cta__more">
-            <div
-                class="top-0 bottom-0 left-0 right-0 flex flex-row justify-center m-auto text-center align-middle ctaa__link">
-                <a href="" class="flex justify-center gap-2 m-auto align-middle hover:underline">
-                    Lihat Semua
-                    <svg width="6" height="10" class="flex justify-center m-auto align-middle" viewBox="0 0 5 8"
-                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M4.65437 3.60122L0.726102 0.109426C0.639282 0.032735 0.525552 -0.0063259 0.409932 0.000836389C0.294313 0.00799868 0.186274 0.0607975 0.109583 0.147618C0.0328916 0.234438 -0.00616947 0.348167 0.000992822 0.463787C0.00815511 0.579406 0.0609539 0.687446 0.147774 0.764137L3.71049 3.92857L0.147774 7.09301C0.0812513 7.15167 0.0341808 7.22922 0.0128319 7.31531C-0.008517 7.40139 -0.00313065 7.49194 0.0282724 7.5749C0.0596755 7.65785 0.115606 7.72926 0.188613 7.77963C0.261621 7.83 0.348241 7.85693 0.436938 7.85684C0.543318 7.85645 0.645989 7.81771 0.726102 7.74772L4.65437 4.25593C4.70081 4.21497 4.73801 4.1646 4.76348 4.10815C4.78896 4.05171 4.80214 3.9905 4.80214 3.92857C4.80214 3.86665 4.78896 3.80543 4.76348 3.74899C4.73801 3.69255 4.70081 3.64218 4.65437 3.60122Z"
-                            fill="#162F89" />
-                    </svg>
-                </a>
+        {{-- Pagination --}}
+        <div class="relative pagination__rows">
+            <div class="flex justify-between w-full pagination__rows__number">
+                <div class="flex flex-row items-center">
+                    <span class="text-sm text-gray-400 dark:text-gray-100">
+                        Halaman <span class="font-semibold text-gray-900 dark:text-white">1</span> ke <span
+                            class="font-semibold text-gray-400 dark:text-white">10</span> dari <span
+                            class="font-semibold text-gray-400 dark:text-white">100</span> Wisata
+                    </span>
+                </div>
+                <nav aria-label="Page navigation pagination-wisata">
+                    <ul class="flex items-center h-8 -space-x-px text-lg">
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-gray-300 ms-0 border-e-0 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 rounded-pagination-prev">
+                                <span class="sr-only">Previous</span>
+                                <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M5 1 1 5l4 4" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 rounded-pagination-next">
+                                <span class="sr-only">Next</span>
+                                <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 9 4-4-4-4" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div> --}}
+        </div>
+        {{-- Pagination --}}
     </div>
 </div>
 {{-- End Wisata Viral --}}

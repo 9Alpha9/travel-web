@@ -31,9 +31,6 @@ Route::post('/register', [LoginController::class, 'register'])->name('register')
 Route::post('/register/check', [LoginController::class, 'checkUsername'])->name('register.check');
 Route::get('/register', [LoginController::class, 'registerForm'])->name('register.form');
 
-Route::post('/smart/alternative', [SmartController::class, 'PenilaianAlternatif'])->name('smart.alternatif');
-Route::post('/smart/normalisasi', [SmartController::class, 'NormalisasiKriteria'])->name('smart.normalisasi');
-Route::post('/smart/utility', [SmartController::class, 'Utility'])->name('smart.utility');
 Route::post('/smart/akhir', [SmartController::class, 'NilaiAkhir'])->name('smart.akhir');
 
 //Google Login API
@@ -42,6 +39,8 @@ Route::get('/auth/callback', [LoginController::class, 'handleProviderCallback'])
 
 Route::get('/', [HomePagesController::class, 'landingPage'])->name('landingpage');
 Route::get('/view/{id}',[ViewPagesController::class, 'viewPages'])->name('viewpages');
+Route::post('/filter',[HomePagesController::class, 'filterPage'])->name('filterpage');
+Route::get('/filter', [HomePagesController::class, 'filterPageRedirect']);
 // Route::get('/homepages', [HomePagesController::class, 'index'])->name('homepages');LoginConttrol
 
 Route::group(['middleware' => ['auth', 'role:Admin,User']], function () {

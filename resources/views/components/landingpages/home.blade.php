@@ -39,6 +39,7 @@
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg width="17" height="22" viewBox="0 0 17 22" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
+                                    {{ }}
                                     <path
                                         d="M8.25 0.5C6.06273 0.502481 3.96575 1.37247 2.41911 2.91911C0.872472 4.46575 0.00248131 6.56273 0 8.75C0 15.8094 7.5 21.1437 7.81875 21.3687C7.94649 21.4538 8.09653 21.4992 8.25 21.4992C8.40347 21.4992 8.55351 21.4538 8.68125 21.3687C9 21.1437 16.5 15.8094 16.5 8.75C16.4975 6.56273 15.6275 4.46575 14.0809 2.91911C12.5343 1.37247 10.4373 0.502481 8.25 0.5ZM8.25 5.75C8.84334 5.75 9.42336 5.92595 9.91671 6.25559C10.4101 6.58524 10.7946 7.05377 11.0216 7.60195C11.2487 8.15013 11.3081 8.75333 11.1924 9.33527C11.0766 9.91721 10.7909 10.4518 10.3713 10.8713C9.95176 11.2909 9.41721 11.5766 8.83527 11.6924C8.25333 11.8081 7.65013 11.7487 7.10195 11.5216C6.55377 11.2946 6.08524 10.9101 5.75559 10.4167C5.42595 9.92336 5.25 9.34334 5.25 8.75C5.25 7.95435 5.56607 7.19129 6.12868 6.62868C6.69129 6.06607 7.45435 5.75 8.25 5.75Z"
                                         fill="#0f032e" />
@@ -137,31 +138,6 @@
         {{-- Wisata Baru Component --}}
         {{-- @include('components.landingpages.wisata-baru.wisatabaru') --}}
         {{-- Wisata Baru Component --}}
-
-
-
-        {{-- East Java --}}
-        <div
-            class="flex flex-col-reverse my-10 overflow-hidden rounded-lg east__java content__java md:flex-row-reverse xl:flex-row-reverse">
-            <div class="my-6 items__java java__title">
-                <p>
-                    Provinsi Jawa Timur secara geografis terletak di antara 11100 Bujur Timur – 11404’ Bujur Timur
-                    dan 70 12’Lintang Selatan – 8048”Lintang Selatan , dengan luas wilayah sebesar 47.963 km2 yang
-                    meliputi dua bagian utama. Yaitu Jawa Timur daratan dan Kepulauan Madura. Wilayah daratan Jawa
-                    Timur sebesar 88,70 persen atau 42.541 km2, sementara luas Kepulauan Madura memiliki luas 11.30
-                    persen atau sebesar 5.422 km2. Jumlah penduduknya pada tahun 2010 mencapai 37.476.757 jiwa .
-                    <br class="py-20">
-                    (Sumber : Database BPS Tahun 2010 ).
-                </p>
-            </div>
-            <div class="items__java java__banner">
-                <figure>
-                    <img src="https://vsi.esdm.go.id/gallery/_data/i/upload/2016/11/11/20161111152642-41629967-la.png"
-                        alt="">
-                </figure>
-            </div>
-        </div>
-        {{-- End East Java --}}
     </div>
 </div>
 
@@ -169,6 +145,7 @@
 @endsection
 
 @push('scripts')
+
 <script>
     $(function () {
 
@@ -197,6 +174,19 @@
 
         $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
             $(this).val('');
+        });
+
+        $('.btn-filter').on('click', function() {
+            let filter_url = "{{ route('filterpage') }}";
+            $('#blankForm').attr('method', 'post');
+            $('#blankForm').attr('action', filter_url);
+            let kategori_value = $('#kategori').val();
+            let kota_value = $('#kota').val();
+            let kategori = $('<input>').attr('type', 'hidden').attr('name', 'kategori').attr('value', kategori_value);
+            let kota = $('<input>').attr('type', 'hidden').attr('name', 'kota').attr('value', kota_value);
+            $('#blankForm').append(kategori);
+            $('#blankForm').append(kota);
+            $('#blankForm').submit();
         });
 
     });

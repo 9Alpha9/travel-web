@@ -1200,44 +1200,8 @@
 </script>
 <script>
     $('body').on('click', '#btn_hitung_smart', function() {
-        $.ajax({
-            type: 'post',
-            url: '{{ route("smart.alternatif") }}',
-            success: function(response) {
-                if (response.err_code == 0) {
-                    setNormalisasi();
-                } else {
-                    alert(response.err_message);
-                }
-            },
-            error: function(response) {
-
-            },
-            complete: function(response) {
-
-            }
-        });
+        getNilaiAkhir();
     });
-
-    function setNormalisasi() {
-        $.ajax({
-            type: 'post',
-            url: '{{ route("smart.normalisasi") }}',
-            success: function(response) {
-                if (response.err_code == 0) {
-                    getNilaiAkhir();
-                } else {
-                    alert(response.err_message);
-                }
-            },
-            error: function(response) {
-
-            },
-            complete: function(response) {
-
-            },
-        });
-    }
 
     function getNilaiAkhir() {
         $.ajax({

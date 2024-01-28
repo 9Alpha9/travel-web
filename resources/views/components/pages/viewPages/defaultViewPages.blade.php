@@ -36,9 +36,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/b87f3ad2d2.js" crossorigin="anonymous"></script>
-
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
-
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
     </script>
 
@@ -92,7 +90,6 @@
                 {{-- End Modal --}}
             </div>
             {{-- End Main Gallery Left --}}
-
             <div class="hidden start__side__gal xl:block">
                 <div class="relative flex flex-col gap-1 view__side__gallery">
                     <div class="flex flex-row gap-1 overflow-hidden rounded-lg inside__view__gallery">
@@ -137,7 +134,6 @@
                             </div>
                         </div>
                     </div>
-
                     {{-- Side Two --}}
                     <div class="flex flex-row gap-1 overflow-hidden inside__view__gallery">
                         <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
@@ -159,7 +155,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="h-full max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
                             {{-- Button trigger modal --}}
                             <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
@@ -183,7 +178,6 @@
                 </div>
             </div>
             {{-- Gallery View Item --}}
-
         </div>
         {{-- View Pages Item Component --}}
         @include('components.pages.viewPages.viewPagesInformation')

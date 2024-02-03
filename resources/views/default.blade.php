@@ -18,6 +18,7 @@
     {{-- Import Dependency Homepages Styles --}}
     <link rel="stylesheet" href="{{ asset('asset/styles/homepages/homepages-styles.css') }}">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>

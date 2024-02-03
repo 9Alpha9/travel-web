@@ -46,6 +46,12 @@ class HomePagesController extends Controller
         if (strlen($request->kota) > 0) {
             $this->wisata->where('id_kota', $request->kota);
         }
+        if ($request->minHarga > 0) {
+            $this->wisata->where('harga >=', $request->minHarga);
+        }
+        if ($request->maxHarga > 0) {
+            $this->wisata->where('harga <=', $request->maxHarga);
+        }
 
         $listModel = array(
             'wisata' => $this->wisata->get(),
@@ -69,6 +75,10 @@ class HomePagesController extends Controller
         ->orderByRaw('FIELD(id_wisata, ' . implode(',', $id_wisata) . ')')
         ->get();
 
-        return view('components.pages.viewPages.filterPages')->with(['filterpage' => 'active', 'tableWisata' => $sorted_wisata]);
+        $view = view('components.template.filteredList', ['filterpage' => 'active', 'tableWisata' => $sorted_wisata])->render();
+
+        return response()->json(['view' => $view]);
+
+        // return view('components.pages.viewPages.filterPages')->with(['filterpage' => 'active', 'tableWisata' => $sorted_wisata]);
     }
 }

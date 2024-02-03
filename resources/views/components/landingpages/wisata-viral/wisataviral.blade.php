@@ -13,13 +13,13 @@
                     </label>
                     <select id="kategori"
                         class="bg-gray-50 border border-gray-300  text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                        <option value='' selected>Pilih Kategori Wisata</option>
+                        <option value='' selected>Tampilkan Semua Kategori</option>
                         @foreach($tableKategori as $key => $value)
                         <option value="{{ $value->id_kategori_wisata }}">{{ $value->nama_kategori_wisata }}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="w-full filters__tipe__wisata">
+                {{-- <div class="w-full filters__tipe__wisata">
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">
                         <h3>Filter Kota/Kabupaten</h3>
                     </label>
@@ -30,7 +30,7 @@
                         <option value="{{ $value->id }}">{{ $value->name }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
                 <span class="items-center mx-2 on__submit">
                     <button type="button"
                         class="py-2.5 px-8  text-sm font-medium text-gray-900 focus:outline-none border border-gray-200 h focus:z-10 focus:ring-4 text-white btn-filter">
@@ -42,8 +42,305 @@
             </div>
             </span>
         </div>
-        <div class="grid grid-cols-2 gap-4 mt-10 mb-10 wisata__content md:grid-cols-4 xl:grid-cols-4">
-            {{-- Content --}}
+        {{-- Content Switch To Line Point --}}
+        <div class="mt-16 filterShow__container">
+            <div class="flex gap-4 filterBody__wrapper">
+                <div class="flex flex-col ml-12 filterSide__wrapper">
+                    <form action="" id="formFilter">
+                        <div class="rounded-lg content__side__filter filter__promo">
+                            <div class="filter__list__item">
+                                {{-- <div class="mb-3 border-b filter__items filter__popular">
+                                    <span class="item__header">
+                                        <h3 class="font-semibold">Berdasarkan rating</h3>
+                                    </span>
+                                    <ul class="py-4 rate__by__stars filter__stars">
+                                        <li class="py-1 filter__stars__item">
+                                            <span class="flex items-center filter__stars__inbox ">
+                                                <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                                <span class="flex px-2">
+                                                    @include('components.pages.viewPages.svgStars5Filter')
+                                                </span>
+                                                <span class="inline-block text-gray-400">
+                                                    <h3>(300)</h3>
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="py-1 filter__stars__item">
+                                            <span class="flex items-center filter__stars__inbox ">
+                                                <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                                <span class="flex px-2">
+                                                    @include('components.pages.viewPages.svgStars4Filter')
+                                                </span>
+                                                <span class="inline-block text-gray-400">
+                                                    <h3>(210)</h3>
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="py-1 filter__stars__item">
+                                            <span class="flex items-center filter__stars__inbox ">
+                                                <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                                <span class="flex px-2">
+                                                    @include('components.pages.viewPages.svgStars3Filter')
+                                                </span>
+                                                <span class="inline-block text-gray-400">
+                                                    <h3>(110)</h3>
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="py-1 filter__stars__item">
+                                            <span class="flex items-center filter__stars__inbox ">
+                                                <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                                <span class="flex px-2">
+                                                    @include('components.pages.viewPages.svgStars2Filter')
+                                                </span>
+                                                <span class="inline-block text-gray-400">
+                                                    <h3>(90)</h3>
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="py-1 filter__stars__item">
+                                            <span class="flex items-center filter__stars__inbox ">
+                                                <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                                <span class="flex px-2">
+                                                    @include('components.pages.viewPages.svgStars1Filter')
+                                                </span>
+                                                <span class="inline-block text-gray-400">
+                                                    <h3>(40)</h3>
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="py-1 filter__stars__item">
+                                            <span class="flex items-center filter__stars__inbox ">
+                                                <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                                <span class="flex px-2 text-sm">
+                                                    Tidak ada penilaian
+                                                </span>
+                                                <span class="inline-block text-gray-400">
+                                                    <h3>(20)</h3>
+                                                </span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div> --}}
+                                <div class="filterRange__prices filter__items">
+                                    <span class="item__header">
+                                        <h3 class="font-semibold">Berdasarkan Harga</h3>
+                                    </span>
+                                    <div class="mt-4 mb-4 range_container">
+                                        <div class="sliders_control">
+                                            <input id="fromSlider" type="range" value="0" min="0" max="100"
+                                                style="outline: none;" />
+                                            <input id="toSlider" type="range" value="50" min="0" max="100"
+                                                style="outline: none;" />
+                                        </div>
+                                        <div class="form_control">
+                                            <div class="relative form_control_container">
+                                                <span
+                                                    class="absolute bottom-0 mb-1 text-sm left-1 filter__price">Rp</span>
+                                                <label for="price__box__0" class="text-sm">Min</label>
+                                                <input class="text-sm form_control_container__time__input" type="number"
+                                                    id="fromInput" value="0" min="0" max="100" />
+                                                {{-- hidden --}}
+                                                <input class="hidden text-sm form_control_container__time__input"
+                                                    type="number" id="fromInput" name="minHarga" value="0" min="0"
+                                                    max="100" />
+                                                {{-- hidden --}}
+                                            </div>
+                                            <span class="separator__dot"></span>
+                                            <div class="relative form_control_container">
+                                                <span
+                                                    class="absolute bottom-0 mb-1 ml-1 text-sm right-1 filter__price">Rp</span>
+                                                <label for="price__box__0" class="text-sm">Max</label>
+                                                <input class="text-sm form_control_container__time__input" type="number"
+                                                    id="toInput" value="0" min="0" max="100" />
+                                                {{-- hidden --}}
+                                                <input class="hidden text-sm form_control_container__time__input"
+                                                    type="number" id="toInput" name="maxHarga" value="0" min="0"
+                                                    max="100" />
+                                                {{-- hidden --}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border-t filterAksesbiliti filter__special">
+                                    <div class="mt-4 filter__item">
+                                        <span class="item__header">
+                                            <h3 class="font-semibold">Berdasarkan Aksesbilitas</h3>
+                                        </span>
+                                        <div class="aksesbiliti__item">
+                                            <div class="inline-block">
+                                                <ul class="mb-3 text-sm aksesbiliti__itemcheck">
+                                                    <span class="checkSelected__item">
+                                                        <li
+                                                            class="flex items-center gap-2 pb-2 m-0 mt-3 itemChecks__input active">
+                                                            <input type="checkbox" name="kota" id="kota" value=""
+                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                                style="margin: 0px 4px; outline: none;">
+                                                            <span class="flex inline-block itemSelect" for="kota">
+                                                                <h3>Semua Aksesbilitas</h3>
+                                                            </span>
+                                                            <span
+                                                                class="inline-block text-gray-primary value__indicators">(40)</span>
+                                                        </li>
+                                                    </span>
+                                                    <span class="checkSelected__item">
+                                                        <li
+                                                            class="flex items-center gap-2 pb-2 m-0 itemChecks__input active">
+                                                            <input type="checkbox" name="kota" id="kota" value=""
+                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                                style="margin: 0px 4px; outline: none;">
+                                                            <span class="flex inline-block itemSelect" for="kota">
+                                                                <h3>Kota</h3>
+                                                            </span>
+                                                            <span
+                                                                class="inline-block text-gray-primary value__indicators">(10)</span>
+                                                        </li>
+                                                    </span>
+                                                    <span class="checkSelected__item">
+                                                        <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                            <input type="checkbox" name="kota" id="kota" value=""
+                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                                style="margin: 0px 4px; outline: none;">
+                                                            <span class="flex inline-block itemSelect" for="kota">
+                                                                <h3>Tengah Kota</h3>
+                                                            </span>
+                                                            <span
+                                                                class="inline-block text-gray-primary value__indicators">(20)</span>
+                                                        </li>
+                                                    </span>
+                                                    <span class="checkSelected__item">
+                                                        <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                            <input type="checkbox" name="kota" id="kota" value=""
+                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                                style="margin: 0px 4px; outline: none;">
+                                                            <span class="flex inline-block itemSelect" for="kota">
+                                                                <h3>Pinggiran Kota</h3>
+                                                            </span>
+                                                            <span
+                                                                class="inline-block text-gray-primary value__indicators">(23)</span>
+                                                        </li>
+                                                    </span>
+                                                    <span class="checkSelected__item">
+                                                        <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                            <input type="checkbox" name="kota" id="kota" value=""
+                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                                style="margin: 0px 4px; outline: none;">
+                                                            <span class="flex inline-block itemSelect" for="kota">
+                                                                <h3>Desa</h3>
+                                                            </span>
+                                                            <span
+                                                                class="inline-block text-gray-primary value__indicators">(12)</span>
+                                                        </li>
+                                                    </span>
+                                                    <span class="checkSelected__item">
+                                                        <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                            <input type="checkbox" name="kota" id="kota" value=""
+                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                                style="margin: 0px 4px; outline: none;">
+                                                            <span class="flex inline-block itemSelect" for="kota">
+                                                                <h3>Pelosok</h3>
+                                                            </span>
+                                                            <span
+                                                                class="inline-block text-gray-primary value__indicators">(22)</span>
+                                                        </li>
+                                                    </span>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-t filterFacility">
+                                    <div class="mt-3 filterFacility__items">
+                                        <span class="item__header">
+                                            <h3 class="font-semibold">Berdasarkan Fasilitas</h3>
+                                        </span>
+                                        <div class="inline-block mt-3">
+                                            <ul class="items-center mb-3 text-sm aksesbiliti__itemcheck">
+                                                <span class="checkSelected__item">
+                                                    <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                        <input type="checkbox" name="kota" id="kota" value=""
+                                                            class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                            style="margin: 0px 4px; outline: none;">
+                                                        <span class="flex inline-block itemSelect" for="kota">
+                                                            <h3>Toilet Dan Kamar Mandi</h3>
+                                                        </span>
+                                                        <span
+                                                            class="inline-block text-gray-primary value__indicators">(12)</span>
+                                                    </li>
+                                                </span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-t filterFacility">
+                                    <div class="mt-3 filterFacility__items">
+                                        <span class="item__header">
+                                            <h3 class="font-semibold">Berdasarkan Kategori</h3>
+                                        </span>
+                                        <div class="inline-block mt-3">
+                                            <ul class="items-center mb-3 text-sm kategori__itemcheck">
+                                                <span class="checkSelected__item">
+                                                    <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                        <input type="checkbox" name="kota" id="kota" value=""
+                                                            class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                            style="margin: 0px 4px; outline: none;">
+                                                        <span class="flex inline-block itemSelect" for="kota">
+                                                            <h3>Semua Kategori</h3>
+                                                        </span>
+                                                        <span
+                                                            class="inline-block text-gray-primary value__indicators">(54)</span>
+                                                    </li>
+                                                </span>
+                                                <span class="checkSelected__item">
+                                                    <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                        <input type="checkbox" name="kota" id="kota" value=""
+                                                            class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                            style="margin: 0px 4px; outline: none;">
+                                                        <span class="flex inline-block itemSelect" for="kota">
+                                                            <h3>Edukasi</h3>
+                                                        </span>
+                                                        <span
+                                                            class="inline-block text-gray-primary value__indicators">(10)</span>
+                                                    </li>
+                                                </span>
+                                                <span class="checkSelected__item">
+                                                    <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                        <input type="checkbox" name="kota" id="kota" value=""
+                                                            class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                            style="margin: 0px 4px; outline: none;">
+                                                        <span class="flex inline-block itemSelect" for="kota">
+                                                            <h3>Rekreasi</h3>
+                                                        </span>
+                                                        <span
+                                                            class="inline-block text-gray-primary value__indicators">(23)</span>
+                                                    </li>
+                                                </span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="filterContent__item">
+                    <div class="spanHeading__label">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+                        dolores aspernatur quasi aut unde voluptatum debitis necessitatibus quod eius ullam dolorem esse
+                        inventore aliquid quibusdam dolorum iusto? Dolores, illum. Illum!</div>
+                    <span class="spinBall spinLoaded loadedContent">
+                        <div class="flex m-auto lds-ellipsis">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+        {{-- End Content Switch To Line Point --}}
+
+        {{-- <div class="grid grid-cols-2 gap-4 mt-10 mb-10 wisata__content md:grid-cols-4 xl:grid-cols-4">
             @foreach($wisata as $key => $value)
             <div class="flex flex-row wisata__card">
                 <div class="block max-w-md dark:bg-neutral-700 wisata__viral__card__item">
@@ -61,16 +358,13 @@
                             " class="max-h-60 md:max-h-60 xl:max-h-96" alt="" />
                         </figure>
                     </a>
-                    {{-- Card Wisata Information --}}
                     <div class="my-8 card__title__info">
                         <div class="flex flex-row justify-between gap-2 wisata__info__header">
                             <div class="wisata__info__title">
-                                {{-- Wisata Name --}}
                                 <a href="#!">
                                     <h5 class="font-semibold">{{ $value->nama_wisata }}</h5>
                                 </a>
                             </div>
-                            {{-- Rating --}}
                             <div class="flex items-center float-left gap-1 wisata__stars">
                                 <svg width="14" height="14" viewBox="0 0 33 33" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -78,12 +372,10 @@
                                         d="M30.3883 12.2397C30.2632 11.8459 30.0219 11.4992 29.6963 11.2449C29.3706 10.9906 28.9757 10.8406 28.5633 10.8147L21.1383 10.3022L18.3883 3.3647C18.2382 2.9827 17.9768 2.65458 17.638 2.4228C17.2993 2.19103 16.8988 2.06628 16.4883 2.0647C16.0779 2.06628 15.6774 2.19103 15.3386 2.4228C14.9999 2.65458 14.7385 2.9827 14.5883 3.3647L11.7883 10.3397L4.41333 10.8147C4.00146 10.8423 3.60735 10.9929 3.28199 11.2469C2.95663 11.501 2.71499 11.8468 2.58833 12.2397C2.45825 12.6386 2.45065 13.0673 2.56651 13.4706C2.68236 13.8738 2.91636 14.2332 3.23833 14.5022L8.91333 19.3022L7.22583 25.9397C7.10907 26.3887 7.13008 26.8625 7.28613 27.2994C7.44217 27.7363 7.72604 28.1162 8.10083 28.3897C8.46462 28.6508 8.89804 28.7974 9.34563 28.8108C9.79321 28.8241 10.2346 28.7036 10.6133 28.4647L16.4758 24.7522H16.5008L22.8133 28.7397C23.1371 28.9501 23.5147 29.0629 23.9008 29.0647C24.2161 29.0622 24.5267 28.9875 24.8086 28.8462C25.0905 28.705 25.3363 28.5009 25.527 28.2498C25.7177 27.9988 25.8484 27.7073 25.9088 27.3978C25.9693 27.0883 25.958 26.7691 25.8758 26.4647L24.0883 19.2022L29.7383 14.5022C30.0603 14.2332 30.2943 13.8738 30.4101 13.4706C30.526 13.0673 30.5184 12.6386 30.3883 12.2397Z"
                                         fill="#3237d2" />
                                 </svg>
-                                {{-- Ratting Indicator --}}
                                 <span class="inline-block text-sm font-light rattings__numb">
                                     4,7
                                 </span>
                             </div>
-                            {{-- End Rating --}}
                         </div>
                         <div class="flex flex-row items-center gap-2 py-3 m-auto card__location__graph">
                             <svg width="20" height="20" viewBox="0 0 10 13" fill="none" class="block align-middle"
@@ -92,22 +384,17 @@
                                     d="M4.72531 0.840637C3.49946 0.842028 2.32423 1.32961 1.45743 2.19641C0.590624 3.06321 0.103045 4.23845 0.101654 5.46429C0.101654 9.42066 4.30497 12.4103 4.48361 12.5364C4.55521 12.584 4.6393 12.6095 4.72531 12.6095C4.81132 12.6095 4.8954 12.584 4.967 12.5364C5.14564 12.4103 9.34896 9.42066 9.34896 5.46429C9.34757 4.23845 8.85999 3.06321 7.99319 2.19641C7.12638 1.32961 5.95115 0.842028 4.72531 0.840637ZM4.72531 3.78296C5.05784 3.78296 5.38291 3.88157 5.6594 4.06632C5.93589 4.25106 6.15139 4.51365 6.27865 4.82087C6.40591 5.12809 6.4392 5.46615 6.37433 5.7923C6.30945 6.11844 6.14932 6.41803 5.91418 6.65317C5.67905 6.88831 5.37946 7.04844 5.05332 7.11331C4.72717 7.17818 4.38911 7.14489 4.08189 7.01763C3.77467 6.89038 3.51208 6.67488 3.32733 6.39838C3.14259 6.12189 3.04398 5.79682 3.04398 5.46429C3.04398 5.01837 3.22112 4.59072 3.53643 4.27541C3.85174 3.9601 4.27939 3.78296 4.72531 3.78296Z"
                                     fill="#3237d2" />
                             </svg>
-                            {{-- Wisata Location Information --}}
                             <p class="text-xs text-neutral-600 dark:text-neutral-200 text__location">
                                 {{$value->kecamatan->name }}, {{$value->kecamatan->kota->name }}
-                                {{-- Kecamatan Gadung Asri Joyobonto, Surabaya. --}}
                             </p>
-                            {{-- End Wisata Location Information --}}
                         </div>
                     </div>
-                    {{-- End Card Wisata Information --}}
                 </div>
             </div>
             @endforeach
-            {{-- End Content --}}
-        </div>
-        {{-- Pagination --}}
-        <div class="relative pagination__rows">
+        </div> --}}
+
+        {{-- <div class="relative mt-12 pagination__rows">
             <div class="flex justify-between w-full pagination__rows__number">
                 <div class="flex flex-row items-center">
                     <span class="text-sm text-gray-400 dark:text-gray-100">
@@ -147,8 +434,7 @@
                     </ul>
                 </nav>
             </div>
-        </div>
-        {{-- Pagination --}}
+        </div> --}}
     </div>
 </div>
 {{-- End Wisata Viral --}}

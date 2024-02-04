@@ -49,11 +49,21 @@
                                             Fasilitas tempat wisata:
                                         </h3>
                                     </div>
-                                    @foreach($value->fasilitaswisata as $key2 => $value2)
-                                    <span class="inline-block mb-1">{{
+                                    <ol
+                                        class="flex flex-wrap col-span-2 gap-1 pills__body list-group-item list-inline-item">
+                                        @foreach($value->fasilitaswisata as $key2 => $value2)
+                                        <li class="pills__eachItem">
+                                            <span class="inline-block ">
+                                                {{
+                                                $value2->kategorifasilitas->kategori_fasilitas
+                                                }}
+                                            </span>
+                                        </li>
+                                        @endforeach
+                                    </ol>
+                                    {{-- <span class="inline-block mb-1">{{
                                         $value2->kategorifasilitas->kategori_fasilitas
-                                        }}</span>
-                                    @endforeach
+                                        }}</span> --}}
                                 </div>
                             </div>
                             <div class="moreInfo__wrapper">

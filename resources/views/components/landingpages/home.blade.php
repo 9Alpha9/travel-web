@@ -317,5 +317,10 @@
       });
 </script>
 
+<script>
+    $(function () {
+        $('ol li:gt(2)').remove()
+      })
+</script>
 
 @endpush

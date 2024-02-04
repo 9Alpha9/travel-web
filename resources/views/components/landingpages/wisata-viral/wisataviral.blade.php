@@ -122,208 +122,206 @@
                                         </li>
                                     </ul>
                                 </div> --}}
-                                <div class="filterRange__prices filter__items">
+                                <div class="filterRange__prices filter__items"></div>
+                                <span class="item__header">
+                                    <h3 class="font-semibold">Berdasarkan Harga</h3>
+                                </span>
+                                <div class="mt-4 mb-4 range_container">
+                                    <div class="sliders_control">
+                                        <input id="fromSlider" type="range" value="0" min="0" max="100"
+                                            style="outline: none;" />
+                                        <input id="toSlider" type="range" value="50" min="0" max="100"
+                                            style="outline: none;" />
+                                    </div>
+                                    <div class="form_control">
+                                        <div class="relative form_control_container">
+                                            <span class="absolute bottom-0 mb-1 text-sm left-1 filter__price">Rp</span>
+                                            <label for="price__box__0" class="text-sm">Min</label>
+                                            <input class="text-sm form_control_container__time__input" type="number"
+                                                id="fromInput" value="0" min="0" max="100" />
+                                            {{-- hidden --}}
+                                            <input class="hidden text-sm form_control_container__time__input"
+                                                type="number" id="fromInput" name="minHarga" value="0" min="0"
+                                                max="100" />
+                                            {{-- hidden --}}
+                                        </div>
+                                        <span class="separator__dot"></span>
+                                        <div class="relative form_control_container">
+                                            <span
+                                                class="absolute bottom-0 mb-1 ml-1 text-sm right-1 filter__price">Rp</span>
+                                            <label for="price__box__0" class="text-sm">Max</label>
+                                            <input class="text-sm form_control_container__time__input" type="number"
+                                                id="toInput" value="0" min="0" max="100" />
+                                            {{-- hidden --}}
+                                            <input class="hidden text-sm form_control_container__time__input"
+                                                type="number" id="toInput" name="maxHarga" value="0" min="0"
+                                                max="100" />
+                                            {{-- hidden --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-t filterAksesbiliti filter__special">
+                                <div class="mt-4 filter__item">
                                     <span class="item__header">
-                                        <h3 class="font-semibold">Berdasarkan Harga</h3>
+                                        <h3 class="font-semibold">Berdasarkan Aksesbilitas</h3>
                                     </span>
-                                    <div class="mt-4 mb-4 range_container">
-                                        <div class="sliders_control">
-                                            <input id="fromSlider" type="range" value="0" min="0" max="100"
-                                                style="outline: none;" />
-                                            <input id="toSlider" type="range" value="50" min="0" max="100"
-                                                style="outline: none;" />
-                                        </div>
-                                        <div class="form_control">
-                                            <div class="relative form_control_container">
-                                                <span
-                                                    class="absolute bottom-0 mb-1 text-sm left-1 filter__price">Rp</span>
-                                                <label for="price__box__0" class="text-sm">Min</label>
-                                                <input class="text-sm form_control_container__time__input" type="number"
-                                                    id="fromInput" value="0" min="0" max="100" />
-                                                {{-- hidden --}}
-                                                <input class="hidden text-sm form_control_container__time__input"
-                                                    type="number" id="fromInput" name="minHarga" value="0" min="0"
-                                                    max="100" />
-                                                {{-- hidden --}}
-                                            </div>
-                                            <span class="separator__dot"></span>
-                                            <div class="relative form_control_container">
-                                                <span
-                                                    class="absolute bottom-0 mb-1 ml-1 text-sm right-1 filter__price">Rp</span>
-                                                <label for="price__box__0" class="text-sm">Max</label>
-                                                <input class="text-sm form_control_container__time__input" type="number"
-                                                    id="toInput" value="0" min="0" max="100" />
-                                                {{-- hidden --}}
-                                                <input class="hidden text-sm form_control_container__time__input"
-                                                    type="number" id="toInput" name="maxHarga" value="0" min="0"
-                                                    max="100" />
-                                                {{-- hidden --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="border-t filterAksesbiliti filter__special">
-                                    <div class="mt-4 filter__item">
-                                        <span class="item__header">
-                                            <h3 class="font-semibold">Berdasarkan Aksesbilitas</h3>
-                                        </span>
-                                        <div class="aksesbiliti__item">
-                                            <div class="inline-block">
-                                                <ul class="mb-3 text-sm aksesbiliti__itemcheck">
-                                                    <span class="checkSelected__item">
-                                                        <li
-                                                            class="flex items-center gap-2 pb-2 m-0 mt-3 itemChecks__input active">
-                                                            <input type="checkbox" name="kota" id="kota" value=""
-                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
-                                                                style="margin: 0px 4px; outline: none;">
-                                                            <span class="flex inline-block itemSelect" for="kota">
-                                                                <h3>Semua Aksesbilitas</h3>
-                                                            </span>
-                                                            <span
-                                                                class="inline-block text-gray-primary value__indicators">(40)</span>
-                                                        </li>
-                                                    </span>
-                                                    <span class="checkSelected__item">
-                                                        <li
-                                                            class="flex items-center gap-2 pb-2 m-0 itemChecks__input active">
-                                                            <input type="checkbox" name="kota" id="kota" value=""
-                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
-                                                                style="margin: 0px 4px; outline: none;">
-                                                            <span class="flex inline-block itemSelect" for="kota">
-                                                                <h3>Kota</h3>
-                                                            </span>
-                                                            <span
-                                                                class="inline-block text-gray-primary value__indicators">(10)</span>
-                                                        </li>
-                                                    </span>
-                                                    <span class="checkSelected__item">
-                                                        <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
-                                                            <input type="checkbox" name="kota" id="kota" value=""
-                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
-                                                                style="margin: 0px 4px; outline: none;">
-                                                            <span class="flex inline-block itemSelect" for="kota">
-                                                                <h3>Tengah Kota</h3>
-                                                            </span>
-                                                            <span
-                                                                class="inline-block text-gray-primary value__indicators">(20)</span>
-                                                        </li>
-                                                    </span>
-                                                    <span class="checkSelected__item">
-                                                        <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
-                                                            <input type="checkbox" name="kota" id="kota" value=""
-                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
-                                                                style="margin: 0px 4px; outline: none;">
-                                                            <span class="flex inline-block itemSelect" for="kota">
-                                                                <h3>Pinggiran Kota</h3>
-                                                            </span>
-                                                            <span
-                                                                class="inline-block text-gray-primary value__indicators">(23)</span>
-                                                        </li>
-                                                    </span>
-                                                    <span class="checkSelected__item">
-                                                        <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
-                                                            <input type="checkbox" name="kota" id="kota" value=""
-                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
-                                                                style="margin: 0px 4px; outline: none;">
-                                                            <span class="flex inline-block itemSelect" for="kota">
-                                                                <h3>Desa</h3>
-                                                            </span>
-                                                            <span
-                                                                class="inline-block text-gray-primary value__indicators">(12)</span>
-                                                        </li>
-                                                    </span>
-                                                    <span class="checkSelected__item">
-                                                        <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
-                                                            <input type="checkbox" name="kota" id="kota" value=""
-                                                                class="checkboxHover focus:ring-0 focus:ring-transparent"
-                                                                style="margin: 0px 4px; outline: none;">
-                                                            <span class="flex inline-block itemSelect" for="kota">
-                                                                <h3>Pelosok</h3>
-                                                            </span>
-                                                            <span
-                                                                class="inline-block text-gray-primary value__indicators">(22)</span>
-                                                        </li>
-                                                    </span>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3 border-t filterFacility">
-                                    <div class="mt-3 filterFacility__items">
-                                        <span class="item__header">
-                                            <h3 class="font-semibold">Berdasarkan Fasilitas</h3>
-                                        </span>
-                                        <div class="inline-block mt-3">
-                                            <ul class="items-center mb-3 text-sm aksesbiliti__itemcheck">
-                                                <span class="checkSelected__item">
-                                                    <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
-                                                        <input type="checkbox" name="kota" id="kota" value=""
+                                    <div class="mt-3 aksesbiliti__item">
+                                        <div class="inline-block">
+                                            <ul class="mb-3 text-sm aksesbiliti__itemcheck">
+                                                @foreach($tableAksesbilitas as $key => $value)
+                                                <span class="checkSelected__item in">
+                                                    <li
+                                                        class="flex items-center gap-2 pb-2 m-0 itemChecks__input active">
+                                                        <input type="checkbox" name="aksesbilitas[]" class="hidden"
+                                                            value="{{ $value->id_aksesbilitas }}" />
+                                                        <input type="checkbox" id="aksesbilitas_{{ $key }}"
                                                             class="checkboxHover focus:ring-0 focus:ring-transparent"
                                                             style="margin: 0px 4px; outline: none;">
-                                                        <span class="flex inline-block itemSelect" for="kota">
-                                                            <h3>Toilet Dan Kamar Mandi</h3>
+                                                        <span class="flex inline-block itemSelect"
+                                                            for="aksesbilitas_{{ $key }}">
+                                                            <h3>{{ $value->nama_aksesbilitas }}</h3>
                                                         </span>
                                                         <span
-                                                            class="inline-block text-gray-primary value__indicators">(12)</span>
+                                                            class="inline-block text-gray-primary value__indicators">({{
+                                                            $value->wisata_count }})</span>
                                                     </li>
                                                 </span>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3 border-t filterFacility">
-                                    <div class="mt-3 filterFacility__items">
-                                        <span class="item__header">
-                                            <h3 class="font-semibold">Berdasarkan Kategori</h3>
-                                        </span>
-                                        <div class="inline-block mt-3">
-                                            <ul class="items-center mb-3 text-sm kategori__itemcheck">
-                                                <span class="checkSelected__item">
-                                                    <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
-                                                        <input type="checkbox" name="kota" id="kota" value=""
-                                                            class="checkboxHover focus:ring-0 focus:ring-transparent"
-                                                            style="margin: 0px 4px; outline: none;">
-                                                        <span class="flex inline-block itemSelect" for="kota">
-                                                            <h3>Semua Kategori</h3>
-                                                        </span>
-                                                        <span
-                                                            class="inline-block text-gray-primary value__indicators">(54)</span>
-                                                    </li>
-                                                </span>
-                                                <span class="checkSelected__item">
-                                                    <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
-                                                        <input type="checkbox" name="kota" id="kota" value=""
-                                                            class="checkboxHover focus:ring-0 focus:ring-transparent"
-                                                            style="margin: 0px 4px; outline: none;">
-                                                        <span class="flex inline-block itemSelect" for="kota">
-                                                            <h3>Edukasi</h3>
-                                                        </span>
-                                                        <span
-                                                            class="inline-block text-gray-primary value__indicators">(10)</span>
-                                                    </li>
-                                                </span>
-                                                <span class="checkSelected__item">
-                                                    <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
-                                                        <input type="checkbox" name="kota" id="kota" value=""
-                                                            class="checkboxHover focus:ring-0 focus:ring-transparent"
-                                                            style="margin: 0px 4px; outline: none;">
-                                                        <span class="flex inline-block itemSelect" for="kota">
-                                                            <h3>Rekreasi</h3>
-                                                        </span>
-                                                        <span
-                                                            class="inline-block text-gray-primary value__indicators">(23)</span>
-                                                    </li>
-                                                </span>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="mt-3 border-t filterFacility">
+                                <div class="mt-3 filterFacility__items">
+                                    <span class="item__header">
+                                        <h3 class="font-semibold">Berdasarkan Fasilitas</h3>
+                                    </span>
+                                    <div class="inline-block mt-3">
+                                        <ul class="items-center mb-3 text-sm aksesbiliti__itemcheck">
+                                            @foreach($tableFasilitas as $key => $value)
+                                            <span class="checkSelected__item">
+                                                <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                    <input type="checkbox" name="faslitas[]" class="hidden"
+                                                        value="{{ $value->id_kategori_fasilitas }}"
+                                                        style="margin: 0px 4px; outline: none;">
+                                                    <input type="checkbox" id="fasilitas_{{ $key }}"
+                                                        class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                        style="margin: 0px 4px; outline: none;">
+                                                    <span class="flex inline-block itemSelect">
+                                                        <h3>{{ $value->kategori_fasilitas }}</h3>
+                                                    </span>
+                                                    <span class="inline-block text-gray-primary value__indicators">({{
+                                                        $value->fasilitaswisata_count }})</span>
+                                                </li>
+                                            </span>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="mt-3 border-t filterFacility">
+                                <div class="mt-3 filterFacility__items">
+                                    <span class="item__header">
+                                        <h3 class="font-semibold">Berdasarkan Kategori</h3>
+                                    </span>
+                                    <div class="inline-block mt-3">
+                                        <ul class="items-center mb-3 text-sm kategori__itemcheck">
+                                            <span class="checkSelected__item">
+                                                <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                    <input type="checkbox" name="kota" id="kota" value=""
+                                                        class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                        style="margin: 0px 4px; outline: none;">
+                                                    <span class="flex inline-block itemSelect" for="kota">
+                                                        <h3>Semua Kategori</h3>
+                                                    </span>
+                                                    <span
+                                                        class="inline-block text-gray-primary value__indicators">(54)</span>
+                                                </li>
+                                            </span>
+                                            <span class="checkSelected__item">
+                                                <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                    <input type="checkbox" name="kota" id="kota" value=""
+                                                        class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                        style="margin: 0px 4px; outline: none;">
+                                                    <span class="flex inline-block itemSelect" for="kota">
+                                                        <h3>Edukasi</h3>
+                                                    </span>
+                                                    <span
+                                                        class="inline-block text-gray-primary value__indicators">(10)</span>
+                                                </li>
+                                            </span>
+                                            <span class="checkSelected__item">
+                                                <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
+                                                    <input type="checkbox" name="kota" id="kota" value=""
+                                                        class="checkboxHover focus:ring-0 focus:ring-transparent"
+                                                        style="margin: 0px 4px; outline: none;">
+                                                    <span class="flex inline-block itemSelect" for="kota">
+                                                        <h3>Rekreasi</h3>
+                                                    </span>
+                                                    <span
+                                                        class="inline-block text-gray-primary value__indicators">(23)</span>
+                                                </li>
+                                            </span>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> --}}
                         </div>
                     </form>
                 </div>
                 <div class="filterContent__item">
+                    <div class="content__side__filter filter__recommendation ">
+                        <div class="filter__show link__filter__show">
+                            <a href="" class="filter__on__click">
+                                <div class="flex flex-row gap-4 mb-3 border rounded-lg content__recommendation">
+                                    <div class="content__banner__recommendation">
+                                        <img src="" alt="Deskripsi rekomendasi wisata">
+                                    </div>
+                                    <div class="relative flex head__recommendation">
+                                        <div class="flex flex-col border-r title__head">
+                                            <span class="block text__recommendation">
+                                                <h3 class="font-semibold">fghfgh</h3>
+                                            </span>
+                                            {{-- Rating --}}
+                                            <div class="flex items-center float-left gap-1 my-3 wisata__stars">
+                                                @include('components.pages.viewPages.svgIcon')
+                                                {{-- Ratting Indicator --}}
+                                                <span
+                                                    class="flex items-center inline-block pl-2 text-sm font-light rattings__numb align-content-center">
+                                                    <span class="gap-2 location__pin">
+                                                        <svg width="15" height="15" viewBox="0 0 10 13" fill="none"
+                                                            class="block align-middle"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M4.72531 0.840637C3.49946 0.842028 2.32423 1.32961 1.45743 2.19641C0.590624 3.06321 0.103045 4.23845 0.101654 5.46429C0.101654 9.42066 4.30497 12.4103 4.48361 12.5364C4.55521 12.584 4.6393 12.6095 4.72531 12.6095C4.81132 12.6095 4.8954 12.584 4.967 12.5364C5.14564 12.4103 9.34896 9.42066 9.34896 5.46429C9.34757 4.23845 8.85999 3.06321 7.99319 2.19641C7.12638 1.32961 5.95115 0.842028 4.72531 0.840637ZM4.72531 3.78296C5.05784 3.78296 5.38291 3.88157 5.6594 4.06632C5.93589 4.25106 6.15139 4.51365 6.27865 4.82087C6.40591 5.12809 6.4392 5.46615 6.37433 5.7923C6.30945 6.11844 6.14932 6.41803 5.91418 6.65317C5.67905 6.88831 5.37946 7.04844 5.05332 7.11331C4.72717 7.17818 4.38911 7.14489 4.08189 7.01763C3.77467 6.89038 3.51208 6.67488 3.32733 6.39838C3.14259 6.12189 3.04398 5.79682 3.04398 5.46429C3.04398 5.01837 3.22112 4.59072 3.53643 4.27541C3.85174 3.9601 4.27939 3.78296 4.72531 3.78296Z"
+                                                                fill="#3237d2"></path>
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            {{-- End Rating --}}
+                                            <div class="facility">
+                                                <h3 class="text-sm">Fasilitas tempat wisata:</h3>
+                                                <span class="inline-block mb-1"></span>
+                                            </div>
+                                        </div>
+                                        <div class="info__recommendation">
+
+                                            <span class="">
+                                                <h2>Harga Spesial</h2>
+                                                <h3 class="my-3 font-semibold">OFF</h3>
+                                            </span>
+                                            <span class="no__discount">
+                                                <h3></h3>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                     <div class="spanHeading__label">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
                         dolores aspernatur quasi aut unde voluptatum debitis necessitatibus quod eius ullam dolorem esse
                         inventore aliquid quibusdam dolorum iusto? Dolores, illum. Illum!</div>

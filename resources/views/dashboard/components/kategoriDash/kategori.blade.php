@@ -212,7 +212,7 @@
         deleteInput(this);
     });
 
-    $('.editBtn').on('click', function(){
+    $('body').on('click', '.editBtn', function(){
         href = "{{ route('kategori.update', 'idKategori') }}";
         href = href.replace('idKategori', $(this).data('id'));
         $('#inputedNama').val($(this).data('nama'));

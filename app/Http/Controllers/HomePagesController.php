@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Models\Aksesbilitas;
+use App\Models\KategoriFasilitas;
 use App\Models\KategoriWisata;
 use App\Models\Kota;
 use App\Models\Kriteria;
@@ -31,8 +33,19 @@ class HomePagesController extends Controller
         $wisata = Wisata::with('GambarWisata')->orderBy('created_at', 'desc')->get();
         $tableKategori = KategoriWisata::orderBy('created_at', 'asc')->get();
         $tableKota = Kota::orderBy('created_at', 'asc')->where('province_id', 35)->orderBy('name', 'asc')->get();
-        // dd($wisata);
-        return view('components/landingpages/home')->with(['home' => 'active', 'pageTitle' => 'Travel', 'wisata' => $wisata, 'tableKategori' => $tableKategori, 'tableKota' => $tableKota]);
+        $tableAksesbilitas = Aksesbilitas::withCount('wisata')->get();
+        $tableFasilitas = KategoriFasilitas::withCount('fasilitaswisata')->get();
+        // dd($tableFasilitas);
+        $return = array(
+            'home' => 'active',
+            'pageTitle' => 'Travel',
+            'wisata' => $wisata,
+            'tableKategori' => $tableKategori,
+            'tableKota' => $tableKota,
+            'tableAksesbilitas' => $tableAksesbilitas,
+            'tableFasilitas' => $tableFasilitas,
+        );
+        return view('components/landingpages/home')->with($return);
     }
 
     public function filterPageRedirect() {

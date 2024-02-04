@@ -729,6 +729,18 @@ input:focus {
 
     }
 
+    .itemChecks__input .data__checkBox {
+        display: block;
+        border: 3px;
+        width: 20px;
+        height: 20px;
+        background-color: tomato;
+
+    }
+
+
+
+
 }
 
 
@@ -907,6 +919,12 @@ input:focus {
                     font-size: 0.8em;
                     border: solid 1px #d5ddf5;
                     border-radius: 3px;
+                }
+
+                .pills__body {
+                    li:nth-of-type(1n+4) {
+                        display: none;
+                    }
                 }
             }
 

@@ -670,6 +670,9 @@ input:focus {
   border: solid 1px #d5ddf5;
   border-radius: 3px;
 }
+.content__recommendation .head__recommendation .title__head .facility .pills__body li:nth-of-type(1n+4) {
+  display: none;
+}
 .content__recommendation .head__recommendation .title__head .text__recommendation {
   display: inline;
   fill: inherit;

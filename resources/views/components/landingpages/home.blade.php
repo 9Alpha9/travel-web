@@ -194,8 +194,7 @@
 
 <script>
     $('.btn-filter').on('click', function() {
-        let kategori = $('#kategori').val();
-        let sendData = $('#formFilter').serialize() + '&kategori=' + kategori;
+        let sendData = $('#formFilter').serialize() + '&' + $('#filterKategori').serialize();
         $.ajax({
             url: "{{ route('filterpage') }}",
             method: 'post',
@@ -323,4 +322,17 @@
       })
 </script>
 
+
+<script>
+    $(function() {
+
+        $('#chkveg').multiselect({
+          includeSelectAllOption: true
+        });
+
+        $('#btnget').click(function() {
+          alert($('#chkveg').val());
+        });
+      });
+</script>
 @endpush

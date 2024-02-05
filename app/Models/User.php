@@ -68,4 +68,8 @@ class User extends Authenticatable
     public function Alamat() {
         return $this->hasMany(Alamat::class, 'id_user', 'id_user');
     }
+
+    public function NilaiTipeWahana() {
+        return $this->hasMany(NilaiTipeWahana::class, 'id_user', 'id_user');
+    }
 }

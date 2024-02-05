@@ -430,6 +430,10 @@ input:focus {
   border-radius: 30px;
 }
 
+.wisata__landing__wrapper .wisata__heading {
+  max-width: 1380px;
+  width: 1348px;
+}
 .wisata__landing__wrapper .wisata__heading .title__wisata__viral .wisata__title__viral {
   font-size: 1.375em;
   font-weight: 600;
@@ -532,6 +536,13 @@ input:focus {
   width: 236px;
   max-width: 240px;
 }
+.filterShow__container .itemChecks__input .data__checkBox {
+  display: block;
+  border: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: tomato;
+}
 
 .wisata__landing__wrapper {
   position: relative;
@@ -550,13 +561,11 @@ input:focus {
 }
 .wisata__landing__wrapper .filters__wisata .filters__control {
   justify-content: center;
-  align-items: center;
 }
-.wisata__landing__wrapper .filters__wisata .filters__control button {
-  margin-top: 2em;
+.wisata__landing__wrapper .filters__wisata .filters__control .btnFilter__set {
   background-color: #3237d2;
 }
-.wisata__landing__wrapper .filters__wisata .filters__control button:hover {
+.wisata__landing__wrapper .filters__wisata .filters__control .btnFilter__set:hover {
   background-color: #1c64f2;
 }
 .wisata__landing__wrapper .filters__wisata .filters__control .label-first h3 {
@@ -860,8 +869,52 @@ input[type=checkbox]:focus {
   color: #0f5ed3;
 }
 
+.itemSpacing {
+  margin: 0 40px;
+}
+
+.itemHeader .filterItem__wahana {
+  transition: ease-in-out all 0.3s;
+  animation-delay: 3s;
+  box-shadow: 0px 2px 64px -15px rgba(0, 0, 0, 0.41);
+}
+
 .checkboxHover:hover {
-  color: #0f5ed3;
+  color: rgb(15, 94, 212);
+}
+
+.dataGet__wahanfilter .filterGet__list .data__itemList {
+  background-color: rgb(218, 218, 218);
+  justify-content: center;
+  justify-items: center;
+  display: flex;
+  vertical-align: middle;
+  transition: ease-in-out 0.2s;
+  border: solid 1px rgb(209, 208, 208);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.dataGet__wahanfilter .filterGet__list .data__itemList::after {
+  content: "";
+  background-color: rgb(15, 94, 212);
+  height: 30px;
+  width: 2px;
+  top: 0;
+  position: absolute;
+  left: 0;
+}
+.dataGet__wahanfilter .filterGet__list .data__itemList:hover {
+  background-color: rgb(211, 211, 211);
+  box-shadow: rgba(0, 0, 0, 0.027) 0px 20px 20px -3px, rgba(0, 0, 0, 0.151) 0px 10px 10px -3px;
+}
+.dataGet__wahanfilter .filterGet__list .data__itemList .closeBtn__filtersicon {
+  margin-left: 10px;
+  font-size: 20px;
+  transition: ease-in-out 0.2s;
+}
+.dataGet__wahanfilter .filterGet__list .data__itemList .closeBtn__filtersicon:hover {
+  color: #ec3232;
 }
 
 .moreInfo__wrapper .moreinfo__content .moreinfo__items .kategori__item {
@@ -973,4 +1026,7 @@ input[type=checkbox]:focus {
   100% {
     transform: translate(24px, 0);
   }
+}
+.multiselect-container > li > a > label {
+  padding: 4px 20px 3px 20px;
 }/*# sourceMappingURL=homepages-styles.css.map */

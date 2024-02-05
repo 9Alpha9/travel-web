@@ -7,6 +7,7 @@ use App\Models\KategoriFasilitas;
 use App\Models\KategoriWisata;
 use App\Models\Kota;
 use App\Models\Kriteria;
+use App\Models\TipeWahana;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use App\Traits\SmartMetode;
@@ -15,12 +16,13 @@ use App\Traits\SmartMetode;
 class HomePagesController extends Controller
 {
     use SmartMetode;
-    protected $rules, $messages, $page, $wisata, $kriteria;
+    protected $rules, $messages, $page, $wisata, $kriteria, $tipe_wahana;
 
     public function __construct()
     {
         $this->wisata = Wisata::limit(12)->orderBy('created_at', 'desc');
         $this->kriteria = Kriteria::get();
+        $this->tipe_wahana = TipeWahana::get();
 
     }
     public function index() {
@@ -32,6 +34,7 @@ class HomePagesController extends Controller
         // })->orderBy('created_at', 'desc')->get();
         $wisata = Wisata::with('GambarWisata')->orderBy('created_at', 'desc')->get();
         $tableKategori = KategoriWisata::orderBy('created_at', 'asc')->get();
+        $tableTipeWahana = TipeWahana::orderBy('created_at', 'asc')->get();
         $tableKota = Kota::orderBy('created_at', 'asc')->where('province_id', 35)->orderBy('name', 'asc')->get();
         $tableAksesbilitas = Aksesbilitas::withCount('wisata')->get();
         $tableFasilitas = KategoriFasilitas::withCount('fasilitaswisata')->get();
@@ -44,6 +47,7 @@ class HomePagesController extends Controller
             'tableKota' => $tableKota,
             'tableAksesbilitas' => $tableAksesbilitas,
             'tableFasilitas' => $tableFasilitas,
+            'tableTipeWahana' => $tableTipeWahana,
         );
         return view('components/landingpages/home')->with($return);
     }
@@ -53,9 +57,12 @@ class HomePagesController extends Controller
     }
 
     public function filterPage(Request $request){
-        if (strlen($request->kategori) > 0) {
-            $this->wisata->where('id_kategori_wisata', $request->kategori);
+        if (count($request->tipe_wahana) > 0) {
+            $this->wisata->whereHas('wahanawisata', function ($query) use ($request) {
+                return $query->whereIn('id_tipe_wahana', array_unique($request->tipe_wahana));
+            });
         }
+
         if (strlen($request->kota) > 0) {
             $this->wisata->where('id_kota', $request->kota);
         }
@@ -68,7 +75,8 @@ class HomePagesController extends Controller
 
         $listModel = array(
             'wisata' => $this->wisata->get(),
-            'kriteria' => $this->kriteria
+            'tipe_wahana' => $this->tipe_wahana,
+            // 'kriteria' => $this->kriteria
         );
 
         $this->setModel($listModel);

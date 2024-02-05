@@ -582,6 +582,9 @@ input:focus {
 // Wisata Viral Styled Card
 .wisata__landing__wrapper {
     .wisata__heading {
+        max-width: 1380px;
+        width: 1348px;
+
         .title__wisata__viral {
             .wisata__title__viral {
                 font-size: 1.375em;
@@ -763,10 +766,10 @@ input:focus {
 
         .filters__control {
             justify-content: center;
-            align-items: center;
+            // align-items: center;
 
-            button {
-                margin-top: 2em;
+            .btnFilter__set {
+                // margin-top: 2em;
                 background-color: #3237d2;
 
                 &:hover {
@@ -1141,10 +1144,66 @@ input[type="checkbox"]:focus {
     cursor: pointer;
 }
 
+.itemSpacing {
+    margin: 0 40px;
+}
+
+.itemHeader {
+    .filterItem__wahana {
+        transition: ease-in-out all .3s;
+        animation-delay: 3s;
+        -webkit-box-shadow: 0px 2px 64px -15px rgba(0, 0, 0, 0.41);
+        -moz-box-shadow: 0px 2px 64px -15px rgba(0, 0, 0, 0.41);
+        box-shadow: 0px 2px 64px -15px rgba(0, 0, 0, 0.41);
+    }
+}
 
 .checkboxHover {
     &:hover {
-        color: #0f5ed3;
+        color: rgb(15, 94, 212);
+    }
+}
+
+.dataGet__wahanfilter {
+    .filterGet__list {
+        .data__itemList {
+            background-color: rgb(218, 218, 218);
+            justify-content: center;
+            justify-items: center;
+            display: flex;
+            vertical-align: middle;
+            transition: ease-in-out .2s;
+            border: solid 1px rgb(209, 208, 208);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                content: "";
+                background-color: rgb(15, 94, 212);
+                height: 30px;
+                width: 2px;
+                top: 0;
+                position: absolute;
+                left: 0;
+
+            }
+
+            &:hover {
+                background-color: rgb(211, 211, 211);
+                box-shadow: rgba(0, 0, 0, 0.027) 0px 20px 20px -3px, rgba(0, 0, 0, 0.151) 0px 10px 10px -3px;
+            }
+
+            .closeBtn__filtersicon {
+                margin-left: 10px;
+                font-size: 20px;
+                transition: ease-in-out .2s;
+
+                &:hover {
+                    color: #ec3232;
+                }
+            }
+        }
     }
 }
 
@@ -1279,4 +1338,9 @@ input[type="checkbox"]:focus {
     100% {
         transform: translate(24px, 0);
     }
+}
+
+
+.multiselect-container>li>a>label {
+    padding: 4px 20px 3px 20px;
 }

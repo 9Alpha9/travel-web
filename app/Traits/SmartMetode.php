@@ -7,7 +7,9 @@ use App\Models\FasilitasWisata;
 use App\Models\Kecamatan;
 use App\Models\Kriteria;
 use App\Models\NilaiKriteria;
+use App\Models\NilaiTipeWahana;
 use App\Models\NilaiWisata;
+use App\Models\TipeWahana;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use ArrayObject;
@@ -27,7 +29,6 @@ trait SmartMetode {
         DB::beginTransaction();
 
         try  {
-            dd($this->wisata);
             foreach ($this->wisata as $key => $value) {
                 $nilai = NilaiWisata::where('id_wisata', $value->id_wisata)->get();
 
@@ -74,12 +75,18 @@ trait SmartMetode {
                         //     }
                         // }
 
-                        $test = $value2->where('id_tipe_wahana', $value2->id_tipe_wahana)->count();
-                        dd($test);
+                        $total_wahana = $value2->where('id_tipe_wahana', $value2->id_tipe_wahana)->count();
+                        $nilai_wisata = NilaiTipeWahana::where('id_tipe_wahana', $value2->id_tipe_wahana)
+                                            ->where('id_user', '8')
+                                            ->where(function($query) use ($total_wahana) {
+                                                $query->where('min', '<=', $total_wahana);
+                                                $query->where('max', '>=', $total_wahana);
+                                            })
+                                            ->get()->first()->nilai_tipe_wahana;
 
                         NilaiWisata::create([
                             'id_wisata' => $value->id_wisata,
-                            'id_kriteria' => $value2->id_kriteria,
+                            'id_tipe_wahana' => $value2->id_tipe_wahana,
                             'nilai_wisata' => $nilai_wisata,
                             'created_at' => date('Y-m-d H:i:s'),
                             'updated_at' => date('Y-m-d H:i:s')
@@ -111,7 +118,10 @@ trait SmartMetode {
             foreach ($this->tipe_wahana as $key => $value) {
                 $normalisasi = $value->bobot / $total_bobot;
 
-                Kriteria::where('id_kriteria', $value->id_kriteria)->update([
+                // Kriteria::where('id_kriteria', $value->id_kriteria)->update([
+                //     'normalisasi' => $normalisasi
+                // ]);
+                TipeWahana::where('id_tipe_wahana', $value->id_tipe_wahana)->update([
                     'normalisasi' => $normalisasi
                 ]);
             }
@@ -135,8 +145,9 @@ trait SmartMetode {
 
         foreach($this->wisata as $key => $value) {
             foreach($this->tipe_wahana as $key2 => $value2) {
-                $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_kriteria', $value2->id_kriteria)->get()->first()->nilai_wisata;
-                $nilaiUtility[$value->id_wisata][$value2->id_kriteria] = 100 * ((100 - $nilai_wisata) / (100 - 0));
+                // $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_kriteria', $value2->id_kriteria)->get()->first()->nilai_wisata;
+                $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_tipe_wahana', $value2->id_tipe_wahana)->get()->first()->nilai_wisata;
+                $nilaiUtility[$value->id_wisata][$value2->id_tipe_wahana] = 100 * ((100 - $nilai_wisata) / (100 - 0));
             }
         }
 
@@ -156,8 +167,8 @@ trait SmartMetode {
         foreach ($nilaiUtility as $key => $value) {
             $total_utility = 0;
             foreach ($this->tipe_wahana as $key2 => $value2) {
-                $total_alternatif = $value[$value2->id_kriteria] * $value2->normalisasi;
-                $nilaiAkhir['"' . $key . '"'][$value2->id_kriteria] = $total_alternatif;
+                $total_alternatif = $value[$value2->id_tipe_wahana] * $value2->normalisasi;
+                $nilaiAkhir['"' . $key . '"'][$value2->id_tipe_wahana] = $total_alternatif;
                 $total_utility += $total_alternatif;
             }
 

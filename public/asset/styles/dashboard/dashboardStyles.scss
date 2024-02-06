@@ -392,6 +392,30 @@ $-moz-appearance: textfield;
                     color: #1f1e1e;
                     padding: 2em;
                     background-color: #ced0d4;
+
+                    .bgButton__wahana {
+                        background-color: rgb(42, 24, 204);
+                        color: #fff;
+
+                        &:hover {
+                            background-color: rgb(56, 37, 228);
+                        }
+                    }
+
+                    .deleteCta__btn {
+                        background-color: rgb(192, 5, 5);
+                        color: #fff;
+                        transition: ease-in-out .3s;
+
+                        &:hover {
+                            background-color: rgb(134, 2, 2);
+                        }
+                    }
+
+                    select:not([size]) {
+                        // background-color: tomato;
+                        border: solid 1.2px rgb(216, 213, 213);
+                    }
                 }
 
                 .listInfo__content {
@@ -1567,3 +1591,45 @@ input[type=number] {
 //         background-color: tomato;
 //     }
 // }
+
+.modalBody__wahana {
+    position: relative;
+
+    .tableItem__list {
+        height: 300px;
+        max-height: 300px;
+        overflow: hidden;
+        overflow-y: auto;
+
+        // .headTable__wahanas {
+        //     background-color: tomato;
+        //     position: fixed;
+        //     z-index: 2;
+        //     top: 30.5em;
+        //     left: 0;
+        // }
+    }
+
+    // .tableBody__wahanas {
+    //     margin-top: 3em;
+    //     display: inline-block;
+    // }
+}
+
+.wahanaModal__name {
+    position: relative !important;
+    overflow: hidden;
+
+    // &::before {
+    //     content: "";
+    //     background-color: rgb(235, 233, 253);
+    //     height: 300px;
+    //     width: 300px;
+    //     border-radius: 50px;
+    //     top: -34px;
+    //     position: absolute;
+    //     right: -83px;
+    //     transform: rotate(40deg);
+    //     filter: blur(1.17rem);
+    // }
+}

@@ -59,7 +59,7 @@ class HomePagesController extends Controller
     public function filterPage(Request $request){
         if (count($request->tipe_wahana) > 0) {
             $this->wisata->whereHas('wahanawisata', function ($query) use ($request) {
-                return $query->whereIn('id_tipe_wahana', array_unique($request->tipe_wahana));
+                return $query->whereIn('id_tipe_wahana', $request->tipe_wahana);
             });
         }
 

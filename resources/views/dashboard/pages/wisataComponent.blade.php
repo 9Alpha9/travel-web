@@ -322,29 +322,227 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="grid w-full grid-cols-2 gap-4 continer__selectionDiv">
+                    <div class="grid w-full grid-cols-2 gap-4 continer__selectionDiv relative">
                         <div class="relative mt-12 activityContainer">
                             <span class="block py-4 dbText__header">
-                                <h1>Kategori Tempat Wisata</h1>
+                                <h1>Wahana Wisata</h1>
                             </span>
-                            <div class="activityWrapper">
+                            <div class="activityWrapper relative">
                                 <div class="dbData__listWisata">
                                     <span class="flex flex-col inputWisata__name">
                                         <label for="wisata__name" class="flex items-center py-2 ">
                                             <h3>
-                                                Kategori Tempat Wisata
+                                                Tambah Tipe Wahana Wisata
                                                 <span class="labelRequire__infowisata">*</span>
                                             </h3>
                                         </label>
-                                        <select name="wisataList__activity" id="activity">
+                                        <button data-modal-target="wahanaModal" data-modal-toggle="wahanaModal"
+                                            class="block text-white bg-blue-700 hover:bg-blue-800  focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                            type="button">
+                                            <i class="ri-add-line"></i> Tipe Wahana Wisata
+                                        </button>
+                                        <div id="wahanaModal" data-modal-backdrop="static" tabindex="-1"
+                                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                            <div class="relative p-4 w-full max-w-7xl max-h-full modalBody__wahana">
+                                                <div class="relative bg-white rounded-lg shadow">
+                                                    <div
+                                                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                                                        <span>Tipe Wahana</span>
+                                                        <button type="button"
+                                                            class="text-primary-birent bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                                            data-modal-hide="wahanaModal">
+                                                            <i class="ri-close-line text-2xl"></i>
+                                                            <span class="sr-only">Close modal</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="p-4 md:p-5 space-y-4 tableItem__list relative">
+                                                        <div class="relative overflow-x-auto">
+                                                            <table
+                                                                class="w-full text-sm text-left rtl:text-right dark:text-gray-400 relative">
+                                                                <thead
+                                                                    class="text-md text-black uppercase bg-gray-50 headTable__wahanas">
+                                                                    <tr>
+                                                                        <th scope="col" class="px-6 py-3">
+                                                                            #
+                                                                        </th>
+                                                                        <th scope="col" class="px-6 py-3 w-56">
+                                                                            Nama Wahana
+                                                                        </th>
+                                                                        <th scope="col" class="px-6 py-3 w-56">
+                                                                            Tipe Wahana
+                                                                        </th>
+                                                                        <th scope="col" class="px-6 py-3">
+                                                                            Keterangan
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="relative tableBody__wahanas">
+                                                                    <tr
+                                                                        class="bg-white font-normal border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                                        <th scope="row"
+                                                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                                            1.
+                                                                        </th>
+                                                                        <th scope="row"
+                                                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                                            Lorem, ipsum.
+                                                                        </th>
+                                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                                            Lorem, ipsum dolor.
+                                                                        </td>
+                                                                        <td class="px-6 py-4">
+                                                                            Lorem ipsum dolor sit amet consectetur
+                                                                            adipisicing elit. Deleniti quasi quis porro
+                                                                            fugit illum tempora, laudantium impedit,
+                                                                            temporibus incidunt velit sint commodi,
+                                                                            quisquam explicabo quos quo culpa harum?
+                                                                            Earum, et!
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600 justify-between">
+                                                        <button data-modal-hide="static-modal" type="button"
+                                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Simpan</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- <select name="wisataList__activity" id="activity">
                                             <option value hidden disabled selected>Silahkan Pilih List Kategori Wisata
                                             </option>
                                             @foreach($tableKategori as $row)
                                             <option value="{{ $row->id_kategori_wisata }}">{{ $row->nama_kategori_wisata
                                                 }}</option>
                                             @endforeach
-                                        </select>
+                                        </select> --}}
+                                        @if($errors->has('wisataList__activity'))
+                                        @foreach($errors->get('wisataList__activity') as $message)
+                                        <div class="errorsPop__messages">
+                                            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                                <span class="font-medium">Oops!</span> {{ $message }}
+                                            </p>
+                                        </div>
+                                        @endforeach
+                                        @endif
+                                        {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                                            <span class="font-medium">Oops!</span> Kategori wisata
+                                            tidak boleh kosong!
+                                        </p> --}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative mt-12 activityContainer">
+                            <span class="block py-4 dbText__header">
+                                <h1>Nama Wahana</h1>
+                            </span>
+                            <div class="activityWrapper">
+                                <div class="dbData__listWisata">
+                                    <span class="flex flex-col inputWisata__name">
+                                        <label for="wisata__name" class="flex items-center py-2 ">
+                                            <h3>
+                                                Nama Wahana Wisata
+                                                <span class="labelRequire__infowisata">*</span>
+                                            </h3>
+                                        </label>
+                                        <button data-modal-target="namaWahana" data-modal-toggle="namaWahana"
+                                            class="block text-white bg-blue-700 hover:bg-blue-800  focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                            type="button">
+                                            <i class="ri-add-line"></i> Nama Wahana Wisata
+                                        </button>
+                                        <div id="namaWahana" data-modal-backdrop="static" tabindex="-1"
+                                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                            <div class="relative p-4 w-full max-w-7xl max-h-full">
+                                                <div class="relative bg-white rounded-lg shadow">
+                                                    <div
+                                                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                                                        <span>Nama Wahana</span>
+                                                        <button type="button"
+                                                            class="text-primary-birent bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                                            data-modal-hide="namaWahana">
+                                                            <i class="ri-close-line text-2xl"></i>
+                                                            <span class="sr-only">Close modal</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="p-4 md:p-5 space-y-4 wahanaModal__name">
+                                                        <div class="relative overflow-x-auto">
+                                                            <div class="p-6 kategoriInput__container">
+                                                                <section class="infoWisata__Wrapper">
+                                                                    <div
+                                                                        class="wahanaWisata__item grid grid-cols-2 gap-2">
+                                                                        <div class="inputWahana">
+                                                                            <span class="label">
+                                                                                <label for="inputInformasi"
+                                                                                    class="block mb-3 text-sm text-gray-900 labelInput">Tambah
+                                                                                    Nama Wahana</label>
+                                                                            </span>
+                                                                            <span
+                                                                                class="flex flex-row items-center gap-2 pb-4">
+                                                                                <div
+                                                                                    class="flex flex-col w-full flexInput">
+                                                                                    <select id="wahana"
+                                                                                        class="bg-gray-50 border-2 border-gray-300 text-md text-gray-500 font-normal rounded-lg w-full p-2.5 inputFields focus:outline-none">
+                                                                                        <option value="US" selected>
+                                                                                            Lorem, ipsum.
+                                                                                        </option>
+                                                                                    </select>
+
+                                                                                    {{-- <input type="select"
+                                                                                        class="bg-gray-50 border border-gray-300 text-md font-normal rounded-lg w-full p-2.5 inputFields focus:outline-none"
+                                                                                        placeholder="Wahana wisata ..."
+                                                                                        name=""> --}}
+                                                                                </div>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="inputWahana">
+                                                                            <span class="label">
+                                                                                <label for="wahana"
+                                                                                    class="block mb-3 text-sm text-gray-900 labelInput">Keterangan</label>
+                                                                            </span>
+                                                                            <span
+                                                                                class="flex flex-row items-center gap-2 pb-4">
+                                                                                <div
+                                                                                    class="flex flex-col w-full flexInput">
+                                                                                    <input type="text"
+                                                                                        class="bg-gray-50 border border-gray-300 text-md font-normal rounded-lg w-full p-2.5 "
+                                                                                        autocomplete="off"
+                                                                                        placeholder="Keterangan wahana ..."
+                                                                                        name="">
+                                                                                </div>
+                                                                                <span class="relative">
+                                                                                    <button type="button" onclick=""
+                                                                                        disabled
+                                                                                        class="p-2 px-4 py-10 mt-0 rounded-lg cursor-pointer deleteCta__btn"><i
+                                                                                            class="ri-delete-bin-7-fill"></i></button>
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                                <section class="relative block space-y-5 moreSpace">
+                                                                    <button type="button"
+                                                                        class="p-2 py-10 mt-3 rounded-lg bgButton__wahana text-sm font-normal"><i
+                                                                            class="ri-add-line"></i> Tambah Wahana
+                                                                        Wisata</button>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- <select name="wisataList__activity" id="activity">
+                                            <option value hidden disabled selected>Silahkan Pilih List Kategori Wisata
+                                            </option>
+                                            @foreach($tableKategori as $row)
+                                            <option value="{{ $row->id_kategori_wisata }}">{{ $row->nama_kategori_wisata
+                                                }}</option>
+                                            @endforeach
+                                        </select> --}}
                                         @if($errors->has('wisataList__activity'))
                                         @foreach($errors->get('wisataList__activity') as $message)
                                         <div class="errorsPop__messages">
@@ -378,7 +576,7 @@
                                     <button data-modal-target="infoModal" data-modal-toggle="infoModal"
                                         class="block modalToogle text-white rounded-lg text-sm w-full px-5 py-2.5 text-center hover:bg-blue-800"
                                         type="button">
-                                        Tambah / Edit Informasi Wisata
+                                        <i class="ri-add-line"></i> Tambah Informasi Wisata
                                     </button>
                                     {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                         <span class="font-medium">Oops!</span> Informasi wisata
@@ -424,7 +622,7 @@
                                                         <label for="inputInformasi"
                                                             class="block mb-3 text-sm text-gray-900 labelInput dark:text-white">Tambahkan
                                                             List Informasi Wisata</label>
-                                                        <span class="flex flex-row items-center gap-4 pb-4">
+                                                        <span class="flex flex-row items-center gap-4 pb-4 infoData">
                                                             <div class="flex flex-col w-full flexInput">
                                                                 <input type="text"
                                                                     class="bg-gray-50 border border-gray-300 text-md font-normal rounded-lg w-full p-2.5 inputFields"

@@ -16,4 +16,8 @@ class TipeWahana extends Model
     protected $fillable = [
         'nama_tipe_wahana', 'bobot', 'bobot_normalisasi', 'keterangan'
     ];
+
+    public function NilaiWisata() {
+        return $this->hasMany(NilaiWisata::class, 'id_tipe_wahana', 'id_tipe_wahana');
+    }
 }

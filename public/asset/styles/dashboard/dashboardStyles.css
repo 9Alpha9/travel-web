@@ -302,6 +302,24 @@
   padding: 2em;
   background-color: #ced0d4;
 }
+.dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv .activityWrapper .bgButton__wahana {
+  background-color: rgb(42, 24, 204);
+  color: #fff;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv .activityWrapper .bgButton__wahana:hover {
+  background-color: rgb(56, 37, 228);
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv .activityWrapper .deleteCta__btn {
+  background-color: rgb(192, 5, 5);
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv .activityWrapper .deleteCta__btn:hover {
+  background-color: rgb(134, 2, 2);
+}
+.dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv .activityWrapper select:not([size]) {
+  border: solid 1.2px rgb(216, 213, 213);
+}
 .dashboardContainer__inner .sideDB__content .contentContainer .continer__selectionDiv .listInfo__content {
   border-radius: 10px;
   font-weight: 500;
@@ -1152,4 +1170,19 @@ input::-webkit-inner-spin-button {
 }
 .fasilitasForm__container .fasilitasForm__wrapper .tablesData__list .tablesData__items {
   font-family: "Poppins", sans-serif !important;
+}
+
+.modalBody__wahana {
+  position: relative;
+}
+.modalBody__wahana .tableItem__list {
+  height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.wahanaModal__name {
+  position: relative !important;
+  overflow: hidden;
 }/*# sourceMappingURL=dashboardStyles.css.map */

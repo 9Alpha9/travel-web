@@ -194,7 +194,8 @@
 
 <script>
     $('.btn-filter').on('click', function() {
-        let sendData = $('#formFilter').serialize() + '&' + $('#filterKategori').serialize();
+        let sendData = $('#formFilter').serialize() + '&' + $('#filterWahana').serialize();
+        console.log(sendData);
         $.ajax({
             url: "{{ route('filterpage') }}",
             method: 'post',
@@ -335,4 +336,17 @@
         });
       });
 </script>
+
+<script>
+    var checks = document.querySelectorAll(".getInput");
+    var max = 2;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheck;
+    function selectiveCheck (event) {
+    var checkedChecks = document.querySelectorAll(".check:checked");
+        if (checkedChecks.length >= max + 1)
+    return false;
+    }
+</script>
+
 @endpush

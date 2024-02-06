@@ -7,16 +7,14 @@
                 <div class="flex flex-row gap-4 mb-5 border rounded-lg content__recommendation">
                     <div class="content__banner__recommendation">
                         @php($url_nama_wisata = str_replace(' ', '_', $value->nama_wisata))
-                        <img src="
-                @if (count($value->gambarwisata) > 0)
-                    {{ !is_null($value->gambarwisata->first()->nama_gambar) ? url("gallery-wisata/$url_nama_wisata/{$value->gambarwisata->first()->nama_gambar}") :
-                        'https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg'
-                        }}
+                        @if (count($value->gambarwisata) > 0)
+                        @php($gambar = !is_null($value->gambarwisata->first()->nama_gambar) ?
+                        url("gallery-wisata/$url_nama_wisata/{$value->gambarwisata->first()->nama_gambar}") :
+                        asset("img/empty-image-thumb.png"))
                         @else
-                        https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg
+                        @php ( $gambar = asset(' asset/img/empty-image-thumb.png') )
                         @endif
-                        "
-                        alt="Deskripsi rekomendasi wisata">
+                        <img src='{{ $gambar }}' alt="Deskripsi rekomendasi wisata">
                     </div>
                     <div class="relative flex head__recommendation">
                         <div class="flex flex-col border-r title__head">
@@ -25,9 +23,7 @@
                             </span>
                             {{-- Rating --}}
                             <div class="flex items-center float-left gap-1 my-3 wisata__stars">
-                                @include('components.pages.viewPages.svgIcon')
-                                {{-- Ratting Indicator --}}
-                                <span
+                                @include(' components.pages.viewPages.svgIcon') {{-- Ratting Indicator --}} <span
                                     class="flex items-center inline-block pl-2 text-sm font-light rattings__numb align-content-center">
                                     <span class="gap-2 location__pin">
                                         <svg width="15" height="15" viewBox="0 0 10 13" fill="none"
@@ -86,15 +82,6 @@
                                                 <span class="kategori__info">08</span>
                                             </div>
                                         </div>
-                                        {{-- <div class="text-sm kategori__item">
-                                            <div class="text-sm rank__item">
-                                                <i class="ri-trophy-fill itemsIcon"></i>
-                                                <span class="headerRank__item">
-                                                    Ranking:
-                                                </span>
-                                                <span class="kategori__info">08</span>
-                                            </div>
-                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

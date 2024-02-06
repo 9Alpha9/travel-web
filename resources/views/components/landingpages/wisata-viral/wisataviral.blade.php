@@ -6,13 +6,6 @@
                 <h2 class="text-lg font-extrabold">Filter Rekomendasi</h2>
             </span>
             <div class="flex flex-col p-2 filters__control">
-                {{-- <span class="headerLabel block text-left">
-                    <label class="text-sm font-medium text-gray-900">
-                        <h3 class="text-left">Filter
-                            Wahana Wisata
-                        </h3>
-                    </label>
-                </span> --}}
                 <div class="w-full filters__category flex relative pt-4">
                     <button id="dropdownHelperButton" data-dropdown-toggle="dropdownHelper"
                         class="text-white bg-blue-700 w-full hover:bg-blue-800 text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex justify-between"
@@ -34,9 +27,9 @@
                                                 <span
                                                     class="inline-block flex gap-2 items-center itemChecks__input itemSpacing">
                                                     <input type="checkbox" name="tipe_wahana[]"
-                                                        value="{{ $value->id_tipe_wahana }}" class="hidden">
+                                                        value="{{ $value->id_tipe_wahana }}" class="hidden getInput">
                                                     <input type="checkbox" id="tipe_wahana_{{ $key }}"
-                                                        class="text-blue-600 bg-gray-100 border-gray-300 rounded gap-2">
+                                                        class="text-blue-600 bg-gray-100 border-gray-300 rounded gap-2 getInput">
                                                     <div class="ms-2 text-sm">
                                                         <label class="font-medium text-black">
                                                             <div class="cursor-pointer itemSelect">{{
@@ -65,13 +58,13 @@
                 </div>
                 <div class="dataGet__wahanfilter mt-6">
                     <ul class="filterGet__list flex flex-wrap gap-3 text-sm items-center">
-                        <li class="data__itemList p-1 px-3">
+                        <li class="data__itemList p-1 px-3 cursor-pointer">
                             <span class="dataFilter__item inline-block">Lorem, ipsum dolor.</span>
                             <button type="submit" class="butttonGet__itemwahana"><i
                                     class="ri-close-line closeBtn__filtersicon"></i></button>
                         </li>
                         <li class="data__itemList p-1 px-3">
-                            <span class="dataFilter__item inline-block">Lorem, ipsum dolor.</span>
+                            <span class="dataFilter__item inline-block cursor-pointer">Lorem, ipsum dolor.</span>
                             <button type="submit" class="butttonGet__itemwahana"><i
                                     class="ri-close-line closeBtn__filtersicon"></i></button>
                         </li>
@@ -328,12 +321,13 @@
                 </form>
             </div>
             <div class="filterContent__item">
-                <div class="content__side__filter filter__recommendation ">
+                <div class="content__side__filter filter__recommendation">
                     <div class="filter__show link__filter__show">
                         <a href="" class="filter__on__click">
                             <div class="flex flex-row gap-4 mb-3 border rounded-lg content__recommendation">
                                 <div class="content__banner__recommendation">
-                                    <img src="" alt="Deskripsi rekomendasi wisata">
+                                    <img src="{{ asset('asset/img/empty-image-thumb.png') }}"
+                                        alt="Deskripsi rekomendasi wisata">
                                 </div>
                                 <div class="relative flex head__recommendation">
                                     <div class="flex flex-col border-r title__head">
@@ -357,19 +351,53 @@
                                             </span>
                                         </div>
                                         {{-- End Rating --}}
-                                        <div class="facility">
-                                            <h3 class="text-sm">Fasilitas tempat wisata:</h3>
-                                            <span class="inline-block mb-1"></span>
+                                        <div class="flex items-center gap-1 my-2 facility__iteminfoHeader">
+                                            <i class="text-sm ri-fire-fill itemsIcon"></i>
+                                            <h3 class="text-sm font-semibold">
+                                                Fasilitas tempat wisata:
+                                            </h3>
+                                        </div>
+                                        <span class="pillsHeader__wrap inline-block mt-2 mb-2">
+                                            <ol
+                                                class="flex flex-wrap col-span-2 gap-1 pills__bodyHome list-group-item list-inline-item">
+                                                <li class="pills__eachItem">
+                                                    <span class="inline-block">
+                                                        Lorem, ipsum.
+                                                    </span>
+                                                </li>
+                                            </ol>
+                                        </span>
+                                        <div class="moreInfo__wrapper my-7">
+                                            <div class="moreinfo__content">
+                                                <div class="flex gap-3 mt-3 moreinfo__items">
+                                                    <div class="text-sm kategori__item">
+                                                        <i class="ri-flag-fill itemsIcon"></i>
+                                                        <span class="headerKategori__item">
+                                                            Kategori Wisata:
+                                                        </span>
+                                                        <span class="kategori__info">Bahari</span>
+                                                    </div>
+                                                    <span class="border-r"></span>
+                                                    <div class="text-sm kategori__item">
+                                                        <div class="text-sm rank__item">
+                                                            <i class="ri-trophy-fill itemsIcon"></i>
+                                                            <span class="headerRank__item">
+                                                                Ranking:
+                                                            </span>
+                                                            <span class="kategori__info">08</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="info__recommendation">
-
+                                    <div class="info__recommendationHome">
                                         <span class="">
                                             <h2>Harga Spesial</h2>
                                             <h3 class="my-3 font-semibold">OFF</h3>
                                         </span>
                                         <span class="no__discount">
-                                            <h3></h3>
+                                            <h3 class="font-bold">Rp. 450,000</h3>
                                         </span>
                                     </div>
                                 </div>
@@ -377,9 +405,6 @@
                         </a>
                     </div>
                 </div>
-                <div class="spanHeading__label">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-                    dolores aspernatur quasi aut unde voluptatum debitis necessitatibus quod eius ullam dolorem esse
-                    inventore aliquid quibusdam dolorum iusto? Dolores, illum. Illum!</div>
                 <span class="spinBall spinLoaded loadedContent">
                     <div class="flex m-auto lds-ellipsis">
                         <div></div>

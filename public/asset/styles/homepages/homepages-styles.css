@@ -1029,4 +1029,74 @@ input[type=checkbox]:focus {
 }
 .multiselect-container > li > a > label {
   padding: 4px 20px 3px 20px;
+}
+
+.filter__recommendation .facility__iteminfoHeader {
+  background-color: rgb(203, 237, 245);
+  width: 190px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.filter__recommendation .facility__iteminfoHeader .itemsIcon {
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 50%;
+  color: rgb(56, 43, 243);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 4;
+}
+.filter__recommendation .facility__iteminfoHeader .itemsIcon::after {
+  content: "";
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  background-color: rgb(177, 220, 230);
+  border-top-right-radius: 25px;
+  z-index: -3;
+}
+.filter__recommendation .pills__bodyHome li:nth-of-type(1n+4) {
+  display: none;
+}
+.filter__recommendation .pills__bodyHome span {
+  background-color: transparent;
+  padding: 3px 6px;
+  font-size: 0.8em;
+  border: solid 1px #d5ddf5;
+  border-radius: 3px;
+}
+.filter__recommendation .info__recommendationHome {
+  margin: 12px;
+  width: 150px;
+  max-width: 29%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.filter__recommendation .info__recommendationHome h3 {
+  font-size: 1.2em;
+  justify-content: space-between;
+  bottom: 50%;
+}
+.filter__recommendation .info__recommendationHome .discount {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.filter__recommendation .info__recommendationHome .discount h2 {
+  background-color: #7470e7;
+  padding: 4px;
+  color: #fff;
+  font-size: 0.7em;
+  text-align: center;
+}
+.filter__recommendation .info__recommendationHome .discount h3 {
+  color: #ce2424;
+}
+.filter__recommendation .info__recommendationHome .no__discount h3 {
+  font-size: 1.4em;
 }/*# sourceMappingURL=homepages-styles.css.map */

@@ -136,7 +136,7 @@
         {{-- End Wisata Viral --}}
 
         {{-- Wisata Baru Component --}}
-        {{-- @include('components.landingpages.wisata-baru.wisatabaru') --}}
+        @include('components.landingpages.wisata-baru.wisatabaru')
         {{-- Wisata Baru Component --}}
     </div>
 </div>
@@ -305,8 +305,12 @@
 
         //span click event
         span.on('click', function() {
-          var checkbox = $(this).find('input[type="checkbox"]');
-          checkbox.prop('checked', !checkbox.prop('checked'))
+            var checkbox = $(this).find('input[type="checkbox"]');
+            checkbox.prop('checked', !checkbox.prop('checked'));
+            checkboxShow = $(this).find('input[name="wahanaList"]');
+            let id = checkboxShow.data('id');
+            let name = checkboxShow.data('name');
+            setWahana(id, name);
         });
 
         //checkbox click event
@@ -327,12 +331,12 @@
 <script>
     $(function() {
 
-        $('#chkveg').multiselect({
+        $('#multi').multiselect({
           includeSelectAllOption: true
         });
 
         $('#btnget').click(function() {
-          alert($('#chkveg').val());
+          alert($('#multi').val());
         });
       });
 </script>
@@ -348,5 +352,33 @@
     return false;
     }
 </script>
+<script>
+    let arrWahana = [];
+    $('input[name="wahanaList"]').on('change', function(){
+        let id = $(this).data('id');
+        let name = $(this).data('name');
+        setWahana(id, name);
+    });
 
+    function setWahana(id, name){
+        if(arrWahana.indexOf(id) != -1){
+            removeList(id);
+        }
+        else {
+            arrWahana.push(id);
+            let html = '<li class="data__itemList p-1 px-3 cursor-pointer">' +
+                            '<span class="dataFilter__item inline-block">' + name + '</span>' +
+                            '<button type="button" id="hapusWahana_' + id + '" class="butttonGet__itemwahana" onclick="removeList(\'' + id + '\')"><i class="ri-close-line closeBtn__filtersicon"></i></button>' +
+                        '</li>';
+            $('.listWahana').append(html);
+        }
+    }
+
+    function removeList(id){
+        arrWahana.remove(id);
+        $('#hapusWahana_' + id).closest('li').remove();
+        $('input[value="' + id + '"]').prop('checked', false);
+        $('#tipe_wahana_' + id).prop('checked', false);
+    }
+</script>
 @endpush

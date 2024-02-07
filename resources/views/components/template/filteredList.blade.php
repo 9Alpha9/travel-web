@@ -110,7 +110,7 @@
                 <img src="{{ asset('asset/img/not-found.png') }}" alt="">
                 <span class="block text-center text__not__found">
                     <h2>Oops!</h2>
-                    <h3>Tempat wisata tidak ada atau tersedia.</h3>
+                    <h3>Tempat wisata tidak ada atau belum tersedia.</h3>
                 </span>
             </span>
         </div>

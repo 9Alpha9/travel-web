@@ -28,7 +28,10 @@
                                                     class="inline-block flex gap-2 items-center itemChecks__input itemSpacing">
                                                     <input type="checkbox" name="tipe_wahana[]"
                                                         value="{{ $value->id_tipe_wahana }}" class="hidden getInput">
-                                                    <input type="checkbox" id="tipe_wahana_{{ $key }}"
+                                                    <input type="checkbox" name="wahanaList"
+                                                        id="tipe_wahana_{{ $value->id_tipe_wahana }}"
+                                                        data-id="{{ $value->id_tipe_wahana }}"
+                                                        data-name="{{ $value->nama_tipe_wahana }}"
                                                         class="text-blue-600 bg-gray-100 border-gray-300 rounded gap-2 getInput">
                                                     <div class="ms-2 text-sm">
                                                         <label class="font-medium text-black">
@@ -46,7 +49,7 @@
                             </div>
                         </div>
                     </form>
-                    <span class="items-center ml-3 on__submit">
+                    <div class="items-center ml-3 on__submit">
                         <button type="button"
                             class="py-2.5 px-10 btnFilter__set text-sm font-medium text-gray-900 focus:outline-none border border-gray-200 h focus:z-10 focus:ring-4 text-white btn-filter">
                             <h3 class="flex items-center inline-block gap-2">
@@ -54,20 +57,10 @@
                                 <i class="text-md ri-search-eye-line"></i>
                             </h3>
                         </button>
-                    </span>
+                    </div>
                 </div>
                 <div class="dataGet__wahanfilter mt-6">
-                    <ul class="filterGet__list flex flex-wrap gap-3 text-sm items-center">
-                        <li class="data__itemList p-1 px-3 cursor-pointer">
-                            <span class="dataFilter__item inline-block">Lorem, ipsum dolor.</span>
-                            <button type="submit" class="butttonGet__itemwahana"><i
-                                    class="ri-close-line closeBtn__filtersicon"></i></button>
-                        </li>
-                        <li class="data__itemList p-1 px-3">
-                            <span class="dataFilter__item inline-block cursor-pointer">Lorem, ipsum dolor.</span>
-                            <button type="submit" class="butttonGet__itemwahana"><i
-                                    class="ri-close-line closeBtn__filtersicon"></i></button>
-                        </li>
+                    <ul class="filterGet__list flex flex-wrap gap-3 text-sm items-center listWahana">
                     </ul>
                 </div>
                 {{-- <select id="kategori"
@@ -191,10 +184,10 @@
                                         <span class="absolute bottom-0 mb-1 text-sm left-1 filter__price">Rp</span>
                                         <label for="price__box__0" class="text-sm">Min</label>
                                         <input class="text-sm form_control_container__time__input" type="number"
-                                            id="fromInput" value="0" min="0" max="100" />
+                                            id="fromInput" value="0" min="0" max="2000000" />
                                         {{-- hidden --}}
                                         <input class="hidden text-sm form_control_container__time__input" type="number"
-                                            id="fromInput" name="minHarga" value="0" min="0" max="100" />
+                                            id="fromInput" name="minHarga" value="0" min="0" max="2000000" />
                                         {{-- hidden --}}
                                     </div>
                                     <span class="separator__dot"></span>
@@ -203,10 +196,10 @@
                                             class="absolute bottom-0 mb-1 ml-1 text-sm right-1 filter__price">Rp</span>
                                         <label for="price__box__0" class="text-sm">Max</label>
                                         <input class="text-sm form_control_container__time__input" type="number"
-                                            id="toInput" value="0" min="0" max="100" />
+                                            id="toInput" value="0" min="0" max="2000000" />
                                         {{-- hidden --}}
                                         <input class="hidden text-sm form_control_container__time__input" type="number"
-                                            id="toInput" name="maxHarga" value="0" min="0" max="100" />
+                                            id="toInput" name="maxHarga" value="0" min="0" max="2000000" />
                                         {{-- hidden --}}
                                     </div>
                                 </div>
@@ -405,14 +398,14 @@
                         </a>
                     </div>
                 </div>
-                <span class="spinBall spinLoaded loadedContent">
+                <div class="spinBall spinLoaded loadedContent">
                     <div class="flex m-auto lds-ellipsis">
                         <div></div>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
-                </span>
+                </div>
             </div>
         </div>
     </div>

@@ -1432,3 +1432,105 @@ input[type="checkbox"]:focus {
         }
     }
 }
+
+
+.skeletonLoad__loading {
+    border-radius: 8px;
+    overflow: hidden;
+
+    .content__banner__recommendation {
+        overflow: hidden;
+        object-fit: cover;
+
+
+        .skeletonImage__banner {
+            overflow: hidden;
+            background-color: rgb(204, 204, 204);
+
+            width: 250px !important;
+            height: 250px !important;
+            max-width: 350px !important;
+            max-height: 250px !important;
+            overflow: hidden;
+        }
+
+        .info__recommendation {
+            .infoSkeleton__items {
+                background-color: rgb(204, 204, 204);
+                height: 20px;
+                width: 80px;
+            }
+        }
+    }
+
+    .wisata__stars {
+        .starSkeleton {
+            background-color: rgb(204, 204, 204);
+            height: 20px;
+            width: 380px;
+        }
+    }
+
+    .facility__iteminfoHeader {
+        width: 380px;
+
+        .facilitySkeleton {
+            background-color: rgb(204, 204, 204);
+            height: 20px;
+            width: 380px;
+        }
+    }
+
+    .pills__bodyHome {
+        .pills__eachItem {
+            .facilitySkeleton__items {
+                background-color: rgb(204, 204, 204);
+                height: 20px;
+                width: 80px;
+            }
+        }
+    }
+
+    .moreInfo__wrapper {
+        .moreinfo__content {
+            .kategoriSkeleton__items {
+                background-color: rgb(204, 204, 204);
+                height: 20px;
+                width: 80px;
+            }
+        }
+    }
+
+    .head__recommendation {
+        .info__recommendationHome {
+
+            .infoRecommendation__skeleton {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                .infoSkeleton__items {
+                    background-color: rgb(204, 204, 204);
+                    height: 20px;
+                    width: 100px;
+                    justify-content: space-between;
+                    bottom: 50%;
+                }
+
+                .no__discountSkeleton {
+                    background-color: rgb(204, 204, 204);
+                    height: 20px;
+                    width: 120px;
+                    justify-content: end;
+                    margin-top: 11rem;
+                }
+            }
+        }
+
+        .text__recommendation {
+            margin: 2px;
+            width: 647px;
+        }
+    }
+}

@@ -1099,4 +1099,75 @@ input[type=checkbox]:focus {
 }
 .filter__recommendation .info__recommendationHome .no__discount h3 {
   font-size: 1.4em;
+}
+
+.skeletonLoad__loading {
+  border-radius: 8px;
+  overflow: hidden;
+}
+.skeletonLoad__loading .content__banner__recommendation {
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.skeletonLoad__loading .content__banner__recommendation .skeletonImage__banner {
+  overflow: hidden;
+  background-color: rgb(204, 204, 204);
+  width: 250px !important;
+  height: 250px !important;
+  max-width: 350px !important;
+  max-height: 250px !important;
+  overflow: hidden;
+}
+.skeletonLoad__loading .content__banner__recommendation .info__recommendation .infoSkeleton__items {
+  background-color: rgb(204, 204, 204);
+  height: 20px;
+  width: 80px;
+}
+.skeletonLoad__loading .wisata__stars .starSkeleton {
+  background-color: rgb(204, 204, 204);
+  height: 20px;
+  width: 380px;
+}
+.skeletonLoad__loading .facility__iteminfoHeader {
+  width: 380px;
+}
+.skeletonLoad__loading .facility__iteminfoHeader .facilitySkeleton {
+  background-color: rgb(204, 204, 204);
+  height: 20px;
+  width: 380px;
+}
+.skeletonLoad__loading .pills__bodyHome .pills__eachItem .facilitySkeleton__items {
+  background-color: rgb(204, 204, 204);
+  height: 20px;
+  width: 80px;
+}
+.skeletonLoad__loading .moreInfo__wrapper .moreinfo__content .kategoriSkeleton__items {
+  background-color: rgb(204, 204, 204);
+  height: 20px;
+  width: 80px;
+}
+.skeletonLoad__loading .head__recommendation .info__recommendationHome .infoRecommendation__skeleton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.skeletonLoad__loading .head__recommendation .info__recommendationHome .infoRecommendation__skeleton .infoSkeleton__items {
+  background-color: rgb(204, 204, 204);
+  height: 20px;
+  width: 100px;
+  justify-content: space-between;
+  bottom: 50%;
+}
+.skeletonLoad__loading .head__recommendation .info__recommendationHome .infoRecommendation__skeleton .no__discountSkeleton {
+  background-color: rgb(204, 204, 204);
+  height: 20px;
+  width: 120px;
+  justify-content: end;
+  margin-top: 11rem;
+}
+.skeletonLoad__loading .head__recommendation .text__recommendation {
+  margin: 2px;
+  width: 647px;
 }/*# sourceMappingURL=homepages-styles.css.map */

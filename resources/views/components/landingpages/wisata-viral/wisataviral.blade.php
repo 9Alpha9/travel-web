@@ -6,7 +6,7 @@
                 <h2 class="text-lg font-extrabold">Filter Rekomendasi</h2>
             </span>
             <div class="flex flex-col p-2 filters__control">
-                <div class="w-full filters__category flex relative pt-4">
+                <div class="relative flex w-full pt-4 filters__category">
                     <button id="dropdownHelperButton" data-dropdown-toggle="dropdownHelper"
                         class="text-white bg-blue-700 w-full hover:bg-blue-800 text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex justify-between"
                         type="button">Pilih Wahana Wisata <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
@@ -17,23 +17,23 @@
                     </button>
                     <form action="" id="filterWahana">
                         <div id="dropdownHelper"
-                            class="z-10 hidden bg-white relative divide-gray-100 rounded-md shadow-md max-w-2xl align-content-center mr-5 itemHeader">
-                            <div class="filterItem__wahana rounded-md border">
-                                <ul class="text-sm text-black p-4" aria-labelledby="dropdownHelperButton">
+                            class="relative z-10 hidden max-w-2xl mr-5 bg-white divide-gray-100 rounded-md shadow-md align-content-center itemHeader">
+                            <div class="border rounded-md filterItem__wahana">
+                                <ul class="p-4 text-sm text-black" aria-labelledby="dropdownHelperButton">
                                     <li>
                                         <div class="flex gap-3 p-2 rounded-md">
-                                            <div class="grid grid-cols-2 gap-2 items-center gap-x-8">
+                                            <div class="grid items-center grid-cols-2 gap-2 gap-x-8">
                                                 @foreach($tableTipeWahana as $key => $value)
-                                                <span
-                                                    class="inline-block flex gap-2 items-center itemChecks__input itemSpacing">
+                                                <span class="flex gap-3 tipe-wahana align-content-center"
+                                                    class="flex items-center inline-block gap-2 itemChecks__input itemSpacing">
                                                     <input type="checkbox" name="tipe_wahana[]"
                                                         value="{{ $value->id_tipe_wahana }}" class="hidden getInput">
                                                     <input type="checkbox" name="wahanaList"
                                                         id="tipe_wahana_{{ $value->id_tipe_wahana }}"
                                                         data-id="{{ $value->id_tipe_wahana }}"
                                                         data-name="{{ $value->nama_tipe_wahana }}"
-                                                        class="text-blue-600 bg-gray-100 border-gray-300 rounded gap-2 getInput">
-                                                    <div class="ms-2 text-sm">
+                                                        class="gap-2 text-blue-600 bg-gray-100 border-gray-300 rounded getInput">
+                                                    <div class="text-sm ms-2">
                                                         <label class="font-medium text-black">
                                                             <div class="cursor-pointer itemSelect">{{
                                                                 $value->nama_tipe_wahana }}
@@ -59,8 +59,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="dataGet__wahanfilter mt-6">
-                    <ul class="filterGet__list flex flex-wrap gap-3 text-sm items-center listWahana">
+                <div class="mt-6 dataGet__wahanfilter">
+                    <ul class="flex flex-wrap items-center gap-3 text-sm filterGet__list listWahana">
                     </ul>
                 </div>
                 {{-- <select id="kategori"
@@ -174,9 +174,9 @@
                             </span>
                             <div class="mt-4 mb-4 range_container">
                                 <div class="sliders_control">
-                                    <input id="fromSlider" type="range" value="0" min="0" max="100"
+                                    <input id="fromSlider" type="range" value="0" min="0" max="2000000" step="1000"
                                         style="outline: none;" />
-                                    <input id="toSlider" type="range" value="50" min="0" max="100"
+                                    <input id="toSlider" type="range" value="1000000" min="0" max="2000000" step="1000"
                                         style="outline: none;" />
                                 </div>
                                 <div class="form_control">
@@ -184,10 +184,11 @@
                                         <span class="absolute bottom-0 mb-1 text-sm left-1 filter__price">Rp</span>
                                         <label for="price__box__0" class="text-sm">Min</label>
                                         <input class="text-sm form_control_container__time__input" type="number"
-                                            id="fromInput" value="0" min="0" max="2000000" />
+                                            id="fromInput" value="0" min="0" max="2000000" name="minHarga" />
                                         {{-- hidden --}}
-                                        <input class="hidden text-sm form_control_container__time__input" type="number"
-                                            id="fromInput" name="minHarga" value="0" min="0" max="2000000" />
+                                        {{-- <input class="hidden text-sm form_control_container__time__input"
+                                            type="number" id="fromInput" name="minHarga" value="0" min="0"
+                                            max="2000000" /> --}}
                                         {{-- hidden --}}
                                     </div>
                                     <span class="separator__dot"></span>
@@ -196,10 +197,11 @@
                                             class="absolute bottom-0 mb-1 ml-1 text-sm right-1 filter__price">Rp</span>
                                         <label for="price__box__0" class="text-sm">Max</label>
                                         <input class="text-sm form_control_container__time__input" type="number"
-                                            id="toInput" value="0" min="0" max="2000000" />
+                                            id="toInput" value="0" min="0" max="2000000" name="maxHarga" />
                                         {{-- hidden --}}
-                                        <input class="hidden text-sm form_control_container__time__input" type="number"
-                                            id="toInput" name="maxHarga" value="0" min="0" max="2000000" />
+                                        {{-- <input class="hidden text-sm form_control_container__time__input"
+                                            type="number" id="toInput" name="maxHarga" value="0" min="0"
+                                            max="2000000" /> --}}
                                         {{-- hidden --}}
                                     </div>
                                 </div>
@@ -350,7 +352,7 @@
                                                 Fasilitas tempat wisata:
                                             </h3>
                                         </div>
-                                        <span class="pillsHeader__wrap inline-block mt-2 mb-2">
+                                        <span class="inline-block mt-2 mb-2 pillsHeader__wrap">
                                             <ol
                                                 class="flex flex-wrap col-span-2 gap-1 pills__bodyHome list-group-item list-inline-item">
                                                 <li class="pills__eachItem">
@@ -385,7 +387,7 @@
                                         </div>
                                     </div>
                                     <div class="info__recommendationHome">
-                                        <span class="">
+                                        <span>
                                             <h2>Harga Spesial</h2>
                                             <h3 class="my-3 font-semibold">OFF</h3>
                                         </span>
@@ -397,13 +399,79 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="spinBall spinLoaded loadedContent">
-                    <div class="flex m-auto lds-ellipsis">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    {{-- <div class="spinBall spinLoaded loadedContent">
+                        <div class="flex m-auto lds-ellipsis">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div> --}}
+                    <div class="skeletonLoad__loading">
+                        <div class="flex flex-row gap-4 border rounded-lg ">
+                            <div class="content__banner__recommendation">
+                                <span
+                                    class="block rounded-tl-lg rounded-bl-lg skeletonImage__banner animate-pulse"></span>
+                            </div>
+                            <div class="relative flex head__recommendation">
+                                <div class="flex flex-col pt-2 border-r title__head">
+                                    <span class="inline-block text__recommendation w-25">
+                                        <span
+                                            class="block h-8 bg-gray-200 rounded-sm w-25 animate-pulse titleSkeleton"></span>
+                                    </span>
+                                    {{-- Rating --}}
+                                    <div class="flex items-center float-left gap-1 my-3 wisata__stars">
+                                        <span class="block rounded-sm animate-pulse starSkeleton"></span>
+                                    </div>
+                                    {{-- End Rating --}}
+                                    <div class="flex items-center gap-1 my-2 facility__iteminfoHeader">
+                                        <span class="block rounded-sm animate-pulse facilitySkeleton"></span>
+                                    </div>
+                                    <span class="inline-block mt-2 mb-2 pillsHeader__wrap">
+                                        <ol
+                                            class="flex flex-row flex-wrap gap-1 pills__bodyHome list-group-item list-inline-item">
+                                            <li class="rounded-sm pills__eachItem">
+                                                <span
+                                                    class="block rounded-sm animate-pulse facilitySkeleton__items"></span>
+                                            </li>
+                                            <li class="pills__eachItem">
+                                                <span
+                                                    class="block rounded-sm animate-pulse facilitySkeleton__items"></span>
+                                            </li>
+                                            <li class="pills__eachItem">
+                                                <span
+                                                    class="block rounded-sm animate-pulse facilitySkeleton__items"></span>
+                                            </li>
+                                        </ol>
+                                    </span>
+                                    <div class="moreInfo__wrapper my-7">
+                                        <div class="moreinfo__content">
+                                            <div class="flex gap-3 mt-3 moreinfo__items">
+                                                <div class="text-sm kategori__item">
+                                                    <span
+                                                        class="block rounded-sm animate-pulse kategoriSkeleton__items"></span>
+                                                </div>
+                                                <span class="border-r"></span>
+                                                <div class="text-sm kategori__item">
+                                                    <div class="text-sm rank__item">
+                                                        <div class="text-sm kategori__item">
+                                                            <span
+                                                                class="block rounded-sm animate-pulse kategoriSkeleton__items"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info__recommendationHome">
+                                    <div class="infoRecommendation__skeleton">
+                                        <span class="inline-block rounded-sm animate-pulse infoSkeleton__items"></span>
+                                        <span class="rounded-sm no__discountSkeleton"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

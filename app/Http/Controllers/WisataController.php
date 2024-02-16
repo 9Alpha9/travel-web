@@ -10,7 +10,9 @@ use App\Models\KategoriFasilitas;
 use App\Models\KategoriWisata;
 use App\Models\Kecamatan;
 use App\Models\Kota;
+use App\Models\TipeWahana;
 use App\Models\User;
+use App\Models\WahanaWisata;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -83,6 +85,55 @@ class WisataController extends Controller
     public function getKecamatan(Request $request){
         $kecamatan = Kecamatan::where('regency_id', $request->kota)->get();
         return response()->json(['kecamatan' => $kecamatan->all()], 200);
+    }
+
+    public function getTipeWahana(Request $request) {
+        $id_wisata = '';
+        if (isset($request->id_wisata)) {
+            if (strlen($request->id_wisata) > 0) {
+                $id_wisata = $request->id_wisata;
+            }
+        }
+
+        $view = $this->listWahana($id_wisata);
+
+        return response()->json(['row' => $view]);
+    }
+
+    public function listWahana($id_wisata = '') {
+        if (strlen($id_wisata) > 0) {
+            $wahana = WahanaWisata::where('id_wisata', $id_wisata)->with('tipewahana')->get()->all();
+        } else {
+            $wahana = array();
+        }
+        $tipe = TipeWahana::get();
+
+        $view = view('dashboard.template.table_list_wahana', ['tipe' => $tipe->all(), 'wahana' => $wahana])->render();
+
+        return $view;
+    }
+
+    public function saveWahana(Request $request) {
+        parse_str($request->data, $wahana);
+        dd($wahana);
+        foreach ($wahana['id_wahana_wisatas'] as $key => $value) {
+            if (strlen($value) == 0) {
+                $ids[$key] = WahanaWisata::create([
+                    'nama_wahana' => $wahana['nama_wahana'][$key],
+                    'deskripsi_wahana' => $wahana['deskripsi_wahana'][$key],
+                    'id_tipe_wahana' => $wahana['id_tipe_wahana'][$key]
+                ])->id_wahana_wisatas;
+            } else {
+                $ids[$key] = $value;
+                WahanaWisata::find($value)->update([
+                    'nama_wahana' => $wahana['nama_wahana'][$key],
+                    'deskripsi_wahana' => $wahana['deskripsi_wahana'][$key],
+                    'id_tipe_wahana' => $wahana['id_tipe_wahana'][$key]
+                ]);
+            }
+        }
+
+        return response()->json(['ids' => $ids]);
     }
 
     public function show($id){

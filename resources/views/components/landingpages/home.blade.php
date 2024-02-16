@@ -310,7 +310,9 @@
             checkboxShow = $(this).find('input[name="wahanaList"]');
             let id = checkboxShow.data('id');
             let name = checkboxShow.data('name');
-            setWahana(id, name);
+            if ($(this).hasClass('tipe-wahana')) {
+                setWahana(id, name);
+            }
         });
 
         //checkbox click event
@@ -366,8 +368,8 @@
         }
         else {
             arrWahana.push(id);
-            let html = '<li class="data__itemList p-1 px-3 cursor-pointer">' +
-                            '<span class="dataFilter__item inline-block">' + name + '</span>' +
+            let html = '<li class="p-1 px-3 cursor-pointer data__itemList">' +
+                            '<span class="inline-block dataFilter__item">' + name + '</span>' +
                             '<button type="button" id="hapusWahana_' + id + '" class="butttonGet__itemwahana" onclick="removeList(\'' + id + '\')"><i class="ri-close-line closeBtn__filtersicon"></i></button>' +
                         '</li>';
             $('.listWahana').append(html);

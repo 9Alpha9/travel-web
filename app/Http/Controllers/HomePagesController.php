@@ -57,20 +57,27 @@ class HomePagesController extends Controller
     }
 
     public function filterPage(Request $request){
-        if (count($request->tipe_wahana) > 0) {
+        if (isset($request->tipe_wahana)) {
             $this->wisata->whereHas('wahanawisata', function ($query) use ($request) {
                 return $query->whereIn('id_tipe_wahana', $request->tipe_wahana);
             });
         }
-
-        if (strlen($request->kota) > 0) {
+        if (isset($request->kota)) {
             $this->wisata->where('id_kota', $request->kota);
         }
         if ($request->minHarga > 0) {
-            $this->wisata->where('harga >=', $request->minHarga);
+            $this->wisata->where('harga', '>=', $request->minHarga);
         }
-        if ($request->maxHarga > 0) {
-            $this->wisata->where('harga <=', $request->maxHarga);
+        if ($request->maxHarga > 0 && $request->maxHarga != 2000000) {
+            $this->wisata->where('harga', '<=', $request->maxHarga);
+        }
+        if (isset($request->aksesbilitas)) {
+            $this->wisata->where('id_aksesbilitas', $request->aksesbilitas);
+        }
+        if (isset($request->fasilitas)) {
+            $this->wisata->whereHas('fasilitaswisata', function ($query) use ($request) {
+                return $query->whereIn('id_kategori_fasilitas', $request->fasilitas);
+            });
         }
 
         $listModel = array(

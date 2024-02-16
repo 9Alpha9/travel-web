@@ -21,8 +21,7 @@
                                 {{ $tableWisata->count('id') }} Wisata
                             </span>
                             <span class="z-10 smallInfo">
-                                seluruh tempat wisata di Jawa Timur
-                            </span>
+                                Seluruh Wahana Di Wilayah Malang
                         </div>
                     </div>
                 </div>

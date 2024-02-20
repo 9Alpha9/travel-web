@@ -721,7 +721,10 @@
         $.post("{{ route('wisata.wahana') }}", {
             data: $('#listWahana').serialize() + '&id_wisata=' + $('#id_wisata').val()
         }, function(response) {
-            console.log(response);
+            $('#id_wisata').val(response.id_wisata);
+            $('[name="id_wahana_wisatas[]"]').each(function(key, value) {
+                $(this).val(response.ids[key]);
+            });
         });
     });
 

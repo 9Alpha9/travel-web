@@ -10,6 +10,7 @@ use App\Models\NilaiKriteria;
 use App\Models\NilaiTipeWahana;
 use App\Models\NilaiWisata;
 use App\Models\TipeWahana;
+use App\Models\WahanaWisata;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use ArrayObject;
@@ -74,8 +75,11 @@ trait SmartMetode {
                         //                             ->get()->first()->nilai;
                         //     }
                         // }
+                        dd($value->id_wisata);
 
-                        $total_wahana = $value2->where('id_tipe_wahana', $value2->id_tipe_wahana)->count();
+                        $total_wahana = WahanaWisata::where('id_tipe_wahana', $value2->id_tipe_wahana)->count();
+
+                        dd($total_wahana);
                         $nilai_wisata = NilaiTipeWahana::where('id_tipe_wahana', $value2->id_tipe_wahana)
                                             ->where('id_user', '8')
                                             ->where(function($query) use ($total_wahana) {
@@ -83,6 +87,7 @@ trait SmartMetode {
                                                 $query->where('max', '>=', $total_wahana);
                                             })
                                             ->get()->first()->nilai_tipe_wahana;
+                        dd($nilai_wisata);
 
                         NilaiWisata::create([
                             'id_wisata' => $value->id_wisata,
@@ -122,7 +127,7 @@ trait SmartMetode {
                 //     'normalisasi' => $normalisasi
                 // ]);
                 TipeWahana::where('id_tipe_wahana', $value->id_tipe_wahana)->update([
-                    'normalisasi' => $normalisasi
+                    'bobot_normalisasi' => $normalisasi
                 ]);
             }
             DB::commit();
@@ -147,7 +152,7 @@ trait SmartMetode {
             foreach($this->tipe_wahana as $key2 => $value2) {
                 // $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_kriteria', $value2->id_kriteria)->get()->first()->nilai_wisata;
                 $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_tipe_wahana', $value2->id_tipe_wahana)->get()->first()->nilai_wisata;
-                $nilaiUtility[$value->id_wisata][$value2->id_tipe_wahana] = 100 * ((100 - $nilai_wisata) / (100 - 0));
+                $nilaiUtility[$value->id_wisata][$value2->id_tipe_wahana] = 100 * (($nilai_wisata - 0) / (100 - 0));
             }
         }
 

@@ -61,7 +61,7 @@
                                     <div class="flex flex-col w-full flexInput">
                                         <input type="text" id="kategoriInput" required
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
-                                            autocomplete="off" placeholder="Kategori Wisata" name="inputNama[]">
+                                            autocomplete="off" placeholder="Tipe Wahana ..." name="inputNama[]">
                                     </div>
                                     <span class="relative">
                                         <button type="button" onclick="deleteInput(this)" disabled
@@ -82,7 +82,7 @@
                             <button data-modal-hide="kategoriModal" type="submit" id=""
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center "><i
                                     class="ri-save-fill"></i>
-                                Simpan Kategori
+                                Simpan Data
                             </button>
                             <button data-modal-hide="kategoriModal" type="button" id=""
                                 class="text-gray-500 btnCancel__kategori text-white rounded-lg text-sm font-medium px-5 py-2.5 hover:text-white focus:z-10">Batal</button>

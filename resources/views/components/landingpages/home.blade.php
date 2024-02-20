@@ -192,10 +192,39 @@
     });
 </script>
 
+<script id="loadingTemplate">
+    {!! $loadingTemplate !!}
+</script>
+
 <script>
+    $('body').on('click', '.paginationNumber__rows .input-pagination', function() {
+        let $this = $(this);
+        let input = '<input type="number" class="inputPagination">';
+        $this.html(input);
+        $this.find('.inputPagination').focus();
+    });
+
+    $('body').on('focusout', '.inputPagination', function() {
+        let $this = $(this);
+        if ($this.val() == '') {
+            $this.parent().html('...');
+        } else {
+            listWisata($this.val());
+        }
+    });
+
     $('.btn-filter').on('click', function() {
-        let sendData = $('#formFilter').serialize() + '&' + $('#filterWahana').serialize();
-        console.log(sendData);
+        listWisata();
+    });
+
+    function listWisata(page = 1, limit = 10) {
+        let sendData = $('#formFilter').serialize() + '&' + $('#filterWahana').serialize() + '&page=' + page + '&limit=' + limit;
+        let loading = $('#loadingTemplate').text();
+
+        $('.filter__wrapper .filter__show').each(function() {
+            $(this).html(loading);
+        });
+
         $.ajax({
             url: "{{ route('filterpage') }}",
             method: 'post',
@@ -203,9 +232,8 @@
             data: sendData,
         }).done(function (data) {
             $('.filterContent__item').html(data.view);
-            console.log(data.view);
         });
-    });
+    }
 </script>
 
 <script>

@@ -839,7 +839,7 @@ select:not(size) {
 .containerTambah__wisata .dataTables_filter {
   padding: 20px 1px;
   position: absolute !important;
-  right: -845px;
+  right: -553px;
 }
 .containerTambah__wisata .dataTable__wrapper {
   background-color: rgb(1, 26, 87);
@@ -848,7 +848,7 @@ select:not(size) {
 }
 .containerTambah__wisata .dataTables_wrapper .dataTables_paginate {
   position: absolute;
-  right: -845px;
+  right: -553px;
 }
 .containerTambah__wisata .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .containerTambah__wisata .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {

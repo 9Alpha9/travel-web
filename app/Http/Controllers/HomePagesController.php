@@ -39,6 +39,8 @@ class HomePagesController extends Controller
         $tableAksesbilitas = Aksesbilitas::withCount('wisata')->get();
         $tableFasilitas = KategoriFasilitas::withCount('fasilitaswisata')->get();
         // dd($tableFasilitas);
+        $loadingTemplate = view('components.template.loadingList')->render();
+
         $return = array(
             'home' => 'active',
             'pageTitle' => 'Travel',
@@ -48,7 +50,9 @@ class HomePagesController extends Controller
             'tableAksesbilitas' => $tableAksesbilitas,
             'tableFasilitas' => $tableFasilitas,
             'tableTipeWahana' => $tableTipeWahana,
+            'loadingTemplate' => $loadingTemplate,
         );
+
         return view('components/landingpages/home')->with($return);
     }
 

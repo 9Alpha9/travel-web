@@ -2,7 +2,7 @@
     <div class="content__side__filter filter__recommendation ">
         @if(count($tableWisata) > 0)
         @foreach($tableWisata as $key => $value)
-        <div class="filter__show link__filter__show">
+        <div class="mb-5 filter__show link__filter__show">
             <a href="{{ route('viewpages', $value->id_wisata) }}" class="filter__on__click">
                 <div class="flex flex-row gap-4 mb-5 border rounded-lg content__recommendation">
                     <div class="content__banner__recommendation">
@@ -62,24 +62,24 @@
                                         }}</span> --}}
                                 </div>
                             </div>
-                            <div class="moreInfo__wrapper">
+                            <div class="pt-12 moreInfo__wrapper">
                                 <div class="moreinfo__content">
                                     <div class="flex gap-3 mt-3 moreinfo__items">
-                                        <div class="text-sm kategori__item">
+                                        {{-- <div class="text-sm kategori__item">
                                             <i class="ri-flag-fill itemsIcon"></i>
                                             <span class="headerKategori__item">
                                                 Kategori Wisata:
                                             </span>
                                             <span class="kategori__info">Bahari</span>
-                                        </div>
-                                        <span class="border-r"></span>
+                                        </div> --}}
+                                        {{-- <span class="border-r"></span> --}}
                                         <div class="text-sm kategori__item">
                                             <div class="text-sm rank__item">
                                                 <i class="ri-trophy-fill itemsIcon"></i>
                                                 <span class="headerRank__item">
                                                     Ranking:
                                                 </span>
-                                                <span class="kategori__info">08</span>
+                                                <span class="kategori__info">{{ $key + 1 }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -92,11 +92,14 @@
                             @php ($harga -= $harga * ($value->diskon / 100))
                             @endif
                             <span class="discount @if($value->diskon == 0) hide @endif">
-                                <h2>Harga Spesial</h2>
-                                <h3 class="my-3 font-semibold">{{ $value->diskon }}% OFF</h3>
+                                <h2>Diskon Tiket</h2>
+                                <span class="flex inline-flex items-center gap-3">
+                                    Extra
+                                    <h3 class="my-3 font-semibold">{{ $value->diskon }}%</h3>
+                                </span>
                             </span>
                             <span class="no__discount">
-                                <h3>Rp {{ number_format($harga, 0, ',', '.') }}</h3>
+                                <h3 class="font-extrabold">Rp {{ number_format($harga, 0, ',', '.') }}</h3>
                             </span>
                         </div>
                     </div>

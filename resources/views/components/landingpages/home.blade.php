@@ -7,7 +7,7 @@
 {{-- Content Wrapper --}}
 <div class="px-4 content__wrapper xl:px-0">
     <div class="wrapper__content">
-        <div class="content__header">
+        {{-- <div class="content__header">
             <section>Wisata Jawa Timur</section>
             <section class="header__small">Paling Direkomendasikan</section>
             <div class="explore__more explore__guide">
@@ -24,7 +24,7 @@
                     <h1>video by : Intravesco</h1>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         {{-- Box Reservasi --}}
         {{-- <form action="" autocomplete="off">
@@ -136,7 +136,7 @@
         {{-- End Wisata Viral --}}
 
         {{-- Wisata Baru Component --}}
-        {{-- @include('components.landingpages.wisata-baru.wisatabaru') --}}
+        @include('components.landingpages.wisata-baru.wisatabaru')
         {{-- Wisata Baru Component --}}
     </div>
 </div>
@@ -176,19 +176,239 @@
             $(this).val('');
         });
 
-        $('.btn-filter').on('click', function() {
-            let filter_url = "{{ route('filterpage') }}";
-            $('#blankForm').attr('method', 'post');
-            $('#blankForm').attr('action', filter_url);
-            let kategori_value = $('#kategori').val();
-            let kota_value = $('#kota').val();
-            let kategori = $('<input>').attr('type', 'hidden').attr('name', 'kategori').attr('value', kategori_value);
-            let kota = $('<input>').attr('type', 'hidden').attr('name', 'kota').attr('value', kota_value);
-            $('#blankForm').append(kategori);
-            $('#blankForm').append(kota);
-            $('#blankForm').submit();
-        });
+        // $('.btn-filter').on('click', function() {
+        //     let filter_url = "{{ route('filterpage') }}";
+        //     $('#blankForm').attr('method', 'post');
+        //     $('#blankForm').attr('action', filter_url);
+        //     let kategori_value = $('#kategori').val();
+        //     let kota_value = $('#kota').val();
+        //     let kategori = $('<input>').attr('type', 'hidden').attr('name', 'kategori').attr('value', kategori_value);
+        //     let kota = $('<input>').attr('type', 'hidden').attr('name', 'kota').attr('value', kota_value);
+        //     $('#blankForm').append(kategori);
+        //     $('#blankForm').append(kota);
+        //     $('#blankForm').submit();
+        // });
 
     });
+</script>
+
+<script id="loadingTemplate">
+    {!! $loadingTemplate !!}
+</script>
+
+<script>
+    $('body').on('click', '.paginationNumber__rows .input-pagination', function() {
+        let $this = $(this);
+        let input = '<input type="number" class="inputPagination">';
+        $this.html(input);
+        $this.find('.inputPagination').focus();
+    });
+
+    $('body').on('focusout', '.inputPagination', function() {
+        let $this = $(this);
+        if ($this.val() == '') {
+            $this.parent().html('...');
+        } else {
+            listWisata($this.val());
+        }
+    });
+
+    $('.btn-filter').on('click', function() {
+        listWisata();
+    });
+
+    function listWisata(page = 1, limit = 10) {
+        let sendData = $('#formFilter').serialize() + '&' + $('#filterWahana').serialize() + '&page=' + page + '&limit=' + limit;
+        let loading = $('#loadingTemplate').text();
+
+        $('.filter__wrapper .filter__show').each(function() {
+            $(this).html(loading);
+        });
+
+        $.ajax({
+            url: "{{ route('filterpage') }}",
+            method: 'post',
+            dataType: 'json',
+            data: sendData,
+        }).done(function (data) {
+            $('.filterContent__item').html(data.view);
+        });
+    }
+</script>
+
+<script>
+    function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+        const [from, to] = getParsed(fromInput, toInput);
+        fillSlider(fromInput, toInput, '#C6C6C6', '#b0caf8', controlSlider);
+        if (from > to) {
+            fromSlider.value = to;
+            fromInput.value = to;
+        } else {
+            fromSlider.value = from;
+        }
+    }
+
+    function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+        const [from, to] = getParsed(fromInput, toInput);
+        fillSlider(fromInput, toInput, '#C6C6C6', '#b0caf8', controlSlider);
+        setToggleAccessible(toInput);
+        if (from <= to) {
+            toSlider.value = to;
+            toInput.value = to;
+        } else {
+            toInput.value = from;
+        }
+    }
+
+    function controlFromSlider(fromSlider, toSlider, fromInput) {
+      const [from, to] = getParsed(fromSlider, toSlider);
+      fillSlider(fromSlider, toSlider, '#C6C6C6', '#b0caf8', toSlider);
+      if (from > to) {
+        fromSlider.value = to;
+        fromInput.value = to;
+      } else {
+        fromInput.value = from;
+      }
+    }
+
+    function controlToSlider(fromSlider, toSlider, toInput) {
+      const [from, to] = getParsed(fromSlider, toSlider);
+      fillSlider(fromSlider, toSlider, '#C6C6C6', '#b0caf8', toSlider);
+      setToggleAccessible(toSlider);
+      if (from <= to) {
+        toSlider.value = to;
+        toInput.value = to;
+      } else {
+        toInput.value = from;
+        toSlider.value = from;
+      }
+    }
+
+    function getParsed(currentFrom, currentTo) {
+      const from = parseInt(currentFrom.value, 10);
+      const to = parseInt(currentTo.value, 10);
+      return [from, to];
+    }
+
+    function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+        const rangeDistance = to.max-to.min;
+        const fromPosition = from.value - to.min;
+        const toPosition = to.value - to.min;
+        controlSlider.style.background = `linear-gradient(
+          to right,
+          ${sliderColor} 0%,
+          ${sliderColor} ${(fromPosition)/(rangeDistance)*100}%,
+          ${rangeColor} ${((fromPosition)/(rangeDistance))*100}%,
+          ${rangeColor} ${(toPosition)/(rangeDistance)*100}%,
+          ${sliderColor} ${(toPosition)/(rangeDistance)*100}%,
+          ${sliderColor} 100%)`;
+    }
+
+    function setToggleAccessible(currentTarget) {
+      const toSlider = document.querySelector('#toSlider');
+      if (Number(currentTarget.value) <= 0 ) {
+        toSlider.style.zIndex = 2;
+      } else {
+        toSlider.style.zIndex = 0;
+      }
+    }
+
+    const fromSlider = document.querySelector('#fromSlider');
+    const toSlider = document.querySelector('#toSlider');
+    const fromInput = document.querySelector('#fromInput');
+    const toInput = document.querySelector('#toInput');
+    fillSlider(fromSlider, toSlider, '#C6C6C6', '#b0caf8', toSlider);
+    setToggleAccessible(toSlider);
+
+    fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+    toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+    fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+    toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+</script>
+
+<script>
+    $(function() {
+
+        var span = $('span');
+
+        //span click event
+        span.on('click', function() {
+            var checkbox = $(this).find('input[type="checkbox"]');
+            checkbox.prop('checked', !checkbox.prop('checked'));
+            checkboxShow = $(this).find('input[name="wahanaList"]');
+            let id = checkboxShow.data('id');
+            let name = checkboxShow.data('name');
+            if ($(this).hasClass('tipe-wahana')) {
+                setWahana(id, name);
+            }
+        });
+
+        //checkbox click event
+        $('input[type="checkbox"]').on('click', function() {
+          $(this).prop('checked', !$(this).prop('checked'))
+        });
+
+      });
+</script>
+
+<script>
+    $(function () {
+        $('ol li:gt(2)').remove()
+      })
+</script>
+
+
+<script>
+    $(function() {
+
+        $('#multi').multiselect({
+          includeSelectAllOption: true
+        });
+
+        $('#btnget').click(function() {
+          alert($('#multi').val());
+        });
+      });
+</script>
+
+<script>
+    var checks = document.querySelectorAll(".getInput");
+    var max = 2;
+        for (var i = 0; i < checks.length; i++)
+        checks[i].onclick = selectiveCheck;
+    function selectiveCheck (event) {
+    var checkedChecks = document.querySelectorAll(".check:checked");
+        if (checkedChecks.length >= max + 1)
+    return false;
+    }
+</script>
+<script>
+    let arrWahana = [];
+    $('input[name="wahanaList"]').on('change', function(){
+        let id = $(this).data('id');
+        let name = $(this).data('name');
+        setWahana(id, name);
+    });
+
+    function setWahana(id, name){
+        if(arrWahana.indexOf(id) != -1){
+            removeList(id);
+        }
+        else {
+            arrWahana.push(id);
+            let html = '<li class="p-1 px-3 cursor-pointer data__itemList">' +
+                            '<span class="inline-block dataFilter__item">' + name + '</span>' +
+                            '<button type="button" id="hapusWahana_' + id + '" class="butttonGet__itemwahana" onclick="removeList(\'' + id + '\')"><i class="ri-close-line closeBtn__filtersicon"></i></button>' +
+                        '</li>';
+            $('.listWahana').append(html);
+        }
+    }
+
+    function removeList(id){
+        arrWahana.remove(id);
+        $('#hapusWahana_' + id).closest('li').remove();
+        $('input[value="' + id + '"]').prop('checked', false);
+        $('#tipe_wahana_' + id).prop('checked', false);
+    }
 </script>
 @endpush

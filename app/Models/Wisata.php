@@ -60,4 +60,8 @@ class Wisata extends Model
     public function Aksesbilitas() {
         return $this->belongsTo(Aksesbilitas::class, 'id_aksesbilitas', 'id_aksesbilitas');
     }
+
+    public function WahanaWisata() {
+        return $this->hasMany(WahanaWisata::class, 'id_wisata', 'id_wisata');
+    }
 }

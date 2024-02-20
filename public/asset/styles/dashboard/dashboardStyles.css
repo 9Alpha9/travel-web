@@ -146,7 +146,6 @@
   position: relative;
   z-index: 8;
   color: #d3d3d3;
-  text-transform: lowercase;
   font-size: 0.7em;
 }
 .dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .infoDB__icons {
@@ -171,7 +170,7 @@
   position: relative;
   overflow: hidden;
 }
-.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahWisata::before {
+.dashboardContainer__inner .sideDB__content .contentContainer .contentWrapper__dashboard .topDB__information .jumlahWisata::after {
   z-index: 4;
   position: absolute;
   content: "";
@@ -840,7 +839,7 @@ select:not(size) {
 .containerTambah__wisata .dataTables_filter {
   padding: 20px 1px;
   position: absolute !important;
-  right: -421px;
+  right: -553px;
 }
 .containerTambah__wisata .dataTable__wrapper {
   background-color: rgb(1, 26, 87);
@@ -849,7 +848,7 @@ select:not(size) {
 }
 .containerTambah__wisata .dataTables_wrapper .dataTables_paginate {
   position: absolute;
-  right: -421px;
+  right: -553px;
 }
 .containerTambah__wisata .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .containerTambah__wisata .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
@@ -1152,4 +1151,68 @@ input::-webkit-inner-spin-button {
 }
 .fasilitasForm__container .fasilitasForm__wrapper .tablesData__list .tablesData__items {
   font-family: "Poppins", sans-serif !important;
+}
+
+.modalBody__wahana {
+  position: relative;
+}
+.modalBody__wahana .tableItem__list {
+  height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.modalBody__wahana .bgButton__wahana {
+  background-color: rgb(42, 24, 204);
+  color: #fff;
+}
+.modalBody__wahana .bgButton__wahana:hover {
+  background-color: rgb(56, 37, 228);
+}
+.modalBody__wahana .addWahana__cta {
+  background-color: rgb(42, 24, 204);
+  color: #fff;
+}
+.modalBody__wahana .addWahana__cta:hover {
+  color: #fff;
+  background-color: rgb(56, 37, 228);
+}
+.modalBody__wahana .simpanCta__btn {
+  background-color: rgb(27, 16, 124);
+  color: #fff;
+}
+.modalBody__wahana .simpanCta__btn:hover {
+  background-color: rgb(56, 37, 228);
+}
+.modalBody__wahana .deleteCta__btn {
+  background-color: rgb(192, 5, 5);
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+.modalBody__wahana .deleteCta__btn:hover {
+  background-color: rgb(134, 2, 2);
+}
+.modalBody__wahana .deleteWahana__btn {
+  background-color: rgb(192, 5, 5);
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+.modalBody__wahana .deleteWahana__btn:hover {
+  background-color: rgb(134, 2, 2);
+}
+.modalBody__wahana .editWahana__btn {
+  background-color: rgb(5, 128, 26);
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+.modalBody__wahana .editWahana__btn:hover {
+  background-color: rgb(9, 158, 34);
+}
+.modalBody__wahana select:not([size]) {
+  border: solid 1.2px rgb(216, 213, 213);
+}
+
+.wahanaModal__name {
+  position: relative !important;
+  overflow: hidden;
 }/*# sourceMappingURL=dashboardStyles.css.map */

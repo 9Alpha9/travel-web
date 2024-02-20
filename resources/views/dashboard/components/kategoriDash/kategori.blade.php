@@ -7,17 +7,17 @@
 <div class="pt-20 pb-20 kategoriContainer">
     <section class="relative headingTitle__wrapper">
         <span class="headingTitle__kategori">
-            <h1>Kategori Wisata</h1>
+            <h1>Tipe Wahana</h1>
         </span>
         <span>
-            <p>Silahkan tambahkan kategori wisata dengan cara menekan tombol yang ada dibawah!</p>
+            <p>Silahkan tambahkan tipe wahana dengan cara menekan tombol yang ada dibawah!</p>
         </span>
     </section>
     <section class="relative py-8 modalContainer">
         <button data-modal-target="kategoriModal" data-modal-toggle="kategoriModal"
             class="block modalToogle font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button"><i class="ri-file-add-fill"></i>
-            Tambah Kategori Wisata
+            Tambah Tipe Wahana
         </button>
         {{-- TAMBAH MODAL --}}
         <form action="{{ route('kategori.store') }}" id="kategoriField" method="post">
@@ -28,7 +28,7 @@
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                Tambah Kategori Wisata
+                                Tambah Tipe Wahana
                             </h3>
                             <button type="button"
                                 class="inline-flex items-center justify-center w-8 h-8 ml-auto text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -43,7 +43,7 @@
                         </div>
                         <div class="p-6 kategoriInput__container">
                             <span class="block headWrapper">
-                                <p class="headText">Silahkan tambah kategori wisata dengan mengisi form dibawah!</p>
+                                <p class="headText">Silahkan tambah tipe wahana dengan mengisi form dibawah!</p>
                             </span>
                             <section class="pt-6 kategoriWrapper">
                                 {{-- <span class="block my-5 kategoriContent__input">
@@ -56,12 +56,12 @@
                                 </span> --}}
                                 <label for="kategoriInput"
                                     class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">Tambah
-                                    Kategori</label>
+                                    Tipe Wahana</label>
                                 <span class="flex flex-row items-center gap-4 pb-4">
                                     <div class="flex flex-col w-full flexInput">
                                         <input type="text" id="kategoriInput" required
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
-                                            autocomplete="off" placeholder="Kategori Wisata" name="inputNama[]">
+                                            autocomplete="off" placeholder="Tipe Wahana ..." name="inputNama[]">
                                     </div>
                                     <span class="relative">
                                         <button type="button" onclick="deleteInput(this)" disabled
@@ -82,7 +82,7 @@
                             <button data-modal-hide="kategoriModal" type="submit" id=""
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center "><i
                                     class="ri-save-fill"></i>
-                                Simpan Kategori
+                                Simpan Data
                             </button>
                             <button data-modal-hide="kategoriModal" type="button" id=""
                                 class="text-gray-500 btnCancel__kategori text-white rounded-lg text-sm font-medium px-5 py-2.5 hover:text-white focus:z-10">Batal</button>
@@ -158,7 +158,7 @@
                         No
                     </th>
                     <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
-                        Nama Kategori Wisata
+                        Nama Tipe Wahana
                     </th>
                     <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
                         Aksi
@@ -212,7 +212,7 @@
         deleteInput(this);
     });
 
-    $('.editBtn').on('click', function(){
+    $('body').on('click', '.editBtn', function(){
         href = "{{ route('kategori.update', 'idKategori') }}";
         href = href.replace('idKategori', $(this).data('id'));
         $('#inputedNama').val($(this).data('nama'));

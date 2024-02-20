@@ -44,9 +44,9 @@
                             <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
                                 Nama Wisata
                             </th>
-                            <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
+                            {{-- <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
                                 Kategori
-                            </th>
+                            </th> --}}
                             <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
                                 Fasilitas Wisata
                             </th>
@@ -84,10 +84,10 @@
                                 class="px-6 py-4 font-bold uppercase border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 {{ $row->nama_wisata }}
                             </td>
-                            <td
+                            {{-- <td
                                 class="px-6 py-4 font-bold uppercase border-b border-r dark:border-gray-700 whitespace-nowrap">
                                 {{ $row->kategoriwisata->nama_kategori_wisata }}
-                            </td>
+                            </td> --}}
                             <td
                                 class="flex flex-wrap w-[15rem] max-w-[15rem] px-6 border-b border-r dark:border-gray-700 h-14 overflow-auto ">
                                 <span class="overflow-hidden leading-7">

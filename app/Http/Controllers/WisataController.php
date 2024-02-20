@@ -10,7 +10,9 @@ use App\Models\KategoriFasilitas;
 use App\Models\KategoriWisata;
 use App\Models\Kecamatan;
 use App\Models\Kota;
+use App\Models\TipeWahana;
 use App\Models\User;
+use App\Models\WahanaWisata;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,10 +59,10 @@ class WisataController extends Controller
 
     public function index(){
         if(Auth::user()->user_type == "Admin"){
-            $wisata = Wisata::where('id_pengelolah', Auth::user()->id_user)->orderBy('created_at', 'asc')->get();
+            $wisata = Wisata::where('id_pengelolah', Auth::user()->id_user)->where('status', '>', 0)->orderBy('created_at', 'asc')->get();
         }
         else if(Auth::user()->user_type == "superAdmin"){
-            $wisata = Wisata::orderBy('created_at', 'desc')->get();
+            $wisata = Wisata::where('status', '>', 0)->orderBy('created_at', 'desc')->get();
         }
         $this->page['tableWisata'] = $wisata;
         return view('dashboard.pages.listwisata')->with($this->page);
@@ -83,6 +85,63 @@ class WisataController extends Controller
     public function getKecamatan(Request $request){
         $kecamatan = Kecamatan::where('regency_id', $request->kota)->get();
         return response()->json(['kecamatan' => $kecamatan->all()], 200);
+    }
+
+    public function getTipeWahana(Request $request) {
+        $id_wisata = '';
+        if (isset($request->id_wisata)) {
+            if (strlen($request->id_wisata) > 0) {
+                $id_wisata = $request->id_wisata;
+            }
+        }
+
+        $view = $this->listWahana($id_wisata);
+
+        return response()->json(['row' => $view]);
+    }
+
+    public function listWahana($id_wisata = '') {
+        if (strlen($id_wisata) > 0) {
+            $wahana = WahanaWisata::where('id_wisata', $id_wisata)->with('tipewahana')->get()->all();
+        } else {
+            $wahana = array();
+        }
+        $tipe = TipeWahana::get();
+
+        $view = view('dashboard.template.table_list_wahana', ['tipe' => $tipe->all(), 'wahana' => $wahana])->render();
+
+        return $view;
+    }
+
+    public function saveWahana(Request $request) {
+        parse_str($request->data, $wahana);
+        if (strlen($wahana['id_wisata']) == 0) {
+            $id_wisata = Wisata::create([
+                'status' => 0
+            ])->id_wisata;
+        } else {
+            $id_wisata = $wahana['id_wisata'];
+        }
+        foreach ($wahana['id_wahana_wisatas'] as $key => $value) {
+            if (strlen($value) == 0) {
+                $ids[$key] = WahanaWisata::create([
+                    'id_wisata' => $id_wisata,
+                    'nama_wahana' => $wahana['nama_wahana'][$key],
+                    'deskripsi_wahana' => $wahana['deskripsi_wahana'][$key],
+                    'id_tipe_wahana' => $wahana['id_tipe_wahana'][$key]
+                ])->id_wahana_wisatas;
+            } else {
+                $ids[$key] = $value;
+                WahanaWisata::find($value)->update([
+                    'id_wisata' => $id_wisata,
+                    'nama_wahana' => $wahana['nama_wahana'][$key],
+                    'deskripsi_wahana' => $wahana['deskripsi_wahana'][$key],
+                    'id_tipe_wahana' => $wahana['id_tipe_wahana'][$key]
+                ]);
+            }
+        }
+
+        return response()->json(['id_wisata' => $id_wisata, 'ids' => $ids]);
     }
 
     public function show($id){
@@ -114,19 +173,39 @@ class WisataController extends Controller
         $validationResponse = $this->validationForm($request, $this->rules, $this->messages);
         if($validationResponse) {
             try {
-                $wisata = Wisata::create([
-                    "id_pengelolah" => Auth::user()->id_user,
-                    "id_aksesbilitas" => $request->aksesbilitas,
-                    "harga" => str_replace('.','',$request->harga),
-                    "diskon" => $request->diskon,
-                    "nama_wisata" => $request->nama_wisata,
-                    "artikel" => $request->artikel,
-                    "id_kategori_wisata" => $request->wisataList__activity,
-                    "id_kota" => $request->kota,
-                    "id_kecamatan" => $request->kecamatan,
-                    "created_at" => date('Y-m-d H:i:s'),
-                    "updated_at" => date('Y-m-d H:i:s')
-                ]);
+                if (strlen($request->id_wisata) == 0) {
+                    $wisata = Wisata::create([
+                        "id_pengelolah" => Auth::user()->id_user,
+                        "id_aksesbilitas" => $request->aksesbilitas,
+                        "harga" => str_replace('.','',$request->harga),
+                        "diskon" => $request->diskon,
+                        "nama_wisata" => $request->nama_wisata,
+                        "artikel" => $request->artikel,
+                        // "id_kategori_wisata" => $request->wisataList__activity,
+                        "id_kota" => $request->kota,
+                        "id_kecamatan" => $request->kecamatan,
+                        "created_at" => date('Y-m-d H:i:s'),
+                        "updated_at" => date('Y-m-d H:i:s')
+                    ]);
+                } else {
+                    $wisata = Wisata::where('id_wisata', $request->id_wisata)->update([
+                        "id_pengelolah" => Auth::user()->id_user,
+                        "id_aksesbilitas" => $request->aksesbilitas,
+                        "harga" => str_replace('.','',$request->harga),
+                        "diskon" => $request->diskon,
+                        "nama_wisata" => $request->nama_wisata,
+                        "artikel" => $request->artikel,
+                        // "id_kategori_wisata" => $request->wisataList__activity,
+                        "id_kota" => $request->kota,
+                        "id_kecamatan" => $request->kecamatan,
+                        'status' => 1,
+                        "created_at" => date('Y-m-d H:i:s'),
+                        "updated_at" => date('Y-m-d H:i:s')
+                    ]);
+
+                    $wisata = Wisata::find($request->id_wisata);
+                }
+
 
                 // jika kosong maka dilewati.
                 if (!is_null($request->listFasilitas)) {
@@ -201,6 +280,10 @@ class WisataController extends Controller
             $checkFasilitas = FasilitasWisata::where('id_wisata', $id)->get();
             if($checkFasilitas->count() > 0){
                 $fasilitas = FasilitasWisata::where('id_wisata', $id)->delete();
+            }
+            $checkWahana = WahanaWisata::where('id_wisata', $id)->get();
+            if($checkWahana->count() > 0) {
+                $wahana = WahanaWisata::where('id_wisata', $id)->delete();
             }
             $wisata = Wisata::find($id)->delete();
             return redirect()->route('wisata.index')->with(['success' => 'Data Berhasil Dihapus!']);

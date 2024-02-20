@@ -322,29 +322,34 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="grid w-full grid-cols-2 gap-4 continer__selectionDiv">
+                    <div class="relative grid w-full grid-cols-2 gap-4 continer__selectionDiv">
                         <div class="relative mt-12 activityContainer">
                             <span class="block py-4 dbText__header">
-                                <h1>Kategori Tempat Wisata</h1>
+                                <h1>Wahana Wisata</h1>
                             </span>
-                            <div class="activityWrapper">
+                            <div class="relative activityWrapper">
                                 <div class="dbData__listWisata">
                                     <span class="flex flex-col inputWisata__name">
                                         <label for="wisata__name" class="flex items-center py-2 ">
                                             <h3>
-                                                Kategori Tempat Wisata
+                                                Tambah Tipe Wahana Wisata
                                                 <span class="labelRequire__infowisata">*</span>
                                             </h3>
                                         </label>
-                                        <select name="wisataList__activity" id="activity">
+                                        <button data-modal-target="wahanaModal" data-modal-toggle="wahanaModal"
+                                            class="block text-white bg-blue-700 hover:bg-blue-800  focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                            type="button">
+                                            <i class="ri-add-line"></i> Tipe Wahana Wisata
+                                        </button>
+
+                                        {{-- <select name="wisataList__activity" id="activity">
                                             <option value hidden disabled selected>Silahkan Pilih List Kategori Wisata
                                             </option>
                                             @foreach($tableKategori as $row)
                                             <option value="{{ $row->id_kategori_wisata }}">{{ $row->nama_kategori_wisata
                                                 }}</option>
                                             @endforeach
-                                        </select>
+                                        </select> --}}
                                         @if($errors->has('wisataList__activity'))
                                         @foreach($errors->get('wisataList__activity') as $message)
                                         <div class="errorsPop__messages">
@@ -378,7 +383,7 @@
                                     <button data-modal-target="infoModal" data-modal-toggle="infoModal"
                                         class="block modalToogle text-white rounded-lg text-sm w-full px-5 py-2.5 text-center hover:bg-blue-800"
                                         type="button">
-                                        Tambah / Edit Informasi Wisata
+                                        <i class="ri-add-line"></i> Tambah Informasi Wisata
                                     </button>
                                     {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                         <span class="font-medium">Oops!</span> Informasi wisata
@@ -424,7 +429,7 @@
                                                         <label for="inputInformasi"
                                                             class="block mb-3 text-sm text-gray-900 labelInput dark:text-white">Tambahkan
                                                             List Informasi Wisata</label>
-                                                        <span class="flex flex-row items-center gap-4 pb-4">
+                                                        <span class="flex flex-row items-center gap-4 pb-4 infoData">
                                                             <div class="flex flex-col w-full flexInput">
                                                                 <input type="text"
                                                                     class="bg-gray-50 border border-gray-300 text-md font-normal rounded-lg w-full p-2.5 inputFields"
@@ -510,6 +515,67 @@
                 </div>
                 <input type="text" name="listFasilitas" hidden>
                 <input type="text" name="listExtFasilitas" hidden>
+                <input type="text" name="id_wisata" id="id_wisata" hidden>
+            </form>
+
+            <form id="listWahana">
+                <div id="wahanaModal" data-modal-backdrop="static" tabindex="-1"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative w-full max-h-full p-4 max-w-7xl modalBody__wahana">
+                        <div class="relative bg-white rounded-lg shadow">
+                            <div class="flex items-center justify-between p-4 border-b rounded-t md:p-5">
+                                <span class="addWahana__btn">
+                                    <button type="button" id="tambahWahana"
+                                        class="bg-button-add-primary hover:text-gray-900 ms-auto addWahana__cta p-2.5 text-sm rounded-md">
+                                        <i class="ri-add-line"></i>
+                                        Tambah Wahana
+                                    </button>
+                                </span>
+                                <button type="button"
+                                    class="inline-flex items-center justify-center w-8 h-8 text-sm bg-transparent rounded-lg text-primary-birent hover:bg-gray-200 hover:text-gray-900 ms-auto"
+                                    data-modal-hide="wahanaModal">
+                                    <i class="text-2xl ri-close-line"></i>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <div class="relative p-4 space-y-4 md:p-5 tableItem__list">
+                                <div class="relative overflow-x-auto">
+                                    <table class="relative w-full text-sm text-left rtl:text-right dark:text-gray-400">
+                                        <thead class="text-black uppercase text-md bg-gray-50 headTable__wahanas">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-3">
+                                                    #
+                                                </th>
+                                                <th scope="col" class="py-3 w-80">
+                                                    Nama Wahana
+                                                </th>
+                                                <th scope="col" class="px-3 w-80">
+                                                    Tipe Wahana
+                                                </th>
+                                                <th scope="col" class="px-3 py-3">
+                                                    Keterangan
+                                                    <span
+                                                        style="font-size: 9px; position: relative; top: -8px;">(Opsional)</span>
+                                                </th>
+                                                <th scope="col" class="px-3 py-3">
+                                                    Aksi
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="relative overflow-x-auto tableBody__wahanas">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
+                                <button data-modal-hide="wahanaModal" type="button"
+                                    class="focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center simpanCta__btn"><i
+                                        class="ri-save-fill"></i>&nbsp;Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -630,6 +696,55 @@
             $('#inputKecamatan').html(data);
         });
     });
+
+    $('body').on('click', '#tambahWahana', function() {
+        $.post("{{ route('data.tipe') }}", {
+
+        }, function (response) {
+            $('body').find('.tableBody__wahanas').append(response.row);
+            reorder_list_wahana();
+        });
+    });
+
+    function reorder_list_wahana() {
+        $('body').find('.tableBody__wahanas').find('tr').each(function (key, value) {
+            $(this).find('th:first').html(key + 1);
+        });
+    }
+
+    $('body').on('click', '.deleteWahana__btn', function () {
+        $(this).parents('tr').remove();
+        reorder_list_wahana();
+    });
+
+    $('.simpanCta__btn').on('click', function() {
+        $.post("{{ route('wisata.wahana') }}", {
+            data: $('#listWahana').serialize() + '&id_wisata=' + $('#id_wisata').val()
+        }, function(response) {
+            $('#id_wisata').val(response.id_wisata);
+            $('[name="id_wahana_wisatas[]"]').each(function(key, value) {
+                $(this).val(response.ids[key]);
+            });
+        });
+    });
+
+    function getTipeWahana(id = '') {
+        $.post("{{ route('data.tipe') }}", {
+            id_wisata: id
+        }, function (result) {
+            let data = "";
+            result.tipe.forEach(element => {
+                data += '<option value="' + element.id_tipe_wahana + '"';
+                list_wahana.forEach(element2 => {
+                    if (element2 === element.id_tipe_wahana) {
+                        data += 'selected';
+                    }
+                });
+                data += '>' + element.nama_tipe_wahana + '</option>';
+            });
+
+        });
+    }
 
     function setFasilitas(id, name){
         if(arrFasilitas.indexOf(id) != -1){

@@ -200,7 +200,7 @@ $-moz-appearance: textfield;
                         position: relative;
                         z-index: 8;
                         color: #d3d3d3;
-                        text-transform: lowercase;
+                        // text-transform: lowercase;
                         font-size: 0.7em;
                     }
 
@@ -231,7 +231,7 @@ $-moz-appearance: textfield;
                         position: relative;
                         overflow: hidden;
 
-                        &::before {
+                        &::after {
                             z-index: 4;
                             position: absolute;
                             content: '';
@@ -1122,7 +1122,7 @@ select:not(size) {
     .dataTables_filter {
         padding: 20px 1px;
         position: absolute !important;
-        right: -421px;
+        right: -553px;
         // bottom: 650px;
         // max-width: 1201px !important;
         // z-index: 2;
@@ -1136,7 +1136,7 @@ select:not(size) {
 
     .dataTables_wrapper .dataTables_paginate {
         position: absolute;
-        right: -421px;
+        right: -553px;
     }
 
     .dataTables_wrapper .dataTables_paginate .paginate_button.current,
@@ -1567,3 +1567,109 @@ input[type=number] {
 //         background-color: tomato;
 //     }
 // }
+
+.modalBody__wahana {
+    position: relative;
+
+    .tableItem__list {
+        height: 300px;
+        max-height: 300px;
+        overflow: hidden;
+        overflow-y: auto;
+
+        // .headTable__wahanas {
+        //     background-color: tomato;
+        //     position: fixed;
+        //     z-index: 2;
+        //     top: 30.5em;
+        //     left: 0;
+        // }
+    }
+
+    // .tableBody__wahanas {
+    //     margin-top: 3em;
+    //     display: inline-block;
+    // }
+    .bgButton__wahana {
+        background-color: rgb(42, 24, 204);
+        color: #fff;
+
+        &:hover {
+            background-color: rgb(56, 37, 228);
+
+        }
+    }
+
+    .addWahana__cta {
+        background-color: rgb(42, 24, 204);
+        color: #fff;
+
+        &:hover {
+            color: #fff;
+            background-color: rgb(56, 37, 228);
+        }
+    }
+
+    .simpanCta__btn {
+        background-color: rgb(27, 16, 124);
+        color: #fff;
+
+        &:hover {
+            background-color: rgb(56, 37, 228);
+        }
+    }
+
+    .deleteCta__btn {
+        background-color: rgb(192, 5, 5);
+        color: #fff;
+        transition: ease-in-out .3s;
+
+        &:hover {
+            background-color: rgb(134, 2, 2);
+        }
+    }
+
+    .deleteWahana__btn {
+        background-color: rgb(192, 5, 5);
+        color: #fff;
+        transition: ease-in-out .3s;
+
+        &:hover {
+            background-color: rgb(134, 2, 2);
+        }
+    }
+
+    .editWahana__btn {
+        background-color: rgb(5, 128, 26);
+        color: #fff;
+        transition: ease-in-out .3s;
+
+        &:hover {
+            background-color: rgb(9, 158, 34);
+        }
+    }
+
+    select:not([size]) {
+        // background-color: tomato;
+        border: solid 1.2px rgb(216, 213, 213);
+    }
+
+}
+
+.wahanaModal__name {
+    position: relative !important;
+    overflow: hidden;
+
+    // &::before {
+    //     content: "";
+    //     background-color: rgb(235, 233, 253);
+    //     height: 300px;
+    //     width: 300px;
+    //     border-radius: 50px;
+    //     top: -34px;
+    //     position: absolute;
+    //     right: -83px;
+    //     transform: rotate(40deg);
+    //     filter: blur(1.17rem);
+    // }
+}

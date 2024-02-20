@@ -56,6 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::post('/admin/kecamatan', [WisataController::class, 'getKecamatan'])->name('data.kecamatan');
+Route::post('/admin/tipe_wahana', [WisataController::class, 'getTipeWahana'])->name('data.tipe');
 
 Route::group(['middleware' => ['auth', 'role:User']], function () {
     Route::post('/admin/wisata/request', [WisataController::class, 'request'])->name('wisata.request');
@@ -74,5 +75,6 @@ Route::group(['middleware' => ['auth', 'role:superAdmin']], function () {
 Route::group(['middleware' => ['auth', 'role:superAdmin,Admin']], function () {
     //Dashboard Route
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::post('/admin/wisata/wahana', [WisataController::class, 'saveWahana'])->name('wisata.wahana');
     Route::resource('/admin/wisata', WisataController::class);
 });

@@ -44,7 +44,7 @@
                 <a href={{ route('kategori.index') }}>
                     <span class="block navLinks @isset($kategori) {{ $kategori }} @endif">
                         <i class="ri-archive-drawer-fill iconsDB"></i>
-                        Add Kategori Wisata
+                        Add Tipe Wahana
                     </span>
                 </a>
             </div>

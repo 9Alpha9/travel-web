@@ -56,11 +56,11 @@
                     <a href="{{ route('landingpage') }}">Home</a>
                 </li>
                 <li>/</li>
-                <li class="font-semibold text-primary-birent">
+                {{-- <li class="font-semibold text-primary-birent">
                     <a href="#!" class="hover:underline">{{ $tableWisata->kategoriwisata->nama_kategori_wisata
                         }}</a>
-                </li>
-                <li>/</li>
+                </li> --}}
+                {{-- <li>/</li> --}}
                 <li class="font-semibold text-gray-primary">
                     <a href="#!" class="hover:underline">{{ $tableWisata->nama_wisata }}</a>
                 </li>

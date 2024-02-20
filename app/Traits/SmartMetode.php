@@ -75,19 +75,19 @@ trait SmartMetode {
                         //                             ->get()->first()->nilai;
                         //     }
                         // }
-                        dd($value->id_wisata);
 
-                        $total_wahana = WahanaWisata::where('id_tipe_wahana', $value2->id_tipe_wahana)->count();
+                        $total_wahana = WahanaWisata::where('id_wisata', $value->id_wisata)->where('id_tipe_wahana', $value2->id_tipe_wahana)->count();
 
-                        dd($total_wahana);
                         $nilai_wisata = NilaiTipeWahana::where('id_tipe_wahana', $value2->id_tipe_wahana)
                                             ->where('id_user', '8')
                                             ->where(function($query) use ($total_wahana) {
                                                 $query->where('min', '<=', $total_wahana);
-                                                $query->where('max', '>=', $total_wahana);
+                                                $query->where(function($query2) use ($total_wahana) {
+                                                    $query2->where('max', '>=', $total_wahana);
+                                                    $query2->orWhere('max', '==', 0);
+                                                });
                                             })
                                             ->get()->first()->nilai_tipe_wahana;
-                        dd($nilai_wisata);
 
                         NilaiWisata::create([
                             'id_wisata' => $value->id_wisata,
@@ -172,7 +172,7 @@ trait SmartMetode {
         foreach ($nilaiUtility as $key => $value) {
             $total_utility = 0;
             foreach ($this->tipe_wahana as $key2 => $value2) {
-                $total_alternatif = $value[$value2->id_tipe_wahana] * $value2->normalisasi;
+                $total_alternatif = $value[$value2->id_tipe_wahana] * $value2->bobot_normalisasi;
                 $nilaiAkhir['"' . $key . '"'][$value2->id_tipe_wahana] = $total_alternatif;
                 $total_utility += $total_alternatif;
             }

@@ -78,9 +78,10 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="filter__items filter__special">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    {{-- <div class="filter__items filter__special">Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit.
                         Dolorum, saepe quidem dicta animi architecto placeat sequi id enim ut harum commodi labore
-                        repudiandae laudantium magnam fuga exercitationem velit, cumque ea.</div>
+                        repudiandae laudantium magnam fuga exercitationem velit, cumque ea.</div> --}}
                 </div>
             </div>
             <div class="content__side__filter filter__recommendation ">
@@ -140,7 +141,7 @@
                                     @php ($harga -= $harga * ($value->diskon / 100))
                                     @endif
                                     <span class="discount @if($value->diskon == 0) hide @endif">
-                                        <h2>Harga Spesial</h2>
+                                        <h2>Harga Diskon</h2>
                                         <h3 class="my-3 font-semibold">{{ $value->diskon }}% OFF</h3>
                                     </span>
                                     <span class="no__discount">

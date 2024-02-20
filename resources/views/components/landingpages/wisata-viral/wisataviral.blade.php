@@ -19,7 +19,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="w-full filters__tipe__wisata">
+                {{-- <div class="w-full filters__tipe__wisata">
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">
                         <h3>Filter Kota/Kabupaten</h3>
                     </label>
@@ -30,7 +30,7 @@
                         <option value="{{ $value->id }}">{{ $value->name }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
                 <span class="items-center mx-2 on__submit">
                     <button type="button"
                         class="py-2.5 px-8  text-sm font-medium text-gray-900 focus:outline-none border border-gray-200 h focus:z-10 focus:ring-4 text-white btn-filter">

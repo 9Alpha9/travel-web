@@ -598,7 +598,7 @@ input:focus {
   justify-content: center;
 }
 .filter__wrapper .filter__content .filter__promo {
-  max-width: 25em;
+  width: 300px;
 }
 .filter__wrapper .filter__content .filter__recommendation .not__found {
   width: 100%;

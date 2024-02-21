@@ -237,10 +237,24 @@
                                     </li>
                                 </ul>
                             </div> --}}
-                            <div class="filterRange__prices filter__items"></div>
-                            <span class="item__header">
-                                <h3 class="font-semibold">Berdasarkan Harga</h3>
-                            </span>
+                            <div class="filterRange__prices filter__items">
+                                <div class="p-2 rounded-md bannerFilters">
+                                    <div class="flex flex-col p-2 bannerTitle__wrap">
+                                        <span class="block titleJumbo">Bingung Berkelana?</span>
+                                        <span class="titleMedium">Beli Tiket Di Birentcar</span>
+                                        <p class="mt-3 text-xs font-thin">Dijamin puas dan aman!</p>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between mt-6 item__header">
+                                    <span class="inline-block">
+                                        <h3 class="font-semibold">Berdasarkan Harga</h3>
+                                        <p class="text-xs font-thin text-gray-400">Price min, price max</p>
+                                    </span>
+                                    <span class="block mt-2 resetRange">
+                                        <button id="" type="button" class="text-sm text-primary-birent">Reset</button>
+                                    </span>
+                                </div>
+                            </div>
                             <div class="mt-4 mb-4 range_container">
                                 <div class="sliders_control">
                                     <input id="fromSlider" type="range" value="0" min="0" max="2000000" step="1000"

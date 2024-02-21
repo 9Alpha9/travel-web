@@ -1558,3 +1558,40 @@ input[type="checkbox"]:focus {
         }
     }
 }
+
+.filterRange__prices {
+    .bannerFilters {
+        background-color: rgb(23, 10, 87);
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: "";
+            height: 120px;
+            width: 320px;
+            position: absolute;
+            z-index: 1;
+            background-color: rgb(63, 44, 145);
+            top: 0;
+            border-radius: 60%;
+            left: -10em;
+            rotate: 18deg;
+        }
+
+        .bannerTitle__wrap {
+            position: relative;
+            line-height: 1.8em;
+            color: #fff;
+            z-index: 2;
+
+            .titleJumbo {
+                font-weight: 800;
+                line-height: 1.3em;
+            }
+
+            .titleMedium {
+                font-weight: 800;
+            }
+        }
+    }
+}

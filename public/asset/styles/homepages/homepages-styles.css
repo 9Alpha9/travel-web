@@ -435,7 +435,7 @@ input:focus {
   width: 1348px;
   position: sticky;
   z-index: 6;
-  top: 85px;
+  top: 65px;
 }
 .wisata__landing__wrapper .wisata__heading .title__wisata__viral .wisata__title__viral {
   font-size: 1.375em;
@@ -756,7 +756,6 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]::-moz-range-thumb {
-  -webkit-appearance: none;
   pointer-events: all;
   width: 24px;
   height: 24px;
@@ -815,10 +814,6 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 input[type=range] {

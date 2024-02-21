@@ -75,7 +75,7 @@
                         @endforeach
                     </select>
                 </div> --}}
-                <span class="items-center mx-2 on__submit">
+                {{-- <span class="items-center mx-2 on__submit">
                     <button type="button"
                         class="py-2.5 px-8  text-sm font-medium text-gray-900 focus:outline-none border border-gray-200 h focus:z-10 focus:ring-4 text-white btn-filter">
                         <h3 class="flex items-center inline-block gap-2">
@@ -130,7 +130,7 @@
             <div class="mt-6 dataGet__wahanfilter">
                 <ul class="flex flex-wrap items-center gap-3 text-sm filterGet__list listWahana">
                 </ul>
-            </div>
+            </div> --}}
             {{-- <select id="kategori"
                 class="bg-gray-50 border border-gray-300  text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                 <option value='' selected>Tampilkan Semua Kategori</option>

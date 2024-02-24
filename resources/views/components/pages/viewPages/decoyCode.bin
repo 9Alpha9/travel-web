@@ -410,3 +410,175 @@ class LoginPagesController extends Controller
         </nav>
     </div>
 </div> --}}
+
+
+//FILTER KATEGORI
+{{-- <div class="mb-3 border-b filter__items filter__popular">
+                                <span class="item__header">
+                                    <h3 class="font-semibold">Berdasarkan rating</h3>
+                                </span>
+                                <ul class="py-4 rate__by__stars filter__stars">
+                                    <li class="py-1 filter__stars__item">
+                                        <span class="flex items-center filter__stars__inbox ">
+                                            <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                            <span class="flex px-2">
+                                                @include('components.pages.viewPages.svgStars5Filter')
+                                            </span>
+                                            <span class="inline-block text-gray-400">
+                                                <h3>(300)</h3>
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="py-1 filter__stars__item">
+                                        <span class="flex items-center filter__stars__inbox ">
+                                            <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                            <span class="flex px-2">
+                                                @include('components.pages.viewPages.svgStars4Filter')
+                                            </span>
+                                            <span class="inline-block text-gray-400">
+                                                <h3>(210)</h3>
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="py-1 filter__stars__item">
+                                        <span class="flex items-center filter__stars__inbox ">
+                                            <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                            <span class="flex px-2">
+                                                @include('components.pages.viewPages.svgStars3Filter')
+                                            </span>
+                                            <span class="inline-block text-gray-400">
+                                                <h3>(110)</h3>
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="py-1 filter__stars__item">
+                                        <span class="flex items-center filter__stars__inbox ">
+                                            <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                            <span class="flex px-2">
+                                                @include('components.pages.viewPages.svgStars2Filter')
+                                            </span>
+                                            <span class="inline-block text-gray-400">
+                                                <h3>(90)</h3>
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="py-1 filter__stars__item">
+                                        <span class="flex items-center filter__stars__inbox ">
+                                            <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                            <span class="flex px-2">
+                                                @include('components.pages.viewPages.svgStars1Filter')
+                                            </span>
+                                            <span class="inline-block text-gray-400">
+                                                <h3>(40)</h3>
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="py-1 filter__stars__item">
+                                        <span class="flex items-center filter__stars__inbox ">
+                                            <input type="checkbox" name="stars-filter" id="" onclick="Starsfilters">
+                                            <span class="flex px-2 text-sm">
+                                                Tidak ada penilaian
+                                            </span>
+                                            <span class="inline-block text-gray-400">
+                                                <h3>(20)</h3>
+                                            </span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div> --}}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+{{-- <div class="w-full filters__tipe__wisata">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">
+                <h3>Filter Kota/Kabupaten</h3>
+            </label>
+            <select id="kota"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option value='' selected>Pilih Kota/Kabupaten</option>
+                @foreach($tableKota as $key => $value)
+                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                @endforeach
+            </select>
+        </div> --}}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+{{-- <div class="w-full filters__tipe__wisata">
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">
+                        <h3>Filter Kota/Kabupaten</h3>
+                    </label>
+                    <select id="kota"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value='' selected>Pilih Kota/Kabupaten</option>
+                        @foreach($tableKota as $key => $value)
+                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                        @endforeach
+                    </select>
+                </div> --}}
+                {{-- <span class="items-center mx-2 on__submit">
+                    <button type="button"
+                        class="py-2.5 px-8  text-sm font-medium text-gray-900 focus:outline-none border border-gray-200 h focus:z-10 focus:ring-4 text-white btn-filter">
+                        <h3 class="flex items-center inline-block gap-2">
+                            Filter
+                            <i class="text-md ri-search-eye-line"></i>
+                        </h3>
+                    </button>
+                    <form action="" id="filterWahana">
+                        <div id="dropdownHelper"
+                            class="relative z-10 hidden max-w-2xl mr-5 bg-white divide-gray-100 rounded-md shadow-md align-content-center itemHeader">
+                            <div class="border rounded-md filterItem__wahana">
+                                <ul class="p-4 text-sm text-black" aria-labelledby="dropdownHelperButton">
+                                    <li>
+                                        <div class="flex gap-3 p-2 rounded-md">
+                                            <div class="grid items-center grid-cols-2 gap-2 gap-x-8">
+                                                @foreach($tableTipeWahana as $key => $value)
+                                                <span class="flex gap-3 tipe-wahana align-content-center"
+                                                    class="flex items-center inline-block gap-2 itemChecks__input itemSpacing">
+                                                    <input type="checkbox" name="tipe_wahana[]"
+                                                        value="{{ $value->id_tipe_wahana }}" class="hidden getInput">
+                                                    <input type="checkbox" name="wahanaList"
+                                                        id="tipe_wahana_{{ $value->id_tipe_wahana }}"
+                                                        data-id="{{ $value->id_tipe_wahana }}"
+                                                        data-name="{{ $value->nama_tipe_wahana }}"
+                                                        class="gap-2 text-blue-600 bg-gray-100 border-gray-300 rounded getInput">
+                                                    <div class="text-sm ms-2">
+                                                        <label class="font-medium text-black">
+                                                            <div class="cursor-pointer itemSelect">{{
+                                                                $value->nama_tipe_wahana }}
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </span>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="items-center ml-3 on__submit">
+                        <button type="button"
+                            class="py-2.5 px-10 btnFilter__set text-sm font-medium text-gray-900 focus:outline-none border border-gray-200 h focus:z-10 focus:ring-4 text-white btn-filter">
+                            <h3 class="flex items-center inline-block gap-2">
+                                Filter
+                                <i class="text-md ri-search-eye-line"></i>
+                            </h3>
+                        </button>
+                    </div>
+            </div>
+            <div class="mt-6 dataGet__wahanfilter">
+                <ul class="flex flex-wrap items-center gap-3 text-sm filterGet__list listWahana">
+                </ul>
+            </div> --}}
+            {{-- <select id="kategori"
+                class="bg-gray-50 border border-gray-300  text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option value='' selected>Tampilkan Semua Kategori</option>
+                @foreach($tableKategori as $key => $value)
+                <option value="{{ $value->id_kategori_wisata }}">{{ $value->nama_kategori_wisata }}
+                </option>
+                @endforeach
+            </select> --}}

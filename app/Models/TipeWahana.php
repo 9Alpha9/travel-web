@@ -20,4 +20,8 @@ class TipeWahana extends Model
     public function NilaiWisata() {
         return $this->hasMany(NilaiWisata::class, 'id_tipe_wahana', 'id_tipe_wahana');
     }
+
+    public function WahanaWisata() {
+        return $this->hasMany(WahanaWisata::class, 'id_tipe_wahana', 'id_tipe_wahana');
+    }
 }

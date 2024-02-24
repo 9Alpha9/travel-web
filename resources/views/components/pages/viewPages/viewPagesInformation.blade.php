@@ -23,7 +23,7 @@
     {{-- Deskripsi wisata --}}
     <div class="py-10 description">
         <h1 class="border-b-[1px] py-4 font-semibold text-lg">Deskripsi</h1>
-        <section class="inline-block py-3 font-normal description__wisata">
+        <section class="inline-block py-3 font-thin description__wisata">
             {!! $tableWisata->artikel !!}
         </section>
     </div>

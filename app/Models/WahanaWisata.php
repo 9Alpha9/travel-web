@@ -20,4 +20,8 @@ class WahanaWisata extends Model
     public function Wisata() {
         return $this->belongsTo(Wisata::class, 'id_wisata', 'id_wisata');
     }
+
+    public function TipeWahana() {
+        return $this->belongsTo(TipeWahana::class, 'id_tipe_wahana', 'id_tipe_wahana');
+    }
 }

@@ -166,8 +166,8 @@
                                     <select name="aksesbilitas" id="aksesbilitas">
                                         <option value="" selected hidden>Pilih Aksesbilitas</option>
                                         @foreach($tableAksesbilitas as $row)
-                                        <option value="{{ $row->id_aksesbilitas }}" @empty($tableAksesbilitas) @else
-                                            @if($tableAksesbilitas->
+                                        <option value="{{ $row->id_aksesbilitas }}" @empty($tableWisata) @else
+                                            @if($tableWisata->
                                             first()->id_aksesbilitas
                                             == $row->id_aksesbilitas)
                                             selected
@@ -429,6 +429,29 @@
                                                         <label for="inputInformasi"
                                                             class="block mb-3 text-sm text-gray-900 labelInput dark:text-white">Tambahkan
                                                             List Informasi Wisata</label>
+                                                        @if(isset($tableInformasi))
+                                                        @foreach($tableInformasi as $informasiKey =>
+                                                        $informasiValue)
+                                                        <span class="flex flex-row items-center gap-4 pb-4 infoData">
+                                                            <div class="flex flex-col w-full flexInput">
+                                                                <input type="text"
+                                                                    class="bg-gray-50 border border-gray-300 text-md font-normal rounded-lg w-full p-2.5 inputFields"
+                                                                    autocomplete="off" placeholder="Informasi Wisata..."
+                                                                    value="{{ $informasiValue->informasi }}"
+                                                                    name="inputInformasi[]">
+                                                            </div>
+                                                            <span class="relative">
+                                                                <button type="button" onclick="deleteInput(this)"
+                                                                    @if($loop->first)
+                                                                    disabled
+                                                                    @endif
+                                                                    class="p-2 px-4 py-10 mt-0 rounded-lg cursor-pointer
+                                                                    deleteCta__btn"><i
+                                                                        class="ri-delete-bin-7-fill"></i></button>
+                                                            </span>
+                                                        </span>
+                                                        @endforeach
+                                                        @else
                                                         <span class="flex flex-row items-center gap-4 pb-4 infoData">
                                                             <div class="flex flex-col w-full flexInput">
                                                                 <input type="text"
@@ -443,6 +466,7 @@
                                                                         class="ri-delete-bin-7-fill"></i></button>
                                                             </span>
                                                         </span>
+                                                        @endif
                                                     </section>
                                                     <section class="relative block space-y-5 moreSpace">
                                                         <button type="button"
@@ -474,7 +498,11 @@
                             Silahkan masukkan deskripsi tempat wisata yang akan anda upload kedalam website !
                         </span>
                         <section class="w-full py-3 tinyText__controlarea">
-                            <textarea name="artikel"></textarea>
+                            <textarea name="artikel" id="artikel">
+                                @if(isset($tableWisata))
+                                {!! $tableWisata->first()->artikel !!}
+                                @endif
+                            </textarea>
                         </section>
                     </div>
                     {{-- Thumbnail Wisata --}}
@@ -515,7 +543,8 @@
                 </div>
                 <input type="text" name="listFasilitas" hidden>
                 <input type="text" name="listExtFasilitas" hidden>
-                <input type="text" name="id_wisata" id="id_wisata" hidden>
+                <input type="text" name="id_wisata" id="id_wisata"
+                    value="{{ isset($tableWisata) ? $tableWisata->first()->id_wisata : '' }}" hidden>
             </form>
 
             <form id="listWahana">
@@ -563,6 +592,7 @@
                                             </tr>
                                         </thead>
                                         <tbody class="relative overflow-x-auto tableBody__wahanas">
+                                            {!! isset($listWahana) ? $listWahana : '' !!}
                                         </tbody>
                                     </table>
                                 </div>
@@ -675,9 +705,13 @@
     @else
     idkecamatan = '{{ $tableWisata->first()->id_kecamatan }}';
     $(document).ready(function() {
+        console.log(idkecamatan);
         $('#inputKota').trigger('change');
+        @foreach($tableWisata->first()->fasilitaswisata as $key1 => $value1)
+            setFasilitas("{{ $value1->id_kategori_fasilitas }}", "{{ $value1->kategorifasilitas->kategori_fasilitas }}");
+            $("input[name='checkFasilitas'][value='{{ $value1->id_kategori_fasilitas }}']").prop('checked', true);
+        @endforeach
     });
-    console.log(idkecamatan);
     @endempty
 
     $('#inputKota').on('change', function(){
@@ -688,7 +722,7 @@
             let data = "";
             result.kecamatan.forEach(element => {
                 data += "<option value='" + element.id + "'";
-                if (idkecamatan === element.id) {
+                if (idkecamatan == element.id) {
                     data += 'selected';
                 }
                 data += '>' + element.name + '</option>';

@@ -151,6 +151,7 @@ class WisataController extends Controller
     public function edit($id){
         $wisata = Wisata::where('id_wisata', $id)->with('gambarwisata', 'fasilitaswisata', 'informasi')->get();
         $kota = Kota::where('province_id', '35')->get();
+        $informasi = Informasi::where('id_wisata', $id)->get();
         $fasilitas = KategoriFasilitas::get();
         $kategori = KategoriWisata::get();
         $aksesbilitas = Aksesbilitas::get();
@@ -160,6 +161,8 @@ class WisataController extends Controller
         $this->page['tableKota'] = $kota;
         $this->page['tableWisata'] = $wisata;
         $this->page['tableAksesbilitas'] = $aksesbilitas;
+        $this->page['listWahana'] = $this->listWahana($id);
+        $this->page['tableInformasi'] = $informasi;
 
         return view('dashboard.pages.wisataComponent')->with($this->page);
     }
@@ -168,10 +171,12 @@ class WisataController extends Controller
         // $validator = Validator::make({
         //     'inputDiskon' ->
         // });
+        // dd($request);
         $this->page['sweetalertError'] = false;
         // dd($this->page);
         $validationResponse = $this->validationForm($request, $this->rules, $this->messages);
         if($validationResponse) {
+            // dd('test');
             try {
                 if (strlen($request->id_wisata) == 0) {
                     $wisata = Wisata::create([

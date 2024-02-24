@@ -30,12 +30,12 @@
         <div class="relative actionWahana">
             <span class="inline-block">
                 <ul class="flex gap-2">
-                    <li>
+                    {{-- <li>
                         <button type="button" onclick="edit" disabled
                             class="p-2.5 px-4 py-10 mt-0 rounded-lg cursor-pointer editWahana__btn"><i
                                 class="ri-pencil-fill"></i>
                         </button>
-                    </li>
+                    </li> --}}
                     <li>
                         <button type="button"
                             class="p-2.5 px-4 py-10 mt-0 rounded-lg cursor-pointer deleteWahana__btn"><i

@@ -102,11 +102,12 @@
         }
 
         .description__wisata {
-            line-height: 2em;
+            line-height: 1.8em;
             font-family: 'Golos-Text', sans-serif;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 400;
             color: var(--wisataDescriptionText);
+            text-align: justify;
         }
     }
 

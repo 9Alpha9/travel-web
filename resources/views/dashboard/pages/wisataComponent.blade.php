@@ -545,6 +545,15 @@
                 <input type="text" name="listExtFasilitas" hidden>
                 <input type="text" name="id_wisata" id="id_wisata"
                     value="{{ isset($tableWisata) ? $tableWisata->first()->id_wisata : '' }}" hidden>
+                @empty($tableWisata)
+                @else
+                @foreach($tableWisata->first()->gambarwisata as $gambarKey => $gambarValue)
+                @php($url_nama_wisata = str_replace(' ', '_', $tableWisata->first()->nama_wisata))
+                <img class="currentImage" src="{{ url("gallery-wisata/$url_nama_wisata/{$gambarValue->nama_gambar}")
+                }}"
+                alt="{{ $gambarValue->nama_gambar }}" hidden>
+                @endforeach
+                @endif
             </form>
 
             <form id="listWahana">
@@ -683,7 +692,6 @@
 <script>
     const paragraph = document.querySelector('.textFacility');
     paragraph.addEventListener('dblclick', event => {
-    console.log('double-click event triggered');
 
     if (document.selection && document.selection.empty) {
         document.selection.empty();
@@ -705,12 +713,23 @@
     @else
     idkecamatan = '{{ $tableWisata->first()->id_kecamatan }}';
     $(document).ready(function() {
-        console.log(idkecamatan);
+        // ganti kota
         $('#inputKota').trigger('change');
+
+        // set fasilitas
         @foreach($tableWisata->first()->fasilitaswisata as $key1 => $value1)
             setFasilitas("{{ $value1->id_kategori_fasilitas }}", "{{ $value1->kategorifasilitas->kategori_fasilitas }}");
             $("input[name='checkFasilitas'][value='{{ $value1->id_kategori_fasilitas }}']").prop('checked', true);
         @endforeach
+
+        // set gambar
+        $('img.currentImage').each(function(e) {
+            let name = $(this).attr('alt');
+            let img = getBase64Image($(this));
+            saveImageTemp(name, img);
+        });
+
+        previewThumb();
     });
     @endempty
 
@@ -718,7 +737,6 @@
         $.post("{{ route('data.kecamatan') }}", {
             kota:$(this).val()
         }, function(result){
-            console.log(result);
             let data = "";
             result.kecamatan.forEach(element => {
                 data += "<option value='" + element.id + "'";
@@ -851,10 +869,9 @@
                 for (var i = 0; i < allFiles.length; i++) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
-                        var obj = {};
-                        obj['name'] = allFiles[fileLoaded].name;
-                        obj['img'] = e.target.result;
-                        imgFile.push(obj);
+                        let fileName = allFiles[fileLoaded].name;
+                        let fileImg = e.target.result;
+                        saveImageTemp(fileName, fileImg);
                         fileLoaded++;
                         if(fileLoaded === allFiles.length){
                             previewThumb();
@@ -904,6 +921,23 @@
         imgFile = imgFile.filter(image => image.img != selectedImg);
 
         previewThumb();
+    }
+
+    function getBase64Image(img) {
+        var canvas = document.createElement("canvas");
+        canvas.width = img[0].width;
+        canvas.height = img[0].height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img[0], 0, 0);
+        var dataURL = canvas.toDataURL("image/png");
+        return dataURL;
+    }
+
+    function saveImageTemp(name, img) {
+        var obj = {};
+        obj['name'] = name;
+        obj['img'] = img;
+        imgFile.push(obj);
     }
 </script>
 @endpush

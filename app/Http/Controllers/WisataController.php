@@ -211,6 +211,18 @@ class WisataController extends Controller
                     $wisata = Wisata::find($request->id_wisata);
                 }
 
+                $checkInformasi = Informasi::where('id_wisata', $request->id_wisata)->get();
+                if($checkInformasi->count() > 0){
+                    $informasi = Informasi::where('id_wisata', $request->id_wisata)->delete();
+                }
+                $checkGambar = GambarWisata::where('id_wisata', $request->id_wisata)->get();
+                if($checkGambar->count() > 0){
+                    $gambar = GambarWisata::where('id_wisata', $request->id_wisata)->delete();
+                }
+                $checkFasilitas = FasilitasWisata::where('id_wisata', $request->id_wisata)->get();
+                if($checkFasilitas->count() > 0){
+                    $fasilitas = FasilitasWisata::where('id_wisata', $request->id_wisata)->delete();
+                }
 
                 // jika kosong maka dilewati.
                 if (!is_null($request->listFasilitas)) {

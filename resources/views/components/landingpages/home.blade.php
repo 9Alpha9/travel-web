@@ -192,9 +192,9 @@
     });
 </script>
 
-<script id="loadingTemplate">
+<div id="loadingTemplate">
     {!! $loadingTemplate !!}
-</script>
+</div>
 
 <script>
     $('body').on('click', '.paginationNumber__rows .input-pagination', function() {
@@ -209,7 +209,7 @@
         if ($this.val() == '') {
             $this.parent().html('...');
         } else {
-            listWisata($this.val());
+            listWisata('filtered', $this.val());
         }
     });
 
@@ -217,15 +217,33 @@
         listWisata();
     });
 
-    function listWisata(page = 1, limit = 10) {
-        let sendData = $('#formFilter').serialize() + '&' + $('#filterWahana').serialize() + '&page=' + page + '&limit=' + limit;
-        let loading = $('#loadingTemplate').text();
+    $('#formFilter').on('click', function(e) {
+        var target = $(e.target);
+
+        if (target.is('input') || target.is('h3')) {
+            listWisata();
+        }
+    });
+
+    $(document).ready(function() {
+        listWisata('');
+    })
+
+    function listWisata(status = 'filtered', page = 1, limit = 10) {
+        let sendData = $('#formFilter').serialize() + '&' + $('#filterWahana').serialize() + '&page=' + page + '&limit=' + limit + '&status=' + status;
+        let loading = $('#loadingTemplate').html();
+
+        var xhr;
 
         $('.filter__wrapper .filter__show').each(function() {
             $(this).html(loading);
         });
 
-        $.ajax({
+        if(xhr && xhr.readyState != 4){
+            xhr.abort();
+        }
+
+        xhr = $.ajax({
             url: "{{ route('filterpage') }}",
             method: 'post',
             dataType: 'json',
@@ -324,6 +342,15 @@
     toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
     fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
     toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+
+    $('#resetHarga').on('click', function() {
+        $('#fromInput').val(0);
+        $('#toInput').val(0);
+        $('#fromSlider').val(0);
+        $('#toSlider').val(1000000);
+        fillSlider(fromSlider, toSlider, '#C6C6C6', '#b0caf8', toSlider);
+        fillSlider(fromSlider, toSlider, '#C6C6C6', '#b0caf8', fromSlider);
+    });
 </script>
 
 <script>
@@ -396,7 +423,7 @@
         }
         else {
             arrWahana.push(id);
-            let html = '<li class="p-1 px-3 cursor-pointer data__itemList">' +
+            let html = '<li class="p-1 px-3 mt-4 cursor-pointer data__itemList">' +
                             '<span class="inline-block dataFilter__item">' + name + '</span>' +
                             '<button type="button" id="hapusWahana_' + id + '" class="butttonGet__itemwahana" onclick="removeList(\'' + id + '\')"><i class="ri-close-line closeBtn__filtersicon"></i></button>' +
                         '</li>';

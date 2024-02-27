@@ -2,9 +2,9 @@
 <div class="mt-16 wisata__viral wisata__landing__wrapper">
     <div class="wisata__heading">
         <div class="relative p-3 rounded-md filters__wisata">
-            <span class="block p-2 border-b header__text">
+            {{-- <span class="block p-2 border-b header__text">
                 <h2 class="text-lg font-extrabold">Filter Rekomendasi</h2>
-            </span>
+            </span> --}}
             <div class="flex flex-col p-2 filters__control">
                 <div class="relative flex w-full filters__category">
                     <button id="dropdownHelperButton" data-dropdown-toggle="dropdownHelper"
@@ -59,7 +59,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="mt-6 dataGet__wahanfilter">
+                <div class="dataGet__wahanfilter">
                     <ul class="flex flex-wrap items-center gap-3 text-sm filterGet__list listWahana">
                     </ul>
                 </div>
@@ -89,7 +89,7 @@
                                             <p class="text-xs font-thin text-gray-400">Price min, price max</p>
                                         </span>
                                         <span class="block mt-2 resetRange">
-                                            <button id="" type="button"
+                                            <button id="resetHarga" type="button"
                                                 class="text-sm text-primary-birent">Reset</button>
                                         </span>
                                     </div>
@@ -124,9 +124,9 @@
                             </div>
                             <div class="border-t filterAksesbiliti filter__special">
                                 <div class="mt-4 filter__item">
-                                    <span class="item__header">
+                                    <div class="item__header">
                                         <h3 class="font-semibold">Berdasarkan Aksesbilitas</h3>
-                                    </span>
+                                    </div>
                                     <div class="mt-3 aksesbiliti__item">
                                         <div class="inline-block">
                                             <ul class="mb-3 text-sm aksesbiliti__itemcheck">
@@ -164,7 +164,7 @@
                                             @foreach($tableFasilitas as $key => $value)
                                             <span class="checkSelected__item">
                                                 <li class="flex items-center gap-2 pb-2 m-0 itemChecks__input">
-                                                    <input type="checkbox" name="faslitas[]" class="hidden"
+                                                    <input type="checkbox" name="fasilitas[]" class="hidden"
                                                         value="{{ $value->id_kategori_fasilitas }}"
                                                         style="margin: 0px 4px; outline: none;">
                                                     <input type="checkbox" id="fasilitas_{{ $key }}"
@@ -234,7 +234,7 @@
                 </div>
                 <div class="filterContent__item">
                     <div class="content__side__filter filter__recommendation">
-                        <div class="filter__show link__filter__show">
+                        {{-- <div class="filter__show link__filter__show">
                             <a href="" class="filter__on__click">
                                 <div class="flex flex-row gap-4 mb-3 border rounded-lg content__recommendation">
                                     <div class="content__banner__recommendation">
@@ -305,7 +305,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> --}}
                         {{-- <div class="spinBall spinLoaded loadedContent">
                             <div class="flex m-auto lds-ellipsis">
                                 <div></div>
@@ -326,11 +326,9 @@
                                             <span
                                                 class="block h-8 bg-gray-200 rounded-sm w-25 animate-pulse titleSkeleton"></span>
                                         </span>
-                                        {{-- Rating --}}
                                         <div class="flex items-center float-left gap-1 my-3 wisata__stars">
                                             <span class="block rounded-sm animate-pulse starSkeleton"></span>
                                         </div>
-                                        {{-- End Rating --}}
                                         <div class="flex items-center gap-1 my-2 facility__iteminfoHeader">
                                             <span class="block rounded-sm animate-pulse facilitySkeleton"></span>
                                         </div>

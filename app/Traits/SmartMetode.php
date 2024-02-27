@@ -27,6 +27,13 @@ trait SmartMetode {
     public function MenilaiAlternatif($request) {
         $err_code = 0;
         $err_message = '';
+        foreach ($this->wisata as $key => $value) {
+            $checkNilai = NilaiWisata::where('id_wisata', $value->id_wisata)->get();
+            if($checkNilai->count() > 0) {
+                $wahana = NilaiWisata::where('id_wisata', $value->id_wisata)->delete();
+            }
+        }
+
         DB::beginTransaction();
 
         try  {
@@ -114,7 +121,7 @@ trait SmartMetode {
             'err_message' => $err_message
         );
 
-        return $response;
+        return $this->Normalisasi();
     }
 
     public function Normalisasi() {
@@ -145,7 +152,7 @@ trait SmartMetode {
             'err_message' => $err_message
         );
 
-        return $response;
+        return $this->Utility();
     }
 
     public function Utility() {
@@ -154,7 +161,8 @@ trait SmartMetode {
         foreach($this->wisata as $key => $value) {
             foreach($this->tipe_wahana as $key2 => $value2) {
                 // $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_kriteria', $value2->id_kriteria)->get()->first()->nilai_wisata;
-                $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_tipe_wahana', $value2->id_tipe_wahana)->get()->first()->nilai_wisata;
+                $nilai_wisata = NilaiWisata::where('id_wisata', $value->id_wisata)->where('id_tipe_wahana', $value2->id_tipe_wahana)->get();
+                $nilai_wisata = $nilai_wisata->first()->nilai_wisata;
                 $nilaiUtility[$value->id_wisata][$value2->id_tipe_wahana] = 100 * (($nilai_wisata - 0) / (100 - 0));
             }
         }
@@ -166,9 +174,7 @@ trait SmartMetode {
         $err_code = 0;
         $err_message = '';
 
-        $nilai = $this->MenilaiAlternatif($request);
-        $normalisasi = $this->Normalisasi();
-        $nilaiUtility = $this->Utility();
+        $nilaiUtility = $this->MenilaiAlternatif($request);
 
         $nilaiAkhir = array();
 

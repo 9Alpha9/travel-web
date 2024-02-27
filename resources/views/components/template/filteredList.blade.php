@@ -10,9 +10,9 @@
                         @if (count($value->gambarwisata) > 0)
                         @php($gambar = !is_null($value->gambarwisata->first()->nama_gambar) ?
                         url("gallery-wisata/$url_nama_wisata/{$value->gambarwisata->first()->nama_gambar}") :
-                        asset("img/empty-image-thumb.png"))
+                        asset("asset/img/empty-image-thumb.png"))
                         @else
-                        @php ( $gambar = asset(' asset/img/empty-image-thumb.png') )
+                        @php ( $gambar = asset('asset/img/empty-image-thumb.png') )
                         @endif
                         <img src='{{ $gambar }}' alt="Deskripsi rekomendasi wisata">
                     </div>

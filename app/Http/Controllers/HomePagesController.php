@@ -103,9 +103,13 @@ class HomePagesController extends Controller
             $id_wisata = array(0);
         }
 
-        $sorted_wisata = Wisata::whereIn('id_wisata', $id_wisata)
-        ->orderByRaw('FIELD(id_wisata, ' . implode(',', $id_wisata) . ')')
-        ->get();
+        if ($request->status == 'filtered') {
+            $sorted_wisata = Wisata::whereIn('id_wisata', $id_wisata)
+            ->orderByRaw('FIELD(id_wisata, ' . implode(',', $id_wisata) . ')')
+            ->get();
+        } else {
+            $sorted_wisata = Wisata::orderBy('created_at', 'desc')->get();
+        }
 
         $view = view('components.template.filteredList', ['filterpage' => 'active', 'tableWisata' => $sorted_wisata])->render();
 

@@ -20,7 +20,7 @@ class HomePagesController extends Controller
 
     public function __construct()
     {
-        $this->wisata = Wisata::limit(12)->orderBy('created_at', 'desc');
+        $this->wisata = Wisata::orderBy('created_at', 'desc');
         $this->kriteria = Kriteria::get();
         $this->tipe_wahana = TipeWahana::get();
 

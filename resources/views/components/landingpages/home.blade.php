@@ -192,7 +192,7 @@
     });
 </script>
 
-<div id="loadingTemplate">
+<div id="loadingTemplate" style="display:none;">
     {!! $loadingTemplate !!}
 </div>
 
@@ -385,7 +385,7 @@
 </script>
 
 
-<script>
+{{-- <script>
     $(function() {
 
         $('#multi').multiselect({
@@ -396,7 +396,7 @@
           alert($('#multi').val());
         });
       });
-</script>
+</script> --}}
 
 <script>
     var checks = document.querySelectorAll(".getInput");

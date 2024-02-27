@@ -516,7 +516,7 @@
                                     awal
                                     foto gallery dari
                                     tempat wisata. Silahkan upload foto dengan menggunakan format
-                                    <i>.Png, .Jpg, .Jpeg, </i>atau<i> Webp</i>, maksimal ukuran foto adalah 1920x1080.
+                                    <i>.Png, .Jpg, .Jpeg, </i>atau<i> Webp</i>, maksimal ukuran gambar 1Mb.
                                 </p>
                             </span>
                             <div class="inputSection__thumbnail">
@@ -871,10 +871,23 @@
                     reader.onload = function(e) {
                         let fileName = allFiles[fileLoaded].name;
                         let fileImg = e.target.result;
-                        saveImageTemp(fileName, fileImg);
-                        fileLoaded++;
-                        if(fileLoaded === allFiles.length){
-                            previewThumb();
+                        console.log(e);
+                        if(e.loaded > 1048576){ // 1 MB
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'error',
+                                title: 'Oops...',
+                                html: 'Ukuran gambar terlalu besar!',
+                                showConfirmButton: false,
+                                timer: 2800
+                            });
+                            this.value = "";
+                        } else {
+                            saveImageTemp(fileName, fileImg);
+                            fileLoaded++;
+                            if(fileLoaded === allFiles.length){
+                                previewThumb();
+                            }
                         }
                     };
                     reader.readAsDataURL(allFiles[i]);

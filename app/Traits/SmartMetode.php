@@ -31,9 +31,12 @@ trait SmartMetode {
 
         try  {
             foreach ($this->wisata as $key => $value) {
-                $nilai = NilaiWisata::where('id_wisata', $value->id_wisata)->get();
+                $checkNilai = NilaiWisata::where('id_wisata', $value->id_wisata)->get();
+                if($checkNilai->count() > 0) {
+                    $wahana = NilaiWisata::where('id_wisata', $value->id_wisata)->delete();
+                }
 
-                if ($nilai->count() == 0) {
+                if ($checkNilai->count() == 0) {
                     foreach ($this->tipe_wahana as $key2 => $value2) {
                         $currNilai = 0;
                         $nilai_wisata = 0;

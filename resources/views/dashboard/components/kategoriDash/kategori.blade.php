@@ -14,7 +14,7 @@
         </span>
     </section>
     <section class="relative py-8 modalContainer">
-        <button data-modal-target="kategoriModal" data-modal-toggle="kategoriModal"
+        <button data-modal-target="kategoriModal" data-modal-toggle="kategoriModal" id="tambahForm"
             class="block modalToogle font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button"><i class="ri-file-add-fill"></i>
             Tambah Tipe Wahana
@@ -24,7 +24,7 @@
             {{ csrf_field() }}
             <div id="kategoriModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
                 class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative w-full max-w-4xl max-h-full">
+                <div class="relative max-w-5xl max-h-full">
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -46,34 +46,12 @@
                                 <p class="headText">Silahkan tambah tipe wahana dengan mengisi form dibawah!</p>
                             </span>
                             <section class="pt-6 kategoriWrapper">
-                                {{-- <span class="block my-5 kategoriContent__input">
-                                    <label for="kategoriInput"
-                                        class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">Tambah
-                                        Kategori</label>
-                                    <input type="text" id="kategoriInput"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
-                                        placeholder="Nama Kategori Wisata" name="inputNama[]">
-                                </span> --}}
-                                <label for="kategoriInput"
-                                    class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">Tambah
-                                    Tipe Wahana</label>
-                                <span class="flex flex-row items-center gap-4 pb-4">
-                                    <div class="flex flex-col w-full flexInput">
-                                        <input type="text" id="kategoriInput" required
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
-                                            autocomplete="off" placeholder="Tipe Wahana ..." name="inputNama[]">
-                                    </div>
-                                    <span class="relative">
-                                        <button type="button" onclick="deleteInput(this)" disabled
-                                            class="p-2 px-4 py-10 mt-0 rounded-lg deleteCta__btn"><i
-                                                class="ri-delete-bin-7-fill"></i></button>
-                                    </span>
-                                </span>
+
                             </section>
                             <section class="relative block space-y-5 moreSpace">
-                                <button type="button" class="p-2 py-10 mt-3 rounded-lg inputCta__btn"><i
+                                <button type="button" class="w-full p-2 py-10 mt-3 rounded-lg inputCta__btn"><i
                                         class="ri-add-line"></i> Tambah
-                                    Input</button>
+                                    Tipe Wahana</button>
                             </section>
 
                         </div>
@@ -97,11 +75,11 @@
             {{ method_field('PUT') }}
             <div id="kategoriedModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
                 class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative w-full max-w-4xl max-h-full">
+                <div class="relative w-full max-w-4xl overflow-x-auto overflow-y-hidden h-75">
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                Edit Kategori Wisata
+                                Edit Tipe Wahana
                             </h3>
                             <button type="button"
                                 class="inline-flex items-center justify-center w-8 h-8 ml-auto text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -117,22 +95,37 @@
                         <div class="p-6 kategoriInput__container">
                             <span class="block headWrapper">
                                 <p class="p-2 text-white headText bg-primary-birent "><i
-                                        class="ri-information-fill"></i>&nbsp;Silahkan edit kategori wisata
+                                        class="ri-information-fill"></i>&nbsp;Silahkan edit tipe wahana
                                     pada
                                     form dibawah!
                                 </p>
                             </span>
                             <section class="pt-6 kategoriWrapper">
-                                <label for="inputedNama"
-                                    class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">Edit Nama
-                                    Kategori</label>
-                                <span class="flex flex-row items-center gap-4 pb-4">
-                                    <div class="flex flex-col w-full flexInput">
-                                        <input type="text" id="inputedNama" required
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
-                                            autocomplete="off" placeholder="Kategori Wisata" name="inputedNama">
+                                <div class="itemsEdit__wrapper">
+                                    <div class="itemsEdit">
+                                        <label for="inputedNama" class="block mb-3 text-sm font-medium">Nama
+                                            Tipe
+                                            Wahana</label>
+                                        <span class="flex flex-row items-center gap-4 pb-4">
+                                            <div class="flex flex-col w-full flexInput">
+                                                <input type="text" id="inputedNama" required
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg w-full p-2.5"
+                                                    autocomplete="off" placeholder="Kategori Wisata" name="inputedNama">
+                                            </div>
+                                        </span>
                                     </div>
-                                </span>
+                                    <div class="itemsEdit">
+                                        <label for="inputedKeterangan" class="block mb-3 text-sm font-medium">Keterangan
+                                            Wahana</label>
+                                        <span class="flex flex-row items-center gap-4 pb-4">
+                                            <div class="flex flex-col w-full flexInput">
+                                                <input type="text" id="inputedKeterangan" required
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5"
+                                                    name="inputedKeterangan">
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
                             </section>
                         </div>
                         <div
@@ -161,27 +154,34 @@
                         Nama Tipe Wahana
                     </th>
                     <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
+                        Keterangan
+                    </th>
+                    <th scope="col" class="px-6 py-3 border-r dark:border-gray-700">
                         Aksi
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($tableKategori as $row)
+                @foreach($tableTipe as $row)
                 <tr class="align-middle bg-white border-b border-l dark:border-gray-700">
                     <th scope="row"
                         class="w-10 px-6 py-4 font-medium text-center border-b border-l dark:border-gray-700">
                         {{ $loop->iteration }}.
                     </th>
+                    <th scope="row" class="w-10 px-6 py-4 font-medium border-b border-l dark:border-gray-700">
+                        {{ $row->nama_tipe_wahana }}
+                    </th>
                     <td class="px-6 py-4 border-b border-l border-r dark:border-gray-700">
-                        {{ $row->nama_kategori_wisata }}
+                        {{ $row->keterangan }}
                     </td>
                     <td class="max-w-2xl px-6 py-4 border-b border-r dark:border-gray-700 w-60">
                         <section class="flex flex-row gap-6 actionTo__action">
                             <div class="relative actionItems">
                                 {{-- Edit Modal Table --}}
                                 <button class="block p-1 px-6 text-white rounded-md actionEdit__cta editBtn"
-                                    data-id="{{ $row->id_kategori_wisata }}" data-modal-toggle="kategoriedModal"
-                                    data-nama="{{ $row->nama_kategori_wisata }}" type="button">
+                                    data-id="{{ $row->id_tipe_wahana }}" data-modal-toggle="kategoriedModal"
+                                    data-nama="{{ $row->nama_tipe_wahana }}" data-keterangan="{{ $row->keterangan }}"
+                                    type="button">
                                     <span class="block gap-3">
                                         <i class="ri-pencil-fill"></i>
                                         Edit
@@ -191,7 +191,7 @@
                             <div class="relative text-white actionItems">
                                 <button type="button" id="" class="p-1 px-6 rounded-md actionDelete__cta btnDelete"
                                     data-no="{{ $loop->iteration }}"
-                                    href="{{ route('kategori.destroy', $row->id_kategori_wisata) }}">
+                                    href="{{ route('kategori.destroy', $row->id_tipe_wahana) }}">
                                     <i class="ri-delete-bin-7-fill"></i> Hapus
                                 </button>
                             </div>
@@ -203,24 +203,52 @@
         </table>
     </div>
 </div>
-
+<div id="templateInput" style="display:none;">
+    <div class="flex flex-row items-center gap-4 align-content-center itemsItems__wrapper">
+        <div class="flex flex-col items">
+            <label for="kategoriInput" class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">Tipe
+                Wahana</label>
+            <span class="flex flex-row items-center gap-2 pb-4">
+                <div class="flex flex-col w-96 flexInput">
+                    <input type="text" id="kategoriInput" required
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
+                        autocomplete="off" placeholder="Tipe Wahana ..." name="inputNama[]">
+                </div>
+            </span>
+        </div>
+        <div class="flex flex-col items">
+            <label for="keteranganWahana"
+                class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">Keterangan
+                Wahana</label>
+            <span class="flex flex-row items-center gap-2 pb-4">
+                <div class="flex flex-col w-96 flexInput">
+                    <input type="text" id="keteranganWahana" required
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
+                        placeholder="Keterangan Wahana ..." name="inputKeterangan[]">
+                </div>
+            </span>
+        </div>
+        <span class="relative items-center justify-center inline-block pt-4 align-content-center">
+            <button type="button" onclick="deleteInput(this)"
+                class="p-2 px-4 py-10 mt-0 rounded-lg cursor-pointer deleteCta__btn"><i
+                    class="ri-delete-bin-7-fill"></i></button>
+        </span>
+    </div>
+</div>
 @endsection
 
 @push('scripts')
 <script>
-    $('.deleteCta__btn').on('click', function(){
-        deleteInput(this);
-    });
-
     $('body').on('click', '.editBtn', function(){
         href = "{{ route('kategori.update', 'idKategori') }}";
         href = href.replace('idKategori', $(this).data('id'));
         $('#inputedNama').val($(this).data('nama'));
+        $('#inputedKeterangan').val($(this).data('keterangan'));
         $('#kategoriFieldUpdate').prop('action', href);
     });
 
     function deleteInput(e){
-        $(e).closest('span').parent().closest('span').remove();
+        $(e).parents('div.itemsItems__wrapper').remove();
     }
 
     $('input[name="inputNama[]"]').on('change', function(){
@@ -236,23 +264,17 @@
         }
     };
 
-    $('.inputCta__btn').on('click', function(){
-        let html = "";
-        html +=
-        '<span class="flex flex-row items-center gap-4 pb-4">'
-        + '<div class="flex flex-col w-full flexInput">'
-        + '<input type="text" id="kategoriInput" required '
-        + 'autocomplete="off"'
-        + 'class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"'
-        + 'placeholder="Nama Kategori Wisata" name="inputNama[]" onchange="disableButton(this)">'
-        + '</div>'
-        + '<span class="relative">'
-        + '<button type="button" onclick="deleteInput(this)" disabled class="p-2 px-4 py-10 mt-0 rounded-lg deleteCta__btn"><i '
-        + 'class="ri-delete-bin-7-fill"></i></button>'
-        + '</span>'
-        + '</span>';
-        $('section.kategoriWrapper').append(html);
+    $('#tambahForm').on('click', function() {
+        addTipe();
     });
 
+    $('.inputCta__btn').on('click', function(){
+        addTipe();
+    });
+
+    function addTipe() {
+        let html = $('#templateInput').html();
+        $('section.kategoriWrapper').append(html);
+    }
 </script>
 @endpush

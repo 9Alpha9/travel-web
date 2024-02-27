@@ -16,6 +16,7 @@ use App\Models\WahanaWisata;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class WisataController extends Controller
@@ -177,6 +178,7 @@ class WisataController extends Controller
         $validationResponse = $this->validationForm($request, $this->rules, $this->messages);
         if($validationResponse) {
             // dd('test');
+            DB::beginTransaction();
             try {
                 if (strlen($request->id_wisata) == 0) {
                     $wisata = Wisata::create([
@@ -271,8 +273,11 @@ class WisataController extends Controller
                     }
                 }
 
+                DB::commit();
+
                 return redirect()->route('wisata.index')->with(['success' => 'Data Berhasil Disimpan!']);
             } catch (\Exception $e) {
+                DB::rollback();
                 dd($e);
             }
         } else {
@@ -285,6 +290,7 @@ class WisataController extends Controller
     }
 
     public function destroy($id){
+        DB::beginTransaction();
         try{
             $checkInformasi = Informasi::where('id_wisata', $id)->get();
             if($checkInformasi->count() > 0){
@@ -303,8 +309,11 @@ class WisataController extends Controller
                 $wahana = WahanaWisata::where('id_wisata', $id)->delete();
             }
             $wisata = Wisata::find($id)->delete();
+
+            DB::commit();
             return redirect()->route('wisata.index')->with(['success' => 'Data Berhasil Dihapus!']);
         } catch (\Exception $e){
+            DB::rollback();
             dd($e);
         }
     }

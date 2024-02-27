@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KategoriWisata;
+use App\Models\TipeWahana;
+use App\Models\WahanaWisata;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -48,9 +49,9 @@ class KategoriController extends Controller
     }
 
     public function index(){
-        $kategori = KategoriWisata::orderBy('created_at', 'desc')->get();
+        $tipe = TipeWahana::orderBy('created_at', 'desc')->get();
 
-        $this->page['tableKategori'] = $kategori;
+        $this->page['tableTipe'] = $tipe;
 
         return view('dashboard.components.kategoriDash.kategori')->with($this->page);
     }
@@ -70,9 +71,10 @@ class KategoriController extends Controller
 
     public function store(Request $request){
         try{
-            foreach($request->inputNama as $row){
-                $kategori = KategoriWisata::create([
-                    'nama_kategori_wisata' => $row,
+            foreach($request->inputNama as $key => $value){
+                $tipe = TipeWahana::create([
+                    'nama_tipe_wahana' => $value,
+                    'keterangan' => $request->inputKeterangan[$key],
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s')
                 ]);
@@ -85,8 +87,9 @@ class KategoriController extends Controller
 
     public function update(Request $request, $id){
         try {
-            $kategori = KategoriWisata::where('id_kategori_wisata', $id)->update([
-                'nama_kategori_wisata' => $request->inputedNama,
+            $tipe = TipeWahana::where('id_tipe_wahana', $id)->update([
+                'nama_tipe_wahana' => $request->inputedNama,
+                'keterangan' => $request->inputedKeterangan,
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
             return redirect()->route('kategori.index')->with(['success' => 'Data Berhasil Dirubah!']);
@@ -97,7 +100,13 @@ class KategoriController extends Controller
 
     public function destroy($id){
         try{
-            $kategori = KategoriWisata::where('id_kategori_wisata', $id)->delete();
+            $checkTipe = WahanaWisata::where('id_tipe_wahana', $id)->get();
+            if ($checkTipe->count() > 0) {
+                $wahana = WahanaWisata::where('id_tipe_wahana', $id)->delete();
+            }
+
+            $tipe = TipeWahana::where('id_tipe_wahana', $id)->delete();
+
             return redirect()->route('kategori.index')->with(['success' => 'Data Berhasil Dihapus!']);
         } catch(\Exception $e){
             return redirect()->back()->withErrors($e);

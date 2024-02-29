@@ -72,10 +72,17 @@
             {{-- Main Gallery Left --}}
             <div class="flex-grow flex-shrink overflow-hidden rounded-lg view__item">
                 {{-- Button trigger modal --}}
-                <button class="inline-block overflow-hidden rounded-lg" onclick="openModal('modal')">
+                <button class="inline-block overflow-hidden rounded-lg" onclick="openModal('modal', 0)">
                     <figure class="view__gallery__banner">
-                        <img src="https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg"
-                            alt="">
+                        @php($url_nama_wisata = str_replace(' ', '_', $tableWisata->nama_wisata))
+                        @if (count($tableWisata->gambarwisata) > 0)
+                        @php($gambar = !is_null($tableWisata->gambarwisata->first()->nama_gambar) ?
+                        url("gallery-wisata/$url_nama_wisata/{$tableWisata->gambarwisata->first()->nama_gambar}") :
+                        asset("asset/img/empty-image-thumb.png"))
+                        @else
+                        @php ( $gambar = asset('asset/img/empty-image-thumb.png') )
+                        @endif
+                        <img src="{{ $gambar }}" alt="">
                     </figure>
                 </button>
                 {{-- Modal --}}
@@ -92,89 +99,89 @@
             {{-- End Main Gallery Left --}}
             <div class="hidden start__side__gal xl:block">
                 <div class="relative flex flex-col gap-1 view__side__gallery">
-                    <div class="flex flex-row gap-1 overflow-hidden rounded-lg inside__view__gallery">
-                        <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
-                            {{-- Button trigger modal --}}
-                            <button type="button" class="inline-block overflow-hidden rounded-lg"
-                                onclick="openModal('modal')">
-                                <figure class="side__gallery__stag">
-                                    <img src="https://asset.kompas.com/crops/_E_jZ5BACnxCQ_2WVh_S5fkwZeA=/0x0:1000x667/750x500/data/photo/2020/01/22/5e281e5a7f0aa.jpg"
-                                        alt="">
-                                </figure>
-                            </button>
-                            {{-- Modal --}}
-                            <div id="modal"
-                                class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                                tabindex="-1" aria-labelledby="modal" aria-modal="true" role="dialog">
-                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
-                                    {{-- Modal Component --}}
-                                    @include('components.pages.viewPages.modalSlideGallery')
-                                </div>
-                            </div>
-                            {{-- End Modal --}}
-                        </div>
+                    {{-- <-- ? Duplicate --> --}}
+                        <div class="flex flex-row gap-1 overflow-hidden rounded-lg inside__view__gallery">
+                            <div class="max-w-sm overflow-hidden rounded-lg gallery__view">
+                                <button type="button" class="inline-block overflow-hidden rounded-lg"
+                                    onclick="openModal('modal', 1)">
+                                    <figure class="side__gallery__stag">
+                                        @php($url_nama_wisata = str_replace(' ', '_', $tableWisata->nama_wisata))
+                                        @if (count($tableWisata->gambarwisata) > 1)
+                                        @php($gambar =
+                                        !is_null($tableWisata->gambarwisata->skip(1)->first()->nama_gambar) ?
+                                        url("gallery-wisata/$url_nama_wisata/{$tableWisata->gambarwisata->skip(1)->first()->nama_gambar}")
+                                        :
+                                        asset("asset/img/empty-image-thumb.png"))
+                                        @else
+                                        @php ( $gambar = asset('asset/img/empty-image-thumb.png') )
+                                        @endif
 
-                        <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
-                            {{-- Button trigger modal --}}
-                            <button type="button" class="inline-block overflow-hidden rounded-lg"
-                                onclick="openModal('modal')">
-                                <figure class="side__gallery__stag">
-                                    <img src="https://lh4.googleusercontent.com/I-MNbc-7907-yTRBcWV2RnjZ_VuYjaDiDoyvASFtv6xkc08Y4gjBiecGJKYtj4RyXiCquHsRo6ryetXeS8GV7TEh-gYlSptlmxWSnheUVvSYH5ZXqg_-066CjOWKyZbXY8T2MO2i"
-                                        alt="">
-                                </figure>
-                            </button>
-                            {{-- Modal --}}
-                            <div data-te-modal-init
-                                class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                                id="modal" tabindex="-1" aria-labelledby="modal" aria-modal="true" role="dialog">
-                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
-                                    {{-- Modal Component --}}
-                                    @include('components.pages.viewPages.modalSlideGallery')
-                                </div>
+                                        <img src="{{ $gambar }}" alt="">
+                                    </figure>
+                                </button>
+                            </div>
+                            <div class="max-w-sm overflow-hidden rounded-lg gallery__view">
+                                <button type="button" class="inline-block overflow-hidden rounded-lg"
+                                    onclick="openModal('modal', 2)">
+                                    <figure class="side__gallery__stag">
+                                        @php($url_nama_wisata = str_replace(' ', '_', $tableWisata->nama_wisata))
+                                        @if (count($tableWisata->gambarwisata) > 2)
+                                        @php($gambar =
+                                        !is_null($tableWisata->gambarwisata->skip(2)->first()->nama_gambar) ?
+                                        url("gallery-wisata/$url_nama_wisata/{$tableWisata->gambarwisata->skip(2)->first()->nama_gambar}")
+                                        :
+                                        asset("asset/img/empty-image-thumb.png"))
+                                        @else
+                                        @php ( $gambar = asset('asset/img/empty-image-thumb.png') )
+                                        @endif
+
+                                        <img src="{{ $gambar }}" alt="">
+                                    </figure>
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    {{-- Side Two --}}
-                    <div class="flex flex-row gap-1 overflow-hidden inside__view__gallery">
-                        <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
-                            {{-- Button trigger modal --}}
-                            <button type="button" class="inline-block overflow-hidden rounded-lg"
-                                onclick="openModal('modal')">
-                                <figure class="side__gallery__stag">
-                                    <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/04/24/3865808036.jpg"
-                                        alt="">
-                                </figure>
-                            </button>
-                            {{-- Modal --}}
-                            <div data-te-modal-init
-                                class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                                id="modal" tabindex="-1" aria-labelledby="modal" aria-modal="true" role="dialog">
-                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
-                                    {{-- Modal Component --}}
-                                    @include('components.pages.viewPages.modalSlideGallery')
-                                </div>
+                        <div class="flex flex-row gap-1 overflow-hidden rounded-lg inside__view__gallery">
+                            <div class="max-w-sm overflow-hidden rounded-lg gallery__view">
+                                <button type="button" class="inline-block overflow-hidden rounded-lg"
+                                    onclick="openModal('modal', 3)">
+                                    <figure class="side__gallery__stag">
+                                        @php($url_nama_wisata = str_replace(' ', '_', $tableWisata->nama_wisata))
+                                        @if (count($tableWisata->gambarwisata) > 3)
+                                        @php($gambar =
+                                        !is_null($tableWisata->gambarwisata->skip(3)->first()->nama_gambar) ?
+                                        url("gallery-wisata/$url_nama_wisata/{$tableWisata->gambarwisata->skip(3)->first()->nama_gambar}")
+                                        :
+                                        asset("asset/img/empty-image-thumb.png"))
+                                        @else
+                                        @php ( $gambar = asset('asset/img/empty-image-thumb.png') )
+                                        @endif
+
+                                        <img src="{{ $gambar }}" alt="">
+                                    </figure>
+                                </button>
+                            </div>
+                            <div class="max-w-sm overflow-hidden rounded-lg gallery__view">
+                                <button type="button" class="inline-block overflow-hidden rounded-lg"
+                                    onclick="openModal('modal', 4)">
+                                    <figure class="side__gallery__stag">
+                                        @php($url_nama_wisata = str_replace(' ', '_', $tableWisata->nama_wisata))
+                                        @if (count($tableWisata->gambarwisata) > 4)
+                                        @php($gambar =
+                                        !is_null($tableWisata->gambarwisata->skip(4)->first()->nama_gambar) ?
+                                        url("gallery-wisata/$url_nama_wisata/{$tableWisata->gambarwisata->skip(4)->first()->nama_gambar}")
+                                        :
+                                        asset("asset/img/empty-image-thumb.png"))
+                                        @else
+                                        @php ( $gambar = asset('asset/img/empty-image-thumb.png') )
+                                        @endif
+
+                                        <img src="{{ $gambar }}" alt="">
+                                    </figure>
+                                </button>
                             </div>
                         </div>
-                        <div class="h-full max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
-                            {{-- Button trigger modal --}}
-                            <button type="button" class="inline-block overflow-hidden rounded-lg" data-te-toggle="modal"
-                                onclick="openModal('modal')">
-                                <figure class="side__gallery__stag">
-                                    <img src="https://public.urbanasia.com/images/post/2020/uploads/3db26cb129de4c77bc65a2bd273997c9.jpeg"
-                                        alt="">
-                                </figure>
-                            </button>
-                            {{-- Modal --}}
-                            <div data-te-modal-init
-                                class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                                id="modal" tabindex="-1" aria-labelledby="modal" aria-modal="true" role="dialog">
-                                <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
-                                    {{-- Modal Component --}}
-                                    @include('components.pages.viewPages.modalSlideGallery')
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        {{-- <-- ? End Duplicate --> --}}
+
                 </div>
             </div>
             {{-- Gallery View Item --}}
@@ -204,8 +211,32 @@
             $('#formLogout').submit();
         });
     </script>
+    {{--
+    <!-- Swiper JS --> --}}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    {{--
+    <!-- Initialize Swiper --> --}}
+    <script>
+        var initSwiper = new Swiper(".slideGallery", {
+            centeredSlides: true,
+            spaceBetween: 100,
+        pagination:{
+            el: ".swiper-pagination",
+            type: "fraction",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+      },
+    });
+    </script>
+
     <script type="text/javascript">
-        window.openModal = function(modalId) {
+        window.openModal = function(modalId, index) {
+            // let swipe = $('.swiper');
+            const swiper = document.querySelector('.slideGallery').swiper;
+            swiper.slideTo(index);
           document.getElementById(modalId).style.display = 'block'
           document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden')
         }
@@ -228,26 +259,6 @@
         };
     </script>
 
-    {{--
-    <!-- Swiper JS --> --}}
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-    {{--
-    <!-- Initialize Swiper --> --}}
-    <script>
-        var swiper = new Swiper(".slideGallery", {
-            centeredSlides: true,
-            spaceBetween: 100,
-        pagination:{
-            el: ".swiper-pagination",
-            type: "fraction",
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-      },
-    });
-    </script>
     <script>
         $(function () {
             $('input[name="datefilterBooking"]').daterangepicker({

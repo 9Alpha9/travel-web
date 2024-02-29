@@ -34,7 +34,7 @@
 
                 img {
                     object-fit: cover;
-                    height: 100%;
+                    height: 500px;
                     width: 850px;
                     background: no-repeat;
                 }
@@ -330,10 +330,10 @@
             }
 
             .informasiTiket__wrapper {
-                padding: 1em;
+                padding: 1.2em;
 
                 .informasi__pembelianTiket {
-                    list-style-type: disc;
+                    list-style-type: decimal;
                 }
             }
 

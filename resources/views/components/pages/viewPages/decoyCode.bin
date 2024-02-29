@@ -582,3 +582,68 @@ class LoginPagesController extends Controller
                 </option>
                 @endforeach
             </select> --}}
+
+
+
+
+
+
+
+
+
+
+
+{{-- Side Two --}}
+                            {{-- <div class="flex flex-row gap-1 overflow-hidden inside__view__gallery">
+                                <div class="max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
+                                    <button type="button" class="inline-block overflow-hidden rounded-lg"
+                                        onclick="openModal('modal')">
+                                        <figure class="side__gallery__stag">
+                                            <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/04/24/3865808036.jpg"
+                                                alt="">
+                                        </figure>
+                                    </button>
+                                    <div data-te-modal-init
+                                        class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                                        id="modal" tabindex="-1" aria-labelledby="modal" aria-modal="true"
+                                        role="dialog">
+                                        <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
+                                            <div
+                                                class="pointer-events-auto relative flex w-full h-[100vh] flex-col border-none bg-clip-padding text-current shadow-lg outline-none modal__gallery__item">
+                                                <div class="flex items-center justify-end flex-shrink-0 p-20">
+                                                    <button
+                                                        class="box-content flex flex-row pr-32 duration-300 ease-in-out border-none rounded-lg"
+                                                        onclick="closeModal('modal')">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff"
+                                                            class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M6 18L18 6M6 6l12 12" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                                <div class="relative justify-center modal__banner">
+                                                    @include('components.pages.viewPages.slidesDataGallery')
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="h-full max-w-sm overflow-hidden rounded-lg gallery__view bg-gray-primary">
+                                    <button type="button" class="inline-block overflow-hidden rounded-lg"
+                                        data-te-toggle="modal" onclick="openModal('modal')">
+                                        <figure class="side__gallery__stag">
+                                            <img src="https://public.urbanasia.com/images/post/2020/uploads/3db26cb129de4c77bc65a2bd273997c9.jpeg"
+                                                alt="">
+                                        </figure>
+                                    </button>
+                                    <div data-te-modal-init
+                                        class="fixed bottom-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                                        id="modal" tabindex="-1" aria-labelledby="modal" aria-modal="true"
+                                        role="dialog">
+                                        <div data-te-modal-dialog-ref class="relative flex pointer-events-none">
+                                            @include('components.pages.viewPages.modalSlideGallery')
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}

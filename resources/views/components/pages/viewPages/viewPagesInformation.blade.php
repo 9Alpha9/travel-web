@@ -19,10 +19,9 @@
             @include('components.pages.viewPages.bookingWisata')
         </div>
     </div>
-    {{-- booking cta --}}
     {{-- Deskripsi wisata --}}
     <div class="py-10 description">
-        <h1 class="border-b-[1px] py-4 font-semibold text-lg">Deskripsi</h1>
+        <h1 class="border-b-[1px] py-4 font-semibold text-lg" style="font-size: 1.5em;">Deskripsi Wisata</h1>
         <section class="inline-block py-3 font-thin description__wisata">
             {!! $tableWisata->artikel !!}
         </section>

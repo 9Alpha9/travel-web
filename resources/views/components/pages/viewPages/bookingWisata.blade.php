@@ -1,54 +1,43 @@
 <div class="booking__infoWrapper">
     <div class="booking__content booking__contentItem">
         <div class="flex items-center justify-between align-middle booking__heading">
-            <h1>Booking / Pesan tiket.</h1>
+            <h1 style="font-size:1.5em;">Booking / Pesan tiket.</h1>
             <div class="align-middle booking__priceWisata">
                 @php($harga = $tableWisata->harga)
                 @if ($tableWisata->diskon != 0)
                 <div class="flex flex-col discount__price @if($tableWisata->diskon == 0) hide @endif">
                     <span class="inline-block text-xs">Diskon Harga {{ $tableWisata->diskon }}%</span>
-                    <span class="inline-block text-xs line-through">Rp {{ number_format($tableWisata->harga, 0, ',',
+                    <span class="inline-block text-xs line-through">Rp {{
+                        number_format($tableWisata->harga, 0, ',',
                         '.') }}</span>
                     @php ($harga -= $harga * ($tableWisata->diskon / 100))
                 </div>
                 @endif
-                <span class="inline-block font-semibold">Rp {{ number_format($harga, 0, ',', '.') }}</span>
+                <div class="flex flex-col ticketWrapp__price">
+                    <span class="inline-block p-1 text-center rounded-sm priceTiekcet"
+                        style="background-color:#223781; font-size: 0.7em; color:#f0efef;">Harga
+                        tiket</span>
+                    <span class="inline-block font-semibold" style="font-size: 1.4em;">Rp {{ number_format($harga, 0,
+                        ',',
+                        '.') }}</span>
+                </div>
             </div>
         </div>
         <p class="py-3">Pemesanan tiket untuk tempat {{ $tableWisata->nama_wisata }}, {{
             ucwords(strtolower($tableWisata->kota->name)) }}, {{
             ucwords(strtolower($tableWisata->kota->wilayah->name)) }}.</p>
         <div class="infoTiket__wisata">
-            <h1>Informasi !</h1>
+            <h1 class="p-2 text-center" style="background-color:#1e1e1f; color:#f0efef; width: 10em;">
+                Informasi Wisata!
+            </h1>
             <ul class="informasiTiket__wrapper">
+                @foreach($tableWisata->informasi as $key => $value)
                 <li class="informasi__pembelianTiket">
-                    <span>
-                        <p>
-                            Tiket hanya berlaku pada saat tanggal pembelian tiket.
-                        </p>
+                    <span class="inline-block py-1">
+                        {{ $value->informasi }}
                     </span>
                 </li>
-                <li class="informasi__pembelianTiket">
-                    <span>
-                        <p>
-                            Tiket hanya satu(1) kali penggunaan.
-                        </p>
-                    </span>
-                </li>
-                <li class="informasi__pembelianTiket">
-                    <span>
-                        <p>
-                            Tiket tidak dapat di tukar.
-                        </p>
-                    </span>
-                </li>
-                <li class="informasi__pembelianTiket">
-                    <span>
-                        <p>
-                            Tiket tidak dapat di wakilkan oleh orang lain.
-                        </p>
-                    </span>
-                </li>
+                @endforeach
             </ul>
             <div class="moreInfo">
                 <p>informasi lebih lanjut hubungi pengelola tempat wisata terkait.</p>

@@ -33,7 +33,7 @@
 .view__component__header .view__content .view__item .view__gallery__banner img {
   -o-object-fit: cover;
      object-fit: cover;
-  height: 100%;
+  height: 500px;
   width: 850px;
   background: no-repeat;
 }
@@ -236,10 +236,10 @@
   font-weight: 500;
 }
 .booking__infoWrapper .booking__contentItem .infoTiket__wisata .informasiTiket__wrapper {
-  padding: 1em;
+  padding: 1.2em;
 }
 .booking__infoWrapper .booking__contentItem .infoTiket__wisata .informasiTiket__wrapper .informasi__pembelianTiket {
-  list-style-type: disc;
+  list-style-type: decimal;
 }
 .booking__infoWrapper .booking__contentItem .infoTiket__wisata .moreInfo p {
   font-size: 0.889em;

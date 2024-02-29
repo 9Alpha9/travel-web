@@ -75,11 +75,14 @@
                                         {{-- <span class="border-r"></span> --}}
                                         <div class="text-sm kategori__item">
                                             <div class="text-sm rank__item">
+                                                @if(!is_null($prevRanking))
                                                 <i class="ri-trophy-fill itemsIcon"></i>
                                                 <span class="headerRank__item">
                                                     Ranking:
                                                 </span>
-                                                <span class="kategori__info">{{ $key + 1 }}</span>
+                                                <span class="kategori__info">{{ $prevRanking + $loop->iteration
+                                                    }}</span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

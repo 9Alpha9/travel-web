@@ -11,11 +11,12 @@ use App\Models\TipeWahana;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use App\Traits\SmartMetode;
+use App\Traits\Pagination;
 
 //TAMPILAN DITMAPILKAN 8 AJA
 class HomePagesController extends Controller
 {
-    use SmartMetode;
+    use SmartMetode, Pagination;
     protected $rules, $messages, $page, $wisata, $kriteria, $tipe_wahana;
 
     public function __construct()
@@ -103,17 +104,42 @@ class HomePagesController extends Controller
             $id_wisata = array(0);
         }
 
+        $page = $request->page;
+        $limit = $request->limit;
+
         if ($request->status == 'filtered') {
             $sorted_wisata = Wisata::whereIn('id_wisata', $id_wisata)
-            ->orderByRaw('FIELD(id_wisata, ' . implode(',', $id_wisata) . ')')
-            ->get();
+            ->orderByRaw('FIELD(id_wisata, ' . implode(',', $id_wisata) . ')');
         } else {
-            $sorted_wisata = Wisata::orderBy('created_at', 'desc')->get();
+            $sorted_wisata = Wisata::orderBy('created_at', 'desc');
+        }
+        $dataTotal = $sorted_wisata->count();
+
+        $pageTotal = ceil($dataTotal / $limit);
+
+        $this->setPagination($dataTotal, $pageTotal);
+
+        if ($page < 1) {
+            $page = 1;
+        } else if ($page > $pageTotal) {
+            $page = $pageTotal;
         }
 
-        $view = view('components.template.filteredList', ['filterpage' => 'active', 'tableWisata' => $sorted_wisata])->render();
+        $this->setList($page, $limit);
 
-        return response()->json(['view' => $view]);
+        $pagination = $this->render();
+
+        $sorted_wisata = $sorted_wisata->skip($limit * ($page - 1))->take($limit)->get();
+
+        if ($request->status == 'filtered') {
+            $prevRanking = ($page - 1) * $limit;
+        } else {
+            $prevRanking = null;
+        }
+
+        $view = view('components.template.filteredList', ['filterpage' => 'active', 'tableWisata' => $sorted_wisata, 'prevRanking' => $prevRanking])->render();
+
+        return response()->json(['view' => $view, 'pagination' => $pagination]);
 
         // return view('components.pages.viewPages.filterPages')->with(['filterpage' => 'active', 'tableWisata' => $sorted_wisata]);
     }

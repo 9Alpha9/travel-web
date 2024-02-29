@@ -5,7 +5,7 @@
             {{-- Slide Images Data --}}
             <figure class="relative view__modal__gallery__banner">
                 <img src="https://public.urbanasia.com/images/post/2020/uploads/3db26cb129de4c77bc65a2bd273997c9.jpeg"
-                    alt="">
+                    alt="Gambar Wisata">
             </figure>
         </div>
         <div class="swiper-slide">
@@ -16,21 +16,21 @@
             {{-- Slide Images Data --}}
             <figure class="relative view__modal__gallery__banner">
                 <img src="https://ulasku.com/wp-content/uploads/2022/01/kebun-bunga-santerra-de-laponte-746x560.jpg"
-                    alt="">
+                    alt="Gambar Wisata">
             </figure>
         </div>
         <div class="swiper-slide">
             {{-- Slide Images Data --}}
             <figure class="relative view__modal__gallery__banner">
                 <img src="https://lh4.googleusercontent.com/I-MNbc-7907-yTRBcWV2RnjZ_VuYjaDiDoyvASFtv6xkc08Y4gjBiecGJKYtj4RyXiCquHsRo6ryetXeS8GV7TEh-gYlSptlmxWSnheUVvSYH5ZXqg_-066CjOWKyZbXY8T2MO2i"
-                    alt="">
+                    alt="Gambar Wisata">
             </figure>
         </div>
         <div class="swiper-slide">
             {{-- Slide Images Data --}}
             <figure class="relative view__modal__gallery__banner">
                 <img src="https://asset.kompas.com/crops/_E_jZ5BACnxCQ_2WVh_S5fkwZeA=/0x0:1000x667/750x500/data/photo/2020/01/22/5e281e5a7f0aa.jpg"
-                    alt="">
+                    alt="Gambar Wisata">
             </figure>
         </div>
     </div>

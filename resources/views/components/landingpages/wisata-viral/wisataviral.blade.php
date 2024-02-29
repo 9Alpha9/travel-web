@@ -382,7 +382,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col justify-between mt-10 lg:flex-row paginationContainer">
+            <div id="pagination"></div>
+            {{-- <div class="flex flex-col justify-between mt-10 lg:flex-row paginationContainer">
                 <div class="flex flex-col items-center space-x-2 text-xs lg:flex-row">
                     <p class="mt-4 text-gray-500 lg:mt-0">Menampilkan 11 ke 20 dari 95 antrian</p>
                 </div>
@@ -412,7 +413,7 @@
                             <span class="px-4 py-2 rounded cursor-pointer input-pagination">
                                 ...
                             </span>
-                            {{-- <input type="number" class="inputPagination"> --}}
+                            <input type="number" class="inputPagination">
                         </div>
                         <button class="px-4 py-2 rounded hover:bg-gray-100 last-page" data-page="9">
                             <span class="pageNumbers">9</span>
@@ -428,7 +429,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     {{-- End Content Switch To Line Point --}}

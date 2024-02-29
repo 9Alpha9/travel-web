@@ -147,6 +147,7 @@
 @push('scripts')
 
 <script>
+    var currentStatus = '';
     $(function () {
 
         $('input[name="datefilter"]').daterangepicker({
@@ -209,7 +210,7 @@
         if ($this.val() == '') {
             $this.parent().html('...');
         } else {
-            listWisata('filtered', $this.val());
+            listWisata(currentStatus, $this.val());
         }
     });
 
@@ -229,7 +230,8 @@
         listWisata('');
     })
 
-    function listWisata(status = 'filtered', page = 1, limit = 10) {
+    function listWisata(status = 'filtered', page = 1, limit = 8) {
+        currentStatus = status;
         let sendData = $('#formFilter').serialize() + '&' + $('#filterWahana').serialize() + '&page=' + page + '&limit=' + limit + '&status=' + status;
         let loading = $('#loadingTemplate').html();
 
@@ -250,8 +252,20 @@
             data: sendData,
         }).done(function (data) {
             $('.filterContent__item').html(data.view);
+            $('#pagination').html(data.pagination);
         });
     }
+
+    $('body').on('click', '.paginationPage', function() {
+        let targetPage = $(this).data('page');
+        let currPage = $('.paginationNumber__rows').find('.activePagination').data('page');
+        if ($(this).hasClass('paginationNext')) {
+            targetPage = currPage + 1;
+        } else if ($(this).hasClass('paginationPrev')) {
+            targetPage = currPage - 1;
+        }
+        listWisata(currentStatus, targetPage);
+    })
 </script>
 
 <script>

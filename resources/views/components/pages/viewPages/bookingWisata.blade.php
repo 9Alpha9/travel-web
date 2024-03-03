@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="infoTiket__wisata">
+        <div class="mt-4 infoTiket__wisata">
             <h1 class="p-2 text-center" style="background-color:#1e1e1f; color:#f0efef; width: 10em;">
                 Informasi Wisata!
             </h1>

@@ -1,31 +1,36 @@
 <div class="booking__infoWrapper">
     <div class="booking__content booking__contentItem">
-        <div class="flex items-center justify-between align-middle booking__heading">
-            <h1 style="font-size:1.5em;">Booking / Pesan tiket.</h1>
-            <div class="align-middle booking__priceWisata">
-                @php($harga = $tableWisata->harga)
-                @if ($tableWisata->diskon != 0)
-                <div class="flex flex-col discount__price @if($tableWisata->diskon == 0) hide @endif">
-                    <span class="inline-block text-xs">Diskon Harga {{ $tableWisata->diskon }}%</span>
-                    <span class="inline-block text-xs line-through">Rp {{
-                        number_format($tableWisata->harga, 0, ',',
-                        '.') }}</span>
-                    @php ($harga -= $harga * ($tableWisata->diskon / 100))
-                </div>
-                @endif
-                <div class="flex flex-col ticketWrapp__price">
-                    <span class="inline-block p-1 text-center rounded-sm priceTiekcet"
-                        style="background-color:#223781; font-size: 0.7em; color:#f0efef;">Harga
-                        tiket</span>
-                    <span class="inline-block font-semibold" style="font-size: 1.4em;">Rp {{ number_format($harga, 0,
-                        ',',
-                        '.') }}</span>
+        <div class="flex flex-col booking__heading">
+            <div class="flex justify-between w-full align-middle bookingItems">
+                <span class="flex flex-col inline-blocks">
+                    <h1 style="font-size:1.5em;">Booking / Pesan tiket.</h1>
+                    <p class="mt-2">Pemesanan tiket untuk tempat {{ $tableWisata->nama_wisata }}, {{
+                        ucwords(strtolower($tableWisata->kota->name)) }}, {{
+                        ucwords(strtolower($tableWisata->kota->wilayah->name)) }}.</p>
+                </span>
+                <div class="align-middle booking__priceWisata">
+                    @php($harga = $tableWisata->harga)
+                    @if ($tableWisata->diskon != 0)
+                    <div class="flex flex-col discount__price @if($tableWisata->diskon == 0) hide @endif">
+                        <span class="inline-block p-1 text-center rounded-sm priceTiekcet"
+                            style="background-color:#223781; font-size: 0.7em; color:#f0efef;">Harga
+                            tiket</span>
+                        <span class="inline-block mt-3 text-xs">Diskon Harga {{ $tableWisata->diskon }}%</span>
+                        <span class="inline-block text-xs line-through">Rp {{
+                            number_format($tableWisata->harga, 0, ',',
+                            '.') }}</span>
+                        @php ($harga -= $harga * ($tableWisata->diskon / 100))
+                    </div>
+                    @endif
+                    <div class="flex flex-col ticketWrapp__price">
+                        <span class="inline-block font-semibold" style="font-size: 1.4em;">Rp {{ number_format($harga,
+                            0,
+                            ',',
+                            '.') }}</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <p class="py-3">Pemesanan tiket untuk tempat {{ $tableWisata->nama_wisata }}, {{
-            ucwords(strtolower($tableWisata->kota->name)) }}, {{
-            ucwords(strtolower($tableWisata->kota->wilayah->name)) }}.</p>
         <div class="infoTiket__wisata">
             <h1 class="p-2 text-center" style="background-color:#1e1e1f; color:#f0efef; width: 10em;">
                 Informasi Wisata!

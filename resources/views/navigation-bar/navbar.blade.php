@@ -23,9 +23,9 @@
                 <li class="menu-item">
                     <a href="#">Tempat Wisata</a>
                 </li>
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                     <a href="{{ route('profile.index') }}">Metode SMART</a>
-                </li>
+                </li> --}}
                 <div class="items-center px-2 m-auto login__content">
                     @auth
                     <div class="flex items-center gap-3 login_setup whitespace-nowrap">

@@ -20,9 +20,9 @@
                 <li class="menu-item active">
                     <a href="/">Home</a>
                 </li>
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                     <a href="#">Tempat Wisata</a>
-                </li>
+                </li> --}}
                 {{-- <li class="menu-item">
                     <a href="{{ route('profile.index') }}">Metode SMART</a>
                 </li> --}}

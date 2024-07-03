@@ -116,6 +116,7 @@ class WisataController extends Controller
 
     public function saveWahana(Request $request) {
         parse_str($request->data, $wahana);
+
         if (strlen($wahana['id_wisata']) == 0) {
             $id_wisata = Wisata::create([
                 'status' => 0
@@ -123,23 +124,31 @@ class WisataController extends Controller
         } else {
             $id_wisata = $wahana['id_wisata'];
         }
+
+        // hotfix di hapus semua wahana nya di masukin ulang
+        $checkWahana = WahanaWisata::where('id_wisata', $id_wisata)->get();
+        if($checkWahana->count() > 0){
+            $wahanaDelete = WahanaWisata::where('id_wisata', $id_wisata)->delete();
+        }
+
         foreach ($wahana['id_wahana_wisatas'] as $key => $value) {
-            if (strlen($value) == 0) {
+            // if (strlen($value) == 0) {
                 $ids[$key] = WahanaWisata::create([
                     'id_wisata' => $id_wisata,
                     'nama_wahana' => $wahana['nama_wahana'][$key],
                     'deskripsi_wahana' => $wahana['deskripsi_wahana'][$key],
                     'id_tipe_wahana' => $wahana['id_tipe_wahana'][$key]
                 ])->id_wahana_wisatas;
-            } else {
-                $ids[$key] = $value;
-                WahanaWisata::find($value)->update([
-                    'id_wisata' => $id_wisata,
-                    'nama_wahana' => $wahana['nama_wahana'][$key],
-                    'deskripsi_wahana' => $wahana['deskripsi_wahana'][$key],
-                    'id_tipe_wahana' => $wahana['id_tipe_wahana'][$key]
-                ]);
-            }
+        // BUG SIMPAN JIKA ADA DATA YANG DIRUBAH
+            // } else {
+            //     $ids[$key] = $value;
+            //     WahanaWisata::find($value)->update([
+            //         'id_wisata' => $id_wisata,
+            //         'nama_wahana' => $wahana['nama_wahana'][$key],
+            //         'deskripsi_wahana' => $wahana['deskripsi_wahana'][$key],
+            //         'id_tipe_wahana' => $wahana['id_tipe_wahana'][$key]
+            //     ]);
+            // }
         }
 
         return response()->json(['id_wisata' => $id_wisata, 'ids' => $ids]);
@@ -241,17 +250,19 @@ class WisataController extends Controller
                 if (!is_null($request->images)) {
                     foreach (json_decode($request->images) as $key => $value) {
                         # code...
-                        $filename = 'wisata_' . str_replace(' ', '_', $wisata->nama_wisata) . '_' . str_replace(' ', '_', $value->name);
+                        $picture_name = substr(str_replace(' ', '_', $value->name), 0, 100);
+                        $filename = 'wisata_' . str_replace(' ', '_', $wisata->nama_wisata) . '_' . $picture_name;
 
                         if (!file_exists(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)))) {
                             mkdir(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata)), 0777, true);
                         }
 
                         if($fileImage = file_put_contents(base_path('public/gallery-wisata/' . str_replace(' ', '_', $wisata->nama_wisata) . '/' . $filename), file_get_contents($value->img)) !== false){
+                            $ket = "Gambar " . $filename . " dari Wisata " . $wisata->nama_wisata;
                             $gambar = GambarWisata::create([
                                 "id_wisata" => $wisata->id_wisata,
                                 "nama_gambar" => $filename,
-                                "keterangan_gambar" => "Gambar " . $value->name . " dari Wisata " . $wisata->nama_wisata,
+                                "keterangan_gambar" => $ket,
                                 "created_at" => date('Y-m-d H:i:s'),
                                 "updated_at" => date('Y-m-d H:i:s')
                             ]);

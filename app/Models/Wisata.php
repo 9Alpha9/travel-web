@@ -64,4 +64,9 @@ class Wisata extends Model
     public function WahanaWisata() {
         return $this->hasMany(WahanaWisata::class, 'id_wisata', 'id_wisata');
     }
+
+    public function JenisWahana() {
+        $table = WahanaWisata::select('id_tipe_wahana')->where('id_wisata', $this->id_wisata)->groupBy('id_tipe_wahana')->get();
+        return $table;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Models\WahanaWisata;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,10 @@ class ViewPagesController extends Controller
                 $query->orderBy('created_at', 'desc');
             },
             'informasi',
-            'wahanawisata'
+            'wahanawisata',
+            'wahanawisata.tipewahana'
         ])->find($id);
+
         return view('components.pages.viewPages.defaultViewPages')->with(['viewpages' => 'active', 'tableWisata' => $wisata]);
     }
 }

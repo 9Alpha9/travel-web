@@ -218,6 +218,10 @@
         listWisata();
     });
 
+    $('#resetHarga').on('click', function() {
+        listWisata('');
+    });
+
     $('#formFilter').on('click', function(e) {
         var target = $(e.target);
 
